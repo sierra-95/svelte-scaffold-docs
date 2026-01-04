@@ -12,9 +12,6 @@
     <!-- Swipe Button -->
     <tr>
       <td class="p-3 border font-mono" rowspan="3">ButtonSwipe</td>
-      <td class="p-3 border font-mono">link</td>
-      <td class="p-3 border font-mono">string</td>
-      <td class="p-3 border font-mono">#</td>
     </tr>
     <tr>
       <td class="p-3 border font-mono">text</td>
@@ -30,9 +27,6 @@
     <!-- Marquee Button -->
     <tr>
       <td class="p-3 border font-mono" rowspan="3">ButtonMarquee</td>
-      <td class="p-3 border font-mono">link</td>
-      <td class="p-3 border font-mono">string</td>
-      <td class="p-3 border font-mono">#</td>
     </tr>
     <tr>
       <td class="p-3 border font-mono">text</td>
@@ -48,9 +42,6 @@
     <!-- Flip Button -->
     <tr>
       <td class="p-3 border font-mono" rowspan="5">ButtonFlip</td>
-      <td class="p-3 border font-mono">link</td>
-      <td class="p-3 border font-mono">string</td>
-      <td class="p-3 border font-mono">#</td>
     </tr>
     <tr>
       <td class="p-3 border font-mono">front</td>

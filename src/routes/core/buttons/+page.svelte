@@ -89,7 +89,6 @@
     </div>    
     <h3>These buttons are not built to be as flexible compared to default buttons.</h3>
     <ol class="list-decimal pl-5">
-        <li>They don’t support <code>on:click()</code> or aliases, since they are built with <code>&lt;a&gt;</code> tags.</li>
         <li>They are designed to be used as-is, with minimal customization options.</li>
         <li>All have fixed dimensions (w × h), with <strong>Marquee</strong> as the exception. Marquee automatically adjusts its width based on text length.</li>
     </ol>
@@ -97,10 +96,11 @@
         lang="svelte"
         code={`
         <\script>
+			import { goto } from '$app/navigation';
             import { ButtonMarquee } from '@sierra-95/svelte-scaffold';
         <\/script>
 
-        <ButtonMarquee text='Sign In' link='/auth' bg='red' color = 'blue'  />
+        <ButtonMarquee onclick={() => goto('/auth')} text='Sign In' bg='red' color = 'blue'  />
 
     `}/>
 

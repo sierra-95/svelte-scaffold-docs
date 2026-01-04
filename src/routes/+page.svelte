@@ -1,4 +1,5 @@
 <script lang="ts">
+  import { goto } from '$app/navigation';
   import { routes } from '$lib';
   import { ButtonFlip } from '@sierra-95/svelte-scaffold';
 </script>
@@ -19,7 +20,7 @@
     <p class="mx-auto mb-8 max-w-[600px] text-xl leading-relaxed text-(--text-secondary) sm:text-base"
     >A powerful Svelte scaffold with pre-built components, modules, and stores to jumpstart your project.
     </p>
-    <ButtonFlip link={routes.installation} front="Get Started" back="Lets Go!"/>
+    <ButtonFlip onclick={() => goto(routes.installation)} front="Get Started" back="Lets Go!"/>
   </div>
 
   <!-- Features -->
