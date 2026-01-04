@@ -1,100 +1,112 @@
 <script>
-    import {UserMenu, MenuItem, DropdownContainer} from '@sierra-95/svelte-scaffold';
-	import {RenderCode} from '$lib';
-    import UserMenuTable from './_table/userMenu.svelte';
+    import {MenuItem, DropdownContainer, buttonRipple, User, Hr, resetUserStore} from '@sierra-95/svelte-scaffold';
+	import {RenderCode, sectioning} from '$lib';
 
 
-    let openDropdown = $state(true);
+    let openMenu = $state(true);
     let openUserMenu = $state(true);
-
-    let user = $state({
-        name: 'John Doe',
-        email: 'john.doe@example.com'
-    });
 
     function handleProfile(){
         alert('Profile clicked');
     }
     function handleLogout(){
-        alert('Logged out');
+        resetUserStore();
     }
 </script>
 
 <main class="space-y-4">
-    <title>User Menu</title>
-    <h1>Dropdown Menu</h1>
-    <p>
-        The dropdown container lets you build any dropdown menu quickly.
-        It only requires a trigger element (such as a button or icon)
-        and the content to be displayed inside the dropdown.
-    </p>
-    <DropdownContainer bind:open={openDropdown}>
-        {#snippet dropdownTrigger()}
-            <button class="w-10 cursor-pointer" aria-label="Ellipsis" onclick={() => (openDropdown = !openDropdown)}>
+    <title>Menus</title>
+    <section id={sectioning.menu.dropdown} class="space-y-4">
+        <h1>Dropdown Menu</h1>
+        <p>
+            The dropdown container lets you build any dropdown menu quickly.
+            It only requires a trigger element (such as a button or icon)
+            and the content to be displayed inside the dropdown.
+        </p>
+        {#snippet TriggerMenu()}
+            <button use:buttonRipple class="w-10" aria-label="Ellipsis" onclick={() => (openMenu = !openMenu)}>
                 <i class="fa-solid fa-ellipsis-v"></i>
             </button>
         {/snippet}
-        <MenuItem>New Tab</MenuItem>
-        <MenuItem>More Tools</MenuItem>
-        <MenuItem>Settings</MenuItem>
-    </DropdownContainer>
-    {#if openDropdown}
-        <div class="h-[150px]"></div>
-    {/if}
-
-        <RenderCode
-        lang="svelte"
-        code={`
-        <\script>
-            import {DropdownContainer, MenuItem} from '@sierra-95/svelte-scaffold'
-            
-            let openDropdown = $state(true);
-        <\/script>
-        
-        <!-- Default top=130% width=auto open=$bindable(true) -->
-        <DropdownContainer bind:open={openDropdown}>
-            {#snippet dropdownTrigger()}
-                <button class="w-10 cursor-pointer" aria-label="Ellipsis" onclick={() => (openDropdown = !openDropdown)}>
-                    <i class="fa-solid fa-ellipsis-v"></i>
-                </button>
-            {/snippet}
+        <DropdownContainer bind:open={openMenu} dropdownTrigger={TriggerMenu}>
             <MenuItem>New Tab</MenuItem>
             <MenuItem>More Tools</MenuItem>
             <MenuItem>Settings</MenuItem>
-        </DropdownContainer>  
-    `}/>
+        </DropdownContainer>
+        {#if openMenu}
+            <div class="h-[150px]"></div>
+        {/if}
 
-    <h1>User Menu</h1>
-    <UserMenu bind:open={openUserMenu} bind:user>
-        <MenuItem onclick={handleProfile} icon="fa-user">Profile</MenuItem>
-		<MenuItem onclick={handleLogout} icon="fa-right-from-bracket">Logout</MenuItem>
-    </UserMenu>
-    {#if openUserMenu}
-        <div class="h-[200px]"></div>
-    {/if}
-    <RenderCode
-        lang="svelte"
-        code={`
-        <\script>
-            import {UserMenu, MenuItem} from '@sierra-95/svelte-scaffold'
+        <RenderCode
+            lang="svelte"
+            code={`
+            <\script>
+                import {DropdownContainer, MenuItem, buttonRipple} from '@sierra-95/svelte-scaffold'
+                
+                let openMenu = $state(true);
+            <\/script>
+            
+            <!-- Default top=130% width=auto open=$bindable(true) -->
+            {#snippet TriggerMenu()}
+                <button use:buttonRipple class="w-10" aria-label="Ellipsis" onclick={() => (openMenu = !openMenu)}>
+                    <i class="fa-solid fa-ellipsis-v"></i>
+                </button>
+            {/snippet}
+            <DropdownContainer bind:open={openMenu} dropdownTrigger={TriggerMenu}>
+                <MenuItem>New Tab</MenuItem>
+                <MenuItem>More Tools</MenuItem>
+                <MenuItem>Settings</MenuItem>
+            </DropdownContainer>
+        `}/>
+    </section>
+    <section id={sectioning.menu.user} class="space-y-4">
+        <h1>Example: Build a User Menu</h1>
+        {#snippet TriggerUserInfo()}
+            <button use:buttonRipple class="w-10 text-3xl text-(--primary-bg)" aria-label="Ellipsis" onclick={() => (openUserMenu = !openUserMenu)}>
+                <i class="fa-solid fa-user"></i>
+            </button>
+        {/snippet}
+        <DropdownContainer width="300px" bind:open={openUserMenu} dropdownTrigger={TriggerUserInfo}>
+            <div class="p-2 pl-4">
+                <h3>{$User?.firstName} {$User?.lastName}</h3>
+                <p class="text-sm text-(--text-secondary)">{$User?.email}</p>
+            </div>
+            <Hr/>
+            <MenuItem onclick={handleProfile} icon="fa-user" iconSize='15px'>Profile</MenuItem>
+            <MenuItem onclick={handleLogout} icon="fa-right-from-bracket" iconSize='15px'>Logout</MenuItem>
+        </DropdownContainer>
+        {#if openUserMenu}
+            <div class="h-[200px]"></div>
+        {/if}
+        <RenderCode
+            lang="svelte"
+            code={`
+            <\script>
+                import {MenuItem, DropdownContainer, buttonRipple, User, Hr, resetUserStore} from '@sierra-95/svelte-scaffold';
 
-            let user = {
-                name: 'John Doe',
-                email: 'john.doe@example.com'
-            };
-
-            function handleProfile(){
-                alert('Profile clicked');
-            }
-            function handleLogout(){
-                alert('Logged out');
-            }
-        <\/script>
-        
-        <UserMenu bind:user>
-            <MenuItem onclick={handleProfile} icon="fa-user">Profile</MenuItem>
-            <MenuItem onclick={handleLogout} icon="fa-right-from-bracket">Logout</MenuItem>
-        </UserMenu>   
-    `}/>
-    <UserMenuTable />
+                let openUserMenu = $state(true);
+                function handleProfile(){
+                    alert('Profile clicked');
+                }
+                function handleLogout(){
+                    resetUserStore();
+                }
+            <\/script>
+            
+            {#snippet TriggerUserInfo()}
+                <button use:buttonRipple class="w-10 text-3xl text-(--primary-bg)" aria-label="Ellipsis" onclick={() => (openUserMenu = !openUserMenu)}>
+                    <i class="fa-solid fa-user"></i>
+                </button>
+            {/snippet}
+            <DropdownContainer width="300px" bind:open={openUserMenu} dropdownTrigger={TriggerUserInfo}>
+                <div class="p-2 pl-4">
+                    <h3>{$User?.firstName} {$User?.lastName}</h3>
+                    <p class="text-sm text-(--text-secondary)">{$User?.email}</p>
+                </div>
+                <Hr/>
+                <MenuItem onclick={handleProfile} icon="fa-user" iconSize='15px'>Profile</MenuItem>
+                <MenuItem onclick={handleLogout} icon="fa-right-from-bracket" iconSize='15px'>Logout</MenuItem>
+            </DropdownContainer>
+        `}/>
+    </section>
 </main>

@@ -1,7 +1,7 @@
 <script lang="ts">
 	import { onMount } from 'svelte';
 	import {Input, PasswordInput, fileInputStore, FileInput, resetFileInputStore} from '@sierra-95/svelte-scaffold';
-	import {RenderCode, routes} from '$lib';
+	import {RenderCode, routes, sectioning} from '$lib';
 	let email = '';
 	let password = '';
 
@@ -26,7 +26,7 @@
 
 <main class="space-y-4">
 	<title>Inputs</title>
-	<section id="doc-input-basic" class="space-y-4">
+	<section id={sectioning.inputs.basic} class="space-y-4">
 		<h1 class="font-bold text-2xl">Inputs</h1>
 		<Input 
 			id="email" 
@@ -55,7 +55,7 @@
 		`}/>
 	</section>
 	
-	<section id="doc-input-password" class="space-y-4">
+	<section id={sectioning.inputs.password} class="space-y-4">
 		<h2>Password Input</h2>
 		<PasswordInput
 			id="password" 
@@ -82,7 +82,7 @@
 		`}/>
 	</section>
 
-	<section id="doc-file-input" class="space-y-4">
+	<section id={sectioning.inputs.file_input} class="space-y-4">
 		<h2>File Input</h2>
 		<FileInput bind:processing onclick={handleUpload}  />
 		<h3>Incase any errors occur during upload, the

@@ -16,7 +16,14 @@
 
 	onMount(()=>{
         isLoggedIn.set(true);
-        User.update(user => ({ ...user, userId: 'f47ac10b-58cc-4372-a567-0e02b2c3d479' }) );
+		User.update(store => {
+			store.userId = 'f47ac10b-58cc-4372-a567-0e02b2c3d479';
+			store.firstName = 'John';
+			store.lastName = 'Doe';
+			store.email = 'john.doe@example.com';
+			store.phone = '+1-555-123-4567';
+			return store;
+		});
     })
 
 	onMount(async () => {

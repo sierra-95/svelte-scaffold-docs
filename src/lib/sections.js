@@ -58,6 +58,10 @@ export const sectioning = {
         basic: 'doc-input-basic',
         password: 'doc-input-password',
         file_input: 'doc-file-input',
+    },
+    menu: {
+        dropdown: 'doc-menu-dropdown',
+        user: 'doc-menu-user',
     }
 }
 
