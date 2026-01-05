@@ -12,8 +12,9 @@
 		lang="svelte"
 		code={`
 		<\script>
+			import { goto } from '$app/navigation';
 			import { onMount } from 'svelte';
-	        import {User, resetUserStore} from '@sierra-95/svelte-scaffold';
+	        import {User, resetUserStore, isLoggedIn} from '@sierra-95/svelte-scaffold';
 
 			onMount(() => {
 				User.update(store => {
@@ -25,8 +26,10 @@
 				});
 			});
 
-			function logout() {
+			function handleLogout(){
 				resetUserStore();
+				isLoggedIn.set(false);
+				goto('/login');
 			}
 		<\/script>
 	`}/>

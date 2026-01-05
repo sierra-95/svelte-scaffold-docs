@@ -7,7 +7,6 @@ const alerts = `${core}/alerts`;
 export const routes = {
     overview: '/',
     installation: '/installation',
-    font_awesome: '/font-awesome',
     
     core: {
         base: `${core}`,
@@ -79,11 +78,6 @@ export const sections = [
                 label: 'Installation', 
                  icon: 'fa fa-download' 
             },
-            {
-                path: routes.font_awesome, 
-                label: 'Font Awesome', 
-                icon: 'fa fa-font-awesome'
-            }
         ]
     },
     {

@@ -60,7 +60,7 @@
         `}/>
     </section>
     <section id={sectioning.menu.user} class="space-y-4">
-        <h1>Example: Build a User Menu</h1>
+        <h1>Example: User Menu</h1>
         {#snippet TriggerUserInfo()}
             <button use:buttonRipple class="w-10 text-3xl text-(--primary-bg)" aria-label="Ellipsis" onclick={() => (openUserMenu = !openUserMenu)}>
                 <i class="fa-solid fa-user"></i>
@@ -82,7 +82,8 @@
             lang="svelte"
             code={`
             <\script>
-                import {MenuItem, DropdownContainer, buttonRipple, User, Hr, resetUserStore} from '@sierra-95/svelte-scaffold';
+                import { goto } from '$app/navigation';
+                import {MenuItem, DropdownContainer, buttonRipple, User, Hr, resetUserStore, isLoggedIn} from '@sierra-95/svelte-scaffold';
 
                 let openUserMenu = $state(true);
                 function handleProfile(){
@@ -90,6 +91,8 @@
                 }
                 function handleLogout(){
                     resetUserStore();
+                    isLoggedIn.set(false);
+                    goto('/login');
                 }
             <\/script>
             
