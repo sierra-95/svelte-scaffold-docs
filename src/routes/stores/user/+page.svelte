@@ -44,8 +44,8 @@
 
 	<h2>Compulsory $User.userId?</h2>
 	<h3>Here are some modules that rely on $User.userId</h3>
-    <ul class="list-disc list-inside space-y-2">
-        <li><a href={routes.modules.editor} class="note">Editor</a></li>
-        <li><a href={routes.modules.file_picker.children.getting_started} class="note">File Picker</a></li>
-    </ul>
+    <div class="flex flex-wrap gap-4">
+        <a href={routes.modules.editor} class="note">Editor</a>
+        <a href={routes.modules.file_picker.children.getting_started} class="note">File Picker</a>
+	</div>
 </main>

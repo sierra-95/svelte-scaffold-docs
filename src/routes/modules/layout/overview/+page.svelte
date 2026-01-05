@@ -15,13 +15,11 @@
         <li>Prebuilt responsive layout with header, side menu, and content area.</li>
         <li>Customizable header with logo, title, and easy-to-integrate SvelteKit routing.</li>
         <li>In-built <a href={routes.stores.theme_stores} class="note">theme</a> support for light and dark modes.</li>
-    </ul>
-    <h3>
-        This component includes certain components by default, so you don’t need to import them manually.
-    </h3>
-    <ul class="list-disc list-inside space-y-2">
-        <li><a href={routes.core.children.alerts.modal} class="note">Modal</a></li>
-        <li><a href={routes.core.children.alerts.toast} class="note">Toast</a></li>
-        <li><a href={routes.modules.file_picker.children.getting_started} class="note">File Picker</a></li>
+        <li>It includes certain components by default, hence you don’t need to import them manually.</li>
+        <div class="flex flex-wrap gap-4">
+            <a href={routes.core.children.alerts.modal} class="note">Modal</a>
+            <a href={routes.core.children.alerts.toast} class="note">Toast</a>
+            <a href={routes.modules.file_picker.children.getting_started} class="note">File Picker</a>
+        </div>
     </ul>
 </main>
