@@ -2,10 +2,7 @@ import {BACKEND_URL} from '$env/static/private';
 
 export async function GET({ url, fetch }) {
     try {
-        const isLoggedIn = url.searchParams.get('isLoggedIn') === 'true';
         const userId = url.searchParams.get('userId');
-
-        //console.log("Params - isLoggedIn:", isLoggedIn, "userId:", userId);
 
         if (!userId) {
             return new Response(
@@ -14,15 +11,7 @@ export async function GET({ url, fetch }) {
             );
         }
 
-        const queryParams = new URLSearchParams();
-
-        if (isLoggedIn) {
-            queryParams.set('user_id', userId);
-        } else {
-            queryParams.set('anonymous_id', userId);
-        }
-
-        const backendUrl = `${BACKEND_URL}media/get?${queryParams.toString()}`;
+        const backendUrl = `${BACKEND_URL}media/get?user_id=${encodeURIComponent(userId)}`;
 
         //console.log("Endpoint URL:", backendUrl);
 

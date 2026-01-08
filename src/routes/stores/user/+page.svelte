@@ -18,6 +18,7 @@
 
 			onMount(() => {
 				User.update(store => {
+					store.userId = 'w23ac20r-58ra-4372-a567-0e02k2m3x832';
 					store.firstName = 'John';
 					store.lastName = 'Doe';
 					store.email = 'john.doe@example.com';
@@ -33,15 +34,6 @@
 			}
 		<\/script>
 	`}/>
-	<h2>$User.userId</h2>
-	<h3>
-		On mount, the application checks whether local storage contains a <code>anonymous_id</code>.
-		If it exists, the User store is updated with this value.</h3>
-	<h3>If it doesn't exist and  your not logged in (<a href={routes.stores.general_stores} class="note">isLoggedIn</a> is false), a new user id is generated using <code>crypto.randomUUID()</code>.
-		The User store and local storage is then updated with the newly created value.
-	</h3>
-	<h3>If you're logged in, manually update <code>$User.userId</code> accordingly.</h3>
-
 	<h2>Compulsory $User.userId?</h2>
 	<h3>Here are some modules that rely on $User.userId</h3>
     <div class="flex flex-wrap gap-4">

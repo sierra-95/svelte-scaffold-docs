@@ -6,7 +6,7 @@
         fileInputStore.update(store => ({ 
 			...store,
 			serverGetUrl: '/api/media/get',
-            disabledMenuItem: ['Documents','Videos','Music'],
+            disabledMenuItem: ['Documents','Videos','Music', 'Others'],
 			uploadModalOpen: true 
 		}));
     }
@@ -45,7 +45,7 @@
                 fileInputStore.update(store => ({ 
                     ...store,
                     serverGetUrl: '/api/media/get',
-                    disabledMenuItem: ['Documents','Videos','Music'],
+                    disabledMenuItem: ['Documents','Videos','Music', 'Others'],
                     uploadModalOpen: true 
                 }));
             }

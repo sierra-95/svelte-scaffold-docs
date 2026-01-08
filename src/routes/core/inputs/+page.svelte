@@ -2,6 +2,8 @@
 	import { onMount } from 'svelte';
 	import {Input, PasswordInput, fileInputStore, FileInput, resetFileInputStore} from '@sierra-95/svelte-scaffold';
 	import {RenderCode, routes, sectioning} from '$lib';
+	import FileInputTable from './_table/fileInput.svelte';
+
 	let email = '';
 	let password = '';
 
@@ -18,7 +20,7 @@
     onMount(() => {
         fileInputStore.update(store => {
             store.sizeConstraint = 5 * 1024 * 1024;
-            store.uploadType = ['image','video','audio','pdf'];
+            store.uploadType = ['image','video','audio','documents'];
             return store;
         });
     });
@@ -106,16 +108,16 @@
 					resetFileInputStore();
 				}
 
-				// uploadType: Array<'image' | 'audio' | 'video' | 'pdf'>;
 				onMount(() => {
 					fileInputStore.update(store => {
 						store.sizeConstraint = 5 * 1024 * 1024; // 5 MB
-						store.uploadType = ['image','video','audio','pdf'];
+						store.uploadType = ['image','video','audio','documents'];
 						return store;
 					});
 				});
 			<\/script>
 			<FileInput bind:processing onclick={handleUpload}  />
 		`}/>
+		<FileInputTable />
 	</section>
 </main>

@@ -12,7 +12,6 @@
         code={
             `
             const params = new URLSearchParams({
-                isLoggedIn: String($isLoggedIn),
                 userId: $User.userId
             });
             const res = await fetch(\`\${$fileInputStore.serverGetUrl}?\${params.toString()}\`);
@@ -36,7 +35,8 @@
                 ],
                 "Documents": [],
                 "Images": [],
-                "Videos": []
+                "Videos": [],
+                "Others": []
             }
 	`}/>
     <h2>POST method</h2>
@@ -46,7 +46,6 @@
 		code={`
 		    $fileInputStore.selectedFiles.forEach(file => formData.append('files', file));
             formData.append('r2_key', $fileInputStore.r2_key);
-            formData.append('is_loggedin', $isLoggedIn.toString());
             formData.append('userid', $User.userId);
 
             //POST body to $fileInputStore.serverUploadUrl
@@ -55,9 +54,9 @@
                 setToastMessage('error', data || 'Upload failed' );
                 return;
             }
-            data.forEach((item: { code: number; original_name: string }) => {
+            data.forEach((item: { original_name: string; code: number; }) => {
                 if (item.code === 500) {
-                    setToastMessage('error', \`Failed to upload file: \${item.original_name} (code: \${item.code})\`);
+                    setToastMessage('error', \`Failed to upload file: \${item.original_name}\`);
                 }
             });
 	`}/>
@@ -76,9 +75,9 @@
                 setToastMessage('error', data || 'Failed to delete files.');
                 return;
             }
-            data.forEach((item: { id: string; status: string; code: number }) => {
+            data.forEach((item: { id: string; code: number }) => {
                 if (item.code === 404) {
-                    setToastMessage('error', \`Failed to delete file with ID: \${item.id} - \${item.status}\`);
+                    setToastMessage('error', \`Failed to delete file with ID: \${item.id}\`);
                 }
             });
         `
@@ -99,7 +98,6 @@
                     const incomingForm = await request.formData();
 
                     const r2_key = incomingForm.get('r2_key');
-                    const is_loggedin = incomingForm.get('is_loggedin') === 'true';
                     const userId = incomingForm.get('userid');
                     const files = incomingForm.getAll('files');
 
@@ -107,12 +105,8 @@
                     backendForm.append('bucket', CLOUDFLARE_R2_BUCKET);
                     backendForm.append('bucket_url', CLOUDFLARE_R2_PUBLIC_URL);
                     backendForm.append('r2_key', r2_key);
+                    backendForm.append('user_id', userId);
 
-                    if (is_loggedin) {
-                        backendForm.append('user_id', userId);
-                    } else {
-                        backendForm.append('anonymous_id', userId);
-                    }
                     for (const file of files) {
                         backendForm.append('files', file);
                     }

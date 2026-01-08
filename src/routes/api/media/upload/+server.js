@@ -9,7 +9,6 @@ export async function POST({ request }) {
 		const incomingForm = await request.formData();
 
 		const r2_key = incomingForm.get('r2_key');
-		const is_loggedin = incomingForm.get('is_loggedin') === 'true';
 		const userId = incomingForm.get('userid');
 		const files = incomingForm.getAll('files');
 
@@ -39,12 +38,7 @@ export async function POST({ request }) {
 		backendForm.append('bucket', CLOUDFLARE_R2_BUCKET);
 		backendForm.append('bucket_url', CLOUDFLARE_R2_PUBLIC_URL);
 		backendForm.append('r2_key', r2_key);
-
-		if (is_loggedin) {
-			backendForm.append('user_id', userId);
-		} else {
-			backendForm.append('anonymous_id', userId);
-		}
+		backendForm.append('user_id', userId);
 
 		for (const file of files) {
 			backendForm.append('files', file);
