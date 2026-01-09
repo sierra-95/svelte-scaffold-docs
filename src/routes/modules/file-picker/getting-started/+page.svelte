@@ -14,6 +14,7 @@
             manage: true,
 			serverGetUrl: '/api/media/get',
             serverUploadUrl: '/api/media/upload',
+            serverDeleteUrl: '/api/media/delete',
             serverStorageUrl: '/api/media/storage-usage',
 			uploadModalOpen: true 
 		}));
