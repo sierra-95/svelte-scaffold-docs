@@ -5,22 +5,43 @@
 <main class="space-y-4">
 	<title>Backend Integration</title>
 	<h1>Backend Integration</h1>
-    <h2>GET method</h2>
+    <h2>Loading Media</h2>
     <h3>The <code>$fileInputStore.serverGetUrl</code> endpoint is used to load files <code>onMount</code>.</h3>
     <RenderCode
         lang="javascript"
         code={
             `
-            const params = new URLSearchParams({
-                userId: $User.userId
-            });
-            const res = await fetch(\`\${$fileInputStore.serverGetUrl}?\${params.toString()}\`);
-            const data = await res.json();
-            if (!res.ok) {
-                setToastMessage("error", data || "Failed to fetch media.");
-                return;
-            }`
-        }/>
+        async function loadMedia(){
+            if (!$User.userId || !$fileInputStore.serverGetUrl) return;
+            fileInputStore.update(store => ({ 
+                ...store,
+                requestReload: false
+            }));
+            try {
+                processing = true;
+                const params = new URLSearchParams({
+                    userId: $User.userId
+                });
+                const res = await fetch(\`\${$fileInputStore.serverGetUrl}?\${params.toString()}\`);
+                const data = await res.json();
+                if (!res.ok) {
+                    //console.log('Error fetching media:', data);
+                    setToastMessage("error", data || "Failed to fetch media.");
+                    return;
+                }
+                media = data;
+            } catch (e) {
+                console.error("catch error:", e);
+                setToastMessage("error", "An error occurred while fetching media.");
+            } finally {
+                processing = false;
+            }
+        }
+
+        onMount(async () => {
+            await loadMedia();
+        });
+        `}/>
     <h3>Responses are expected in the following format:</h3>
     <RenderCode
 		lang="json"
@@ -28,9 +49,14 @@
             {
                 "Audio": [
                     {
-                    "id": "123e4567-e89b-12d3-a456-426614174000",
-                    "url": "https://example.com"
-                    "original_name": "string",
+                        "id": "123e4567-e89b-12d3-a456-426614174000",
+                        "user_id": "123e4567-e89b-12d3-a456-426614174000",
+                        "r2_key": "string",
+                        "url": "https://example.com",
+                        "created_at": "string",
+                        "original_name": "string",
+                        "mime_type": "string",
+                        "size_bytes": 11234
                     }
                 ],
                 "Documents": [],
@@ -39,7 +65,7 @@
                 "Others": []
             }
 	`}/>
-    <h2>POST method</h2>
+    <h2>Uploading to storage</h2>
     <h3>The <code>$fileInputStore.serverUploadUrl endpoint</code> is used to upload files to your cloud. If any error occurs or specific files fail to upload, the error will be displayed using toasts.</h3>
     <RenderCode
 		lang="javascript"
@@ -60,7 +86,7 @@
                 }
             });
 	`}/>
-    <h2>DELETE method</h2>
+    <h2>Deleting from storage</h2>
     <h3>The $fileInputStore.serverDeleteUrl endpoint is used to delete files from your cloud</h3>
     <RenderCode
         lang="javascript"
@@ -82,6 +108,36 @@
             });
         `
         }/>
+    <h2>Storage information</h2>
+    <h3>The $fileInputStore.serverStorageUrl endpoint is used to retrieve storage usage information from your cloud</h3>
+    <RenderCode
+        lang="js"
+        code={`
+        async function loadInformation(){
+            if (!$User.userId || !$fileInputStore.serverStorageUrl) return;
+            try {
+                const params = new URLSearchParams({
+                    userId: $User.userId
+                });
+                const res = await fetch(\`\${$fileInputStore.serverStorageUrl}?\${params.toString()}\`);
+                const data = await res.json();
+
+                if (!res.ok) {
+                    setToastMessage("error", data || "Failed to fetch storage usage.");
+                    return;
+                }
+                const { usedBytes, maxBytes } = data.storage;
+                progress = (usedBytes / maxBytes) * 100;
+            } catch (e) {
+                console.error("catch error:", e);
+                setToastMessage("error", "An error occurred while fetching storage usage.");
+            }
+        }
+        onMount(async () => {
+            await loadInformation();
+        });
+        `}
+        />
     <h1>Example Integration</h1>
     <RenderCode
         lang="js"
