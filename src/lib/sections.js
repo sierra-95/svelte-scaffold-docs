@@ -38,7 +38,7 @@ export const routes = {
             base: `${modules}/file-picker`,
             children: {
                 getting_started: `${modules}/file-picker/getting-started`,
-                custom_content: `${modules}/file-picker/custom`,
+                usage: `${modules}/file-picker/usage`,
                 backend: `${modules}/file-picker/backend-integration`,
             }
         },
@@ -140,8 +140,8 @@ export const sections = [
                         path: routes.modules.file_picker.children.getting_started,
                     },
                     {
-                        label: 'Customize',
-                        path: routes.modules.file_picker.children.custom_content,
+                        label: 'Usage',
+                        path: routes.modules.file_picker.children.usage,
                     },
                     {
                         label: 'Backend Integration',

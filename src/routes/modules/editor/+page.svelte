@@ -10,6 +10,7 @@
             store.serverGetUrl = '/api/media/get';
             store.serverUploadUrl = '/api/media/upload';
             store.serverDeleteUrl = '/api/media/delete';
+            store.serverStorageUrl = '/api/media/storage-usage';
             return store;
         });
     }
@@ -69,6 +70,7 @@
                     store.serverGetUrl = '/api/media/get';
                     store.serverUploadUrl = '/api/media/upload';
                     store.serverDeleteUrl = '/api/media/delete';
+                    store.serverStorageUrl = '/api/media/storage-usage';
                     return store;
                 });
             }

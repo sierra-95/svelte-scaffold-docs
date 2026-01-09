@@ -11,8 +11,10 @@
         fileInputStore.update(store => ({ 
 			...store,
             r2_key,
+            manage: true,
 			serverGetUrl: '/api/media/get',
             serverUploadUrl: '/api/media/upload',
+            serverStorageUrl: '/api/media/storage-usage',
 			uploadModalOpen: true 
 		}));
     }
@@ -55,6 +57,7 @@
                     r2_key,
                     serverGetUrl: '/api/media/get',
                     serverUploadUrl: '/api/media/upload',
+                    serverStorageUrl: '/api/media/storage-usage',
                     uploadModalOpen: true 
                 }));
             }
