@@ -48,7 +48,6 @@ export const routes = {
     stores: {
         general_stores: `${stores}/general`,
         theme_stores: `${stores}/theme`,
-        user_stores: `${stores}/user`,
     },
 };
 
@@ -61,6 +60,15 @@ export const sectioning = {
     menu: {
         dropdown: 'doc-menu-dropdown',
         user: 'doc-menu-user',
+    },
+    file_picker: {
+        backend: {
+            loading_media: 'docs-file-picker-backend-integration-loading-media',
+            uploading_to_storage: 'docs-file-picker-backend-integration-uploading-to-storage',
+            deleting_from_storage: 'docs-file-picker-backend-integration-deleting-from-storage',
+            storage_information: 'docs-file-picker-backend-integration-storage-information',
+            downloading_from_storage: 'docs-file-picker-backend-integration-downloading-from-storage',
+        }
     }
 }
 
@@ -184,11 +192,6 @@ export const sections = [
                 path: routes.stores.theme_stores, 
                 label: 'Theme',
                 icon: 'fa fa-moon-o' ,
-            },
-            { 
-                path: routes.stores.user_stores, 
-                label: 'User',
-                icon: 'fa fa-user-o' ,
             },
         ]
     },

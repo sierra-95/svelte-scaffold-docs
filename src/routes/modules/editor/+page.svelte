@@ -11,6 +11,7 @@
             store.serverUploadUrl = '/api/media/upload';
             store.serverDeleteUrl = '/api/media/delete';
             store.serverStorageUrl = '/api/media/storage-usage';
+            store.serverDownloadUrl = '/api/media/download';
             return store;
         });
     }

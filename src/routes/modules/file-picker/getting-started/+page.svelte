@@ -16,6 +16,7 @@
             serverUploadUrl: '/api/media/upload',
             serverDeleteUrl: '/api/media/delete',
             serverStorageUrl: '/api/media/storage-usage',
+            serverDownloadUrl: '/api/media/download',
 			uploadModalOpen: true 
 		}));
     }
