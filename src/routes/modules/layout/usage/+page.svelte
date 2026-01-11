@@ -2,8 +2,8 @@
     import {RenderCode, routes} from '$lib';
 </script>
 <main class="space-y-4">
-    <title>Customize</title>
-    <h1>Customize the Layout</h1>
+    <title>Usage</title>
+    <h1>Usage</h1>
     <h2>Header</h2>
     <h3>The header can carry much more content, including searchbars, theme switchers, and more.</h3>
     <RenderCode
@@ -34,8 +34,8 @@
 
     `}/>
     <h2>Menu</h2>
-    <h3>The menu can be customized to include submenus. 
-        This allows multiple items to be grouped under the same parent path.
+    <h3>
+        The menu can include submenus, allowing multiple items to be grouped under the same parent path.
     </h3>
     <h3>Note the following</h3>
     <ul class="list-disc list-inside space-y-2">

@@ -13,11 +13,10 @@
     <RenderCode
         lang="javascript"
         code={`
-        const account = '/account';
         const routes = {
             home: '/home',
-            profile: \`\${account}/profile\`,
-            security: \`\${account}/security\`,
+            profile: 'settings/profile',
+            security: 'settings/security',
         };
 
         export const sections = [
@@ -28,7 +27,7 @@
                 ]
             },
             {
-                label: 'Account',
+                label: 'Settings',
                 items: [
                     { 
                         path: routes.profile, 

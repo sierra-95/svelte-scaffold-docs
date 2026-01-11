@@ -31,7 +31,7 @@ export const routes = {
             children: {
                 overview: `${modules}/layout/overview`,
                 getting_started: `${modules}/layout/getting-started`,
-                custom_content: `${modules}/layout/custom`,
+                usage: `${modules}/layout/usage`,
             }
         },
         file_picker: {
@@ -71,6 +71,21 @@ export const sectioning = {
         }
     }
 }
+
+
+export type SectionItem = {
+    id?: string;
+    path: string;
+    label: string;
+    icon?: string;
+    children?: SectionItem[];
+    TOC?: Record<string, string>;
+};
+
+export type Section = {
+    label: string;
+    items: SectionItem[];
+};
 
 export const sections = [
     {
@@ -136,6 +151,9 @@ export const sections = [
                 path: routes.modules.editor, 
                 label: 'Editor',
                 icon: 'fa fa-pencil-square-o' ,
+                TOC: {
+                    getting_started: 'docs-editor-getting-started',
+                },
             },
             { 
                 id: crypto.randomUUID(),
@@ -154,6 +172,13 @@ export const sections = [
                     {
                         label: 'Backend Integration',
                         path: routes.modules.file_picker.children.backend,
+                        TOC: {
+                            loading_media: 'docs-file-picker-backend-integration-loading-media',
+                            uploading_to_storage: 'docs-file-picker-backend-integration-uploading-to-storage',
+                            deleting_from_storage: 'docs-file-picker-backend-integration-deleting-from-storage',
+                            storage_information: 'docs-file-picker-backend-integration-storage-information',
+                            downloading_from_storage: 'docs-file-picker-backend-integration-downloading-from-storage',
+                        }
                     }
                 ]
             },
@@ -172,8 +197,8 @@ export const sections = [
                         path: routes.modules.layout.children.getting_started,
                     },
                     {      
-                        label: 'Customize',
-                        path: routes.modules.layout.children.custom_content,
+                        label: 'Usage',
+                        path: routes.modules.layout.children.usage,
                     }
 
                 ]

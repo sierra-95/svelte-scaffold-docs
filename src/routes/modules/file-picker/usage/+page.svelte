@@ -26,12 +26,19 @@
 <main class="space-y-4">
 	<title>File Picker</title>
     <h1>Usage</h1>
+    <h2>Manage</h2>
+    <h3>
+    By default, <code>$fileInputStore</code> is in normal mode, where <code>$fileInputStore.manage</code> is false.
+    When media is clicked, a select button (tick) appears, which is used to fill forms.
+    </h3>
+    <h3>
+    When <code>$fileInputStore.manage</code> is true, the file picker enters manage mode.
+    </h3>
     <h2>Filling Forms</h2>
     <h3>
     Selected media are appended to <code>$fileInputStore.submissions</code>,
     which can then be used to populate forms by extracting the required data.
     </h3>
-    <h3>To remove specific menu items, add them on <code>$fileInputStore.disabledMenuItem</code> array</h3>
     <Button onclick={limitFilePickerMenu}>Click to test</Button>
     <Input 
         id="url-input" 
@@ -76,4 +83,6 @@
 	`}/>
     <h2>Accept Types</h2>
     <h3>File Picker is built on <a href={`${routes.core.children.inputs}#${sectioning.inputs.file_input}`} class="note">File Input</a>. This means you can control size and type of files to be uploaded.</h3>
+    <h2>Disable Menu Items</h2>
+    <h3>To remove specific menu items, add them on <code>$fileInputStore.disabledMenuItem</code> array</h3>
 </main>

@@ -1,8 +1,8 @@
 <script lang="ts">
 	import '../app.css';
 	import { onMount, tick } from 'svelte';
-	import {Layout, ButtonTheme, theme, isLoggedIn, User} from '@sierra-95/svelte-scaffold';
-	import {sections} from '$lib';
+	import {Layout, ButtonTheme, theme, isLoggedIn, User, isMobile} from '@sierra-95/svelte-scaffold';
+	import {sections, TOC} from '$lib';
 
 	let { children } = $props();
 	let link = $state('');
@@ -47,14 +47,19 @@
 </svelte:head>
 
 <Layout 
+	{sections}
+	paddingOff
 	headerTitle = 'Sierra-95/svelte-scaffold'
 	headerLink = '/'
 	headerImage = {link}
 	headerImageSize = '35px'
-	{sections}
-	contentCenter
 	headerRightContent = {headerRightContent}
->{@render children()} 
+><div class="flex items-start">
+	<div style="width: {$isMobile ? '100%' : 'calc(100% - 300px)'}" class="w-full p-6 mx-auto">
+		{@render children()}
+	</div>
+	<TOC/>
+</div>
 </Layout>
 {#snippet headerRightContent()}
 	<div class="mr-4"><ButtonTheme /></div>

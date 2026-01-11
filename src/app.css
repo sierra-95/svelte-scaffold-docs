@@ -43,3 +43,10 @@ th, td{
 .div2{
     border: 1px solid red;
 }
+@font-face {
+    font-family: 'Melodrama Regular';
+    src: url('/fonts/Melodrama-Regular.woff2') format('woff2'),
+        url('/fonts/Melodrama-Regular.woff') format('woff');
+    font-weight: 400;
+    font-style: normal;
+}

@@ -1,12 +1,13 @@
 <script>
     import {RenderCode, sectioning} from '$lib';
-    import Endpoints from '../_table/endpoints.svelte';
 </script>
 
 <main class="space-y-4">
 	<title>Backend Integration</title>
 	<h1>Backend Integration</h1>
-    <Endpoints />
+    <h3>
+    The File Picker’s performance depends largely on your backend. Review the code snippets (components making API calls to Svelte <code>+server</code>) to help you integrate your backend.
+    </h3>
     <section class="space-y-4" id={sectioning.file_picker.backend.loading_media}>
         <h2>Loading Media</h2>
         <h3>The <code>$fileInputStore.serverGetUrl</code> endpoint is used to load files <code>onMount</code>.</h3>
