@@ -1,11 +1,12 @@
 <script lang="ts">
 	import {CircularProgress, LinearProgress, CustomProgress} from '@sierra-95/svelte-scaffold';
-	import {RenderCode} from '$lib';
+	import {RenderCode, sectioning} from '$lib';
 </script>
 
-<main class="space-y-4">
-	<title>Progress</title>
-	<h1>Progress</h1>
+
+<title>Progress</title>
+<h1>Progress</h1>
+<section id={sectioning.components.progress.circular_progress} class="space-y-4 mb-10">
 	<h2>Circular Progress</h2>
 	<div class="flex flex-wrap gap-5">
 		<CircularProgress thickness={2} size={40}/>
@@ -22,6 +23,9 @@
 		<CircularProgress size={45} color="var(--warning-bg)"/>
 
 	`}/>
+</section>
+
+<section id={sectioning.components.progress.linear_progress} class="space-y-4 mb-10">
 	<h2>Linear Progress</h2>
 	<LinearProgress/>
 	<LinearProgress color="var(--warning-bg)"/>
@@ -34,6 +38,9 @@
 		<\/script>
 		<LinearProgress color="var(--error-bg)"/>
 	`}/>
+</section>
+
+<section id={sectioning.components.progress.custom_progress} class="space-y-4 mb-10">
 	<h2>Custom Progress</h2>
 	<CustomProgress value={30}/>
 	<CustomProgress value={60} color="var(--warning-bg)"/>
@@ -46,4 +53,4 @@
 		<\/script>
 		<CustomProgress value={60} height="7px" color="var(--warning-bg)"/>
 	`}/>
-</main>
+</section>

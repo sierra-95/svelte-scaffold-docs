@@ -1,8 +1,8 @@
 <script>
-    import {RenderCode, routes} from '$lib';
+    import {routes, sectioning} from '$lib';
 </script>
 
-<main class="space-y-4">
+<section id={sectioning.modules.layout.overview} class="space-y-4">
 	<title>Layout overview</title>
 	<h1>Layout</h1>
 	<h3>The layout menu is a portal scaffold.
@@ -22,4 +22,4 @@
             <a href={routes.modules.file_picker.children.getting_started} class="note">File Picker</a>
         </div>
     </ul>
-</main>
+</section>

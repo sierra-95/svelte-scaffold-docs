@@ -1,6 +1,6 @@
 <script>
     import {modalStore,Button, Input} from '@sierra-95/svelte-scaffold';
-    import {RenderCode} from '$lib';
+    import {RenderCode, sectioning} from '$lib';
     import ModalTable from '../_table/modal.svelte';
 
     let value = '';
@@ -35,8 +35,9 @@
 {#snippet formContent()}
     <Input label="Enter Youtube URL" id="youtube-url" bind:value={value}/>
 {/snippet}
-<main class="space-y-4">
-    <title>Alert Modal</title>
+
+<title>Alert Modal</title>
+<section id={sectioning.components.modal.getting_started} class="space-y-4 mb-10">
     <h1>Alert Modal</h1>
     <h3>Place this anywhere in your app</h3>
     <RenderCode
@@ -73,6 +74,7 @@
         <Button onclick={triggerPlainModal}>Click here</Button>
 
     `}/>
+
     <h2>Dynamic Mode</h2>
     <h3>Used to render custom UI such as inputs, forms, or any arbitrary markup inside the modal.</h3>
     <Button onclick={triggerDynamicModal}>Click to test</Button>
@@ -104,7 +106,9 @@
         <Button onclick={triggerPlainModal}>Click here</Button>
 
     `}/>
+</section>
 
+<section id={sectioning.components.modal.props} class="space-y-4 mb-10">
     <h3>Use <code class="note">modalStore.update()</code> for optional properties to keep defaults</h3>
     <ModalTable />
-</main>
+</section>

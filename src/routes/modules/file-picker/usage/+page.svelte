@@ -23,7 +23,7 @@
 	}
 </script>
 
-<main class="space-y-4">
+<section id={sectioning.modules.file_picker.usage} class="space-y-4">
 	<title>File Picker</title>
     <h1>Usage</h1>
     <h2>Manage</h2>
@@ -82,7 +82,7 @@
         />
 	`}/>
     <h2>Accept Types</h2>
-    <h3>File Picker is built on <a href={`${routes.core.children.inputs}#${sectioning.inputs.file_input}`} class="note">File Input</a>. This means you can control size and type of files to be uploaded.</h3>
+    <h3>File Picker is built on <a href={`${routes.core.children.inputs}#${sectioning.components.inputs.file_input}`} class="note">File Input</a>. This means you can control size and type of files to be uploaded.</h3>
     <h2>Disable Menu Items</h2>
     <h3>To remove specific menu items, add them on <code>$fileInputStore.disabledMenuItem</code> array</h3>
-</main>
+</section>

@@ -1,7 +1,7 @@
 <script>
     import { onMount, onDestroy } from 'svelte';
     import {setToastMessage,clearToastMessage, Button} from '@sierra-95/svelte-scaffold'
-    import {RenderCode} from '$lib';
+    import {RenderCode, sectioning} from '$lib';
     import ToastTable from '../_table/toast.svelte';
    
     onMount(() => {
@@ -20,8 +20,9 @@
     }
 </script>
 
-<main class="space-y-4">
-    <title>Toast</title>
+
+<title>Toast</title>
+<section id={sectioning.components.toast.getting_started} class="space-y-4 mb-10">
     <h1>Toast</h1>
     <Button onclick={triggerToast}>Click here</Button>
     <h3>Place this anywhere in your app</h3>
@@ -71,5 +72,7 @@
         <\/script>
 
     `}/>
+</section>
+<section id={sectioning.components.toast.props} class="space-y-4 mb-10">
     <ToastTable />
-</main>
+</section>

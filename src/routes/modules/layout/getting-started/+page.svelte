@@ -1,8 +1,8 @@
 <script>
-    import {RenderCode, routes} from '$lib';
+    import {RenderCode, sectioning} from '$lib';
 </script>
 
-<main class="space-y-4">
+<section id={sectioning.modules.layout.getting_started} class="space-y-4">
     <title>Getting Started</title>
     <h1>Getting Started</h1>
     <h3>Define a sections file. The contents will be mapped to the Layout.</h3>
@@ -64,4 +64,4 @@
         </Layout>
 
     `}/>
-</main>
+</section>

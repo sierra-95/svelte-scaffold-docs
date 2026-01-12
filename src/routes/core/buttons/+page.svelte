@@ -1,6 +1,6 @@
 <script lang="ts">
 	import {Button, ButtonFlip, ButtonMarquee, ButtonSwipe} from '@sierra-95/svelte-scaffold'
-	import {RenderCode} from '$lib';
+	import {RenderCode, sectioning} from '$lib';
 	import ButtonCustom from './_tables/buttonCustom.svelte';
 	import ButtonDefault from './_tables/buttonDefault.svelte';
 
@@ -16,8 +16,9 @@
 	] as const;
 </script>
 
-<main class="space-y-4">
-	<title>Buttons</title>
+
+<title>Buttons</title>
+<section id={sectioning.components.buttons.default_button} class="space-y-4 mb-10">
 	<h1 class="font-bold text-2xl">Default Buttons</h1>
 	<div class="flex gap-4 flex-wrap">
 	{#each contained_buttons as { color, title }}
@@ -80,32 +81,36 @@
 			</form>
 		`}/>
 	</div>
+</section>
 
+<section id={sectioning.components.buttons.custom_button} class="space-y-4 mb-10">
 	<h1>Custom Buttons</h1>
-    <div class="flex gap-4 items-center">
-        <ButtonSwipe />
-        <ButtonMarquee/>
-        <ButtonFlip />
-    </div>    
-    <h3>These buttons are not built to be as flexible compared to default buttons.</h3>
-    <ol class="list-decimal pl-5">
-        <li>They are designed to be used as-is, with minimal customization options.</li>
-        <li>All have fixed dimensions (w × h), with <strong>Marquee</strong> as the exception. Marquee automatically adjusts its width based on text length.</li>
-    </ol>
-    <RenderCode
-        lang="svelte"
-        code={`
-        <\script>
+	<div class="flex gap-4 items-center">
+		<ButtonSwipe />
+		<ButtonMarquee/>
+		<ButtonFlip />
+	</div>    
+	<h3>These buttons are not built to be as flexible compared to default buttons.</h3>
+	<ol class="list-decimal pl-5">
+		<li>They are designed to be used as-is, with minimal customization options.</li>
+		<li>All have fixed dimensions (w × h), with <strong>Marquee</strong> as the exception. Marquee automatically adjusts its width based on text length.</li>
+	</ol>
+	<RenderCode
+		lang="svelte"
+		code={`
+		<\script>
 			import { goto } from '$app/navigation';
-            import { ButtonMarquee } from '@sierra-95/svelte-scaffold';
-        <\/script>
+			import { ButtonMarquee } from '@sierra-95/svelte-scaffold';
+		<\/script>
 
-        <ButtonMarquee onclick={() => goto('/auth')} text='Sign In' bg='red' color = 'blue'  />
+		<ButtonMarquee onclick={() => goto('/auth')} text='Sign In' bg='red' color = 'blue'  />
 
-    `}/>
+	`}/>
+</section>
 
+<section id={sectioning.components.buttons.props} class="space-y-4">
 	<h2>Default Buttons Table</h2>
 	<div class='overflow-x-auto'><ButtonDefault/></div>
 	<h2>Custom Buttons Table</h2>
 	<div class='overflow-x-auto'><ButtonCustom/></div>
-</main>
+</section>

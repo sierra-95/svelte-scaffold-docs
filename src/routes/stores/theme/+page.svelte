@@ -1,9 +1,9 @@
 <script>
     import {ButtonTheme} from '@sierra-95/svelte-scaffold';
-    import {RenderCode, routes} from '$lib';
+    import {RenderCode, routes, sectioning} from '$lib';
 </script>
 
-<main class="space-y-4">
+<section id={sectioning.stores.theme} class="space-y-4">
 	<title>Theme Store</title>
 	<h1>Theme Store</h1>
 	<h3>The theme store is tightly integrated with the 
@@ -36,4 +36,4 @@
 		<\/script>
         <ButtonTheme />
 	`}/>
-</main>
+</section>

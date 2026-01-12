@@ -1,8 +1,8 @@
 <script lang="ts">
-  import {RenderCode} from '$lib'; 
+  import {RenderCode, sectioning} from '$lib'; 
 </script>
 
-<main class="space-y-4">
+<section id={sectioning.installation.installation} class="space-y-4 mb-10">
   <title>Getting Started</title>
   <h1>Installation</h1>
   <h3>
@@ -33,6 +33,9 @@
       Click Me
     </Button>
   `}/>
+</section>
+
+<section id={sectioning.installation.font_awesome} class="space-y-4">
   <h1>Scaffold Icons</h1>
   <h3><code>@sierra-95/svelte-scaffold</code> uses Font Awesome for icons.</h3>
   <h3>Create an account
@@ -51,5 +54,5 @@
         ></script>
       </svelte:head>
   `}/>
-</main>
+</section>
 

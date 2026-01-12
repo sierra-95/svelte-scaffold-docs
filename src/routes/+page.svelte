@@ -1,10 +1,10 @@
 <script lang="ts">
   import { goto } from '$app/navigation';
-  import { routes } from '$lib';
+  import { routes, sectioning } from '$lib';
   import { ButtonFlip } from '@sierra-95/svelte-scaffold';
 </script>
 
-<main id='scaffold-overview' class="mx-auto max-w-[1200px] px-8 py-16 md:px-8 md:py-16 sm:px-4 sm:py-8 h-full">
+<section id={sectioning.overview} class="mx-auto max-w-[1200px] px-8 py-16 md:px-8 md:py-16 sm:px-4 sm:py-8 h-full">
   <!-- Welcome -->
   <div class="mb-12 text-center">
     <p class="mb-2 text-sm font-medium uppercase tracking-widest text-(--text-secondary)"
@@ -74,4 +74,4 @@
       </div>
     </div>
   </div>
-</main>
+</section>

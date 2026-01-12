@@ -1,7 +1,8 @@
 <script>
-    import {RenderCode, routes} from '$lib';
+    import {RenderCode, routes, sectioning} from '$lib';
 </script>
-<main class="space-y-4">
+
+<section id={sectioning.modules.layout.usage.header} class="space-y-4 mb-10">
     <title>Usage</title>
     <h1>Usage</h1>
     <h2>Header</h2>
@@ -33,6 +34,9 @@
         </Layout>
 
     `}/>
+</section>
+
+<section id={sectioning.modules.layout.usage.menu} class="space-y-4 mb-10">
     <h2>Menu</h2>
     <h3>
         The menu can include submenus, allowing multiple items to be grouped under the same parent path.
@@ -83,4 +87,4 @@
         }
         `}
     />
-</main>
+</section>
