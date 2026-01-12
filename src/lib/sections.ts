@@ -63,11 +63,9 @@ export const sectioning = {
     },
     file_picker: {
         backend: {
-            loading_media: 'docs-file-picker-backend-integration-loading-media',
-            uploading_to_storage: 'docs-file-picker-backend-integration-uploading-to-storage',
-            deleting_from_storage: 'docs-file-picker-backend-integration-deleting-from-storage',
-            storage_information: 'docs-file-picker-backend-integration-storage-information',
-            downloading_from_storage: 'docs-file-picker-backend-integration-downloading-from-storage',
+            GET: 'docs-file-picker-backend-integration-get',
+            POST: 'docs-file-picker-backend-integration-post',
+            DELETE: 'docs-file-picker-backend-integration-delete',
         }
     }
 }
@@ -173,11 +171,9 @@ export const sections = [
                         label: 'Backend Integration',
                         path: routes.modules.file_picker.children.backend,
                         TOC: {
-                            loading_media: 'docs-file-picker-backend-integration-loading-media',
-                            uploading_to_storage: 'docs-file-picker-backend-integration-uploading-to-storage',
-                            deleting_from_storage: 'docs-file-picker-backend-integration-deleting-from-storage',
-                            storage_information: 'docs-file-picker-backend-integration-storage-information',
-                            downloading_from_storage: 'docs-file-picker-backend-integration-downloading-from-storage',
+                            GET: sectioning.file_picker.backend.GET,
+                            POST: sectioning.file_picker.backend.POST,
+                            DELETE: sectioning.file_picker.backend.DELETE,
                         }
                     }
                 ]

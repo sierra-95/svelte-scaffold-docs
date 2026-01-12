@@ -1,5 +1,5 @@
 <script>
-    import {RenderCode, sectioning} from '$lib';
+    import {RenderCode, sectioning, sections} from '$lib';
 </script>
 
 <main class="space-y-4">
@@ -8,7 +8,8 @@
     <h3>
     The File Picker’s performance depends largely on your backend. Review the code snippets (components making API calls to Svelte <code>+server</code>) to help you integrate your backend.
     </h3>
-    <section class="space-y-4" id={sectioning.file_picker.backend.loading_media}>
+    <h1>GET</h1>
+    <section class="space-y-4" id={sectioning.file_picker.backend.GET}>
         <h2>Loading Media</h2>
         <h3>The <code>$fileInputStore.serverGetUrl</code> endpoint is used to load files <code>onMount</code>.</h3>
         <RenderCode
@@ -69,55 +70,7 @@
                     "Others": []
                 }
         `}/>
-    </section>
-    <section class="space-y-4" id={sectioning.file_picker.backend.uploading_to_storage}>
-        <h2>Uploading to storage</h2>
-        <h3>The <code>$fileInputStore.serverUploadUrl endpoint</code> is used to upload files to your cloud. If any error occurs or specific files fail to upload, the error will be displayed using toasts.</h3>
-        <RenderCode
-            lang="javascript"
-            code={`
-                $fileInputStore.selectedFiles.forEach(file => formData.append('files', file));
-                formData.append('r2_key', $fileInputStore.r2_key);
-                formData.append('userid', $User.userId);
 
-                //POST body to $fileInputStore.serverUploadUrl
-                const data = await res.json();
-                if (!res.ok) {
-                    setToastMessage('error', data || 'Upload failed' );
-                    return;
-                }
-                data.forEach((item: { original_name: string; code: number; }) => {
-                    if (item.code === 500) {
-                        setToastMessage('error', \`Failed to upload file: \${item.original_name}\`);
-                    }
-                });
-        `}/>
-    </section>
-    <section class="space-y-4" id={sectioning.file_picker.backend.deleting_from_storage}>
-        <h2>Deleting from storage</h2>
-        <h3>The $fileInputStore.serverDeleteUrl endpoint is used to delete files from your cloud</h3>
-        <RenderCode
-            lang="javascript"
-            code={
-                `
-            const store = get(fileInputStore);
-            const idsToDelete = store.submissions.map(item => item.id);
-            try {
-                //DELETE body: id's to $fileInputStore.serverDeleteUrl
-                const data = await response.json();
-                if (!response.ok) {
-                    setToastMessage('error', data || 'Failed to delete files.');
-                    return;
-                }
-                data.forEach((item: { id: string; code: number }) => {
-                    if (item.code === 404) {
-                        setToastMessage('error', \`Failed to delete file with ID: \${item.id}\`);
-                    }
-                });
-            `
-            }/>
-    </section>
-    <section class="space-y-4" id={sectioning.file_picker.backend.storage_information}>
         <h2>Storage information</h2>
         <h3>The $fileInputStore.serverStorageUrl endpoint is used to retrieve storage usage information from your cloud</h3>
         <RenderCode
@@ -149,7 +102,30 @@
             `}
         />
     </section>
-    <section class="space-y-4" id={sectioning.file_picker.backend.downloading_from_storage}>
+    <h1>POST</h1>
+    <section class="space-y-4" id={sectioning.file_picker.backend.POST}>
+        <h2>Uploading to storage</h2>
+        <h3>The <code>$fileInputStore.serverUploadUrl endpoint</code> is used to upload files to your cloud. If any error occurs or specific files fail to upload, the error will be displayed using toasts.</h3>
+        <RenderCode
+            lang="javascript"
+            code={`
+                $fileInputStore.selectedFiles.forEach(file => formData.append('files', file));
+                formData.append('r2_key', $fileInputStore.r2_key);
+                formData.append('userid', $User.userId);
+
+                //POST body to $fileInputStore.serverUploadUrl
+                const data = await res.json();
+                if (!res.ok) {
+                    setToastMessage('error', data || 'Upload failed' );
+                    return;
+                }
+                data.forEach((item: { original_name: string; code: number; }) => {
+                    if (item.code === 500) {
+                        setToastMessage('error', \`Failed to upload file: \${item.original_name}\`);
+                    }
+                });
+        `}/>
+
         <h2>Downloading from storage</h2>
         <h3>The $fileInputStore.serverDownloadUrl endpoint is used to download files from your cloud. Note that files are downloaded one at a time.</h3>
         <RenderCode
@@ -212,6 +188,31 @@
                     setToastMessage('error', \`Upload failed: \${err}\`);
                 }
             }
+            `
+        }/>
+    </section>
+    <h1>DELETE</h1>
+    <section class="space-y-4" id={sectioning.file_picker.backend.DELETE}>
+        <h2>Deleting from storage</h2>
+        <h3>The $fileInputStore.serverDeleteUrl endpoint is used to delete files from your cloud</h3>
+        <RenderCode
+            lang="javascript"
+            code={
+                `
+            const store = get(fileInputStore);
+            const idsToDelete = store.submissions.map(item => item.id);
+            try {
+                //DELETE body: id's to $fileInputStore.serverDeleteUrl
+                const data = await response.json();
+                if (!response.ok) {
+                    setToastMessage('error', data || 'Failed to delete files.');
+                    return;
+                }
+                data.forEach((item: { id: string; code: number }) => {
+                    if (item.code === 404) {
+                        setToastMessage('error', \`Failed to delete file with ID: \${item.id}\`);
+                    }
+                });
             `
             }/>
     </section>
