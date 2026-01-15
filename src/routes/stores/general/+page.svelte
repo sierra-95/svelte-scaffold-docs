@@ -29,6 +29,11 @@
 
 	<section id={sectioning.stores.general.is_loading} class="space-y-4 mb-10">
 		<h2>isLoading</h2>
+		<h3>
+		Implemented internally in
+		<a class="note" href={routes.modules.layout.children.overview}>Layout</a>,
+		so it can be used, for example, in form submissions.
+		</h3>
 		<Button onclick={toggleLoading}>Click here</Button>
 		<RenderCode
 			lang="svelte"

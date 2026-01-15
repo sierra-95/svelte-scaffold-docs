@@ -127,7 +127,7 @@ export type SectionItem = {
     label: string;
     icon?: string;
     children?: SectionItem[];
-    TOC?: Record<string, string>;
+    TOC?: Partial<Record<string, string>>;
 };
 
 export type Section = {
@@ -323,7 +323,7 @@ export const sections = [
                 label: 'Theme',
                 icon: 'fa fa-moon-o' ,
                 TOC: {
-                    theme: sectioning.stores.theme,
+                    getting_started: sectioning.stores.theme,
                 }
             },
         ]

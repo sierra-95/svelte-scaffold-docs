@@ -48,7 +48,7 @@
         >Modules
         </a>
         <p class="leading-relaxed text-(--text-secondary)">
-          Reusable layout system, file picker with backend integration, and rich text editor
+          Reusable layout system, file picker, text editor and more
         </p>
       </div>
 
