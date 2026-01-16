@@ -6,7 +6,7 @@
 
 	let { children } = $props();
 	let link = $state('');
-	let openMenu = $state(true);
+	let openMenu = $state(false);
 	$effect(() => {
 		if($theme === 'light'){
 			link = 'https://files.michaelmachohi.com/logos/michaelmachohi.dark.blue.png';
@@ -55,7 +55,7 @@
 	headerImage = {link}
 	headerImageSize = '35px'
 	headerRightContent = {headerRightContent}
-	dashboardMenuColor="var(--text)"
+	dashboardMenuSize="25px"
 ><div class="flex items-start">
 	<div style="width: {$isMobile ? '100%' : 'calc(100% - 300px)'}" class="w-full p-6 mx-auto">
 		{@render children()}
