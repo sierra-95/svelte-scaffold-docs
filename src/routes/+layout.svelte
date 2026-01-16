@@ -72,8 +72,8 @@
 	</DropdownContainer>
 {/snippet}
 {#snippet TriggerMenu()}
-	<button use:buttonRipple class="w-10 text-xl text-(--primary-bg)" aria-label="Ellipsis" onclick={() => (openMenu = !openMenu)}>
-		<i class="fa-solid fa-cog"></i>
+	<button class="w-10 text-xl text-(--primary-bg)" aria-label="Ellipsis" onclick={() => (openMenu = !openMenu)}>
+		<i class="fa-solid fa-cog" style="transition: transform 0.5s ease; transform: rotate({openMenu ? 90 : 0}deg);"></i>
 	</button>
 {/snippet}
 
