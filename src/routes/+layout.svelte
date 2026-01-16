@@ -1,11 +1,12 @@
 <script lang="ts">
 	import '../app.css';
 	import { onMount, tick } from 'svelte';
-	import {Layout, ButtonTheme, theme, isLoggedIn, User, isMobile} from '@sierra-95/svelte-scaffold';
+	import {Layout, ButtonTheme, theme, isLoggedIn, User, isMobile, DropdownContainer, MenuItem, buttonRipple} from '@sierra-95/svelte-scaffold';
 	import {sections, TOC} from '$lib';
 
 	let { children } = $props();
 	let link = $state('');
+	let openMenu = $state(true);
 	$effect(() => {
 		if($theme === 'light'){
 			link = 'https://files.michaelmachohi.com/logos/michaelmachohi.dark.blue.png';
@@ -54,6 +55,7 @@
 	headerImage = {link}
 	headerImageSize = '35px'
 	headerRightContent = {headerRightContent}
+	dashboardMenuColor="var(--text)"
 ><div class="flex items-start">
 	<div style="width: {$isMobile ? '100%' : 'calc(100% - 300px)'}" class="w-full p-6 mx-auto">
 		{@render children()}
@@ -62,5 +64,15 @@
 </div>
 </Layout>
 {#snippet headerRightContent()}
-	<div class="mr-4"><ButtonTheme /></div>
+	<DropdownContainer top="30px" bind:open={openMenu} dropdownTrigger={TriggerMenu}>
+		<MenuItem onclick={() => window.open('https://github.com/Sierra-95/svelte-scaffold-docs','_blank','noopener,noreferrer')} icon="fa-github" iconSize="15px">Github</MenuItem>
+		<MenuItem icon="fa-question" iconSize="15px">Support</MenuItem>
+		<div style="display: flex; gap: 1rem; align-items: center; padding: 1rem">Theme<ButtonTheme /></div>
+	</DropdownContainer>
 {/snippet}
+{#snippet TriggerMenu()}
+	<button use:buttonRipple class="w-10 text-xl text-(--primary-bg)" aria-label="Ellipsis" onclick={() => (openMenu = !openMenu)}>
+		<i class="fa-solid fa-cog"></i>
+	</button>
+{/snippet}
+
