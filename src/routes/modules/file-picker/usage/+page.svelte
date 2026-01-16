@@ -23,8 +23,8 @@
 	}
 </script>
 
+<title>Usage</title>
 <section id={sectioning.modules.file_picker.usage} class="space-y-4">
-	<title>File Picker</title>
     <h1>Usage</h1>
     <h2>Manage</h2>
     <h3>

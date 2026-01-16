@@ -4,6 +4,7 @@
   import { ButtonFlip } from '@sierra-95/svelte-scaffold';
 </script>
 
+<title>Getting Started</title>
 <section id={sectioning.overview} class="mx-auto max-w-[1200px] px-8 py-16 md:px-8 md:py-16 sm:px-4 sm:py-8 h-full">
   <!-- Welcome -->
   <div class="mb-12 text-center">

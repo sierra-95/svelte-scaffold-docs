@@ -3,7 +3,7 @@
 </script>
 
 <section id={sectioning.installation.installation} class="space-y-4 mb-10">
-  <title>Getting Started</title>
+  <title>Installation</title>
   <h1>Installation</h1>
   <h3>
     To get started, install the package via npm:

@@ -3,7 +3,7 @@
 </script>
 
 <section id={sectioning.modules.layout.overview} class="space-y-4">
-	<title>Layout overview</title>
+	<title>Overview</title>
 	<h1>Layout</h1>
 	<h3>The layout menu is a portal scaffold.
         It’s designed to save developers time on setup so they can focus on real development work.

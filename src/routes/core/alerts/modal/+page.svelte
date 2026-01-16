@@ -36,9 +36,9 @@
     <Input label="Enter Youtube URL" id="youtube-url" bind:value={value}/>
 {/snippet}
 
-<title>Alert Modal</title>
+<title>Modal</title>
 <section id={sectioning.components.modal.getting_started} class="space-y-4 mb-10">
-    <h1>Alert Modal</h1>
+    <h1>Modal</h1>
     <h3>Place this anywhere in your app</h3>
     <RenderCode
         lang="svelte"
