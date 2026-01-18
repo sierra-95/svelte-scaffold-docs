@@ -1,8 +1,8 @@
 <script lang="ts">
 	import '../app.css';
 	import { onMount, tick } from 'svelte';
-	import {Layout, ButtonTheme, theme, isLoggedIn, User, isMobile, DropdownContainer, MenuItem, SearchBar} from '@sierra-95/svelte-scaffold';
-	import {sections, TOC} from '$lib';
+	import {Layout, ButtonTheme, theme, isLoggedIn, User, isMobile, DropdownContainer, MenuItem} from '@sierra-95/svelte-scaffold';
+	import {sections, TOC, SearchBar} from '$lib';
 
 	let { children } = $props();
 	let link = $state('');
@@ -66,13 +66,7 @@
 </Layout>
 
 {#snippet searchBar()}
-	{#if $isMobile}
-		<button aria-label="Search">
-			<i class="fa fa-search"></i>
-		</button>
-	{:else}
-		<SearchBar width="100px" height="35px" enableHotkey/>
-	{/if}
+	<SearchBar/>
 {/snippet}
 
 {#snippet headerRightContent()}
