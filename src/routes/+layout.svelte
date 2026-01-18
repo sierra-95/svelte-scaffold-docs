@@ -1,7 +1,7 @@
 <script lang="ts">
 	import '../app.css';
 	import { onMount, tick } from 'svelte';
-	import {Layout, ButtonTheme, theme, isLoggedIn, User, isMobile, DropdownContainer, MenuItem, buttonRipple} from '@sierra-95/svelte-scaffold';
+	import {Layout, ButtonTheme, theme, isLoggedIn, User, isMobile, DropdownContainer, MenuItem, SearchBar} from '@sierra-95/svelte-scaffold';
 	import {sections, TOC} from '$lib';
 
 	let { children } = $props();
@@ -50,10 +50,10 @@
 <Layout 
 	{sections}
 	paddingOff
-	headerTitle = 'Sierra-95/svelte-scaffold'
+	headerTitle = {$isMobile ? 'Sierra-95' : 'Sierra-95/svelte-scaffold'}
 	headerLink = '/'
 	headerImage = {link}
-	headerImageSize = '35px'
+	headerImageSize = '30px'
 	headerRightContent = {headerRightContent}
 	dashboardMenu
 	dashboardMenuSize="25px"
@@ -64,13 +64,26 @@
 	<TOC/>
 </div>
 </Layout>
+
+{#snippet searchBar()}
+	{#if $isMobile}
+		<button aria-label="Search">
+			<i class="fa fa-search"></i>
+		</button>
+	{:else}
+		<SearchBar width="100px" height="35px" enableHotkey/>
+	{/if}
+{/snippet}
+
 {#snippet headerRightContent()}
+	{@render searchBar()}
 	<DropdownContainer top="30px" bind:open={openMenu} dropdownTrigger={TriggerMenu}>
 		<MenuItem onclick={() => window.open('https://github.com/Sierra-95/svelte-scaffold-docs','_blank','noopener,noreferrer')} icon="fa-github" iconSize="15px">Github</MenuItem>
 		<MenuItem icon="fa-question" iconSize="15px">Support</MenuItem>
 		<div style="display: flex; gap: 1rem; align-items: center; padding: 1rem">Theme<ButtonTheme /></div>
 	</DropdownContainer>
 {/snippet}
+
 {#snippet TriggerMenu()}
 	<button class="w-10 text-xl text-(--primary-bg)" aria-label="Ellipsis" onclick={() => (openMenu = !openMenu)}>
 		<i class="fa-solid fa-cog" style="transition: transform 0.5s ease; transform: rotate({openMenu ? 90 : 0}deg);"></i>
