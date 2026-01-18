@@ -1,11 +1,12 @@
 <script lang="ts">
 	import { onMount } from 'svelte';
-	import {Input, PasswordInput, fileInputStore, FileInput, resetFileInputStore} from '@sierra-95/svelte-scaffold';
+	import {Input, PasswordInput, fileInputStore, FileInput, resetFileInputStore, SearchBar} from '@sierra-95/svelte-scaffold';
 	import {RenderCode, routes, sectioning} from '$lib';
 	import FileInputTable from './_table/fileInput.svelte';
 
 	let email = '';
 	let password = '';
+	let searchQuery = '';
 
 	let processing = false; 
 
@@ -29,7 +30,7 @@
 
 <title>Inputs</title>
 <section id={sectioning.components.inputs.basic_input} class="space-y-4 mb-10">
-	<h1 class="font-bold text-2xl">Inputs</h1>
+	<h2>Basic Input</h2>
 	<Input 
 		id="email" 
 		type="email" 
@@ -81,6 +82,23 @@
 			bind:value={password} 
 		/>
 		
+	`}/>
+</section>
+
+<section id={sectioning.components.inputs.search_bar} class="space-y-4 mb-10">
+	<h2>Search Bar</h2>
+	<SearchBar bind:value={searchQuery} onSearch={() => alert(`Search triggered ${searchQuery}!`)}/>
+	<SearchBar enableHotkey onHotkey={()=> alert('Hotkey triggered!')}/>
+	<RenderCode
+		lang="svelte"
+		code={`
+		<\script>
+			import { SearchBar } from '@sierra-95/svelte-scaffold';
+			let searchQuery = '';
+		<\/script>
+
+		<SearchBar bind:value={searchQuery} onSearch={() => alert(\`Search triggered \${searchQuery}!\`)}/>
+		<SearchBar enableHotkey onHotkey={()=> alert('Hotkey triggered!')}/>
 	`}/>
 </section>
 

@@ -67,6 +67,7 @@ export const sectioning = {
         inputs: {
             basic_input: 'doc-input-basic',
             password_input: 'doc-input-password',
+            search_bar: 'doc-input-search-bar',
             file_input: 'doc-file-input',
         },
         menu: {
@@ -189,6 +190,7 @@ export const sections = [
                         TOC:{
                             basic_input: sectioning.components.inputs.basic_input,
                             password_input: sectioning.components.inputs.password_input,
+                            search_bar: sectioning.components.inputs.search_bar,
                             file_input: sectioning.components.inputs.file_input,
                         }
                     },
