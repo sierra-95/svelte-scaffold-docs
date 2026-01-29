@@ -56,8 +56,7 @@
 	headerImage = {link}
 	headerImageSize = '30px'
 	headerRightContent = {headerRightContent}
-	dashboardMenu
-	dashboardMenuSize="25px"
+	gridToggle
 ><div class="flex items-start">
 	<div style="width: {$isMobile ? '100%' : 'calc(100% - 300px)'}" class="w-full p-6 mx-auto">
 		{@render children()}
