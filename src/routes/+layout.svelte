@@ -7,6 +7,7 @@
 	let { children } = $props();
 	let link = $state('');
 	let openMenu = $state(false);
+	
 	$effect(() => {
 		if($theme === 'light'){
 			link = 'https://files.michaelmachohi.com/logos/michaelmachohi.dark.blue.png';

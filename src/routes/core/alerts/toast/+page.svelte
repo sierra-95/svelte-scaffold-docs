@@ -24,7 +24,7 @@
 <title>Toast</title>
 <section id={sectioning.components.toast.getting_started} class="space-y-4 mb-10">
     <h1>Toast</h1>
-    <Button onclick={triggerToast}>Click here</Button>
+    <Button onclick={triggerToast}>Toast Me</Button>
     <h3>Place this anywhere in your app</h3>
     <RenderCode
         lang="svelte"

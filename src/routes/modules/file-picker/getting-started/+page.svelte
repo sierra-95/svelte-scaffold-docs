@@ -25,10 +25,10 @@
 <title>Getting Started</title>
 <section id={sectioning.modules.file_picker.getting_started} class="space-y-4">
     <h1>File Picker</h1>
+    <Button onclick={() => open()}>Launch File Picker</Button>
     <h3>The file picker is a cloud solution for form filling that allows users to submit uploaded files,
         update new ones and never lose them all together.
     </h3>
-    <Button onclick={() => open()}>Click to test</Button>
     <h2>Why Use the File Picker?</h2>
     <ul class="list-disc list-inside space-y-2">
         <li>
