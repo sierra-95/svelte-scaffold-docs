@@ -56,7 +56,6 @@
 	headerImage = {link}
 	headerImageSize = '30px'
 	headerRightContent = {headerRightContent}
-	gridToggle
 ><div class="flex items-start">
 	<div style="width: {$isMobile ? '100%' : 'calc(100% - 300px)'}" class="w-full p-6 mx-auto">
 		{@render children()}
