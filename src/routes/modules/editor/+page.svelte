@@ -21,6 +21,17 @@
 	<title>Editor</title>
 	<h1>Editor</h1>
     <Editor bind:content/>
+    <h2>Saving/ Extracting/ Exporting Content</h2>
+    <h3>
+        To save or extract content from the editor, set the <code class="note">export</code> prop to true. This will give you the content in JSON and HTML format, which can be saved in a database or used as needed.
+        This can be accessed via <code class="note">$editorStore.content</code>.
+    </h3>
+    <h3>If any function should run immediately after content is exported, attach it to <code class="note">$editorStore.onExport()</code></h3>
+    <h2>Loading Content</h2>
+    <h3>
+        The <code>content</code> variable can also be used to load previously saved content. 
+        The JSON content is important because it preserves all styling and content from the editor, and can be saved in a database.
+    </h3>
     <RenderCode
 		lang="svelte"
 		code={`
@@ -30,14 +41,6 @@
 		<\/script>
         <Editor bind:content/>
 	`}/>
-    <h2>Saving & Loading Content</h2>
-    <h3>
-        After typing and clicking save, the JSON content and any images used in the editor will be stored in the <code>content</code> variable.
-    </h3>
-    <h3>
-        The <code>content</code> variable can also be used to load previously saved content. 
-        The JSON content is important because it preserves all styling and content from the editor, and can be saved in a database.
-    </h3>
     <h2>Read only</h2>
     <h3>To read content created in this editor, use <code>readOnly</code> mode</h3>
     <RenderCode

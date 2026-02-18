@@ -12,12 +12,13 @@
 	<h1>General Stores</h1>
 	<h3>A variety of stores have been provided for managing state in your Svelte applications.</h3>
 	<section id={sectioning.stores.general.is_mobile} class="space-y-4 mb-10">
-		<h2>isMobile (768px)</h2>
+		<h2>1. Device Width</h2>
+		<h3>isMobile (&lt;480px), isTablet ( 480px &gt & &lt; 768px), isDesktop (&gt1024px)</h3>
 		<RenderCode
 			lang="svelte"
 			code={`
 			<\script>
-				import { isMobile } from '@sierra-95/svelte-scaffold';
+				import { isMobile, isTablet, isDesktop } from '@sierra-95/svelte-scaffold';
 				
 				let isMenuOpen = $state(false);
 				$effect(() => {
@@ -28,7 +29,7 @@
 	</section>
 
 	<section id={sectioning.stores.general.is_loading} class="space-y-4 mb-10">
-		<h2>isLoading</h2>
+		<h2>2. isLoading</h2>
 		<h3>
 		Implemented internally in
 		<a class="note" href={routes.modules.layout.children.overview}>Layout</a>,
@@ -49,7 +50,7 @@
 	</section>
 	
 	<section id={sectioning.stores.general.is_logged_in} class="space-y-4 mb-10">
-		<h2>isLoggedIn</h2>
+		<h2>3. isLoggedIn</h2>
 		<RenderCode
 			lang="svelte"
 			code={`
@@ -68,7 +69,7 @@
 	</section>
 
 	<section id={sectioning.stores.general.user_store} class="space-y-4 mb-10">
-		<h2>User Store</h2>
+		<h2>4. User Store</h2>
 		<h3>This store can be used components to manage user-related data including the  
 			<a href={`${routes.core.children.Menus}#${sectioning.components.menu.user_menu}`} class="note">This example</a> 
 		</h3>
