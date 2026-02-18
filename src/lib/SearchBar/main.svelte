@@ -1,4 +1,5 @@
 <script lang="ts">
+    import { tick } from 'svelte';
     import { goto } from '$app/navigation';
     import { browser } from '$app/environment';
     import {SearchBar, isMobile, Backdrop, Wrapper, MenuItem} from '@sierra-95/svelte-scaffold';
@@ -8,12 +9,19 @@
     let open = $state(false);
     let query = $state('');
     let results = $state<SearchResult[]>([]);
+    let inputEl = $state<HTMLInputElement | null>(null);
 
     function toggle() {
         open = !open;
         if(open){
             const searchIndex = buildSearchIndex();
             results = searchIndex.slice(0, 8);
+            tick().then(() => {
+                inputEl?.focus();
+            });
+        }else{
+            query = '';
+            results = [];
         }
     }
 
@@ -22,7 +30,7 @@
         const searchIndex = buildSearchIndex();
         return searchIndex
             .filter(item => item.keywords.includes(query))
-            .slice(0, 8); // limit results
+            .slice(0, 8);
     }
 
     $effect(() => {
@@ -30,12 +38,6 @@
             results = dynamicSearch(query);
         }
     });
-
-    function onNavigate(){
-        query = '';
-        results = [];
-        toggle();
-    }
 </script>
 
 <style>
@@ -58,7 +60,7 @@
 <Backdrop bind:open>
     <Wrapper minHeight="200px">
         <div class="flex gap-2">
-            <div class="flex-1"><SearchBar bind:value={query} width="100%"/></div>
+            <div class="flex-1"><SearchBar bind:value={query} bind:inputEl width="100%"/></div>
             <button class="searchbar-esc" onclick={toggle}>ESC</button>
         </div>
         {#if results.length > 0}
@@ -66,7 +68,7 @@
                 {#each results as result}
                     <MenuItem onclick={() => {
                         goto(result.path + (result.sectionId ? `#${result.sectionId}` : ''));
-                        onNavigate();
+                        toggle();
                     }}>{result.label}</MenuItem>
                 {/each}
             </ul>
