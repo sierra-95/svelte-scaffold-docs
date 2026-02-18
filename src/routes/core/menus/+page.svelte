@@ -138,6 +138,7 @@
         ]}
         snippets={{ Home, Insert }}
         actions={actions}
+        boxShadow
     />
     <h3>Snippet name should be same as key</h3>
     <RenderCode
@@ -168,6 +169,7 @@
             ]}
             snippets={{ Home, Insert }}
             actions={actions}
+            boxShadow
         />
     `}/>
 </section>
