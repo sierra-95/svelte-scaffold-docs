@@ -1,5 +1,5 @@
 <script>
-    import {MenuItem, DropdownContainer, buttonRipple, User, Hr, resetUserStore} from '@sierra-95/svelte-scaffold';
+    import {MenuItem, DropdownContainer, buttonRipple, User, Hr, resetUserStore, Tabs} from '@sierra-95/svelte-scaffold';
 	import {RenderCode, sectioning} from '$lib';
 
 
@@ -59,7 +59,7 @@
     `}/>
 </section>
 <section id={sectioning.components.menu.user_menu} class="space-y-4 mb-10">
-    <h1>Example: User Menu</h1>
+    <h2>Example: User Menu</h2>
     {#snippet TriggerUserInfo()}
         <button use:buttonRipple class="w-10 text-3xl text-(--primary-bg)" aria-label="Ellipsis" onclick={() => (openUserMenu = !openUserMenu)}>
             <i class="fa-solid fa-user"></i>
@@ -109,5 +109,65 @@
             <MenuItem onclick={handleProfile} icon="fa-user" iconSize='15px'>Profile</MenuItem>
             <MenuItem onclick={handleLogout} icon="fa-right-from-bracket" iconSize='15px'>Logout</MenuItem>
         </DropdownContainer>
+    `}/>
+</section>
+<section id={sectioning.components.menu.tabs} class="space-y-4 mb-10">
+    <h1>Tabs</h1>
+    <p>
+        Tabs allows you to create a tabbed interface for organizing content into separate views.
+        Users can navigate between different sections of content without leaving the page.
+    </p>
+    {#snippet Home()}
+        <h3>Welcome Home</h3>
+    {/snippet}
+
+    {#snippet Insert()}
+        <h3>Insert Something</h3>
+    {/snippet}
+
+    {#snippet actions()}
+        <button use:buttonRipple class="w-10" aria-label="Ellipsis">
+            <i class="fa-solid fa-ellipsis-v"></i>
+        </button>
+    {/snippet}
+
+    <Tabs
+        tabs={[
+            { key: 'Home', title: 'Home', icon: 'fa-home' },
+            { key: 'Insert', title: 'Insert', icon: 'fa-plus' }
+        ]}
+        snippets={{ Home, Insert }}
+        actions={actions}
+    />
+    <h3>Snippet name should be same as key</h3>
+    <RenderCode
+        lang="svelte"
+        code={`
+        <\script>
+            import {Tabs, useButtonRipple} from '@sierra-95/svelte-scaffold';
+        <\/script>
+
+        {#snippet Home()}
+            <h3>Welcome Home</h3>
+        {/snippet}
+
+        {#snippet Insert()}
+            <h3>Insert Something</h3>
+        {/snippet}
+
+        {#snippet actions()}
+            <button use:buttonRipple class="w-10" aria-label="Ellipsis">
+                <i class="fa-solid fa-ellipsis-v"></i>
+            </button>
+        {/snippet}
+
+        <Tabs
+            tabs={[
+                { key: 'Home', title: 'Home', icon: 'fa-home' },
+                { key: 'Insert', title: 'Insert', icon: 'fa-plus' }
+            ]}
+            snippets={{ Home, Insert }}
+            actions={actions}
+        />
     `}/>
 </section>

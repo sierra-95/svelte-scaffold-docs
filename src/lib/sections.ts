@@ -73,6 +73,7 @@ export const sectioning = {
         menu: {
             dropdown: 'doc-menu-dropdown',
             user_menu: 'doc-menu-user',
+            tabs: 'doc-menu-tabs',
         },
         modal: {
             getting_started: 'doc-modal-getting-started',
@@ -200,6 +201,7 @@ export const sections = [
                         TOC: {
                             dropdown: sectioning.components.menu.dropdown,
                             user_menu: sectioning.components.menu.user_menu,
+                            tabs: sectioning.components.menu.tabs,
                         }
                     },
                     { 
