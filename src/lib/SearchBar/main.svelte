@@ -1,11 +1,17 @@
 <script>
     import {SearchBar, isMobile, Backdrop, Wrapper} from '@sierra-95/svelte-scaffold';
 
-    const height = '40px';
+    
     let open = $state(false);
+    let query = $state('');
+
     function toggle() {
         open = !open;
     }
+    function onSearch() {
+        console.log('searching for', query);
+    }
+
 </script>
 
 <style>
@@ -16,6 +22,7 @@
         transition: border-color 0.05s;
     }
 </style>
+
 {#if $isMobile}
     <button onclick={toggle} aria-label="Search">
         <i class="fa fa-search"></i>
@@ -26,8 +33,8 @@
 
 <Backdrop bind:open>
     <Wrapper>
-        <div class="flex gap-2" style="height: {height}">
-            <div class="flex-1"><SearchBar width="100%"/></div>
+        <div class="flex gap-2">
+            <div class="flex-1"><SearchBar bind:value={query} width="100%" onSearch={onSearch}/></div>
             <button class="searchbar-esc" onclick={toggle}>ESC</button>
         </div>
     </Wrapper>
