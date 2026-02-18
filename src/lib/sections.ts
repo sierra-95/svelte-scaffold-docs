@@ -137,7 +137,7 @@ export type Section = {
     items: SectionItem[];
 };
 
-export const sections = [
+export const sections: Section[] = [
     {
         label: 'Getting Started',
         items: [
