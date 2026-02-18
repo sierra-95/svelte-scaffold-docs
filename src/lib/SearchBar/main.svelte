@@ -11,6 +11,10 @@
 
     function toggle() {
         open = !open;
+        if(open){
+            const searchIndex = buildSearchIndex();
+            results = searchIndex.slice(0, 8);
+        }
     }
 
     function dynamicSearch(query: string) {
@@ -52,7 +56,7 @@
 {/if}
 
 <Backdrop bind:open>
-    <Wrapper>
+    <Wrapper minHeight="200px">
         <div class="flex gap-2">
             <div class="flex-1"><SearchBar bind:value={query} width="100%"/></div>
             <button class="searchbar-esc" onclick={toggle}>ESC</button>
@@ -66,6 +70,8 @@
                     }}>{result.label}</MenuItem>
                 {/each}
             </ul>
+        {:else if query}
+            <p class="mt-4 text-sm text-(--text-secondary)">No results found</p>
         {/if}
     </Wrapper>
 </Backdrop>
