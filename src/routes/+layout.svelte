@@ -1,7 +1,7 @@
 <script lang="ts">
 	import '../app.css';
 	import { onMount, tick } from 'svelte';
-	import {Layout, ButtonTheme, theme, isLoggedIn, User, isMobile, DropdownContainer, MenuItem} from '@sierra-95/svelte-scaffold';
+	import {Layout, ButtonTheme, theme, isLoggedIn, User, isMobile,isTablet, DropdownContainer, MenuItem} from '@sierra-95/svelte-scaffold';
 	import {sections, TOC, SearchBar} from '$lib';
 
 	let { children } = $props();
@@ -51,13 +51,13 @@
 <Layout 
 	{sections}
 	paddingOff
-	headerTitle = {$isMobile ? 'Sierra-95' : 'Sierra-95/svelte-scaffold'}
+	headerTitle = {$isMobile || $isTablet ? 'Sierra-95' : 'Sierra-95/svelte-scaffold'}
 	headerLink = '/'
 	headerImage = {link}
 	headerImageSize = '30px'
 	headerRightContent = {headerRightContent}
 ><div class="flex items-start">
-	<div style="width: {$isMobile ? '100%' : 'calc(100% - 300px)'}" class="w-full p-6 mx-auto">
+	<div style="width: {$isMobile || $isTablet ? '100%' : 'calc(100% - 300px)'}" class="w-full p-6 mx-auto">
 		{@render children()}
 	</div>
 	<TOC/>

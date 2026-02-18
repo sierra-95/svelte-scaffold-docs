@@ -1,7 +1,7 @@
 <script lang="ts">
     import {sections} from '$lib/index';
     import type { Section, SectionItem } from '$lib/index';
-    import {isMobile} from '@sierra-95/svelte-scaffold';
+    import {isMobile, isTablet} from '@sierra-95/svelte-scaffold';
     //import { page } from '$app/state';
     import { page } from '$app/stores';
 
@@ -52,9 +52,9 @@
     }
 </style>
 
-<main id="TOC">
+<main hidden={$isMobile || $isTablet} id="TOC">
     {#if currentSection}
-        <nav hidden={$isMobile}>
+        <nav>
             <h2>On this Page</h2>
             <ul>
                 {#each Object.entries(currentSection.TOC ?? {}) as [key, href]}
