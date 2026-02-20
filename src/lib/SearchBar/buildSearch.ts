@@ -13,11 +13,13 @@ export function buildSearchIndex() {
     sections.forEach(section => {
         section.items.forEach(item => {
             // Level 1
-            results.push({
-                label: item.label,
-                path: item.path,
-                keywords: item.label.toLowerCase(),
-            });
+            if (!item.children) {
+                results.push({
+                    label: item.label,
+                    path: item.path,
+                    keywords: item.label.toLowerCase(),
+                });
+            }
 
             // Level 2
             item.children?.forEach(child => {
