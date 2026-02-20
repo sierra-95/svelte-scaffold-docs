@@ -126,22 +126,7 @@ export const sectionIds = {
     }
 }
 
-
-export type SectionItem = {
-    id?: string;
-    path: string;
-    label: string;
-    icon?: string;
-    children?: SectionItem[];
-    TOC?: Partial<Record<string, string>>;
-};
-
-export type Section = {
-    label: string;
-    items: SectionItem[];
-};
-
-export const sections: Section[] = [
+export const sections = [
     {
         label: 'Getting Started',
         items: [

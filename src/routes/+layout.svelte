@@ -1,8 +1,8 @@
 <script lang="ts">
 	import '../app.css';
 	import { onMount, tick } from 'svelte';
-	import {Layout, ButtonTheme, theme, isLoggedIn, User, isMobile,isTablet, DropdownContainer, MenuItem} from '@sierra-95/svelte-scaffold';
-	import {sections, TOC, SearchBar} from '$lib';
+	import {Layout, ButtonTheme, theme, isLoggedIn, User, isMobile,isTablet, DropdownContainer, MenuItem, GlobalSearch} from '@sierra-95/svelte-scaffold';
+	import {sections, TOC } from '$lib';
 
 	let { children } = $props();
 	let link = $state('');
@@ -64,12 +64,8 @@
 </div>
 </Layout>
 
-{#snippet searchBar()}
-	<SearchBar/>
-{/snippet}
-
 {#snippet headerRightContent()}
-	{@render searchBar()}
+	<GlobalSearch {sections}/>
 	<DropdownContainer top="30px" bind:open={openMenu} dropdownTrigger={TriggerMenu}>
 		<MenuItem onclick={() => window.open('https://github.com/Sierra-95/svelte-scaffold-docs','_blank','noopener,noreferrer')} icon="fa-github" iconSize="15px">Github</MenuItem>
 		<MenuItem icon="fa-question" iconSize="15px">Support</MenuItem>

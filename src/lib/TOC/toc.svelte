@@ -1,6 +1,6 @@
 <script lang="ts">
     import {sections} from '$lib/index';
-    import type { Section, SectionItem } from '$lib/index';
+    import type { Section, SectionItem } from '@sierra-95/svelte-scaffold';
     import {isMobile, isTablet} from '@sierra-95/svelte-scaffold';
     //import { page } from '$app/state';
     import { page } from '$app/stores';
