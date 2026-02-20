@@ -9,19 +9,23 @@
     let open = $state(false);
     let query = $state('');
     let results = $state<SearchResult[]>([]);
+    let initialResults = $state<SearchResult[]>([]);
     let inputEl = $state<HTMLInputElement | null>(null);
+    
+    const RECENT_SEARCH_KEY = 'sierra_recent_searches';
+    const MAX_RECENT = 8;   
 
     function toggle() {
         open = !open;
         if(open){
-            const searchIndex = buildSearchIndex();
-            results = searchIndex.slice(0, 8);
+            initializeSearch();
             tick().then(() => {
                 inputEl?.focus();
             });
         }else{
             query = '';
             results = [];
+            initialResults = [];
         }
     }
 
@@ -34,10 +38,49 @@
     }
 
     $effect(() => {
-        if(query && browser){
-            results = dynamicSearch(query);
+        if(browser){
+            if(query.length > 0){
+                results = dynamicSearch(query);
+            }
         }
     });
+
+    function initializeSearch(){
+        const recentSearches = getRecentSearches();
+        if (recentSearches.length > 0) {
+            initialResults = recentSearches;
+        } else {
+            const searchIndex = buildSearchIndex();
+            results = searchIndex.slice(0, 8);
+        }
+    }
+
+    function getRecentSearches(): SearchResult[] {
+        if (!browser) return [];
+        const stored = localStorage.getItem(RECENT_SEARCH_KEY);
+        return stored ? JSON.parse(stored) : [];
+    }
+
+    function saveRecentSearch(result: SearchResult) {
+        if (!browser) return;
+
+        let recent = getRecentSearches();
+
+        // Remove if already exists (avoid duplicates)
+        recent = recent.filter(r =>
+            !(r.path === result.path && r.sectionId === result.sectionId)
+        );
+
+        // Add to top
+        recent.unshift(result);
+
+        // Keep max 8
+        if (recent.length > MAX_RECENT) {
+            recent = recent.slice(0, MAX_RECENT);
+        }
+
+        localStorage.setItem(RECENT_SEARCH_KEY, JSON.stringify(recent));
+    }
 </script>
 
 <style>
@@ -64,16 +107,25 @@
             <button class="searchbar-esc" onclick={toggle}>ESC</button>
         </div>
         {#if results.length > 0}
-            <ul class="mt-4">
-                {#each results as result}
-                    <MenuItem icon={result.icon} iconSize="15px" onclick={() => {
-                        goto(result.path + (result.sectionId ? `#${result.sectionId}` : ''));
-                        toggle();
-                    }}>{result.label}</MenuItem>
-                {/each}
-            </ul>
+            {#each results as result}
+                <MenuItem icon={result.icon} iconSize="15px" onclick={() => {
+                    saveRecentSearch(result);
+                    goto(result.path + (result.sectionId ? `#${result.sectionId}` : ''));
+                    toggle();
+                }}>{result.label}</MenuItem>
+            {/each}
         {:else if query}
             <p class="mt-4 text-sm text-(--text-secondary)">No results found</p>
+        {/if}
+        {#if initialResults.length > 0}
+            <p class="mt-4 text-sm text-(--text-secondary)">Recent Searches</p>
+            {#each initialResults as result}
+                <MenuItem icon={result.icon} iconSize="15px" onclick={() => {
+                    saveRecentSearch(result);
+                    goto(result.path + (result.sectionId ? `#${result.sectionId}` : ''));
+                    toggle();
+                }}>{result.label}</MenuItem>
+            {/each} 
         {/if}
     </Wrapper>
 </Backdrop>
