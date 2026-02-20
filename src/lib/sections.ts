@@ -92,6 +92,7 @@ export const sectionIds = {
     modules: {
         editor: {
             getting_started: 'docs-editor-getting-started',
+            inserting_images: 'docs-editor-inserting-images',
         },
         file_picker: {
             getting_started: 'docs-file-picker-getting-started',
@@ -118,7 +119,10 @@ export const sectionIds = {
             is_logged_in: 'docs-stores-general-is-logged-in',
             user_store: 'docs-stores-general-user-store',
         },
-        theme: 'docs-stores-theme',
+        theme: {
+            theme_store: 'docs-stores-theme-theme-store',
+            theme_button: 'docs-stores-theme-theme-button',
+        },
     }
 }
 
@@ -146,7 +150,7 @@ export const sections: Section[] = [
                 label: 'Overview', 
                 icon: 'fa fa-home',
                 TOC :{
-                    overview: sectionIds.overview,
+                    introduction: sectionIds.overview,
                 }
             },
             { 
@@ -154,7 +158,7 @@ export const sections: Section[] = [
                 label: 'Installation', 
                 icon: 'fa fa-download',
                 TOC: {
-                    installation: sectionIds.installation.installation,
+                    getting_started: sectionIds.installation.installation,
                     font_awesome: sectionIds.installation.font_awesome,
                 } 
             },
@@ -241,7 +245,8 @@ export const sections: Section[] = [
                 label: 'Editor',
                 icon: 'fa fa-pencil-square-o' ,
                 TOC: {
-                    getting_started: 'docs-editor-getting-started',
+                    getting_started: sectionIds.modules.editor.getting_started,
+                    inserting_images: sectionIds.modules.editor.inserting_images,
                 },
             },
             { 
@@ -327,7 +332,8 @@ export const sections: Section[] = [
                 label: 'Theme',
                 icon: 'fa fa-moon-o' ,
                 TOC: {
-                    getting_started: sectionIds.stores.theme,
+                    theme_store: sectionIds.stores.theme.theme_store,
+                    theme_button: sectionIds.stores.theme.theme_button,
                 }
             },
         ]

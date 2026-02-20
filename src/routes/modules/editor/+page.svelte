@@ -53,6 +53,10 @@
 		<\/script>
         <Editor readOnly bind:content/>
 	`}/>
+
+</section>
+
+<section id={sectionIds.modules.editor.inserting_images} class="space-y-4">
     <h2>Inserting Images</h2>
     <h3>The editor primarily uses
         <a href={routes.modules.file_picker.children.getting_started} class="note">File Picker</a>
