@@ -66,7 +66,7 @@
         {#if results.length > 0}
             <ul class="mt-4">
                 {#each results as result}
-                    <MenuItem onclick={() => {
+                    <MenuItem icon={result.icon} iconSize="15px" onclick={() => {
                         goto(result.path + (result.sectionId ? `#${result.sectionId}` : ''));
                         toggle();
                     }}>{result.label}</MenuItem>

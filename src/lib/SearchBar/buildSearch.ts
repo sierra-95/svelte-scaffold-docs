@@ -5,6 +5,7 @@ export type SearchResult = {
   path: string;
   sectionId?: string;
   keywords: string;
+  icon?: string;
 };
 
 export function buildSearchIndex() {
@@ -18,39 +19,43 @@ export function buildSearchIndex() {
                     label: item.label,
                     path: item.path,
                     keywords: item.label.toLowerCase(),
+                    icon: item.icon,
                 });
             }
 
             // Level 2
             item.children?.forEach(child => {
                 results.push({
-                label: `${item.label} → ${child.label}`,
-                path: child.path,
-                keywords: `${item.label} ${child.label}`.toLowerCase(),
+                    label: `${item.label} → ${child.label}`,
+                    path: child.path,
+                    keywords: `${item.label} ${child.label}`.toLowerCase(),
+                    icon: item.icon,
                 });
 
                 // Level 3 (TOC)
                 if (child.TOC) {
-                Object.entries(child.TOC).forEach(([key, id]) => {
-                    results.push({
-                    label: `${child.label} → ${key.replaceAll('_',' ')}`,
-                    path: child.path,
-                    sectionId: id,
-                    keywords: `${child.label} ${key}`.toLowerCase(),
+                    Object.entries(child.TOC).forEach(([key, id]) => {
+                        results.push({
+                            label: `${child.label} → ${key.replaceAll('_',' ')}`,
+                            path: child.path,
+                            sectionId: id,
+                            keywords: `${child.label} ${key}`.toLowerCase(),
+                            icon: child.icon,
+                        });
                     });
-                });
                 }
             });
 
             // Level 3 directly on item
             if (item.TOC) {
                 Object.entries(item.TOC).forEach(([key, id]) => {
-                results.push({
-                    label: `${item.label} → ${key.replaceAll('_',' ')}`,
-                    path: item.path,
-                    sectionId: id,
-                    keywords: `${item.label} ${key}`.toLowerCase(),
-                });
+                    results.push({
+                        label: `${item.label} → ${key.replaceAll('_',' ')}`,
+                        path: item.path,
+                        sectionId: id,
+                        keywords: `${item.label} ${key}`.toLowerCase(),
+                        icon: item.icon,
+                    });
                 });
             }
         });
