@@ -1,6 +1,6 @@
 <script>
     import {isLoading, Button} from '@sierra-95/svelte-scaffold';
-    import {RenderCode, routes, sectioning} from '$lib';
+    import {RenderCode, routes, sectionIds} from '$lib';
 
     function toggleLoading() {
         isLoading.update((value) => !value);
@@ -11,7 +11,7 @@
 	<title>General Stores</title>
 	<h1>General Stores</h1>
 	<h3>A variety of stores have been provided for managing state in your Svelte applications.</h3>
-	<section id={sectioning.stores.general.is_mobile} class="space-y-4 mb-10">
+	<section id={sectionIds.stores.general.is_mobile} class="space-y-4 mb-10">
 		<h2>1. Device Width</h2>
 		<h3>isMobile (&lt;480px), isTablet ( 480px &gt & &lt; 768px), isDesktop (&gt1024px)</h3>
 		<RenderCode
@@ -28,7 +28,7 @@
 		`}/>
 	</section>
 
-	<section id={sectioning.stores.general.is_loading} class="space-y-4 mb-10">
+	<section id={sectionIds.stores.general.is_loading} class="space-y-4 mb-10">
 		<h2>2. isLoading</h2>
 		<h3>
 		Implemented internally in
@@ -49,7 +49,7 @@
 		`}/>
 	</section>
 	
-	<section id={sectioning.stores.general.is_logged_in} class="space-y-4 mb-10">
+	<section id={sectionIds.stores.general.is_logged_in} class="space-y-4 mb-10">
 		<h2>3. isLoggedIn</h2>
 		<RenderCode
 			lang="svelte"
@@ -68,10 +68,10 @@
 		`}/>
 	</section>
 
-	<section id={sectioning.stores.general.user_store} class="space-y-4 mb-10">
+	<section id={sectionIds.stores.general.user_store} class="space-y-4 mb-10">
 		<h2>4. User Store</h2>
 		<h3>This store can be used components to manage user-related data including the  
-			<a href={`${routes.core.children.Menus}#${sectioning.components.menu.user_menu}`} class="note">This example</a> 
+			<a href={`${routes.core.children.Menus}#${sectionIds.components.menu.user_menu}`} class="note">This example</a> 
 		</h3>
 		<RenderCode
 			lang="svelte"

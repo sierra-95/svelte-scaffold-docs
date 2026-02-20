@@ -1,5 +1,5 @@
 <script lang="ts">
-    import {RenderCode, routes, sectioning} from '$lib';
+    import {RenderCode, routes, sectionIds} from '$lib';
     import {fileInputStore,  User, Button, setToastMessage} from '@sierra-95/svelte-scaffold';
     
     $: r2_key = `svelte-scaffold/${$User.userId}`;
@@ -23,7 +23,7 @@
 </script>
 
 <title>Getting Started</title>
-<section id={sectioning.modules.file_picker.getting_started} class="space-y-4">
+<section id={sectionIds.modules.file_picker.getting_started} class="space-y-4">
     <h1>File Picker</h1>
     <h3>The file picker is a cloud solution for form filling that allows users to submit uploaded files,
         update new ones and never lose them all together.

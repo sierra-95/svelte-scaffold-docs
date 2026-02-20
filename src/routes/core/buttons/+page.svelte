@@ -1,6 +1,6 @@
 <script lang="ts">
 	import {Button, ButtonFlip, ButtonMarquee, ButtonSwipe} from '@sierra-95/svelte-scaffold'
-	import {RenderCode, sectioning} from '$lib';
+	import {RenderCode, sectionIds} from '$lib';
 	import ButtonCustom from './_tables/buttonCustom.svelte';
 	import ButtonDefault from './_tables/buttonDefault.svelte';
 
@@ -18,7 +18,7 @@
 
 
 <title>Buttons</title>
-<section id={sectioning.components.buttons.default_button} class="space-y-4 mb-10">
+<section id={sectionIds.components.buttons.default_button} class="space-y-4 mb-10">
 	<h1 class="font-bold text-2xl">Default Buttons</h1>
 	<div class="flex gap-4 flex-wrap">
 	{#each contained_buttons as { color, title }}
@@ -83,7 +83,7 @@
 	</div>
 </section>
 
-<section id={sectioning.components.buttons.custom_button} class="space-y-4 mb-10">
+<section id={sectionIds.components.buttons.custom_button} class="space-y-4 mb-10">
 	<h1>Custom Buttons</h1>
 	<div class="flex gap-4 items-center">
 		<ButtonSwipe />
@@ -108,7 +108,7 @@
 	`}/>
 </section>
 
-<section id={sectioning.components.buttons.props} class="space-y-4">
+<section id={sectionIds.components.buttons.props} class="space-y-4">
 	<h2>Default Buttons Table</h2>
 	<div class='overflow-x-auto'><ButtonDefault/></div>
 	<h2>Custom Buttons Table</h2>

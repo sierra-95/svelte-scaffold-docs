@@ -1,8 +1,8 @@
 <script>
-    import {routes, sectioning} from '$lib';
+    import {routes, sectionIds} from '$lib';
 </script>
 
-<section id={sectioning.modules.layout.overview} class="space-y-4">
+<section id={sectionIds.modules.layout.overview} class="space-y-4">
 	<title>Overview</title>
 	<h1>Layout</h1>
 	<h3>The layout menu is a portal scaffold.

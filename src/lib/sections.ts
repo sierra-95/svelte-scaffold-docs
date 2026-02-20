@@ -51,7 +51,7 @@ export const routes = {
     },
 };
 
-export const sectioning = {
+export const sectionIds = {
     overview: 'doc-overview',
     installation: {
         installation: 'doc-installation',
@@ -146,7 +146,7 @@ export const sections: Section[] = [
                 label: 'Overview', 
                 icon: 'fa fa-home',
                 TOC :{
-                    overview: sectioning.overview,
+                    overview: sectionIds.overview,
                 }
             },
             { 
@@ -154,8 +154,8 @@ export const sections: Section[] = [
                 label: 'Installation', 
                 icon: 'fa fa-download',
                 TOC: {
-                    installation: sectioning.installation.installation,
-                    font_awesome: sectioning.installation.font_awesome,
+                    installation: sectionIds.installation.installation,
+                    font_awesome: sectionIds.installation.font_awesome,
                 } 
             },
         ]
@@ -173,60 +173,60 @@ export const sections: Section[] = [
                         path: routes.core.children.buttons, 
                         label: 'Buttons', 
                         TOC: {
-                            default_button: sectioning.components.buttons.default_button,
-                            custom_button: sectioning.components.buttons.custom_button,
-                            props: sectioning.components.buttons.props,
+                            default_button: sectionIds.components.buttons.default_button,
+                            custom_button: sectionIds.components.buttons.custom_button,
+                            props: sectionIds.components.buttons.props,
                         }
                     },
                     { 
                         path: routes.core.children.date, 
                         label: 'Date', 
                         TOC:{
-                            date_picker: sectioning.components.date,
+                            date_picker: sectionIds.components.date,
                         }
                     },
                     { 
                         path: routes.core.children.inputs, 
                         label: 'Inputs', 
                         TOC:{
-                            basic_input: sectioning.components.inputs.basic_input,
-                            password_input: sectioning.components.inputs.password_input,
-                            search_bar: sectioning.components.inputs.search_bar,
-                            file_input: sectioning.components.inputs.file_input,
+                            basic_input: sectionIds.components.inputs.basic_input,
+                            password_input: sectionIds.components.inputs.password_input,
+                            search_bar: sectionIds.components.inputs.search_bar,
+                            file_input: sectionIds.components.inputs.file_input,
                         }
                     },
                     { 
                         path: routes.core.children.Menus, 
                         label: 'Menus',
                         TOC: {
-                            dropdown: sectioning.components.menu.dropdown,
-                            user_menu: sectioning.components.menu.user_menu,
-                            tabs: sectioning.components.menu.tabs,
+                            dropdown: sectionIds.components.menu.dropdown,
+                            user_menu: sectionIds.components.menu.user_menu,
+                            tabs: sectionIds.components.menu.tabs,
                         }
                     },
                     { 
                         path: routes.core.children.alerts.modal, 
                         label: 'Modal',
                         TOC: {
-                            getting_started: sectioning.components.modal.getting_started,
-                            props: sectioning.components.modal.props,
+                            getting_started: sectionIds.components.modal.getting_started,
+                            props: sectionIds.components.modal.props,
                         }
                     },
                     { 
                         path: routes.core.children.progress,
                         label: 'Progress', 
                         TOC: {
-                            circular_progress: sectioning.components.progress.circular_progress,
-                            linear_progress: sectioning.components.progress.linear_progress,
-                            custom_progress: sectioning.components.progress.custom_progress,
+                            circular_progress: sectionIds.components.progress.circular_progress,
+                            linear_progress: sectionIds.components.progress.linear_progress,
+                            custom_progress: sectionIds.components.progress.custom_progress,
                         }
                     },
                     { 
                         path: routes.core.children.alerts.toast, 
                         label: 'Toast',
                         TOC: {
-                            getting_started: sectioning.components.toast.getting_started,
-                            props: sectioning.components.toast.props,
+                            getting_started: sectionIds.components.toast.getting_started,
+                            props: sectionIds.components.toast.props,
                         }
                     },
                 ]
@@ -254,23 +254,23 @@ export const sections: Section[] = [
                         label: 'Getting Started',
                         path: routes.modules.file_picker.children.getting_started,
                         TOC: {
-                            getting_started: sectioning.modules.file_picker.getting_started,
+                            getting_started: sectionIds.modules.file_picker.getting_started,
                         }
                     },
                     {
                         label: 'Usage',
                         path: routes.modules.file_picker.children.usage,
                         TOC: {
-                            usage: sectioning.modules.file_picker.usage,
+                            usage: sectionIds.modules.file_picker.usage,
                         }
                     },
                     {
                         label: 'Backend Integration',
                         path: routes.modules.file_picker.children.backend,
                         TOC: {
-                            GET: sectioning.modules.file_picker.backend.GET,
-                            POST: sectioning.modules.file_picker.backend.POST,
-                            DELETE: sectioning.modules.file_picker.backend.DELETE,
+                            GET: sectionIds.modules.file_picker.backend.GET,
+                            POST: sectionIds.modules.file_picker.backend.POST,
+                            DELETE: sectionIds.modules.file_picker.backend.DELETE,
                         }
                     }
                 ]
@@ -285,22 +285,22 @@ export const sections: Section[] = [
                         label: 'Overview',
                         path: routes.modules.layout.children.overview,
                         TOC: {
-                            overview: sectioning.modules.layout.overview,
+                            overview: sectionIds.modules.layout.overview,
                         }
                     },
                     {      
                         label: 'Getting Started',
                         path: routes.modules.layout.children.getting_started,
                         TOC: {
-                            getting_started: sectioning.modules.layout.getting_started,
+                            getting_started: sectionIds.modules.layout.getting_started,
                         }
                     },
                     {      
                         label: 'Usage',
                         path: routes.modules.layout.children.usage,
                         TOC: {
-                            header: sectioning.modules.layout.usage.header,
-                            menu: sectioning.modules.layout.usage.menu,
+                            header: sectionIds.modules.layout.usage.header,
+                            menu: sectionIds.modules.layout.usage.menu,
                         }
                     }
 
@@ -316,10 +316,10 @@ export const sections: Section[] = [
                 label: 'General',
                 icon: 'fa fa-store' ,
                 TOC: {
-                    is_mobile: sectioning.stores.general.is_mobile,
-                    is_loading: sectioning.stores.general.is_loading,
-                    is_logged_in: sectioning.stores.general.is_logged_in,
-                    user_store: sectioning.stores.general.user_store,
+                    is_mobile: sectionIds.stores.general.is_mobile,
+                    is_loading: sectionIds.stores.general.is_loading,
+                    is_logged_in: sectionIds.stores.general.is_logged_in,
+                    user_store: sectionIds.stores.general.user_store,
                 }
             },
             { 
@@ -327,7 +327,7 @@ export const sections: Section[] = [
                 label: 'Theme',
                 icon: 'fa fa-moon-o' ,
                 TOC: {
-                    getting_started: sectioning.stores.theme,
+                    getting_started: sectionIds.stores.theme,
                 }
             },
         ]

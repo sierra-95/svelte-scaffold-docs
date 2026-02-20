@@ -1,6 +1,6 @@
 <script>
     import {MenuItem, DropdownContainer, buttonRipple, User, Hr, resetUserStore, Tabs} from '@sierra-95/svelte-scaffold';
-	import {RenderCode, sectioning} from '$lib';
+	import {RenderCode, sectionIds} from '$lib';
 
 
     let openMenu = $state(true);
@@ -15,7 +15,7 @@
 </script>
 
 <title>Menus</title>
-<section id={sectioning.components.menu.dropdown} class="space-y-4 mb-10">
+<section id={sectionIds.components.menu.dropdown} class="space-y-4 mb-10">
     <h1>Dropdown Menu</h1>
     <p>
         The dropdown container lets you build any dropdown menu quickly.
@@ -58,7 +58,7 @@
         </DropdownContainer>
     `}/>
 </section>
-<section id={sectioning.components.menu.user_menu} class="space-y-4 mb-10">
+<section id={sectionIds.components.menu.user_menu} class="space-y-4 mb-10">
     <h2>Example: User Menu</h2>
     {#snippet TriggerUserInfo()}
         <button use:buttonRipple class="w-10 text-3xl text-(--primary-bg)" aria-label="Ellipsis" onclick={() => (openUserMenu = !openUserMenu)}>
@@ -111,7 +111,7 @@
         </DropdownContainer>
     `}/>
 </section>
-<section id={sectioning.components.menu.tabs} class="space-y-4 mb-10">
+<section id={sectionIds.components.menu.tabs} class="space-y-4 mb-10">
     <h1>Tabs</h1>
     <p>
         Tabs allows you to create a tabbed interface for organizing content into separate views.

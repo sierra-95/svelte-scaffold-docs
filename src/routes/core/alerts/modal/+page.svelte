@@ -1,6 +1,6 @@
 <script>
     import {modalStore,Button, Input} from '@sierra-95/svelte-scaffold';
-    import {RenderCode, sectioning} from '$lib';
+    import {RenderCode, sectionIds} from '$lib';
     import ModalTable from '../_table/modal.svelte';
 
     let value = '';
@@ -37,7 +37,7 @@
 {/snippet}
 
 <title>Modal</title>
-<section id={sectioning.components.modal.getting_started} class="space-y-4 mb-10">
+<section id={sectionIds.components.modal.getting_started} class="space-y-4 mb-10">
     <h1>Modal</h1>
     <h3>Place this anywhere in your app</h3>
     <RenderCode
@@ -108,7 +108,7 @@
     `}/>
 </section>
 
-<section id={sectioning.components.modal.props} class="space-y-4 mb-10">
+<section id={sectionIds.components.modal.props} class="space-y-4 mb-10">
     <h3>Use <code class="note">modalStore.update()</code> for optional properties to keep defaults</h3>
     <ModalTable />
 </section>

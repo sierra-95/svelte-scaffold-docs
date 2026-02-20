@@ -1,6 +1,6 @@
 <script>
     import {Editor, editorStore, User} from '@sierra-95/svelte-scaffold';
-    import {RenderCode, routes, sectioning} from '$lib';
+    import {RenderCode, routes, sectionIds} from '$lib';
     
     let content = {};
     $: if($User.userId){
@@ -17,7 +17,7 @@
     }
 </script>
 
-<section id={sectioning.modules.editor.getting_started} class="space-y-4">
+<section id={sectionIds.modules.editor.getting_started} class="space-y-4">
 	<title>Editor</title>
 	<h1>Editor</h1>
     <Editor bind:content/>

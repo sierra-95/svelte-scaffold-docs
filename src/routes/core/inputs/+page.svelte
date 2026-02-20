@@ -1,7 +1,7 @@
 <script lang="ts">
 	import { onMount } from 'svelte';
 	import {Input, PasswordInput, fileInputStore, FileInput, resetFileInputStore, SearchBar} from '@sierra-95/svelte-scaffold';
-	import {RenderCode, routes, sectioning} from '$lib';
+	import {RenderCode, routes, sectionIds} from '$lib';
 	import FileInputTable from './_table/fileInput.svelte';
 
 	let email = '';
@@ -29,7 +29,7 @@
 
 
 <title>Inputs</title>
-<section id={sectioning.components.inputs.basic_input} class="space-y-4 mb-10">
+<section id={sectionIds.components.inputs.basic_input} class="space-y-4 mb-10">
 	<h2>Basic Input</h2>
 	<Input 
 		id="email" 
@@ -58,7 +58,7 @@
 	`}/>
 </section>
 
-<section id={sectioning.components.inputs.password_input} class="space-y-4 mb-10">
+<section id={sectionIds.components.inputs.password_input} class="space-y-4 mb-10">
 	<h2>Password Input</h2>
 	<PasswordInput
 		id="password" 
@@ -85,7 +85,7 @@
 	`}/>
 </section>
 
-<section id={sectioning.components.inputs.search_bar} class="space-y-4 mb-10">
+<section id={sectionIds.components.inputs.search_bar} class="space-y-4 mb-10">
 	<h2>Search Bar</h2>
 	<SearchBar bind:value={searchQuery} onSearch={() => alert(`Search triggered ${searchQuery}!`)}/>
 	<SearchBar enableHotkey onHotkey={()=> alert('Hotkey triggered!')}/>
@@ -102,7 +102,7 @@
 	`}/>
 </section>
 
-<section id={sectioning.components.inputs.file_input} class="space-y-4 mb-10">
+<section id={sectionIds.components.inputs.file_input} class="space-y-4 mb-10">
 	<h2>File Input</h2>
 	<FileInput bind:processing onclick={handleUpload}  />
 	<h3>Incase any errors occur during upload, the

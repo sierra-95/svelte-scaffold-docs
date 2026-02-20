@@ -1,11 +1,11 @@
 <script>
     import { Date, Time} from '@sierra-95/svelte-scaffold';
-    import {RenderCode, sectioning} from '$lib';
+    import {RenderCode, sectionIds} from '$lib';
 
     const timezone = "America/New_York";
 </script>
 
-<section id={sectioning.components.date} class="space-y-4">
+<section id={sectionIds.components.date} class="space-y-4">
 	<title>DateTime</title>
 	<h1>Date & Time</h1>
     <Date {timezone}/>
