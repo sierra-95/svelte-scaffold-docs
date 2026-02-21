@@ -46,6 +46,7 @@ export const routes = {
             }
         },
         editor: `${modules}/editor`,
+        global_search: `${modules}/global-search`,
     },
 
     stores: {
@@ -113,7 +114,8 @@ export const sectionIds = {
                 header: 'docs-layout-usage-header',
                 menu : 'docs-layout-usage-menu',
             }
-        }
+        },
+        global_search: 'docs-global-search',
     },
     stores: {
         general: {
@@ -267,6 +269,14 @@ export const sections = [
                         }
                     }
                 ]
+            },
+            { 
+                path: routes.modules.global_search, 
+                label: 'Global Search',
+                icon: 'fa-solid fa-magnifying-glass' ,
+                TOC: {
+                    global_search: sectionIds.modules.global_search,
+                },
             },
             { 
                 id: crypto.randomUUID(),
