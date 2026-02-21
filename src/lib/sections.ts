@@ -31,7 +31,10 @@ export const routes = {
             children: {
                 overview: `${modules}/layout/overview`,
                 getting_started: `${modules}/layout/getting-started`,
-                usage: `${modules}/layout/usage`,
+                usage: {
+                    usage: `${modules}/layout/usage`,
+                    example: `${modules}/layout/usage/example`,
+                }
             }
         },
         file_picker: {
@@ -287,7 +290,7 @@ export const sections = [
                     },
                     {      
                         label: 'Usage',
-                        path: routes.modules.layout.children.usage,
+                        path: routes.modules.layout.children.usage.usage,
                         TOC: {
                             header: sectionIds.modules.layout.usage.header,
                             menu: sectionIds.modules.layout.usage.menu,

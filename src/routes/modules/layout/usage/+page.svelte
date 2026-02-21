@@ -46,6 +46,9 @@
         <li>All parents must have a unique id</li>
         <li>Parent Paths must be unique</li>
     </ul>
+    <h2>Example 1</h2>
+    <h3>View @Sierra-95/svelte-scaffold sections file <a href={routes.modules.layout.children.usage.example} class="note">here</a></h3>
+    <h2>Example 2</h2>
     <RenderCode
         lang="javascript"
         code={`
