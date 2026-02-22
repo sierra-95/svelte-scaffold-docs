@@ -5,7 +5,7 @@
 </script>
 
 <title>Getting Started</title>
-<section id={sectionIds.overview} class="mx-auto max-w-[1200px] px-8 py-16 md:px-8 md:py-16 sm:px-4 sm:py-8 h-full">
+<section id={sectionIds.overview} class="mx-auto max-w-[1200px] px-8 py-16 md:px-8 md:py-16 sm:px-4 sm:py-8">
   <!-- Welcome -->
   <div class="mb-12 text-center">
     <p class="mb-2 text-sm font-medium uppercase tracking-widest text-(--text-secondary)"
