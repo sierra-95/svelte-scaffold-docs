@@ -39,10 +39,8 @@ export const routes = {
             children: {
                 overview: `${modules}/layout/overview`,
                 getting_started: `${modules}/layout/getting-started`,
-                usage: {
-                    usage: `${modules}/layout/usage`,
-                    example: `${modules}/layout/usage/example`,
-                }
+                usage: `${modules}/layout/usage`,
+                example: `${modules}/layout/example`,
             }
         },
     },
@@ -113,6 +111,7 @@ export const sectionIds = {
             usage: {
                 header: 'docs-layout-usage-header',
                 menu : 'docs-layout-usage-menu',
+                example: 'docs-layout-usage-example'
             }
         },
     },
@@ -300,10 +299,17 @@ export const sections = [
                     },
                     {      
                         label: 'Usage',
-                        path: routes.modules.layout.children.usage.usage,
+                        path: routes.modules.layout.children.usage,
                         TOC: {
                             header: sectionIds.modules.layout.usage.header,
                             menu: sectionIds.modules.layout.usage.menu,
+                        }
+                    },
+                    {      
+                        label: 'Sections File',
+                        path: routes.modules.layout.children.example,
+                        TOC: {
+                            example: sectionIds.modules.layout.usage.example,
                         }
                     }
 
