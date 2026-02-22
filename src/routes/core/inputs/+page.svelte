@@ -30,6 +30,7 @@
 
 <title>Inputs</title>
 <section id={sectionIds.components.inputs.basic_input} class="space-y-4 mb-10">
+	<h1>Inputs</h1>
 	<h2>Basic Input</h2>
 	<Input 
 		id="email" 
