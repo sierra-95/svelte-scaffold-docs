@@ -1,31 +1,31 @@
 <script>
     import { browser } from '$app/environment';
-    import { page } from '$app/stores';
-    import { sections, baseURL } from '$lib';
+    import { page } from '$app/state';
+    import { sections, githubURL } from '$lib';
     import { flattenSections } from './flatten';
     import {Hr} from '@sierra-95/svelte-scaffold';
 
     const prefix = "src/routes";
 
+    let pageURL = $state('');
     let currentPath = $state();
     let previous = $state();
     let next = $state();
-    let pageURL = $state('');
     let lastUpdated = $state('');
 
     const allPages = flattenSections(sections);
     $effect(() => {
         if(browser){
-            currentPath = $page.url.pathname;
+            if(page.url.pathname){
+                currentPath = page.url.pathname
+                pageURL = prefix + currentPath + '/%2Bpage.svelte';
+                load();
+            }
             const currentIndex = allPages.findIndex(p => p.path === currentPath);
             previous = currentIndex > 0 ? allPages[currentIndex - 1] : null;
             next = currentIndex < allPages.length - 1
                 ? allPages[currentIndex + 1]
                 : null;
-            if(currentPath){
-                pageURL = prefix + currentPath + '/%2Bpage.svelte';
-                load();
-            }
         }
     });
 
@@ -86,7 +86,7 @@
 <section class="space-y-4" style="margin-top: 3rem;">
     <div><Hr/></div>
     <div id="sierra-github-page-edit" class="flex justify-between text-(--text-secondary) text-sm">
-        <a href={baseURL + pageURL} target="_blank" rel="noreferrer" ><i class="fa-solid fa-pen mr-2"></i>Edit Page</a>
+        <a href={githubURL + pageURL} target="_blank" rel="noreferrer" ><i class="fa-solid fa-pen mr-2"></i>Edit Page</a>
         <h3>Last Updated:
             {lastUpdated? new Date(lastUpdated).toLocaleDateString(): '-'}
         </h3>
