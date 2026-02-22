@@ -33,6 +33,15 @@
     #sierra-navigation .text-previous{
         text-align: end;
     }
+    @media (max-width: 480px){
+        #sierra-navigation{
+            flex-direction: column;
+            gap: 1rem;
+        }
+        #sierra-navigation .text-previous{
+            text-align: start;
+        }
+    }
 </style>
 <main id="sierra-navigation">
 
