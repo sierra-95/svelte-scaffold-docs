@@ -1,11 +1,12 @@
-import type {Section} from '@sierra-95/svelte-scaffold'
+import type  {Section} from '@sierra-95/svelte-scaffold'
+
 type FlatPage = {
     path: string;
     label: string;
     trail: string[];
 };
 
-export function flattenSections(sections) {
+export function flattenSections(sections : Section[]) {
     const pages: FlatPage[] = [];
 
     for (const section of sections) {
