@@ -2,8 +2,7 @@
 	import '../app.css';
 	import { onMount, tick } from 'svelte';
 	import {Layout, ButtonTheme, theme, isLoggedIn, User, isMobile,isTablet, DropdownContainer, MenuItem, GlobalSearch} from '@sierra-95/svelte-scaffold';
-	import {sections, TOC } from '$lib';
-	import Navigator from '../lib/Navigator/main.svelte'
+	import {sections, TOC, Navigator } from '$lib';
 
 	let { children } = $props();
 	let link = $state('');
