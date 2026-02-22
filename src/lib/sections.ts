@@ -12,20 +12,28 @@ export const routes = {
         base: `${core}`,
         children: {
             buttons: `${core}/buttons`,
-            progress: `${core}/progress`,
+            date: `${core}/date`,
             inputs: `${core}/inputs`,
             Menus: `${core}/menus`,
-
             alerts: {
                 modal: `${alerts}/modal`,
                 toast: `${alerts}/toast`,
             },
-
-            date: `${core}/date`,
+            progress: `${core}/progress`,
         }
     },
 
     modules: {
+        editor: `${modules}/editor`,
+        file_picker: {
+            base: `${modules}/file-picker`,
+            children: {
+                getting_started: `${modules}/file-picker/getting-started`,
+                usage: `${modules}/file-picker/usage`,
+                backend: `${modules}/file-picker/backend-integration`,
+            }
+        },
+        global_search: `${modules}/global-search`,
         layout: {
             base: `${modules}/layout`,
             children: {
@@ -37,16 +45,6 @@ export const routes = {
                 }
             }
         },
-        file_picker: {
-            base: `${modules}/file-picker`,
-            children: {
-                getting_started: `${modules}/file-picker/getting-started`,
-                usage: `${modules}/file-picker/usage`,
-                backend: `${modules}/file-picker/backend-integration`,
-            }
-        },
-        editor: `${modules}/editor`,
-        global_search: `${modules}/global-search`,
     },
 
     stores: {
