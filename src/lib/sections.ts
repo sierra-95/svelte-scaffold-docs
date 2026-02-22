@@ -46,7 +46,6 @@ export const routes = {
             }
         },
     },
-
     stores: {
         general_stores: `${stores}/general`,
         theme_stores: `${stores}/theme`,
@@ -59,6 +58,7 @@ export const sectionIds = {
         installation: 'doc-installation',
         font_awesome: 'doc-installation-font-awesome',
     },
+
     components: {
         buttons:{
             default_button: 'doc-button-default',
@@ -91,6 +91,7 @@ export const sectionIds = {
             props: 'doc-toast-props',
         }
     },
+
     modules: {
         editor: {
             getting_started: 'docs-editor-getting-started',
@@ -105,6 +106,7 @@ export const sectionIds = {
                 DELETE: 'docs-file-picker-backend-integration-delete',
             }
         },
+        global_search: 'docs-global-search',
         layout: {
             overview: 'docs-layout-overview',
             getting_started: 'docs-layout-getting-started',
@@ -113,8 +115,8 @@ export const sectionIds = {
                 menu : 'docs-layout-usage-menu',
             }
         },
-        global_search: 'docs-global-search',
     },
+    
     stores: {
         general: {
             is_mobile: 'docs-stores-general-is-mobile',
