@@ -2,7 +2,7 @@
 	import '../app.css';
 	import { onMount, tick } from 'svelte';
 	import {Layout, ButtonTheme, theme, isLoggedIn, User, isMobile,isTablet, DropdownContainer, MenuItem, GlobalSearch} from '@sierra-95/svelte-scaffold';
-	import {sections, TOC, Navigator } from '$lib';
+	import {sections, TOC, Navigator, baseURL } from '$lib';
 
 	let { children } = $props();
 	let link = $state('');
@@ -68,7 +68,7 @@
 {#snippet headerRightContent()}
 	<GlobalSearch {sections}/>
 	<DropdownContainer top="30px" bind:open={openMenu} dropdownTrigger={TriggerMenu}>
-		<MenuItem onclick={() => window.open('https://github.com/Sierra-95/svelte-scaffold-docs','_blank','noopener,noreferrer')} icon="fa-github" iconSize="15px">Github</MenuItem>
+		<MenuItem onclick={() => window.open(baseURL,'_blank','noopener,noreferrer')} icon="fa-github" iconSize="15px">Github</MenuItem>
 		<MenuItem icon="fa-question" iconSize="15px">Support</MenuItem>
 		<div style="display: flex; gap: 1rem; align-items: center; padding: 1rem">Theme<ButtonTheme /></div>
 	</DropdownContainer>

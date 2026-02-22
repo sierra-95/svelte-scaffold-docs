@@ -1,11 +1,11 @@
 <script>
     import { browser } from '$app/environment';
     import { page } from '$app/stores';
-    import { sections } from '$lib';
+    import { sections, baseURL } from '$lib';
     import { flattenSections } from './flatten';
+    import {Hr} from '@sierra-95/svelte-scaffold';
 
     const prefix = "src/routes";
-    const baseURL = "https://github.com/sierra-95/svelte-scaffold-docs/tree/main/"
 
     let currentPath = $state();
     let previous = $state();
@@ -83,7 +83,14 @@
     }
 </style>
 
-<section class="space-y-4">
+<section class="space-y-4" style="margin-top: 3rem;">
+    <div><Hr/></div>
+    <div id="sierra-github-page-edit" class="flex justify-between text-(--text-secondary) text-sm">
+        <a href={baseURL + pageURL} target="_blank" rel="noreferrer" ><i class="fa-solid fa-pen mr-2"></i>Edit Page</a>
+        <h3>Last Updated:
+            {lastUpdated? new Date(lastUpdated).toLocaleDateString(): '-'}
+        </h3>
+    </div>
     <div id="sierra-navigation">
         {#if previous}
             <div>
@@ -103,12 +110,5 @@
             </div>
         {/if}
 
-        </div>
-
-    <div id="sierra-github-page-edit" class="flex justify-between text-(--text-secondary) text-sm">
-        <a href={baseURL + pageURL} target="_blank" rel="noreferrer" ><i class="fa-solid fa-pen mr-2"></i>Edit Page</a>
-        <h3>Last Updated:
-            {lastUpdated? new Date(lastUpdated).toLocaleDateString(): '-'}
-        </h3>
     </div>
 </section>
