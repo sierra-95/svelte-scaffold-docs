@@ -51,8 +51,8 @@
         <h3>Resources</h3>
         <ul>
             <li><a href="https://github.com">GitHub</a></li>
-            <li><a href="/portfolio">Portfolio</a></li>
             <li><a href="/portfolio">Donate <i class="fa-solid fa-heart text-red-500"></i></a></li>
+            <li><a href="/portfolio">Portfolio</a></li>
         </ul>
         </section>
 
