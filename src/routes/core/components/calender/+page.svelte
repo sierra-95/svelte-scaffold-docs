@@ -5,8 +5,9 @@
     const timezone = "America/New_York";
 </script>
 
-<section id={sectionIds.components.date} class="space-y-4">
-	<title>DateTime</title>
+
+<title>Calender</title>
+<section id={sectionIds.components.calender.date_picker} class="space-y-4">
 	<h1>Date & Time</h1>
     <Date {timezone}/>
 

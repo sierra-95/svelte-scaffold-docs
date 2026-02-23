@@ -16,7 +16,7 @@ export const routes = {
             base: `${core}/components`,
             children: {
                 buttons: `${components}/buttons`,
-                date: `${components}/date`,
+                calender: `${components}/calender`,
                 inputs: `${components}/inputs`,
                 menus: `${components}/menus`,
                 modal: `${components}/alerts/modal`,
@@ -71,7 +71,9 @@ export const sectionIds = {
             custom_button: 'doc-button-custom',
             props: 'doc-button-props',
         },
-        date: 'doc-date-picker',
+        calender: {
+            date_picker : 'doc-date-picker',
+        },
         inputs: {
             basic_input: 'doc-input-basic',
             password_input: 'doc-input-password',
@@ -183,10 +185,10 @@ export const sections = [
                         }
                     },
                     { 
-                        path: routes.core.components.children.date, 
-                        label: 'Date', 
+                        path: routes.core.components.children.calender, 
+                        label: 'Calender', 
                         TOC:{
-                            date_picker: sectionIds.components.date,
+                            date_picker: sectionIds.components.calender.date_picker,
                         }
                     },
                     { 
