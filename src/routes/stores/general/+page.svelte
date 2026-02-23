@@ -71,7 +71,7 @@
 	<section id={sectionIds.stores.general.user_store} class="space-y-4 mb-10">
 		<h2>4. User Store</h2>
 		<h3>This store can be used components to manage user-related data including the  
-			<a href={`${routes.core.children.Menus}#${sectionIds.components.menu.user_menu}`} class="note">This example</a> 
+			<a href={`${routes.core.components.children.menus}#${sectionIds.components.menu.user_menu}`} class="note">This example</a> 
 		</h3>
 		<RenderCode
 			lang="svelte"

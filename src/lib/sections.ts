@@ -2,24 +2,33 @@ const core = `/core`;
 const modules = `/modules`;
 const stores = `/stores`;
 
-const alerts = `${core}/alerts`;
+//Core
+const components = `${core}/components`
+const features = `${core}/features`
 
 export const routes = {
     overview: '/',
     installation: '/installation',
     
     core: {
-        base: `${core}`,
-        children: {
-            buttons: `${core}/buttons`,
-            date: `${core}/date`,
-            inputs: `${core}/inputs`,
-            Menus: `${core}/menus`,
-            alerts: {
-                modal: `${alerts}/modal`,
-                toast: `${alerts}/toast`,
-            },
-            progress: `${core}/progress`,
+        base: `${components}`,
+        components: {
+            base: `${core}/components`,
+            children: {
+                buttons: `${components}/buttons`,
+                date: `${components}/date`,
+                inputs: `${components}/inputs`,
+                menus: `${components}/menus`,
+                modal: `${components}/alerts/modal`,
+                progress: `${components}/progress`,
+                toast: `${components}/alerts/toast`,
+            }
+        },
+        features: {
+            base: `${features}`,
+            children:  {
+                global_search: `${features}/global-search`,
+            }
         }
     },
 
@@ -33,7 +42,6 @@ export const routes = {
                 backend: `${modules}/file-picker/backend-integration`,
             }
         },
-        global_search: `${modules}/global-search`,
         layout: {
             base: `${modules}/layout`,
             children: {
@@ -90,6 +98,10 @@ export const sectionIds = {
         }
     },
 
+    features: {
+        global_search: 'docs-global-search',
+    },
+
     modules: {
         editor: {
             getting_started: 'docs-editor-getting-started',
@@ -104,7 +116,6 @@ export const sectionIds = {
                 DELETE: 'docs-file-picker-backend-integration-delete',
             }
         },
-        global_search: 'docs-global-search',
         layout: {
             overview: 'docs-layout-overview',
             getting_started: 'docs-layout-getting-started',
@@ -158,12 +169,12 @@ export const sections = [
         items: [
             {
                 id: crypto.randomUUID(),
-                path: routes.core.base,
+                path: routes.core.components.base,
                 label: 'Components',
                 icon: 'fa fa-cubes',
                 children:[
                     { 
-                        path: routes.core.children.buttons, 
+                        path: routes.core.components.children.buttons, 
                         label: 'Buttons', 
                         TOC: {
                             default_button: sectionIds.components.buttons.default_button,
@@ -172,14 +183,14 @@ export const sections = [
                         }
                     },
                     { 
-                        path: routes.core.children.date, 
+                        path: routes.core.components.children.date, 
                         label: 'Date', 
                         TOC:{
                             date_picker: sectionIds.components.date,
                         }
                     },
                     { 
-                        path: routes.core.children.inputs, 
+                        path: routes.core.components.children.inputs, 
                         label: 'Inputs', 
                         TOC:{
                             basic_input: sectionIds.components.inputs.basic_input,
@@ -189,7 +200,7 @@ export const sections = [
                         }
                     },
                     { 
-                        path: routes.core.children.Menus, 
+                        path: routes.core.components.children.menus, 
                         label: 'Menus',
                         TOC: {
                             dropdown: sectionIds.components.menu.dropdown,
@@ -198,7 +209,7 @@ export const sections = [
                         }
                     },
                     { 
-                        path: routes.core.children.alerts.modal, 
+                        path: routes.core.components.children.modal, 
                         label: 'Modal',
                         TOC: {
                             getting_started: sectionIds.components.modal.getting_started,
@@ -206,7 +217,7 @@ export const sections = [
                         }
                     },
                     { 
-                        path: routes.core.children.progress,
+                        path: routes.core.components.children.progress,
                         label: 'Progress', 
                         TOC: {
                             circular_progress: sectionIds.components.progress.circular_progress,
@@ -215,7 +226,7 @@ export const sections = [
                         }
                     },
                     { 
-                        path: routes.core.children.alerts.toast, 
+                        path: routes.core.components.children.toast, 
                         label: 'Toast',
                         TOC: {
                             getting_started: sectionIds.components.toast.getting_started,
@@ -224,6 +235,22 @@ export const sections = [
                     },
                 ]
             },
+            {
+                id: crypto.randomUUID(),
+                path: routes.core.features.base,
+                label: 'Features',
+                icon: 'fa-solid fa-star',
+                children:[
+                    { 
+                        path: routes.core.features.children.global_search, 
+                        label: 'Global Search',
+                        icon: 'fa-solid fa-magnifying-glass' ,
+                        TOC: {
+                            global_search: sectionIds.features.global_search,
+                        },
+                    },
+                ]
+            }
         ]
     },
     {
@@ -268,14 +295,6 @@ export const sections = [
                         }
                     }
                 ]
-            },
-            { 
-                path: routes.modules.global_search, 
-                label: 'Global Search',
-                icon: 'fa-solid fa-magnifying-glass' ,
-                TOC: {
-                    global_search: sectionIds.modules.global_search,
-                },
             },
             { 
                 id: crypto.randomUUID(),

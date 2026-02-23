@@ -107,7 +107,7 @@
 	<h2>File Input</h2>
 	<FileInput bind:processing onclick={handleUpload}  />
 	<h3>Incase any errors occur during upload, the
-		<a href={routes.core.children.alerts.toast} class="note">Toast</a>
+		<a href={routes.core.components.children.toast} class="note">Toast</a>
 		component will display it. Ensure its imported and added to your root layout.
 	</h3>
 	<RenderCode

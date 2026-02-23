@@ -34,7 +34,7 @@
       class="grid gap-8 grid-cols-[repeat(auto-fit,minmax(250px,1fr))]"
     >
       <div class="p-6">
-        <a href={routes.core.children.buttons}
+        <a href={routes.core.components.children.buttons}
           class="mb-2 block text-sm font-bold uppercase tracking-wide text-(--primary-bg) hover:underline"
         >Components
         </a>
