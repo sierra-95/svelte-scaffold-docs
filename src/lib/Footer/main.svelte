@@ -8,7 +8,6 @@
         flex-wrap: wrap;
         gap: 2rem;
         padding: 1rem;
-        margin-top: 3rem;
     }
 
     .footer-section h3 {
@@ -31,18 +30,25 @@
     .footer-section a:hover {
         color: var(--primary-bg)
     }
+    .footer-section i {
+        margin-right: 0.5rem;
+    }
+    @media (max-width: 600px) {
+        #svelte-scaffold-footer {
+            justify-content: flex-start;
+        }
+    }
 </style>
 
-<main class="space-y-4">
+<main class="space-y-4 bg-(--background)" style="margin-top: 2rem; border-radius: 5px; padding: 3rem 0rem">
     <div id="svelte-scaffold-footer">
-
         <!-- Social -->
         <section class="footer-section">
         <h3>Social</h3>
         <ul>
-            <li><a href="https://x.com" target="_blank" rel="noopener">X</a></li>
-            <li><a href="https://instagram.com" target="_blank" rel="noopener">Instagram</a></li>
-            <li><a href="https://linkedin.com" target="_blank" rel="noopener">LinkedIn</a></li>
+            <li><a href="https://github.com/sierra-95" target="_blank" rel="noopener"><i class="fa-brands fa-github"></i>Profile</a></li>
+            <li><a href="https://www.instagram.com/michaelmachohi/" target="_blank" rel="noopener"><i class="fa-brands fa-instagram"></i>Instagram</a></li>
+            <li><a href="https://www.linkedin.com/in/michael-machohi" target="_blank" rel="noopener"><i class="fa-brands fa-linkedin"></i>LinkedIn</a></li>
         </ul>
         </section>
 
@@ -50,9 +56,9 @@
         <section class="footer-section">
         <h3>Resources</h3>
         <ul>
-            <li><a href="https://github.com">GitHub</a></li>
-            <li><a href="/portfolio">Donate <i class="fa-solid fa-heart text-red-500"></i></a></li>
-            <li><a href="/portfolio">Portfolio</a></li>
+            <li><a href="https://github.com/sierra-95/svelte-scaffold-docs" target="_blank" rel="noopener">GitHub</a></li>
+            <li><a href="/donate">Donate</a></li>
+            <li><a href="https://michaelmachohi.com" target="_blank" rel="noopener">Portfolio</a></li>
         </ul>
         </section>
 
@@ -60,8 +66,8 @@
         <section class="footer-section">
         <h3>Support</h3>
         <ul>
-            <li><a href="/issues">Issues</a></li>
-            <li><a href="/help">Help Center</a></li>
+            <li><a href="https://github.com/sierra-95/svelte-scaffold-docs/issues" target="_blank" rel="noopener">Issues</a></li>
+            <li><a href="/support">Help Center</a></li>
             <li><a href="/status">System Status</a></li>
         </ul>
         </section>
@@ -70,9 +76,9 @@
         <section class="footer-section">
         <h3>Legal</h3>
         <ul>
-            <li><a href="/terms">Terms of Use</a></li>
-            <li><a href="/privacy">Privacy Policy</a></li>
-            <li><a href="">Cookie Preference</a></li>
+            <li><a href="/policies/terms">Terms of Use</a></li>
+            <li><a href="/policies/privacy">Privacy Policy</a></li>
+            <li><a href="/policies/cookies">Cookie Preference</a></li>
         </ul>
         </section>
     </div>

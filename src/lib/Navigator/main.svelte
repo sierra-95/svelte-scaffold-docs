@@ -57,7 +57,6 @@
     #sierra-navigation{
         display: flex;
         justify-content: space-between;
-        margin-top: 3rem;
     }
     #sierra-navigation a, #sierra-github-page-edit a{
         transition: color 0.1s ease-in;
@@ -69,22 +68,19 @@
         font-size: 0.9rem;
         color: var(--text-secondary);
     }
-    #sierra-navigation .text-previous{
-        text-align: end;
-    }
-    @media (max-width: 480px){
+    @media (max-width: 768px){
         #sierra-navigation{
             flex-direction: column;
             gap: 1rem;
         }
-        #sierra-navigation .text-previous{
-            text-align: start;
+        #sierra-navigation .text-next{
+            text-align: end;
         }
     }
 </style>
 
 <section class="space-y-4" style="margin-top: 3rem;">
-    <div><Hr/></div>
+    <!-- <div><Hr/></div> -->
     <div id="sierra-github-page-edit" class="flex justify-between text-(--text-secondary) text-sm">
         <a href={githubURL + pageURL} target="_blank" rel="noreferrer" ><i class="fa-solid fa-pen mr-2"></i>Edit Page</a>
         <h3>Last Updated:
@@ -93,8 +89,8 @@
     </div>
     <div id="sierra-navigation">
         {#if previous}
-            <div>
-                <h3 class="text-previous">Previous</h3>
+            <div class="text-previous">
+                <h3>Previous</h3>
                 <a href={previous.path}>
                     {previous.trail.join(' → ')}
                 </a>
@@ -102,13 +98,12 @@
         {/if}
 
         {#if next}
-            <div>
+            <div class="text-next">
                 <h3>Next</h3>
                 <a href={next.path}>
                     {next.trail.join(' → ')}
                 </a>
             </div>
         {/if}
-
     </div>
 </section>
