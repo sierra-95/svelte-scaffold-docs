@@ -1,6 +1,8 @@
 <script>
     import {routes, sectionIds, RenderCode} from '$lib'
 </script>
+
+<title>Global Search</title>
 <section id={sectionIds.features.global_search} class="space-y-4">
     <h1>Global Search</h1>
     <h3>Gliobal search is built on 
