@@ -82,5 +82,5 @@
         </ul>
         </section>
     </div>
-    <h3 class="text-center text-(--text-secondary) text-sm">© {year} Svelte Scaffold. All rights reserved.</h3>
+    <h3 class="text-center text-(--text-secondary) text-sm">© {year} @sierra-95/svelte-scaffold. All rights reserved.</h3>
 </main>
