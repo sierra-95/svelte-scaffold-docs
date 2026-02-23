@@ -40,7 +40,7 @@
     }
 </style>
 
-<main class="space-y-4 bg-(--background)" style="margin-top: 2rem; border-radius: 5px; padding: 3rem 0rem">
+<main class="space-y-4" style="margin-top: 2rem; border-radius: 5px; padding: 3rem 0rem">
     <div id="svelte-scaffold-footer">
         <!-- Social -->
         <section class="footer-section">
