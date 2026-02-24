@@ -9,8 +9,12 @@
 
 <main class="space-y-4">
 	<title>General Stores</title>
-	<h1>General Stores</h1>
-	<h3>A variety of stores have been provided for managing state in your Svelte applications.</h3>
+	
+	<section class="space-y-4">
+		<h1>General Stores</h1>
+		<h3>A variety of stores have been provided for managing state in your Svelte applications.</h3>
+	</section>
+	
 	<section id={sectionIds.stores.general.is_mobile} class="space-y-4 mb-10">
 		<h2>1. Device Width</h2>
 		<h3>isMobile (&lt;480px), isTablet ( 480px &gt & &lt; 768px), isDesktop (&gt1024px)</h3>

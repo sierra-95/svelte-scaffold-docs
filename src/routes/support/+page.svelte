@@ -40,7 +40,7 @@
                 return;
             }
         }
-        console.log("Form Data:", Object.fromEntries(formData.entries()));
+        //console.log("Form Data:", Object.fromEntries(formData.entries()));
         setToastMessage("error", "WIP");
         cancel();
     }
@@ -48,22 +48,27 @@
 </script>
 
 <title>Support</title>
-<form 
-    bind:this={formEl}
-    method="post"
-    use:enhance={handleSubmit}
-    class="mx-auto flex flex-col" 
-    style="max-width: 600px; gap: 2rem; {$isMobile || $isTablet ? '':'border-radius: 5px; box-shadow: var(--box-shadow); background-color: var(--background); padding: 2rem'}"
+<main
+    class="mx-auto space-y-4" 
+    style="max-width: 600px;{$isMobile || $isTablet ? '':'border-radius: 5px; box-shadow: var(--box-shadow); background-color: var(--background); padding: 2rem'}"
 >
-    <div class="relative" style="height: 100px;">
-        <img src={link} alt="Support" style="object-fit: contain; width:100%; height:100%;"/>
-    </div>
-    <h3 class="text-center text-2xl">Get in touch</h3>
-    <div class="flex justify-between" style="flex-direction: {$isMobile || $isTablet ? 'column':'row'}; gap: 2rem">
-        <Input id="firstname" underline placeholder="First Name" bind:value={firstName} />
-        <Input id="lastname" underline placeholder="Last Name"  bind:value={lastName} />
-    </div>
-    <Input id="email" underline placeholder="Email Address" type="email" bind:value={email} />
+    <form 
+        bind:this={formEl}
+        method="post"
+        use:enhance={handleSubmit}
+        class="flex flex-col"
+        style="gap: 2rem;"
+    >
+        <div class="relative" style="height: 100px;">
+            <img src={link} alt="Support" style="object-fit: contain; width:100%; height:100%;"/>
+        </div>
+        <h3 class="text-center text-2xl">Get in touch</h3>
+        <div class="flex justify-between" style="flex-direction: {$isMobile || $isTablet ? 'column':'row'}; gap: 2rem">
+            <Input id="firstname" underline placeholder="First Name" bind:value={firstName} />
+            <Input id="lastname" underline placeholder="Last Name"  bind:value={lastName} />
+        </div>
+        <Input id="email" underline placeholder="Email Address" type="email" bind:value={email} />
+    </form>
     <Editor boxShadow={$isMobile || $isTablet}/>
     <Button onclick={onExport}>Submit</Button>
-</form>
+</main>

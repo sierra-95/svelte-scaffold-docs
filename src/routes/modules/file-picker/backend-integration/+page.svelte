@@ -4,12 +4,14 @@
 
 <main class="space-y-4">
 	<title>Backend Integration</title>
-	<h1>Backend Integration</h1>
-    <h3>
-    The File Picker’s performance depends largely on your backend. Review the code snippets (components making API calls to Svelte <code>+server</code>) to help you integrate your backend.
-    </h3>
-    <h1>GET</h1>
+	<section class="space-y-4">
+        <h1>Backend Integration</h1>
+        <h3>
+            The File Picker’s performance depends largely on your backend. Review the code snippets (components making API calls to Svelte <code>+server</code>) to help you integrate your backend.
+        </h3>
+    </section>
     <section class="space-y-4" id={sectionIds.modules.file_picker.backend.GET}>
+        <h1>GET</h1>
         <h2>Loading Media</h2>
         <h3>The <code>$fileInputStore.serverGetUrl</code> endpoint is used to load files <code>onMount</code>.</h3>
         <RenderCode
@@ -102,8 +104,8 @@
             `}
         />
     </section>
-    <h1>POST</h1>
     <section class="space-y-4" id={sectionIds.modules.file_picker.backend.POST}>
+        <h1>POST</h1>
         <h2>Uploading to storage</h2>
         <h3>The <code>$fileInputStore.serverUploadUrl endpoint</code> is used to upload files to your cloud. If any error occurs or specific files fail to upload, the error will be displayed using toasts.</h3>
         <RenderCode
@@ -191,8 +193,8 @@
             `
         }/>
     </section>
-    <h1>DELETE</h1>
-    <section class="space-y-4" id={sectionIds.modules.file_picker.backend.DELETE}>
+    <section class="space-y-4" id={sectionIds.modules.file_picker.backend.DELETE}>  
+        <h1>DELETE</h1>
         <h2>Deleting from storage</h2>
         <h3>The $fileInputStore.serverDeleteUrl endpoint is used to delete files from your cloud</h3>
         <RenderCode

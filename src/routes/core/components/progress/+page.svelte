@@ -6,8 +6,8 @@
 
 <title>Progress</title>
 <main class="space-y-4">
-	<h1>Progress</h1>
 	<section id={sectionIds.components.progress.circular_progress} class="space-y-4 mb-10">
+		<h1>Progress</h1>
 		<h2>Circular Progress</h2>
 		<div class="flex flex-wrap gap-5">
 			<CircularProgress thickness={2} size={40}/>

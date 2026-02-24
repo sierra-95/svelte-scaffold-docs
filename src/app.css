@@ -20,12 +20,12 @@ body[data-theme='dark']{
     --shiki-bg: var(--shiki-dark-bg);
     --note: var(--note-dark);
 }
-h1:not(#doc-overview h1){
+section h1:not(#doc-overview h1){
     font-weight: bold;
     font-size: 1.5rem;
     color: var(--primary-bg);
 }
-h2:not(#doc-overview h2):not(#sierra-header h2){
+section h2:not(#doc-overview h2){
     font-weight: bold;
     font-size: 1.2rem;
 }
