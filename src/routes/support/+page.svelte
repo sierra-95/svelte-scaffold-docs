@@ -25,7 +25,7 @@
     <div class="relative" style="height: 100px;">
         <img src={link} alt="Support" style="object-fit: contain; width:100%; height:100%;"/>
     </div>
-    <h3 class="text-center text-2xl">Get in touch with us</h3>
+    <h3 class="text-center text-2xl">Get in touch</h3>
     <div class="flex justify-between" style="flex-direction: {$isMobile || $isTablet ? 'column':'row'}; gap: 2rem">
         <Input underline placeholder="First Name" bind:value={firstName} />
         <Input underline placeholder="Last Name"  bind:value={lastName} />

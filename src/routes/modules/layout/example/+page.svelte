@@ -2,6 +2,7 @@
     import {sections, RenderCode, sectionIds} from '$lib'
 </script>
 
+<title>Section's FIle</title>
 <section id={sectionIds.modules.layout.usage.example} class="space-y-4">
     <h1>@sierra-95/svelte-scaffold <span class="text-sm">sections file</span></h1> 
     <RenderCode

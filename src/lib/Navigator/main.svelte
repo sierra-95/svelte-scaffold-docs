@@ -1,9 +1,8 @@
 <script>
     import { browser } from '$app/environment';
     import { page } from '$app/state';
-    import { sections, githubURL } from '$lib';
+    import { sections, routes } from '$lib';
     import { flattenSections } from './flatten';
-    import {Hr} from '@sierra-95/svelte-scaffold';
 
     const prefix = "src/routes";
 
@@ -82,7 +81,7 @@
 <section class="space-y-4" style="margin-top: 3rem;">
     <!-- <div><Hr/></div> -->
     <div id="sierra-github-page-edit" class="flex justify-between text-(--text-secondary) text-sm">
-        <a href={githubURL + pageURL} target="_blank" rel="noreferrer" ><i class="fa-solid fa-pen mr-2"></i>Edit Page</a>
+        <a href={routes.system.resources.github + pageURL} target="_blank" rel="noreferrer" ><i class="fa-solid fa-pen mr-2"></i>Edit Page</a>
         <h3>Last Updated:
             {lastUpdated? new Date(lastUpdated).toLocaleDateString(): '-'}
         </h3>

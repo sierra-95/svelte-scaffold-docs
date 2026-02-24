@@ -2,8 +2,8 @@
 	import '../app.css';
 	import { goto } from '$app/navigation';
 	import { onMount, tick } from 'svelte';
-	import {Layout, ButtonTheme, theme, isLoggedIn, User, isMobile,isTablet, DropdownContainer, MenuItem, GlobalSearch} from '@sierra-95/svelte-scaffold';
-	import {sections, TOC, Navigator, githubURL, Footer, Network } from '$lib';
+	import {Layout, ButtonTheme, theme, isLoggedIn, User, isMobile,isTablet, DropdownContainer, MenuItem, GlobalSearch,editorStore} from '@sierra-95/svelte-scaffold';
+	import {sections, TOC, Navigator, Footer, Network, routes } from '$lib';
 
 	let { children } = $props();
 	let link = $state('');
@@ -25,6 +25,18 @@
 			store.phone = '+1-555-123-4567';
 			return store;
 		});
+		if($User.userId){
+			const r2_key = `svelte-scaffold/${$User.userId}`;
+			editorStore.update(store => {
+				store.r2_key = r2_key;
+				store.serverGetUrl = '/api/media/get';
+				store.serverUploadUrl = '/api/media/upload';
+				store.serverDeleteUrl = '/api/media/delete';
+				store.serverStorageUrl = '/api/media/storage-usage';
+				store.serverDownloadUrl = '/api/media/download';
+				return store;
+			});
+		}
     })
 
 	onMount(async () => {
@@ -70,8 +82,8 @@
 {#snippet headerRightContent()}
 	<GlobalSearch {sections}/>
 	<DropdownContainer top="30px" bind:open={openMenu} dropdownTrigger={TriggerMenu}>
-		<MenuItem onclick={() => window.open(githubURL,'_blank','noopener,noreferrer')} icon="fa-github" iconSize="15px">Github</MenuItem>
-		<MenuItem onclick={() => goto('/support')} icon="fa-question" iconSize="15px">Help Center</MenuItem>
+		<MenuItem onclick={() => window.open(routes.system.resources.github,'_blank','noopener,noreferrer')} icon="fa-github" iconSize="15px">Github</MenuItem>
+		<MenuItem onclick={() => goto(routes.system.support.help_center)} icon="fa-question" iconSize="15px">Help Center</MenuItem>
 		<div style="display: flex; gap: 1rem; align-items: center; padding: 1rem">Theme<ButtonTheme /></div>
 	</DropdownContainer>
 {/snippet}

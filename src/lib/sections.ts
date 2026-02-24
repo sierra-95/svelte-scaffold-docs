@@ -56,6 +56,29 @@ export const routes = {
         general_stores: `${stores}/general`,
         theme_stores: `${stores}/theme`,
     },
+    system: {
+        base: "/system/",
+        social:{
+            github: "https://github.com/sierra-95",
+            instagram: "https://www.instagram.com/michaelmachohi/",
+            linkedin: "https://www.linkedin.com/in/michael-machohi" 
+        },
+        resources:{
+            github: "https://github.com/sierra-95/svelte-scaffold-docs",
+            donate: '/donate',
+            portfolio: "https://michaelmachohi.com",
+        },
+        support: {
+            issues: "https://github.com/sierra-95/svelte-scaffold-docs/issues",
+            help_center: "/support",
+            system_status: "/status"
+        },
+        legal: {
+            terms: "/policies/terms",
+            privacy: "/policies/privacy",
+            cookies: "/policies/cookies"
+        }
+    }
 };
 
 export const sectionIds = {
@@ -360,6 +383,72 @@ export const sections = [
                     theme_store: sectionIds.stores.theme.theme_store,
                     theme_button: sectionIds.stores.theme.theme_button,
                 }
+            },
+        ]
+    },
+    {
+        label: 'System',
+        hidden: true,
+        items: [
+            { 
+                id: crypto.randomUUID(),
+                path: routes.system.base + crypto.randomUUID(), 
+                label: 'Resources',
+                icon: 'fa fa-link' ,
+                children:[
+                    {      
+                        label: 'Github Repository',
+                        path: routes.system.resources.github,
+                    },
+                    {      
+                        label: 'Donate to us',
+                        path: routes.system.resources.donate,
+                    },
+                    {      
+                        label: 'My Portfolio',
+                        path: routes.system.resources.portfolio,
+                    },
+                ]
+            },
+            { 
+                id: crypto.randomUUID(),
+                path: routes.system.base + crypto.randomUUID(), 
+                label: 'Support',
+                icon: 'fa-solid fa-question' ,
+                children:[
+                    {      
+                        label: 'Github Issues',
+                        path: routes.system.support.issues,
+                    },
+                    {      
+                        label: 'Help Center',
+                        path: routes.system.support.help_center,
+                    },
+                    {      
+                        label: 'System Status',
+                        path: routes.system.support.system_status,
+                    },
+                ]
+            },
+            { 
+                id: crypto.randomUUID(),
+                path: routes.system.base + crypto.randomUUID(), 
+                label: 'Legal',
+                icon: 'fa-solid fa-gavel' ,
+                children:[
+                    {      
+                        label: 'Terms of Use',
+                        path: routes.system.legal.terms,
+                    },
+                    {      
+                        label: 'Privacy Policy',
+                        path: routes.system.legal.privacy,
+                    },
+                    {      
+                        label: 'Cookie Preference',
+                        path: routes.system.legal.cookies,
+                    },
+                ]
             },
         ]
     },

@@ -1,4 +1,5 @@
 <script>
+    import { routes } from "$lib/sections";
     const year = new Date().getFullYear();
 </script>
 <style>
@@ -46,9 +47,9 @@
         <section class="footer-section">
         <h3>Social</h3>
         <ul>
-            <li><a href="https://github.com/sierra-95" target="_blank" rel="noopener"><i class="fa-brands fa-github"></i>Profile</a></li>
-            <li><a href="https://www.instagram.com/michaelmachohi/" target="_blank" rel="noopener"><i class="fa-brands fa-instagram"></i>Instagram</a></li>
-            <li><a href="https://www.linkedin.com/in/michael-machohi" target="_blank" rel="noopener"><i class="fa-brands fa-linkedin"></i>LinkedIn</a></li>
+            <li><a href={routes.system.social.github} target="_blank" rel="noopener"><i class="fa-brands fa-github"></i>Profile</a></li>
+            <li><a href={routes.system.social.instagram} target="_blank" rel="noopener"><i class="fa-brands fa-instagram"></i>Instagram</a></li>
+            <li><a href={routes.system.social.linkedin} target="_blank" rel="noopener"><i class="fa-brands fa-linkedin"></i>LinkedIn</a></li>
         </ul>
         </section>
 
@@ -56,9 +57,9 @@
         <section class="footer-section">
         <h3>Resources</h3>
         <ul>
-            <li><a href="https://github.com/sierra-95/svelte-scaffold-docs" target="_blank" rel="noopener">GitHub</a></li>
-            <li><a href="/donate">Donate</a></li>
-            <li><a href="https://michaelmachohi.com" target="_blank" rel="noopener">Portfolio</a></li>
+            <li><a href={routes.system.resources.github} target="_blank" rel="noopener">GitHub</a></li>
+            <li><a href={routes.system.resources.donate}>Donate</a></li>
+            <li><a href={routes.system.resources.portfolio} target="_blank" rel="noopener">Portfolio</a></li>
         </ul>
         </section>
 
@@ -66,9 +67,9 @@
         <section class="footer-section">
         <h3>Support</h3>
         <ul>
-            <li><a href="https://github.com/sierra-95/svelte-scaffold-docs/issues" target="_blank" rel="noopener">Issues</a></li>
-            <li><a href="/support">Help Center</a></li>
-            <li><a href="/status">System Status</a></li>
+            <li><a href={routes.system.support.issues} target="_blank" rel="noopener">Issues</a></li>
+            <li><a href={routes.system.support.help_center}>Help Center</a></li>
+            <li><a href={routes.system.support.system_status}>System Status</a></li>
         </ul>
         </section>
 
@@ -76,9 +77,9 @@
         <section class="footer-section">
         <h3>Legal</h3>
         <ul>
-            <li><a href="/policies/terms">Terms of Use</a></li>
-            <li><a href="/policies/privacy">Privacy Policy</a></li>
-            <li><a href="/policies/cookies">Cookie Preference</a></li>
+            <li><a href={routes.system.legal.terms}>Terms of Use</a></li>
+            <li><a href={routes.system.legal.privacy}>Privacy Policy</a></li>
+            <li><a href={routes.system.legal.cookies}>Cookie Preference</a></li>
         </ul>
         </section>
     </div>

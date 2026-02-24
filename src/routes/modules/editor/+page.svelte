@@ -1,20 +1,8 @@
 <script>
-    import {Editor, editorStore, User} from '@sierra-95/svelte-scaffold';
+    import {Editor} from '@sierra-95/svelte-scaffold';
     import {RenderCode, routes, sectionIds} from '$lib';
     
     let content = {};
-    $: if($User.userId){
-        const r2_key = `svelte-scaffold/${$User.userId}`;
-        editorStore.update(store => {
-            store.r2_key = r2_key;
-            store.serverGetUrl = '/api/media/get';
-            store.serverUploadUrl = '/api/media/upload';
-            store.serverDeleteUrl = '/api/media/delete';
-            store.serverStorageUrl = '/api/media/storage-usage';
-            store.serverDownloadUrl = '/api/media/download';
-            return store;
-        });
-    }
 </script>
 
 <section id={sectionIds.modules.editor.getting_started} class="space-y-4">
