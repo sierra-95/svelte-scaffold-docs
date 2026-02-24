@@ -1,5 +1,6 @@
 <script lang="ts">
 	import '../app.css';
+	import { goto } from '$app/navigation';
 	import { onMount, tick } from 'svelte';
 	import {Layout, ButtonTheme, theme, isLoggedIn, User, isMobile,isTablet, DropdownContainer, MenuItem, GlobalSearch} from '@sierra-95/svelte-scaffold';
 	import {sections, TOC, Navigator, githubURL, Footer, Network } from '$lib';
@@ -9,10 +10,8 @@
 	let openMenu = $state(false);
 	
 	$effect(() => {
-		if($theme === 'light'){
-			link = 'https://files.michaelmachohi.com/logos/michaelmachohi.dark.blue.png';
-		}else{
-			link = 'https://files.michaelmachohi.com/logos/michaelmachohi.light.blue.png';
+		if($theme){
+			link = `https://files.michaelmachohi.com/logos/michaelmachohi.${$theme === 'light' ? 'dark' : 'light'}.blue.png`;
 		}
 	});
 
@@ -72,7 +71,7 @@
 	<GlobalSearch {sections}/>
 	<DropdownContainer top="30px" bind:open={openMenu} dropdownTrigger={TriggerMenu}>
 		<MenuItem onclick={() => window.open(githubURL,'_blank','noopener,noreferrer')} icon="fa-github" iconSize="15px">Github</MenuItem>
-		<MenuItem icon="fa-question" iconSize="15px">Support</MenuItem>
+		<MenuItem onclick={() => goto('/support')} icon="fa-question" iconSize="15px">Support</MenuItem>
 		<div style="display: flex; gap: 1rem; align-items: center; padding: 1rem">Theme<ButtonTheme /></div>
 	</DropdownContainer>
 {/snippet}
