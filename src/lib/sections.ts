@@ -147,7 +147,6 @@ export const sectionIds = {
             usage: {
                 header: 'docs-layout-usage-header',
                 menu : 'docs-layout-usage-menu',
-                example: 'docs-layout-usage-example'
             }
         },
     },
@@ -347,13 +346,6 @@ export const sections = [
                         TOC: {
                             header: sectionIds.modules.layout.usage.header,
                             menu: sectionIds.modules.layout.usage.menu,
-                        }
-                    },
-                    {      
-                        label: 'Sections File',
-                        path: routes.modules.layout.children.example,
-                        TOC: {
-                            example: sectionIds.modules.layout.usage.example,
                         }
                     }
 
