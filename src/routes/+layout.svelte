@@ -2,7 +2,7 @@
 	import '../app.css';
 	import { onMount, tick } from 'svelte';
 	import {Layout, ButtonTheme, theme, isLoggedIn, User, isMobile,isTablet, DropdownContainer, MenuItem, GlobalSearch} from '@sierra-95/svelte-scaffold';
-	import {sections, TOC, Navigator, githubURL, Footer } from '$lib';
+	import {sections, TOC, Navigator, githubURL, Footer, Network } from '$lib';
 
 	let { children } = $props();
 	let link = $state('');
@@ -48,6 +48,7 @@
 	></script>
 </svelte:head>
 
+<Network/>
 <Layout 
 	{sections}
 	paddingOff
