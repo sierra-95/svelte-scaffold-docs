@@ -1,7 +1,7 @@
 <script lang="ts">
     import { onMount } from "svelte";
     import { enhance } from "$app/forms";
-    import { Input, Editor, theme, Button, isMobile, isTablet, editorStore, setToastMessage } from "@sierra-95/svelte-scaffold";
+    import { Input, Editor, theme, Button, isMobile, isTablet, editorStore, setToastMessage, isValidEmail } from "@sierra-95/svelte-scaffold";
     
     let link= $state("");
     let firstName = $state("");
@@ -40,6 +40,11 @@
                 return;
             }
         }
+        if(!isValidEmail(email)){
+            setToastMessage("error", "Please enter a valid email address");
+            cancel();
+            return;
+        }
         //console.log("Form Data:", Object.fromEntries(formData.entries()));
         setToastMessage("error", "WIP");
         cancel();
@@ -49,7 +54,7 @@
 
 <title>Support</title>
 <main
-    class="mx-auto space-y-4" 
+    class="mx-auto space-y-4 flex flex-col" 
     style="max-width: 600px;{$isMobile || $isTablet ? '':'border-radius: 5px; box-shadow: var(--box-shadow); background-color: var(--background); padding: 2rem'}"
 >
     <form 
