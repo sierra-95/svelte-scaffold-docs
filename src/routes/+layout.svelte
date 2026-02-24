@@ -71,7 +71,7 @@
 	<GlobalSearch {sections}/>
 	<DropdownContainer top="30px" bind:open={openMenu} dropdownTrigger={TriggerMenu}>
 		<MenuItem onclick={() => window.open(githubURL,'_blank','noopener,noreferrer')} icon="fa-github" iconSize="15px">Github</MenuItem>
-		<MenuItem onclick={() => goto('/support')} icon="fa-question" iconSize="15px">Support</MenuItem>
+		<MenuItem onclick={() => goto('/support')} icon="fa-question" iconSize="15px">Help Center</MenuItem>
 		<div style="display: flex; gap: 1rem; align-items: center; padding: 1rem">Theme<ButtonTheme /></div>
 	</DropdownContainer>
 {/snippet}

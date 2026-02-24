@@ -17,8 +17,10 @@
             email = $User.email;
         }    
     });
+
 </script>
 
+<title>Support</title>
 <main class="mx-auto flex flex-col" style="max-width: 600px; gap: 2rem; border-radius: 5px; box-shadow: var(--box-shadow); background-color: var(--background); padding: 2rem">
     <div class="relative" style="height: 100px;">
         <img src={link} alt="Support" style="object-fit: contain; width:100%; height:100%;"/>
@@ -29,6 +31,6 @@
         <Input underline placeholder="Last Name"  bind:value={lastName} />
     </div>
     <Input underline placeholder="Email Address" type="email" bind:value={email} />
-    <Editor/>
+    <Editor boxShadow={false}/>
     <Button type="submit">Submit</Button>
 </main>
