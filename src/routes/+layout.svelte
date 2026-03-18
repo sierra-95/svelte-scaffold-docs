@@ -2,7 +2,7 @@
 	import '../app.css';
 	import { goto } from '$app/navigation';
 	import { onMount, tick } from 'svelte';
-	import {Layout, ButtonTheme, theme, isLoggedIn, User, isMobile,isTablet, DropdownContainer, MenuItem, GlobalSearch,editorStore} from '@sierra-95/svelte-scaffold';
+	import {Layout, ButtonTheme, theme, isLoggedIn, User, isMobile,isTablet, DropdownContainer, MenuItem, editorStore} from '@sierra-95/svelte-scaffold';
 	import {sections, TOC, Navigator, Footer, Network, routes } from '$lib';
 
 	let { children } = $props();
@@ -80,7 +80,6 @@
 </Layout>
 
 {#snippet headerRightContent()}
-	<GlobalSearch {sections}/>
 	<DropdownContainer top="30px" bind:open={openMenu} dropdownTrigger={TriggerMenu}>
 		<MenuItem onclick={() => window.open(routes.system.resources.github,'_blank','noopener,noreferrer')} icon="fa-github" iconSize="15px">Github</MenuItem>
 		<MenuItem onclick={() => goto(routes.system.support.help_center)} icon="fa-question" iconSize="15px">Help Center</MenuItem>

@@ -47,7 +47,19 @@
 		
 	`}/>
 	<div class='flex flex-col gap-2'>
-		<h3>You may also customize it using Tailwind via the <strong>style</strong> prop.</h3>
+		<h2>1. Customizing with Tailwind</h2>
+		<Button color="none" style="bg-green-500 text-white w-[100px]" startIcon="fa-star">Export</Button>
+		<h3>You may also customize it using Tailwind via the <strong>style</strong> prop. To use your own color palette, set the <strong>color</strong> prop to "none".</h3>
+		<RenderCode
+			lang="svelte"
+			code={`
+			<\script>
+				import { Button } from '@sierra-95/svelte-scaffold';
+			<\/script>
+
+			<Button color="none" style="bg-green-500 text-white w-[100px]" startIcon="fa-star">Export</Button>
+		`}/>
+		<h2>2. Form Submission Example</h2>
 		<RenderCode
 			lang="svelte"
 			code={`

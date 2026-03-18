@@ -28,7 +28,7 @@
     </tr>
     <tr>
       <td class="p-3 border font-mono">color</td>
-      <td class="p-3 border font-mono">string (primary, warning, error)</td>
+      <td class="p-3 border font-mono">string (primary, warning, error, none)</td>
       <td class="p-3 border font-mono">'primary'</td>
       <td class="p-3 border">Sets the color scheme, used with <strong>variant</strong> to determine visual appearance.</td>
     </tr>
@@ -36,13 +36,13 @@
       <td class="p-3 border font-mono">variant</td>
       <td class="p-3 border font-mono">string (contained, outlined)</td>
       <td class="p-3 border font-mono">'contained'</td>
-      <td class="p-3 border">Defines the button style variant. If used, it <strong>overrides</strong> any Tailwind styles passed via the <strong>style</strong> prop.</td>
+      <td class="p-3 border">Defines the button style variant.</td>
     </tr>
     <tr>
       <td class="p-3 border font-mono">style</td>
       <td class="p-3 border font-mono">string (Tailwind only)</td>
       <td class="p-3 border font-mono">""</td>
-      <td class="p-3 border">Tailwind utility classes for custom styling. <strong>Priority</strong> is given to <strong>variant</strong></td>
+      <td class="p-3 border">Tailwind utility classes for custom styling.</td>
     </tr>
     <tr>
       <td class="p-3 border font-mono">startIcon & endIcon</td>
