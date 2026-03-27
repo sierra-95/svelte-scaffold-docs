@@ -10,6 +10,8 @@
         "https://files.karakal.africa/random-images/_.jpeg",    
     ];
 </script>
+
+<title>Carousel</title>
 <section id={sectionIds.components.carousel.default} class="space-y-4">
     <h1>Carousel</h1>
     <h3>This can be used to display a series of images in a rotating manner.</h3>
@@ -24,7 +26,7 @@
 
             let images=[];
 		<\/script>
-        
+
         <div class="relative w-full h-125">
             <Carousel images={images} />
         </div>

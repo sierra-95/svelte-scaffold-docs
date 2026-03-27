@@ -110,12 +110,14 @@ export const sectionIds = {
             basic_input: 'doc-input-basic',
             password_input: 'doc-input-password',
             search_bar: 'doc-input-search-bar',
+            select: 'doc-input-select',
             file_input: 'doc-file-input',
         },
         menu: {
             dropdown: 'doc-menu-dropdown',
             user_menu: 'doc-menu-user',
             tabs: 'doc-menu-tabs',
+            hamburger: 'doc-menu-hamburger',
         },
         modal: {
             getting_started: 'doc-modal-getting-started',
@@ -244,6 +246,7 @@ export const sections = [
                             basic_input: sectionIds.components.inputs.basic_input,
                             password_input: sectionIds.components.inputs.password_input,
                             search_bar: sectionIds.components.inputs.search_bar,
+                            select: sectionIds.components.inputs.select,
                             file_input: sectionIds.components.inputs.file_input,
                         }
                     },
@@ -254,6 +257,7 @@ export const sections = [
                             dropdown: sectionIds.components.menu.dropdown,
                             user_menu: sectionIds.components.menu.user_menu,
                             tabs: sectionIds.components.menu.tabs,
+                            hamburger: sectionIds.components.menu.hamburger,
                         }
                     },
                     { 

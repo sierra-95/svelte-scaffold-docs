@@ -1,12 +1,13 @@
 <script lang="ts">
 	import { onMount } from 'svelte';
-	import {Input, PasswordInput, fileInputStore, FileInput, resetFileInputStore, SearchBar} from '@sierra-95/svelte-scaffold';
+	import {Input, PasswordInput, fileInputStore, FileInput, resetFileInputStore, SearchBar, Select} from '@sierra-95/svelte-scaffold';
 	import {RenderCode, routes, sectionIds} from '$lib';
 	import FileInputTable from './_table/fileInput.svelte';
 
 	let email = '';
 	let password = '';
 	let searchQuery = '';
+	let selectedValue = '';
 
 	let processing = false; 
 
@@ -25,13 +26,20 @@
             return store;
         });
     });
+
+	   const options = [
+		{ value: '', label: 'Select an option', disabled: true },
+		{ value: 'value1', label: 'Option 1' },
+		{ value: 'value2', label: 'Option 2' },
+		{ value: 'value3', label: 'Option 3' }
+	];
 </script>
 
 
 <title>Inputs</title>
 <section id={sectionIds.components.inputs.basic_input} class="space-y-4 mb-10">
 	<h1>Inputs</h1>
-	<h2>Basic Input</h2>
+	<h2>1. Basic Input</h2>
 	<Input 
 		id="email" 
 		type="email" 
@@ -60,7 +68,7 @@
 </section>
 
 <section id={sectionIds.components.inputs.password_input} class="space-y-4 mb-10">
-	<h2>Password Input</h2>
+	<h2>2. Password Input</h2>
 	<PasswordInput
 		id="password" 
 		label="Password" 
@@ -87,7 +95,7 @@
 </section>
 
 <section id={sectionIds.components.inputs.search_bar} class="space-y-4 mb-10">
-	<h2>Search Bar</h2>
+	<h2>3. Search Bar</h2>
 	<SearchBar bind:value={searchQuery} onSearch={() => alert(`Search triggered ${searchQuery}!`)}/>
 	<SearchBar enableHotkey onHotkey={()=> alert('Hotkey triggered!')}/>
 	<RenderCode
@@ -103,8 +111,29 @@
 	`}/>
 </section>
 
+<section id={sectionIds.components.inputs.select} class="space-y-4 mb-10">
+	<h2>4. Select</h2>
+	<Select maxWidth="300px" height="40px" bind:value={selectedValue} options={options} />
+	<RenderCode
+		lang="svelte"
+		code={`
+		<\script>
+			import { Select } from '@sierra-95/svelte-scaffold';
+			let selectedValue = '';
+			const options = [
+				{ value: '', label: 'Select an option', disabled: true },
+				{ value: 'value1', label: 'Option 1' },
+				{ value: 'value2', label: 'Option 2' },
+				{ value: 'value3', label: 'Option 3' }
+			];
+		<\/script>
+
+		<Select maxWidth="300px" height="40px" bind:value={selectedValue} options={options} />
+		
+	`}/>
+</section>
 <section id={sectionIds.components.inputs.file_input} class="space-y-4 mb-10">
-	<h2>File Input</h2>
+	<h2>5. File Input</h2>
 	<FileInput bind:processing onclick={handleUpload}  />
 	<h3>Incase any errors occur during upload, the
 		<a href={routes.core.components.children.toast} class="note">Toast</a>

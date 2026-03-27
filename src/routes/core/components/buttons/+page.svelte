@@ -19,7 +19,8 @@
 
 <title>Buttons</title>
 <section id={sectionIds.components.buttons.default_button} class="space-y-4 mb-10">
-	<h1 class="font-bold text-2xl">Default Buttons</h1>
+	<h1>Buttons</h1>
+	<h2>1. Default Buttons</h2>
 	<div class="flex gap-4 flex-wrap">
 	{#each contained_buttons as { color, title }}
 		<Button variant="contained" color={color} title={title}>Button</Button>
@@ -46,8 +47,8 @@
 		</Button>
 		
 	`}/>
-	<div class='flex flex-col gap-2'>
-		<h2>1. Customizing with Tailwind</h2>
+	<div class='space-y-4'>
+		<h3 class="font-bold">1. Customizing with Tailwind</h3>
 		<Button color="none" style="bg-green-500 text-white w-[100px]" startIcon="fa-star">Export</Button>
 		<h3>You may also customize it using Tailwind via the <strong>style</strong> prop. To use your own color palette, set the <strong>color</strong> prop to "none".</h3>
 		<RenderCode
@@ -59,7 +60,7 @@
 
 			<Button color="none" style="bg-green-500 text-white w-[100px]" startIcon="fa-star">Export</Button>
 		`}/>
-		<h2>2. Form Submission Example</h2>
+		<h3 class="font-bold">2. Form Submission Example</h3>
 		<RenderCode
 			lang="svelte"
 			code={`
@@ -96,7 +97,7 @@
 </section>
 
 <section id={sectionIds.components.buttons.custom_button} class="space-y-4 mb-10">
-	<h1>Custom Buttons</h1>
+	<h2>2. Custom Buttons</h2>
 	<div class="flex gap-4 items-center">
 		<ButtonSwipe />
 		<ButtonMarquee/>

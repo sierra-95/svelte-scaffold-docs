@@ -1,10 +1,11 @@
 <script>
-    import {MenuItem, DropdownContainer, buttonRipple, User, Hr, resetUserStore, Tabs} from '@sierra-95/svelte-scaffold';
+    import {MenuItem, DropdownContainer, buttonRipple, User, Hr, resetUserStore, Tabs, HamburgerMenu} from '@sierra-95/svelte-scaffold';
 	import {RenderCode, sectionIds} from '$lib';
 
 
     let openMenu = $state(true);
     let openUserMenu = $state(true);
+    let hamburgerMenuOpen = $state(false);
 
     function handleProfile(){
         alert('Profile clicked');
@@ -16,7 +17,8 @@
 
 <title>Menus</title>
 <section id={sectionIds.components.menu.dropdown} class="space-y-4 mb-10">
-    <h1>Dropdown Menu</h1>
+    <h1>Menus</h1>
+    <h2>1. Dropdown Menu</h2>
     <p>
         The dropdown container lets you build any dropdown menu quickly.
         It only requires a trigger element (such as a button or icon)
@@ -33,7 +35,7 @@
         <MenuItem>Settings</MenuItem>
     </DropdownContainer>
     {#if openMenu}
-        <div class="h-[150px]"></div>
+        <div class="h-37.5"></div>
     {/if}
 
     <RenderCode
@@ -59,7 +61,7 @@
     `}/>
 </section>
 <section id={sectionIds.components.menu.user_menu} class="space-y-4 mb-10">
-    <h2>Example: User Menu</h2>
+    <h3 class="font-bold">Example: User Menu</h3>
     {#snippet TriggerUserInfo()}
         <button use:buttonRipple class="w-10 text-3xl text-(--primary-bg)" aria-label="Ellipsis" onclick={() => (openUserMenu = !openUserMenu)}>
             <i class="fa-solid fa-user"></i>
@@ -75,7 +77,7 @@
         <MenuItem onclick={handleLogout} icon="fa-right-from-bracket" iconSize='15px'>Logout</MenuItem>
     </DropdownContainer>
     {#if openUserMenu}
-        <div class="h-[200px]"></div>
+        <div class="h-50"></div>
     {/if}
     <RenderCode
         lang="svelte"
@@ -112,7 +114,7 @@
     `}/>
 </section>
 <section id={sectionIds.components.menu.tabs} class="space-y-4 mb-10">
-    <h1>Tabs</h1>
+    <h2>2. Tabs</h2>
     <p>
         Tabs allows you to create a tabbed interface for organizing content into separate views.
         Users can navigate between different sections of content without leaving the page.
@@ -172,4 +174,54 @@
             boxShadow
         />
     `}/>
+</section>
+
+<section id={sectionIds.components.menu.hamburger} class="space-y-4 mb-10">
+    <h2>3. Hamburger Menu</h2>
+    <p>
+        The HamburgerMenu component provides a responsive navigation menu that can be toggled open and closed.
+        It is commonly used in mobile and responsive web design to save space and provide a clean user interface.
+    </p>
+    <HamburgerMenu
+        bind:menuOpen={hamburgerMenuOpen}
+        barHeight="2px"
+        barColor="var(--primary-bg)"
+        menuBackgroundColor="white"
+        companyLogo="https://files.michaelmachohi.com/logos/michaelmachohi.favicon.circle.ico"
+        LogoWidth="30px"
+        buttonTimesColor="black"
+    >
+        <div class="p-6">
+            <h2>Some Items</h2>
+            <h3>Item 1</h3>
+            <h3>Item 2</h3>
+            <h3>Item 3</h3>
+        </div>
+    </HamburgerMenu>
+    <RenderCode
+        lang="svelte"
+        code={`
+        <\script>
+            import {HamburgerMenu} from '@sierra-95/svelte-scaffold';
+            let hamburgerMenuOpen = $state(false);
+        <\/script>
+
+        <HamburgerMenu
+            bind:menuOpen={hamburgerMenuOpen}
+            barHeight="2px"
+            barColor="var(--primary-bg)"
+            menuBackgroundColor="white"
+            companyLogo="https://company.com/logo.png"
+            LogoWidth="30px"
+            buttonTimesColor="black"
+        >
+            <div class="p-6">
+                <h2>Some Items</h2>
+                <h3>Item 1</h3>
+                <h3>Item 2</h3>
+                <h3>Item 3</h3>
+            </div>
+        </HamburgerMenu>
+    `}/>
+
 </section>

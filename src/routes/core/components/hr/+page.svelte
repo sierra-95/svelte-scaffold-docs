@@ -3,9 +3,9 @@
     import {sectionIds, RenderCode} from '$lib';
 </script>
 
-
+<title>Hr</title>
 <section id={sectionIds.components.hr.default} class="space-y-4">
-    <h1>HR</h1>
+    <h1>Hr</h1>
     <h2>1. Default</h2>
     <div><Hr color="var(--primary-bg)" width="90%" /></div>
     <RenderCode
