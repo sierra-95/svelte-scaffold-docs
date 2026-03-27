@@ -5,7 +5,7 @@
 </script>
 
 <title>Getting Started</title>
-<section id={sectionIds.overview} class="mx-auto max-w-[1200px] px-8 py-16 md:px-8 md:py-16 sm:px-4 sm:py-8">
+<section id={sectionIds.overview} class="mx-auto max-w-300 px-8 py-16 md:px-8 md:py-16 sm:px-4 sm:py-8">
   <!-- Welcome -->
   <div class="mb-12 text-center">
     <p class="mb-2 text-sm font-medium uppercase tracking-widest text-(--text-secondary)"
@@ -18,7 +18,7 @@
 
   <!-- Hero -->
   <div class="text-center">
-    <p class="mx-auto mb-8 max-w-[600px] text-xl leading-relaxed text-(--text-secondary) sm:text-base"
+    <p class="mx-auto mb-8 max-w-150 text-xl leading-relaxed text-(--text-secondary) sm:text-base"
     >A powerful Svelte scaffold with pre-built components, modules, and stores to jumpstart your project.
     </p>
     <ButtonFlip onclick={() => goto(routes.installation)} front="Get Started" back="Lets Go!"/>
