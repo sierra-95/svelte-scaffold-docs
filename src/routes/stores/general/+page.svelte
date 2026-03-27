@@ -55,6 +55,7 @@
 	
 	<section id={sectionIds.stores.general.is_logged_in} class="space-y-4 mb-10">
 		<h2>3. isLoggedIn</h2>
+		<h3>Default value is <code>null</code></h3>
 		<RenderCode
 			lang="svelte"
 			code={`

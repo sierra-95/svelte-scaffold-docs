@@ -17,6 +17,8 @@ export const routes = {
             children: {
                 buttons: `${components}/buttons`,
                 calender: `${components}/calender`,
+                carousel: `${components}/carousel`,
+                hr: `${components}/hr`,
                 inputs: `${components}/inputs`,
                 menus: `${components}/menus`,
                 modal: `${components}/alerts/modal`,
@@ -96,6 +98,13 @@ export const sectionIds = {
         },
         calender: {
             date_picker : 'doc-date-picker',
+        },
+        carousel: {
+            default: 'doc-carousel-default',
+        },
+        hr: {
+            default: 'doc-hr-default',
+            split: 'doc-hr-split',
         },
         inputs: {
             basic_input: 'doc-input-basic',
@@ -211,6 +220,21 @@ export const sections = [
                         label: 'Calender', 
                         TOC:{
                             date_picker: sectionIds.components.calender.date_picker,
+                        }
+                    },
+                    { 
+                        path: routes.core.components.children.carousel, 
+                        label: 'Carousel', 
+                        TOC: {
+                            default: sectionIds.components.carousel.default,
+                        }
+                    },
+                    { 
+                        path: routes.core.components.children.hr, 
+                        label: 'Hr', 
+                        TOC: {
+                            default: sectionIds.components.hr.default,
+                            split: sectionIds.components.hr.split,
                         }
                     },
                     { 
