@@ -18,7 +18,7 @@ export const routes = {
                 buttons: `${components}/buttons`,
                 calender: `${components}/calender`,
                 carousel: `${components}/carousel`,
-                hr: `${components}/hr`,
+                general: `${components}/general`,
                 inputs: `${components}/inputs`,
                 menus: `${components}/menus`,
                 modal: `${components}/alerts/modal`,
@@ -102,9 +102,9 @@ export const sectionIds = {
         carousel: {
             default: 'doc-carousel-default',
         },
-        hr: {
-            default: 'doc-hr-default',
-            split: 'doc-hr-split',
+        general: {
+            hr: 'doc-other-hr',
+            checkbox: 'doc-other-checkbox',
         },
         inputs: {
             basic_input: 'doc-input-basic',
@@ -231,12 +231,12 @@ export const sections = [
                             default: sectionIds.components.carousel.default,
                         }
                     },
-                    { 
-                        path: routes.core.components.children.hr, 
-                        label: 'Hr', 
+                    {
+                        path: routes.core.components.children.general,
+                        label: 'General',
                         TOC: {
-                            default: sectionIds.components.hr.default,
-                            split: sectionIds.components.hr.split,
+                            hr: sectionIds.components.general.hr,
+                            checkbox: sectionIds.components.general.checkbox,
                         }
                     },
                     { 
