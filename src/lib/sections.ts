@@ -103,8 +103,8 @@ export const sectionIds = {
             default: 'doc-carousel-default',
         },
         general: {
-            hr: 'doc-other-hr',
             checkbox: 'doc-other-checkbox',
+            hr: 'doc-other-hr',
         },
         inputs: {
             basic_input: 'doc-input-basic',
@@ -235,8 +235,8 @@ export const sections = [
                         path: routes.core.components.children.general,
                         label: 'General',
                         TOC: {
-                            hr: sectionIds.components.general.hr,
                             checkbox: sectionIds.components.general.checkbox,
+                            hr: sectionIds.components.general.hr,
                         }
                     },
                     { 

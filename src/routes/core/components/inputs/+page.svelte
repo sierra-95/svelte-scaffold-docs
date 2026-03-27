@@ -1,6 +1,6 @@
 <script lang="ts">
 	import { onMount } from 'svelte';
-	import {Input, PasswordInput, fileInputStore, FileInput, resetFileInputStore, SearchBar, Select} from '@sierra-95/svelte-scaffold';
+	import {Input, PasswordInput, fileInputStore, FileInput, resetFileInputStore, SearchBar, Select, theme} from '@sierra-95/svelte-scaffold';
 	import {RenderCode, routes, sectionIds} from '$lib';
 	import FileInputTable from './_table/fileInput.svelte';
 
@@ -113,7 +113,13 @@
 
 <section id={sectionIds.components.inputs.select} class="space-y-4 mb-10">
 	<h2>4. Select</h2>
-	<Select maxWidth="300px" height="40px" bind:value={selectedValue} options={options} />
+	<Select 
+		optionsBackground="var(--background)" 
+		maxWidth="300px" 
+		height="40px" 
+		bind:value={selectedValue} 
+		options={options} 
+	/>
 	<RenderCode
 		lang="svelte"
 		code={`
@@ -128,7 +134,13 @@
 			];
 		<\/script>
 
-		<Select maxWidth="300px" height="40px" bind:value={selectedValue} options={options} />
+		<Select 
+			optionsBackground="var(--background)" 
+			maxWidth="300px" 
+			height="40px" 
+			bind:value={selectedValue} 
+			options={options} 
+		/>
 		
 	`}/>
 </section>
