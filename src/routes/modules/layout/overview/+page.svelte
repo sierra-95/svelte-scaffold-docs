@@ -15,6 +15,7 @@
         <li>Prebuilt responsive layout with header, side menu, and content area.</li>
         <li>Customizable header with logo, title, and easy-to-integrate SvelteKit routing.</li>
         <li>In-built <a href={routes.stores.theme_stores} class="note">theme</a> support for light and dark modes.</li>
+        <li>Supports RBAC (Role-Based Access Control) <span class="text-blue-500 text-sm">(beta)</span></li>
         <li>It includes certain components by default, hence you don’t need to import them manually.</li>
         <div class="flex flex-wrap gap-4">
             <a href={routes.core.components.children.modal} class="note">Modal</a>

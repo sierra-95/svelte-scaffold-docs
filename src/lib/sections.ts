@@ -49,7 +49,7 @@ export const routes = {
             children: {
                 overview: `${modules}/layout/overview`,
                 getting_started: `${modules}/layout/getting-started`,
-                usage: `${modules}/layout/usage`,
+                features: `${modules}/layout/features`,
                 example: `${modules}/layout/example`,
             }
         },
@@ -155,9 +155,10 @@ export const sectionIds = {
         layout: {
             overview: 'docs-layout-overview',
             getting_started: 'docs-layout-getting-started',
-            usage: {
+            features: {
                 header: 'docs-layout-usage-header',
                 menu : 'docs-layout-usage-menu',
+                RBAC: 'docs-layout-usage-rbac',
             }
         },
     },
@@ -369,11 +370,12 @@ export const sections = [
                         }
                     },
                     {      
-                        label: 'Usage',
-                        path: routes.modules.layout.children.usage,
+                        label: 'Features',
+                        path: routes.modules.layout.children.features,
                         TOC: {
-                            header: sectionIds.modules.layout.usage.header,
-                            menu: sectionIds.modules.layout.usage.menu,
+                            header: sectionIds.modules.layout.features.header,
+                            menu: sectionIds.modules.layout.features.menu,
+                            RBAC: sectionIds.modules.layout.features.RBAC,
                         }
                     }
 

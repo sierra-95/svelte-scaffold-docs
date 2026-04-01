@@ -5,7 +5,9 @@
 <section id={sectionIds.modules.layout.getting_started} class="space-y-4">
     <title>Getting Started</title>
     <h1>Getting Started</h1>
-    <h3>Define a sections file. The contents will be mapped to the Layout.</h3>
+    <h2>1. Define a Sections file (Heart of Layout)</h2>
+    <h3>The sections file is the core of Layout. It contains all information about menu structure, items to hide and RBAC implementation</h3>
+    <h3>See the simplified example below:</h3>
     <ol class="list-decimal list-inside space-y-2">
         <li>Labels are used to classify routes that fall under a category. Leave empty if a route is independent</li>
         <li>A <strong>hr</strong> is automatically added after category name if label is included.</li>
@@ -14,54 +16,63 @@
         lang="javascript"
         code={`
         const routes = {
-            home: '/home',
-            profile: 'settings/profile',
-            security: 'settings/security',
+            random: '/random',
+            overview: '/overview',
+            installation: '/installation',
         };
 
         export const sections = [
+            //Independent route( Don't label if it's an independent route)
             {
                 label: '',
                 items: [
-                    { path: routes.home, label: 'Home',  icon: 'fa fa-home' }
+                    { path: routes.random, label: 'Random',  icon: 'fa fa-random' }
                 ]
             },
+            //Categorized routes
             {
-                label: 'Settings',
+                label: 'Getting Started',
                 items: [
                     { 
-                        path: routes.profile, 
-                        label: 'Profile', 
-                        icon: 'fa fa-user',
+                        path: routes.overview, 
+                        label: 'Overview', 
+                        icon: 'fa fa-info',
                     },
                     { 
-                        path: routes.security,
-                        label: 'Security', 
-                        icon: 'fa fa-lock',
+                        path: routes.installation,
+                        label: 'Installation', 
+                        icon: 'fa fa-cogs',
                     }
                 ]
             },
         ];
 
     `}/>
+    <h2>2. Import Layout component</h2>
     <h3>Import the sections file and layout component in a <strong>+layout.svelte</strong> file.</h3>
     <RenderCode
         lang="svelte"
         code={`
         <\script>
-            import {Layout} from '@sierra-95/svelte-scaffold'
+            import { onMount } from 'svelte';
+            import {Layout, layoutStore} from '@sierra-95/svelte-scaffold'
             import {sections} from './sections.js';
             
             let { children } = $props();
+
+            onMount(()=>{
+                layoutStore.update(store => {
+                    store.sections = sections;
+                    store.headerTitle = "Brand Name";
+                    store.headerLink = '/';
+                    store.headerImage = "https://example.com/logo.ico";
+                    store.headerImageSize = '30px';
+                    return store;
+                });
+            })
         <\/script>
-        <Layout 
-            headerTitle = 'Brand Name'
-            headerLink = '/'
-            headerImage = 'https://example.com/logo.ico'
-            headerImageSize = '35px'
-            {sections}
-        >{@render children()} 
-        </Layout>
+        <Layout>{@render children()}</Layout>
 
     `}/>
+    <h3>And that's it! Read more about the Layout component in usage.</h3>
 </section>

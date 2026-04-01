@@ -2,7 +2,7 @@
 	import '../app.css';
 	import { goto } from '$app/navigation';
 	import { onMount, tick } from 'svelte';
-	import {Layout, ButtonTheme, theme, isLoggedIn, User, isMobile,isTablet, DropdownContainer, MenuItem, editorStore} from '@sierra-95/svelte-scaffold';
+	import {Layout, ButtonTheme, theme, isLoggedIn, User, isMobile,isTablet, DropdownContainer, MenuItem, editorStore, layoutStore} from '@sierra-95/svelte-scaffold';
 	import {sections, TOC, Navigator, Footer, Network, routes } from '$lib';
 
 	let { children } = $props();
@@ -37,6 +37,16 @@
 				return store;
 			});
 		}
+		layoutStore.update(store => {
+			store.sections = sections;
+			store.paddingOff = true;
+			store.headerTitle = $isMobile || $isTablet ? 'Sierra-95' : 'Sierra-95/svelte-scaffold';
+			store.headerLink = '/';
+			store.headerImage = link;
+			store.headerImageSize = '30px';
+			store.headerRightContent = headerRightContent;
+			return store;
+		});
     })
 
 	onMount(async () => {
@@ -60,15 +70,7 @@
 </svelte:head>
 
 <Network/>
-<Layout 
-	{sections}
-	paddingOff
-	headerTitle = {$isMobile || $isTablet ? 'Sierra-95' : 'Sierra-95/svelte-scaffold'}
-	headerLink = '/'
-	headerImage = {link}
-	headerImageSize = '30px'
-	headerRightContent = {headerRightContent}
->
+<Layout>
 	<div class="flex items-start">
 		<div style="width: {$isMobile || $isTablet ? '100%' : 'calc(100% - 300px)'}" class="w-full p-6 mx-auto">
 			{@render children()}
