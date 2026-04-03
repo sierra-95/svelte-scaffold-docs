@@ -16,8 +16,6 @@ export const routes = {
             base: `${core}/components`,
             children: {
                 buttons: `${components}/buttons`,
-                calender: `${components}/calender`,
-                carousel: `${components}/carousel`,
                 inputs: `${components}/inputs`,
                 menus: `${components}/menus`,
                 modal: `${components}/modal`,
@@ -96,12 +94,6 @@ export const sectionIds = {
             custom_button: 'doc-button-custom',
             props: 'doc-button-props',
         },
-        calender: {
-            date_picker : 'doc-date-picker',
-        },
-        carousel: {
-            default: 'doc-carousel-default',
-        },
         inputs: {
             basic_input: 'doc-input-basic',
             password_input: 'doc-input-password',
@@ -133,9 +125,11 @@ export const sectionIds = {
     },
 
     random_stuff: {
+        carousel: 'doc-random-stuff-carousel',
         checkbox: 'doc-random-stuff-checkbox',
         color_picker: 'doc-random-stuff-color-picker',
         hr: 'doc-random-stuff-hr',
+        timezones: 'doc-random-stuff-timezones',
     },
 
     modules: {
@@ -219,20 +213,6 @@ export const sections = [
                         }
                     },
                     { 
-                        path: routes.core.components.children.calender, 
-                        label: 'Calender', 
-                        TOC:{
-                            date_picker: sectionIds.components.calender.date_picker,
-                        }
-                    },
-                    { 
-                        path: routes.core.components.children.carousel, 
-                        label: 'Carousel', 
-                        TOC: {
-                            default: sectionIds.components.carousel.default,
-                        }
-                    },
-                    { 
                         path: routes.core.components.children.inputs, 
                         label: 'Inputs', 
                         TOC:{
@@ -307,9 +287,11 @@ export const sections = [
                 label: 'Random Stuff', 
                 icon: 'fa fa-clone',
                 TOC :{
+                    carousel: sectionIds.random_stuff.carousel,
                     checkbox: sectionIds.random_stuff.checkbox,
                     color_picker: sectionIds.random_stuff.color_picker,
-                    hr: sectionIds.random_stuff.hr,
+                    horizontal_rule: sectionIds.random_stuff.hr,
+                    timezones: sectionIds.random_stuff.timezones,
                 }
             },
         ]

@@ -1,5 +1,5 @@
 <script lang="ts">
-    import { Hr, HrSplit, Checkbox, ColorPicker, Button, Input } from '@sierra-95/svelte-scaffold';
+    import { Hr, HrSplit, Checkbox, ColorPicker, Button, Input, Carousel, Date, Time } from '@sierra-95/svelte-scaffold';
     import {sectionIds, RenderCode} from '$lib';
 
     let checked=$state(false);
@@ -9,6 +9,14 @@
     function setColor(color: string){
         selectedColor = color;
     }
+    let images=
+    [
+        "https://fastly.picsum.photos/id/7/4728/3168.jpg?hmac=c5B5tfYFM9blHHMhuu4UKmhnbZoJqrzNOP9xjkV4w3o",
+        "https://fastly.picsum.photos/id/28/4928/3264.jpg?hmac=GnYF-RnBUg44PFfU5pcw_Qs0ReOyStdnZ8MtQWJqTfA",
+        "https://fastly.picsum.photos/id/22/4434/3729.jpg?hmac=fjZdkSMZJNFgsoDh8Qo5zdA_nSGUAWvKLyyqmEt2xs0",
+        "https://fastly.picsum.photos/id/13/2500/1667.jpg?hmac=SoX9UoHhN8HyklRA4A3vcCWJMVtiBXUg0W4ljWTor7s",    
+    ];
+    const timezone = "America/New_York";
 </script>
 
 <style>
@@ -31,6 +39,26 @@
 
 <h1 class="font-bold text-[1.5rem] mb-5" style="color: var(--primary-bg)">Random Components</h1>
 <ol class="space-y-6">
+    <li><span>Carousel</span>
+        <section id={sectionIds.random_stuff.carousel} class="space-y-4">
+            <div class="relative w-125 h-125">
+                <Carousel images={images} />
+            </div>
+            <RenderCode
+                lang="svelte"
+                code={`
+                <\script>
+                    import { Carousel } from '@sierra-95/svelte-scaffold';
+
+                    let images=[];
+                <\/script>
+                {/*Ensure to set position relative*/}
+                <div class="relative w-125 h-125">
+                    <Carousel images={images} />
+                </div>
+            `}/>
+        </section>
+    </li>
     <li><span>Checkbox</span>
         <section id={sectionIds.random_stuff.checkbox} class="space-y-4">
             <Checkbox bind:checked><p>I agree to the terms and conditions</p></Checkbox>
@@ -97,6 +125,23 @@
                 <\/script>
                 
                 <HrSplit margin="1rem">Split HR</HrSplit>
+            `}/>
+        </section>
+    </li>    
+    <li><span>Timezones</span>
+        <section id={sectionIds.random_stuff.timezones} class="space-y-4">
+            <Date {timezone}/>
+            <Time {timezone}/>
+            <RenderCode
+                lang="svelte"
+                code={`
+                <\script>
+                    import { Date, Time} from '@sierra-95/svelte-scaffold';
+
+                    const timezone = "America/New_York";
+                <\/script>
+                <Date {timezone}/>
+                <Time {timezone}/>
             `}/>
         </section>
     </li>
