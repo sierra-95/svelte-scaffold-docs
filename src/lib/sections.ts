@@ -18,20 +18,20 @@ export const routes = {
                 buttons: `${components}/buttons`,
                 calender: `${components}/calender`,
                 carousel: `${components}/carousel`,
-                general: `${components}/general`,
                 inputs: `${components}/inputs`,
                 menus: `${components}/menus`,
-                modal: `${components}/alerts/modal`,
+                modal: `${components}/modal`,
                 progress: `${components}/progress`,
-                toast: `${components}/alerts/toast`,
             }
         },
         features: {
             base: `${features}`,
             children:  {
                 global_search: `${features}/global-search`,
+                toast_manager: `${features}/toast-manager`,
             }
-        }
+        },
+        random_stuff: `${core}/random-stuff`,
     },
 
     modules: {
@@ -128,14 +128,16 @@ export const sectionIds = {
             linear_progress: 'doc-progress-linear',
             custom_progress: 'doc-progress-custom',
         },
-        toast: {
-            getting_started: 'doc-toast-getting-started',
-            props: 'doc-toast-props',
-        }
     },
 
     features: {
         global_search: 'docs-global-search',
+        toast_manager: 'docs-toast-manager',
+    },
+
+    random_stuff: {
+        checkbox: 'doc-other-checkbox',
+        hr: 'doc-other-hr',
     },
 
     modules: {
@@ -232,14 +234,6 @@ export const sections = [
                             default: sectionIds.components.carousel.default,
                         }
                     },
-                    {
-                        path: routes.core.components.children.general,
-                        label: 'General',
-                        TOC: {
-                            checkbox: sectionIds.components.general.checkbox,
-                            hr: sectionIds.components.general.hr,
-                        }
-                    },
                     { 
                         path: routes.core.components.children.inputs, 
                         label: 'Inputs', 
@@ -277,15 +271,7 @@ export const sections = [
                             linear_progress: sectionIds.components.progress.linear_progress,
                             custom_progress: sectionIds.components.progress.custom_progress,
                         }
-                    },
-                    { 
-                        path: routes.core.components.children.toast, 
-                        label: 'Toast',
-                        TOC: {
-                            getting_started: sectionIds.components.toast.getting_started,
-                            props: sectionIds.components.toast.props,
-                        }
-                    },
+                    }
                 ]
             },
             {
@@ -302,8 +288,30 @@ export const sections = [
                             global_search: sectionIds.features.global_search,
                         },
                     },
+                    {
+                        path: routes.core.features.children.toast_manager,
+                        label: 'Toast Manager',
+                        icon: 'fa-solid fa-bell',
+                        TOC: {
+                            toast_manager: sectionIds.features.toast_manager,
+                        }
+                    }
                 ]
             }
+        ]
+    },
+    {
+        label: '',
+        items: [
+            {
+                path: routes.core.random_stuff, 
+                label: 'Random Stuff', 
+                icon: 'fa fa-clone',
+                TOC :{
+                    checkbox: sectionIds.random_stuff.checkbox,
+                    hr: sectionIds.random_stuff.hr,
+                }
+            },
         ]
     },
     {

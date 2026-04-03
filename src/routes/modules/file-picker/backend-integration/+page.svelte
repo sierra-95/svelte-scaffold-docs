@@ -33,13 +33,19 @@
                     const data = await res.json();
                     if (!res.ok) {
                         //console.log('Error fetching media:', data);
-                        setToastMessage("error", data || "Failed to fetch media.");
+                        addToast({
+                            status: 'error',
+                            message: data || 'Failed to fetch media.'
+                        });
                         return;
                     }
                     media = data;
                 } catch (e) {
                     console.error("catch error:", e);
-                    setToastMessage("error", "An error occurred while fetching media.");
+                    addToast({
+                        status: 'error',
+                        message: 'An error occurred while fetching media.'
+                    });
                 } finally {
                     processing = false;
                 }
@@ -88,14 +94,20 @@
                     const data = await res.json();
 
                     if (!res.ok) {
-                        setToastMessage("error", data || "Failed to fetch storage usage.");
+                        addToast({
+                            status: 'error',
+                            message: data || 'Failed to fetch storage usage.'
+                        });
                         return;
                     }
                     const { usedBytes, maxBytes } = data.storage;
                     progress = (usedBytes / maxBytes) * 100;
                 } catch (e) {
                     console.error("catch error:", e);
-                    setToastMessage("error", "An error occurred while fetching storage usage.");
+                    addToast({
+                        status: 'error',
+                        message: 'An error occurred while fetching storage usage.'
+                    });
                 }
             }
             onMount(async () => {
@@ -118,12 +130,18 @@
                 //POST body to $fileInputStore.serverUploadUrl
                 const data = await res.json();
                 if (!res.ok) {
-                    setToastMessage('error', data || 'Upload failed' );
+                    addToast({
+                        status: 'error',
+                        message: data || 'Upload failed'
+                    });
                     return;
                 }
                 data.forEach((item: { original_name: string; code: number; }) => {
                     if (item.code === 500) {
-                        setToastMessage('error', \`Failed to upload file: \${item.original_name}\`);
+                        addToast({
+                            status: 'error',
+                            message: \`Failed to upload file: \${item.original_name}\`
+                        });
                     }
                 });
         `}/>
@@ -137,7 +155,10 @@
             async function handleDownload() {
                 const store = get(fileInputStore);
                 if (!store.submissions?.length || !$User.userId) {
-                    setToastMessage('error', 'An error occurred while processing your request.');
+                    addToast({
+                        status: 'error',
+                        message: 'An error occurred while processing your request.'
+                    });
                     return;
                 };
                 try {
@@ -165,7 +186,10 @@
                     });
 
                     if (!res.ok) {
-                        setToastMessage('error', await res.json() || 'Upload failed' );
+                        addToast({
+                            status: 'error',
+                            message: await res.json() || 'Download failed'
+                        });
                         return;
                     }
                     const blob = await res.blob();
@@ -187,7 +211,10 @@
                     URL.revokeObjectURL(url);
                     
                 } catch (err) {
-                    setToastMessage('error', \`Upload failed: \${err}\`);
+                    addToast({
+                        status: 'error',
+                        message: \`Download failed: \${err}\`
+                    });
                 }
             }
             `
@@ -207,12 +234,18 @@
                 //DELETE body: id's to $fileInputStore.serverDeleteUrl
                 const data = await response.json();
                 if (!response.ok) {
-                    setToastMessage('error', data || 'Failed to delete files.');
+                    addToast({
+                        status: 'error',
+                        message: data || 'Failed to delete files.'
+                    });
                     return;
                 }
                 data.forEach((item: { id: string; code: number }) => {
                     if (item.code === 404) {
-                        setToastMessage('error', \`Failed to delete file with ID: \${item.id}\`);
+                        addToast({
+                            status: 'error',
+                            message: \`Failed to delete file with ID: \${item.id}\`
+                        });
                     }
                 });
             `

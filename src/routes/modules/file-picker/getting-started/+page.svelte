@@ -1,11 +1,14 @@
 <script lang="ts">
     import {RenderCode, routes, sectionIds} from '$lib';
-    import {fileInputStore,  User, Button, setToastMessage} from '@sierra-95/svelte-scaffold';
+    import {fileInputStore,  User, Button, addToast} from '@sierra-95/svelte-scaffold';
     
     $: r2_key = `svelte-scaffold/${$User.userId}`;
     function open(){
         if(!$User.userId){
-            setToastMessage('error', 'R2 Key not available.');
+            addToast({
+                status: 'error',
+                message: 'R2 Key not available.'
+            });
             return;
         }
         fileInputStore.update(store => ({ 
@@ -61,13 +64,16 @@
 		lang="svelte"
 		code={`
 		<\script>
-            import {fileInputStore, User, setToastMessage} from '@sierra-95/svelte-scaffold';
+            import {fileInputStore, User, addToast} from '@sierra-95/svelte-scaffold';
         
             $: r2_key = \`svelte-scaffold/\${$User.userId}\`;
 
             function open(){
                 if(!$User.userId){
-                    setToastMessage('error', 'R2 Key not available.');
+                    addToast({
+                        status: 'error',
+                        message: 'R2 Key not available.'
+                    });
                     return;
                 }
                 fileInputStore.update(store => ({ 

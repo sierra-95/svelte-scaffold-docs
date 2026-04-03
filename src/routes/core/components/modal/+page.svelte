@@ -1,7 +1,7 @@
 <script>
     import {modalStore,Button, Input} from '@sierra-95/svelte-scaffold';
     import {RenderCode, sectionIds} from '$lib';
-    import ModalTable from '../_table/modal.svelte';
+    import ModalTable from './table.svelte';
 
     let value = '';
     function triggerPlainModal() {

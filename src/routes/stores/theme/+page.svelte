@@ -1,5 +1,5 @@
 <script>
-    import {ButtonTheme, theme} from '@sierra-95/svelte-scaffold';
+    import {ButtonTheme} from '@sierra-95/svelte-scaffold';
     import {RenderCode, routes, sectionIds} from '$lib';
 </script>
 

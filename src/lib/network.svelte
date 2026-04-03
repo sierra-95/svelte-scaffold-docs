@@ -1,7 +1,7 @@
 <script lang="ts">
     import { browser } from '$app/environment';
     import { onMount, onDestroy } from 'svelte';
-    import { setToastMessage } from '@sierra-95/svelte-scaffold';
+    import { addToast } from '@sierra-95/svelte-scaffold';
 
   let isOnline = true;
 
@@ -24,7 +24,10 @@
 
   $effect(()=>{
     if(!isOnline){
-        setToastMessage('warning','A loss of your internet connection was detected')
+        addToast({
+          status: 'warning',
+          message: 'A loss of your internet connection was detected',
+        })
     }
   })
 </script>
