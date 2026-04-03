@@ -102,10 +102,6 @@ export const sectionIds = {
         carousel: {
             default: 'doc-carousel-default',
         },
-        general: {
-            checkbox: 'doc-other-checkbox',
-            hr: 'doc-other-hr',
-        },
         inputs: {
             basic_input: 'doc-input-basic',
             password_input: 'doc-input-password',
@@ -136,8 +132,9 @@ export const sectionIds = {
     },
 
     random_stuff: {
-        checkbox: 'doc-other-checkbox',
-        hr: 'doc-other-hr',
+        checkbox: 'doc-random-stuff-checkbox',
+        color_picker: 'doc-random-stuff-color-picker',
+        hr: 'doc-random-stuff-hr',
     },
 
     modules: {
@@ -309,6 +306,7 @@ export const sections = [
                 icon: 'fa fa-clone',
                 TOC :{
                     checkbox: sectionIds.random_stuff.checkbox,
+                    color_picker: sectionIds.random_stuff.color_picker,
                     hr: sectionIds.random_stuff.hr,
                 }
             },

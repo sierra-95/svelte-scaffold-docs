@@ -19,7 +19,7 @@
         <li>It includes certain components by default, hence you don’t need to import them manually.</li>
         <div class="flex flex-wrap gap-4">
             <a href={routes.core.components.children.modal} class="note">Modal</a>
-            <a href={routes.core.components.children.toast} class="note">Toast</a>
+            <a href={routes.core.features.children.toast_manager} class="note">Toast Manager</a>
             <a href={routes.modules.file_picker.children.getting_started} class="note">File Picker</a>
             <a href={routes.core.features.children.global_search} class="note">Global Search</a>
         </div>
