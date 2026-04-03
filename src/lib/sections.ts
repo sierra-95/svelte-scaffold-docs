@@ -105,6 +105,7 @@ export const sectionIds = {
         inputs: {
             basic_input: 'doc-input-basic',
             password_input: 'doc-input-password',
+            date_time_input: 'doc-input-date-time',
             search_bar: 'doc-input-search-bar',
             select: 'doc-input-select',
             file_input: 'doc-file-input',
@@ -237,6 +238,7 @@ export const sections = [
                         TOC:{
                             basic_input: sectionIds.components.inputs.basic_input,
                             password_input: sectionIds.components.inputs.password_input,
+                            date_time_input: sectionIds.components.inputs.date_time_input,
                             search_bar: sectionIds.components.inputs.search_bar,
                             select: sectionIds.components.inputs.select,
                             file_input: sectionIds.components.inputs.file_input,

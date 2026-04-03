@@ -1,6 +1,6 @@
 <script lang="ts">
 	import { onMount } from 'svelte';
-	import {Input, PasswordInput, fileInputStore, FileInput, resetFileInputStore, SearchBar, Select, theme} from '@sierra-95/svelte-scaffold';
+	import {Input, PasswordInput, fileInputStore, FileInput, resetFileInputStore, SearchBar, Select, DateInput, TimeInput} from '@sierra-95/svelte-scaffold';
 	import {RenderCode, routes, sectionIds} from '$lib';
 	import FileInputTable from './_table/fileInput.svelte';
 
@@ -8,6 +8,8 @@
 	let password = '';
 	let searchQuery = '';
 	let selectedValue = '';
+	let selectedDate = '';
+	let selectedTime = '';
 
 	let processing = false; 
 
@@ -94,8 +96,51 @@
 	`}/>
 </section>
 
+<section id={sectionIds.components.inputs.date_time_input} class="space-y-4 mb-10">
+	<h2>3. Date & Time Inputs</h2>
+	<DateInput 
+		id="date" 
+		label="Select Date" 
+		placeholder="Enter date"
+		bind:value={selectedDate}
+		maxWidth="300px"
+	/>
+	<TimeInput 
+		id="time" 
+		label="Select Time" 
+		placeholder="Enter time"
+		bind:value={selectedTime}
+		maxWidth="300px"
+	/>
+	<RenderCode
+		lang="svelte"
+		code={`
+		<\script>
+			import { DateInput, TimeInput } from '@sierra-95/svelte-scaffold';
+			let selectedDate = '';
+			let selectedTime = '';
+		<\/script>
+
+		<DateInput 
+			id="date" 
+			label="Select Date" 
+			placeholder="Enter date"
+			bind:value={selectedDate}
+			maxWidth="300px"
+		/>
+		<TimeInput 
+			id="time" 
+			label="Select Time" 
+			placeholder="Enter time"
+			bind:value={selectedTime}
+			maxWidth="300px"
+		/>
+		
+	`}/>
+</section>
+
 <section id={sectionIds.components.inputs.search_bar} class="space-y-4 mb-10">
-	<h2>3. Search Bar</h2>
+	<h2>4. Search Bar</h2>
 	<SearchBar bind:value={searchQuery} onSearch={() => alert(`Search triggered ${searchQuery}!`)}/>
 	<SearchBar enableHotkey onHotkey={()=> alert('Hotkey triggered!')}/>
 	<RenderCode
@@ -112,7 +157,7 @@
 </section>
 
 <section id={sectionIds.components.inputs.select} class="space-y-4 mb-10">
-	<h2>4. Select</h2>
+	<h2>5. Select</h2>
 	<Select 
 		optionsBackground="var(--background)" 
 		maxWidth="300px" 
@@ -145,11 +190,11 @@
 	`}/>
 </section>
 <section id={sectionIds.components.inputs.file_input} class="space-y-4 mb-10">
-	<h2>5. File Input</h2>
+	<h2>6. File Input</h2>
 	<FileInput bind:processing onclick={handleUpload}  />
-	<h3>Incase any errors occur during upload, the
-		<a href={routes.core.components.children.toast} class="note">Toast</a>
-		component will display it. Ensure its imported and added to your root layout.
+	<h3>Incase any errors occur during upload,
+		<a href={routes.core.features.children.toast_manager} class="note">Toast Manager</a>
+		will display it. Ensure its imported and added to your root layout.
 	</h3>
 	<RenderCode
 		lang="svelte"
