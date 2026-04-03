@@ -1,7 +1,7 @@
 <script lang="ts">
     import { onMount } from "svelte";
     import { enhance } from "$app/forms";
-    import { Input, Editor, theme, Button, isMobile, isTablet, editorStore, setToastMessage, isValidEmail } from "@sierra-95/svelte-scaffold";
+    import { Input, Editor, theme, Button, isMobile, isTablet, editorStore, isValidEmail, addToast } from "@sierra-95/svelte-scaffold";
     
     let link= $state("");
     let firstName = $state("");
@@ -35,18 +35,23 @@
         formData.append("content", content);
         for (const [name, value] of formData.entries()) {
             if (!value || (typeof value === "string" && value.trim() === "")) {
-                setToastMessage("error", `Field "${name}" is empty`);
+                addToast({
+                    status: "error",
+                    message: `Field "${name}" is empty`
+                })
                 cancel();
                 return;
             }
         }
         if(!isValidEmail(email)){
-            setToastMessage("error", "Please enter a valid email address");
+            addToast({
+                status: "error",
+                message: `Please enter a valid email address`
+            })
             cancel();
             return;
         }
         //console.log("Form Data:", Object.fromEntries(formData.entries()));
-        setToastMessage("error", "WIP");
         cancel();
     }
 
