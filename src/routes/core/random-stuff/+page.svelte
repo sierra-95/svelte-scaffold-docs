@@ -41,7 +41,7 @@
 <ol class="space-y-6">
     <li><span>Carousel</span>
         <section id={sectionIds.random_stuff.carousel} class="space-y-4">
-            <div class="relative w-125 h-125">
+            <div class="relative max-w-125 h-125">
                 <Carousel images={images} />
             </div>
             <RenderCode
