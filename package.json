@@ -35,7 +35,7 @@
 		"vitest-browser-svelte": "^2.0.1"
 	},
 	"dependencies": {
-		"@sierra-95/svelte-scaffold": "^1.1.1",
+		"@sierra-95/svelte-scaffold": "^1.2.21",
 		"shiki": "^3.15.0"
 	}
 }

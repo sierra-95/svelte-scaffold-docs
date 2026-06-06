@@ -91,8 +91,9 @@ export const sectionIds = {
     components: {
         buttons:{
             default_button: 'doc-button-default',
+            default_button_props: 'doc-button-default-props',
             custom_button: 'doc-button-custom',
-            props: 'doc-button-props',
+            custom_button_props: 'doc-button-custom-props'
         },
         inputs: {
             basic_input: 'doc-input-basic',
@@ -208,8 +209,9 @@ export const sections = [
                         label: 'Buttons', 
                         TOC: {
                             default_button: sectionIds.components.buttons.default_button,
+                            default_button_props: sectionIds.components.buttons.default_button_props,
                             custom_button: sectionIds.components.buttons.custom_button,
-                            props: sectionIds.components.buttons.props,
+                            custom_button_props: sectionIds.components.buttons.custom_button_props,
                         }
                     },
                     { 
