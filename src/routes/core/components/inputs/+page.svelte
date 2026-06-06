@@ -1,11 +1,18 @@
 <script lang="ts">
 	import { onMount } from 'svelte';
-	import {Input, PasswordInput, fileInputStore, FileInput, resetFileInputStore, SearchBar, Select, DateInput, TimeInput} from '@sierra-95/svelte-scaffold';
+	import {
+		Input, PasswordInput, fileInputStore, FileInput, 
+		resetFileInputStore, SearchBar, Select, DateInput, TimeInput,
+		TextArea, PasswordStrength
+	} from '@sierra-95/svelte-scaffold';
 	import {RenderCode, routes, sectionIds} from '$lib';
 	import FileInputTable from './_table/fileInput.svelte';
 
 	let email = '';
 	let password = '';
+	let new_password = '';
+	let confirm_password = '';
+	let textareaValue = '';
 	let searchQuery = '';
 	let selectedValue = '';
 	let selectedDate = '';
@@ -91,6 +98,84 @@
 			label="Password" 
 			placeholder="Enter your password"
 			bind:value={password} 
+		/>
+		
+	`}/>
+</section>
+
+<section id={sectionIds.components.inputs.password_strength_meter} class="space-y-4 mb-10">
+	<h2>3. Password Strength</h2>
+	<PasswordInput
+		id="new_password" 
+		label="New Password" 
+		placeholder="Enter your password"
+		bind:value={new_password} 
+	/>
+	<PasswordInput
+		id="confirm_password" 
+		label="Confirm Password" 
+		placeholder="Confirm your password"
+		bind:value={confirm_password} 
+	/>
+	<PasswordStrength
+		minLength={8}
+		new_password={new_password}
+		confirm_password={confirm_password}
+	/>
+	<RenderCode
+		lang="svelte"
+		code={`
+		<\script>
+			import { PasswordStrength, PasswordInput } from '@sierra-95/svelte-scaffold';
+			let new_password = '';
+			let confirm_password = '';
+		<\/script>
+
+		<PasswordInput
+			id="new_password" 
+			label="New Password" 
+			placeholder="Enter your password"
+			bind:value={new_password} 
+		/>
+		<PasswordInput
+			id="confirm_password" 
+			label="Confirm Password" 
+			placeholder="Confirm your password"
+			bind:value={confirm_password} 
+		/>
+		<PasswordStrength
+			minLength={8}
+			new_password={new_password}
+			confirm_password={confirm_password}
+		/>
+		
+	`}/>
+</section>
+
+<section id={sectionIds.components.inputs.textarea} class="space-y-4 mb-10">
+	<h2>4. Textarea</h2>
+	<TextArea
+		id="textarea" 
+		label="Your Message" 
+		placeholder="Enter your message"
+		bind:value={textareaValue}
+		rows={2}
+	/>
+	<RenderCode
+		lang="svelte"
+		code={`
+		<\script>
+			import { TextArea } from '@sierra-95/svelte-scaffold';
+			let textareaValue = '';
+		<\/script>
+
+		<!-- id == name == label_for -->
+		<TextArea
+			id="textarea" 
+			label="Your Message" 
+			placeholder="Enter your message"
+			bind:value={textareaValue}
+			rows={2}
 		/>
 		
 	`}/>
