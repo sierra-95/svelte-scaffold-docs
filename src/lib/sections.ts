@@ -116,7 +116,7 @@ export const sectionIds = {
         },
         modal: {
             getting_started: 'doc-modal-getting-started',
-            props: 'doc-modal-props',
+            component_api: 'doc-modal-component-api',
         },
         progress: {
             circular_progress: 'doc-progress-circular',
@@ -251,7 +251,7 @@ export const sections = [
                         label: 'Modal',
                         TOC: {
                             getting_started: sectionIds.components.modal.getting_started,
-                            props: sectionIds.components.modal.props,
+                            component_api: sectionIds.components.modal.component_api,
                         }
                     },
                     { 

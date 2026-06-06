@@ -1,7 +1,8 @@
 <script>
     import {modalStore,Button, Input} from '@sierra-95/svelte-scaffold';
     import {RenderCode, sectionIds} from '$lib';
-    import ModalTable from './table.svelte';
+    import Table from '$lib/Table.svelte';
+    import { title, table } from './table';
 
     let value = '';
     function triggerPlainModal() {
@@ -108,7 +109,7 @@
     `}/>
 </section>
 
-<section id={sectionIds.components.modal.props} class="space-y-4 mb-10">
+<section id={sectionIds.components.modal.component_api} class="space-y-4 mb-10">
     <h3>Use <code class="note">modalStore.update()</code> for optional properties to keep defaults</h3>
-    <ModalTable />
+    <Table {title} {table}/>
 </section>
