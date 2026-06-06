@@ -24,6 +24,7 @@
             ...m,
             open: true,
             title: 'Editor',
+            logo_url: 'https://files.michaelmachohi.com/logos/michaelmachohi.favicon.circle.ico',
             onConfirm: () => {
                 Submit();
             },
@@ -93,6 +94,7 @@
                     ...m,
                     open: true,
                     title: 'Editor',
+                    logo_url: 'https://example.com/logo.png',
                     onConfirm: () => {
                         Submit();
                     },
