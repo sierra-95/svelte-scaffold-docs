@@ -44,7 +44,7 @@
 <h1 class="font-bold text-[1.5rem] mb-5" style="color: var(--primary-bg)">Random Components</h1>
 <ol class="space-y-6">
     <li><span>Avatar</span>
-        <section class="space-y-4">
+        <section id={sectionIds.random_stuff.avatar} class="space-y-4">
             <h3>In non-upload mode, it can be used to display user avatars. Try it on 
                 <a class="note" href={routes.core.components.children.menus + '#' + sectionIds.components.menu.user_menu}>User Menu</a>
             </h3>
@@ -93,7 +93,7 @@
     </li>
     <li><span>Carousel</span>
         <section id={sectionIds.random_stuff.carousel} class="space-y-4">
-            <div class="relative max-w-125 h-125">
+            <div class="relative h-125">
                 <Carousel images={images} />
             </div>
             <RenderCode
@@ -105,7 +105,7 @@
                     let images=[];
                 <\/script>
                 {/*Ensure to set position relative*/}
-                <div class="relative w-125 h-125">
+                <div class="relative h-125">
                     <Carousel images={images} />
                 </div>
             `}/>
@@ -199,7 +199,7 @@
     </li>
 
     <li><span>WhatsApp Share</span>
-        <section class="space-y-4">
+        <section id={sectionIds.random_stuff.whatsapp_share} class="space-y-4">
             <h3>When clicked, your website will preview correctly in WhatsApp if Open Graph (OG) tags are configured.</h3>
             <h3>If the share fails, it falls back to copying the link.</h3>
             <WhatsappShare

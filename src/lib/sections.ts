@@ -132,11 +132,13 @@ export const sectionIds = {
     },
 
     random_stuff: {
+        avatar: 'doc-random-stuff-avatar',
         carousel: 'doc-random-stuff-carousel',
         checkbox: 'doc-random-stuff-checkbox',
         color_picker: 'doc-random-stuff-color-picker',
         hr: 'doc-random-stuff-hr',
         timezones: 'doc-random-stuff-timezones',
+        whatsapp_share: 'doc-random-stuff-whatsapp-share',
     },
 
     modules: {
@@ -301,11 +303,13 @@ export const sections = [
                 label: 'Random Stuff', 
                 icon: 'fa fa-clone',
                 TOC :{
+                    avatar: sectionIds.random_stuff.avatar,
                     carousel: sectionIds.random_stuff.carousel,
                     checkbox: sectionIds.random_stuff.checkbox,
                     color_picker: sectionIds.random_stuff.color_picker,
                     horizontal_rule: sectionIds.random_stuff.hr,
                     timezones: sectionIds.random_stuff.timezones,
+                    whatsapp_share: sectionIds.random_stuff.whatsapp_share,
                 }
             },
         ]
