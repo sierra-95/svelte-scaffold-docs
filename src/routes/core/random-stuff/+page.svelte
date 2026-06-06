@@ -203,6 +203,7 @@
             <h3>When clicked, your website will preview correctly in WhatsApp if Open Graph (OG) tags are configured.</h3>
             <h3>If the share fails, it falls back to copying the link.</h3>
             <WhatsappShare
+                tailwindStyles="text-[#25D366]"
                 shareURL="https://yoursite.com"
                 shareTitle="Cats & Coffee"
                 shareText="A cat just knocked over a cup of coffee while debugging your code. Productivity level: questionable."
@@ -215,6 +216,7 @@
                 <\/script>
 
                 <WhatsappShare
+                    tailwindStyles="text-[#25D366]"
                     shareURL="https://yoursite.com"
                     shareTitle="Cats & Coffee"
                     shareText="A cat just knocked over a cup of coffee while debugging your code. Productivity level: questionable."
