@@ -1,6 +1,6 @@
 <script lang="ts">
-    import { Hr, HrSplit, Checkbox, ColorPicker, Button, Input, Carousel, Date, Time } from '@sierra-95/svelte-scaffold';
-    import {sectionIds, RenderCode} from '$lib';
+    import { Hr, HrSplit, Checkbox, ColorPicker, Button, Input, Carousel, Date, Time, Avatar, WhatsappShare } from '@sierra-95/svelte-scaffold';
+    import {sectionIds, RenderCode, routes} from '$lib';
 
     let checked=$state(false);
     let openDropdown=$state(false);
@@ -17,6 +17,10 @@
         "https://fastly.picsum.photos/id/13/2500/1667.jpg?hmac=SoX9UoHhN8HyklRA4A3vcCWJMVtiBXUg0W4ljWTor7s",    
     ];
     const timezone = "America/New_York";
+
+    function handleAvatarClick(){
+        alert('Avatar clicked!');
+    }
 </script>
 
 <style>
@@ -39,6 +43,54 @@
 
 <h1 class="font-bold text-[1.5rem] mb-5" style="color: var(--primary-bg)">Random Components</h1>
 <ol class="space-y-6">
+    <li><span>Avatar</span>
+        <section class="space-y-4">
+            <h3>In non-upload mode, it can be used to display user avatars. Try it on 
+                <a class="note" href={routes.core.components.children.menus + '#' + sectionIds.components.menu.user_menu}>User Menu</a>
+            </h3>
+            <div class="flex gap-4">
+                <Avatar boxShadow=""/>
+                <Avatar url={images[0]} boxShadow=""/>
+            </div>
+            <RenderCode
+                lang="svelte"
+                code={`
+                    <\script>
+                        import { Avatar } from '@sierra-95/svelte-scaffold';
+                    <\/script>
+                    <Avatar boxShadow=""/>
+                    <Avatar url={images[0]} boxShadow=""/>
+            `}/>
+            <h3>In upload mode, it can be used to allow users to upload their own avatars. It is upto the developer to implement the upload functionality.</h3>
+            <Avatar 
+                url={images[0]}
+                avatarSize = '150px'
+                iconSize = '40px'
+                zIndex={2}
+                upload={true}
+                borderSize ="0px"
+                icon="fa-regular fa-camera"
+                onClick={handleAvatarClick}
+            />
+            <RenderCode
+                lang="svelte"
+                code={`
+                <\script>
+                    import { Avatar } from '@sierra-95/svelte-scaffold';
+                <\/script>
+                <Avatar 
+                    url={images[0]}
+                    avatarSize = '150px'
+                    iconSize = '40px'
+                    zIndex={2}
+                    upload={true} //only activates onClick
+                    borderSize ="0px"
+                    icon="fa-regular fa-camera" //switching from default fa-user
+                    onClick={handleAvatarClick}
+                />
+            `}/>
+        </section>
+    </li>
     <li><span>Carousel</span>
         <section id={sectionIds.random_stuff.carousel} class="space-y-4">
             <div class="relative max-w-125 h-125">
