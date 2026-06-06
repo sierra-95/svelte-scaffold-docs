@@ -186,7 +186,7 @@
 	</section>
 
 	<section id={sectionIds.components.inputs.date_time_input} class="space-y-4">
-		<h2>3. Date & Time Inputs</h2>
+		<h2>5. Date & Time Inputs</h2>
 		<DateInput 
 			id="date" 
 			label="Select Date" 
@@ -229,7 +229,7 @@
 	</section>
 
 	<section id={sectionIds.components.inputs.search_bar} class="space-y-4">
-		<h2>4. Search Bar</h2>
+		<h2>6. Search Bar</h2>
 		<SearchBar bind:value={searchQuery} onSearch={() => alert(`Search triggered ${searchQuery}!`)}/>
 		<SearchBar enableHotkey onHotkey={()=> alert('Hotkey triggered!')}/>
 		<RenderCode
@@ -246,7 +246,7 @@
 	</section>
 
 	<section id={sectionIds.components.inputs.select} class="space-y-4">
-		<h2>5. Select</h2>
+		<h2>7. Select</h2>
 		<Select 
 			optionsBackground="var(--background)" 
 			maxWidth="300px" 
@@ -279,7 +279,7 @@
 		`}/>
 	</section>
 	<section id={sectionIds.components.inputs.file_input} class="space-y-4">
-		<h2>6. File Input</h2>
+		<h2>8. File Input</h2>
 		<FileInput bind:processing onclick={handleUpload}  />
 		<h3>Incase any errors occur during upload,
 			<a href={routes.core.features.children.toast_manager} class="note">Toast Manager</a>

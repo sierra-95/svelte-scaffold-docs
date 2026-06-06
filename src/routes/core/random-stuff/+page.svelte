@@ -197,4 +197,29 @@
             `}/>
         </section>
     </li>
+
+    <li><span>WhatsApp Share</span>
+        <section class="space-y-4">
+            <h3>When clicked, your website will preview correctly in WhatsApp if Open Graph (OG) tags are configured.</h3>
+            <h3>If the share fails, it falls back to copying the link.</h3>
+            <WhatsappShare
+                shareURL="https://yoursite.com"
+                shareTitle="Cats & Coffee"
+                shareText="A cat just knocked over a cup of coffee while debugging your code. Productivity level: questionable."
+            />
+            <RenderCode
+                lang="svelte"
+                code={`
+                <\script>
+                    import { WhatsappShare } from '@sierra-95/svelte-scaffold';
+                <\/script>
+
+                <WhatsappShare
+                    shareURL="https://yoursite.com"
+                    shareTitle="Cats & Coffee"
+                    shareText="A cat just knocked over a cup of coffee while debugging your code. Productivity level: questionable."
+                />
+            `}/>
+        </section>
+    </li>
 </ol>
