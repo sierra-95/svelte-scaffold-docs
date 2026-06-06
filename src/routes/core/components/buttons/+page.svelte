@@ -1,7 +1,17 @@
 <script lang="ts">
-	import {Button, ButtonFlip, ButtonMarquee, ButtonSwipe} from '@sierra-95/svelte-scaffold'
-	import {RenderCode, sectionIds} from '$lib';
+	import {
+		Button, ButtonFlip, ButtonMarquee, ButtonSwipe,
+		ButtonHamburger, ButtonSelect, ButtonTimes, addToast
+	} from '@sierra-95/svelte-scaffold'
+	import {RenderCode, routes, sectionIds} from '$lib';
 	import Table from '$lib/Table.svelte';
+
+	function handleHamburgerClick() {
+		addToast({
+			status: 'info',
+			message: 'javascript:void(0). This is just a button. Use the link to view the prebuilt hamburger menu.'
+		});
+	}
 
 	const contained_buttons = [
 		{ color: 'primary', title: 'Primary contained' },
@@ -280,6 +290,79 @@
 				borderSize: "1px"
 			}}
 		/>
+	</section>
+
+	<section id={sectionIds.components.buttons.hamburger_button} class="space-y-4">
+		<h2>3. Hamburger Button</h2>
+		<ButtonHamburger onclick={handleHamburgerClick} />
+		<a href={routes.core.components.children.menus + '#' + sectionIds.components.menu.hamburger} class="note">View the Prebuilt Hamburger Menu</a>
+		<RenderCode
+			lang="svelte"
+			code={`
+			<\script>
+				import { ButtonHamburger } from '@sierra-95/svelte-scaffold';
+				
+				let menuOpen = $state(false);
+
+				function toggleMenu() {
+					menuOpen = !menuOpen;
+				}
+			<\/script>
+
+			<ButtonHamburger
+				barWidth = "30px"
+				barHeight = "3px"
+				barColor = "black"
+				barBorderRadius = "5px"
+				barSpacing = "5px"
+				onclick={toggleMenu}
+			/>
+		`}/>
+		<Table
+			title={{
+				name: 'Component API'
+			}}
+			table={{
+				headers: ['Prop', 'Type', 'Default'],
+				rows: [
+					[
+						{ content: "barWidth" },
+						{ content: "string" },
+						{ content: "30px" },
+					],
+					[
+						{ content: "barHeight" },
+						{ content: "string" },
+						{ content: "3px" },
+					],
+					[
+						{ content: "barColor" },
+						{ content: "string" },
+						{ content: "black" },
+					],
+					[
+						{ content: "barBorderRadius" },
+						{ content: "string" },
+						{ content: "5px" },
+					],
+					[
+						{ content: "barSpacing" },
+						{ content: "string" },
+						{ content: "5px" },
+					]
+				],
+				borderSize: "1px",
+				striped: true
+			}}
+		/>
+	</section>
+
+	<section id={sectionIds.components.buttons.other_buttons} class="space-y-4">
+		<h2>4. Item Selected & Close</h2>
+		<div class="h-10 relative w-10">
+			<ButtonSelect title="Selected" />
+			<ButtonTimes title="Close" />
+		</div>	
 	</section>
 
 </main>

@@ -93,7 +93,9 @@ export const sectionIds = {
             default_button: 'doc-button-default',
             default_button_props: 'doc-button-default-props',
             custom_button: 'doc-button-custom',
-            custom_button_props: 'doc-button-custom-props'
+            custom_button_props: 'doc-button-custom-props',
+            hamburger_button: 'doc-button-hamburger',
+            other_buttons: 'doc-button-other-buttons',
         },
         inputs: {
             basic_input: 'doc-input-basic',
@@ -212,6 +214,8 @@ export const sections = [
                             default_button_props: sectionIds.components.buttons.default_button_props,
                             custom_button: sectionIds.components.buttons.custom_button,
                             custom_button_props: sectionIds.components.buttons.custom_button_props,
+                            hamburger_button: sectionIds.components.buttons.hamburger_button,
+                            other_buttons: sectionIds.components.buttons.other_buttons,
                         }
                     },
                     { 
