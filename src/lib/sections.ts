@@ -91,9 +91,9 @@ export const sectionIds = {
     components: {
         buttons:{
             default_button: 'doc-button-default',
-            default_button_props: 'doc-button-default-props',
+            default_button_api: 'doc-button-default-api',
             custom_button: 'doc-button-custom',
-            custom_button_props: 'doc-button-custom-props',
+            custom_button_api: 'doc-button-custom-api',
             hamburger_button: 'doc-button-hamburger',
             other_buttons: 'doc-button-other-buttons',
         },
@@ -106,6 +106,7 @@ export const sectionIds = {
             search_bar: 'doc-input-search-bar',
             select: 'doc-input-select',
             file_input: 'doc-file-input',
+            component_api: 'doc-input-component-api',
         },
         menu: {
             dropdown: 'doc-menu-dropdown',
@@ -213,9 +214,9 @@ export const sections = [
                         label: 'Buttons', 
                         TOC: {
                             default_button: sectionIds.components.buttons.default_button,
-                            default_button_props: sectionIds.components.buttons.default_button_props,
+                            default_button_api: sectionIds.components.buttons.default_button_api,
                             custom_button: sectionIds.components.buttons.custom_button,
-                            custom_button_props: sectionIds.components.buttons.custom_button_props,
+                            custom_button_api: sectionIds.components.buttons.custom_button_api,
                             hamburger_button: sectionIds.components.buttons.hamburger_button,
                             other_buttons: sectionIds.components.buttons.other_buttons,
                         }
@@ -232,6 +233,7 @@ export const sections = [
                             search_bar: sectionIds.components.inputs.search_bar,
                             select: sectionIds.components.inputs.select,
                             file_input: sectionIds.components.inputs.file_input,
+                            components_api: sectionIds.components.inputs.component_api,
                         }
                     },
                     { 

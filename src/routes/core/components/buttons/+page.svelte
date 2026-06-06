@@ -239,7 +239,7 @@
 		</div>
 	</section>
 
-	<section id={sectionIds.components.buttons.default_button_props} class="space-y-4">
+	<section id={sectionIds.components.buttons.default_button_api} class="space-y-4">
 		<Table 
 			title = {{
 				name:"Component API"
@@ -278,7 +278,7 @@
 		`}/>
 	</section>
 
-	<section id={sectionIds.components.buttons.custom_button_props} class="space-y-4">
+	<section id={sectionIds.components.buttons.custom_button_api} class="space-y-4">
 		<Table 
 			title = {{
 				name:"Component API"
