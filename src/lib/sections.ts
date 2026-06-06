@@ -113,6 +113,7 @@ export const sectionIds = {
             user_menu: 'doc-menu-user',
             tabs: 'doc-menu-tabs',
             hamburger: 'doc-menu-hamburger',
+            content_switcher: 'doc-menu-content-switcher',
         },
         modal: {
             getting_started: 'doc-modal-getting-started',
@@ -244,6 +245,7 @@ export const sections = [
                             user_menu: sectionIds.components.menu.user_menu,
                             tabs: sectionIds.components.menu.tabs,
                             hamburger: sectionIds.components.menu.hamburger,
+                            content_switcher: sectionIds.components.menu.content_switcher,
                         }
                     },
                     { 

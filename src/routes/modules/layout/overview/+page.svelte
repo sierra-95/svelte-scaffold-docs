@@ -7,6 +7,7 @@
 	<h1>Layout</h1>
 	<h3>The layout menu is a portal scaffold.
         It’s designed to save developers time on setup so they can focus on real development work.
+        If you were looking for something simpler, check out the <a href={routes.core.components.children.menus + '#'+  sectionIds.components.menu.content_switcher} class="note">Content Switcher</a>
     </h3>
     <!-- <img src="https://files.michaelmachohi.com/svelte-ui/images/layout-example.png" alt="Dark Theme Layout" /> -->
     <iframe src="https://svelte.michaelmachohi.com/" width="100%" height="500" class="rounded-sm" title="Layout"></iframe>
@@ -15,13 +16,13 @@
         <li>Prebuilt responsive layout with header, side menu, and content area.</li>
         <li>Customizable header with logo, title, and easy-to-integrate SvelteKit routing.</li>
         <li>In-built <a href={routes.stores.theme_stores} class="note">theme</a> support for light and dark modes.</li>
+        <li>In-built <a href={routes.core.features.children.global_search} class="note">Global Search</a> for route search and navigation.</li>
         <li>Supports RBAC (Role-Based Access Control) <span class="text-blue-500 text-sm">(beta)</span></li>
         <li>It includes certain components by default, hence you don’t need to import them manually.</li>
         <div class="flex flex-wrap gap-4">
             <a href={routes.core.components.children.modal} class="note">Modal</a>
             <a href={routes.core.features.children.toast_manager} class="note">Toast Manager</a>
             <a href={routes.modules.file_picker.children.getting_started} class="note">File Picker</a>
-            <a href={routes.core.features.children.global_search} class="note">Global Search</a>
         </div>
     </ul>
 </section>
