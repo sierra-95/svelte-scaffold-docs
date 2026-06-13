@@ -5,6 +5,7 @@
 	} from '@sierra-95/svelte-scaffold'
 	import {RenderCode, routes, sectionIds} from '$lib';
 	import Table from '$lib/Table.svelte';
+	import { DefaultButtonTable, CustomButtonTable, ButtonHamburgerTable} from './tables';
 
 	function handleHamburgerClick() {
 		addToast({
@@ -23,138 +24,6 @@
 		{ color: 'warning', title: 'Warning outlined' },
 		{ color: 'error', title: 'Error outlined' }
 	] as const;
-
-
-	const DefaultButtonHeaders = ["Prop", "Type", "Default", "Description"];
-
-	const DefaultButtonRows = [
-		[
-			{ content: "title" },
-			{ content: "string" },
-			{ content: "''" },
-			{ content: "The button label content." }
-		],
-		[
-			{ content: "type" },
-			{ content: "string (button, submit, reset)" },
-			{ content: "'button'" },
-			{ content: "" }
-		],
-		[
-			{ content: "onclick=&#123;() =&gt; your_function()&#125;" },
-			{ content: "function(s)" },
-			{ content: "" },
-			{ content: "Function or functions triggered when the button is clicked." }
-		],
-		[
-			{ content: "color" },
-			{ content: "string (primary, warning, error, none)" },
-			{ content: "'primary'" },
-			{ content: "Sets the color scheme, used with <strong>variant</strong> to determine visual appearance." }
-		],
-		[
-			{ content: "variant" },
-			{ content: "string (contained, outlined)" },
-			{ content: "'contained'" },
-			{ content: "Defines the button style variant." }
-		],
-		[
-			{ content: "style" },
-			{ content: "string (Tailwind only)" },
-			{ content: '""' },
-			{ content: "Tailwind utility classes for custom styling." }
-		],
-		[
-			{ content: "startIcon & endIcon" },
-			{ content: "string (Font Awesome only)" },
-			{ content: '""' },
-			{ content: "Icons to display at the start or end of the button." }
-		],
-		[
-			{ content: "disabled" },
-			{ content: "boolean" },
-			{ content: "false" },
-			{ content: "Disables the button and blocks <strong>onClick</strong> actions." }
-		],
-		[
-			{ content: "isLoading" },
-			{ content: "boolean" },
-			{ content: "false" },
-			{ content: "Displays a spinner. Automatically disables the button while loading." }
-		],
-		[
-			{ content: "pill" },
-			{ content: "boolean" },
-			{ content: "false" },
-			{ content: "If true, applies full rounding (Tailwind <strong>rounded-full</strong>) to make the button pill-shaped." }
-		],
-		[
-			{ content: "spinner" },
-			{ content: "number" },
-			{ content: '20' },
-			{ content: "Controls the size of the loading spinner (in pixels) when <strong>isLoading</strong> is active." }
-		],
-		[
-			{ content: "thickness" },
-			{ content: "number" },
-			{ content: '2' },
-			{ content: "Defines the stroke thickness of the spinner icon (applies when <strong>isLoading</strong> is active)" }
-		],
-		[
-			{ content: "html2canvas_ignore" },
-			{ content: "string (true, false)" },
-			{ content: "'false'" },
-			{ content: "When set to <strong>'true'</strong>, activates data-html2canvas-ignore to exclude the button from screenshots." }
-		]
-	];
-
-	const CustomButtonHeaders = ["Import Name", "Prop", "Type", "Default"];
-
-	const CustomButtonRows = [
-		[
-			{ content: "ButtonSwipe", rowspan: 2 },
-			{ content: "text" },
-			{ content: "string" },
-			{ content: "Button" }
-		],
-		[
-			{ content: "bg / color" },
-			{ content: "string" },
-			{ content: "var(--primary-bg)/ #4B5563" }
-		],
-		[
-			{ content: "ButtonSwipe", rowspan: 2 },
-			{ content: "text" },
-			{ content: "string" },
-			{ content: "Hover me" }
-		],
-		[
-			{ content: "bg / color" },
-			{ content: "string" },
-			{ content: "var(--primary-bg)/ #4B5563" }
-		],
-		[
-			{ content: "ButtonFlip", rowspan: 5 },
-			{ content: "front" },
-			{ content: "string" },
-			{ content: "front" }
-		],
-		[
-			{ content: "back" },
-			{ content: "string" },
-			{ content: "back" }
-		],
-		[
-			{ content: "bgFront" },
-			{ content: "string" },
-			{ content: "var(--primary-bg)" }
-		],
-		[
-			{ content: "bgBack / color" },
-			{ content: "string" },
-			{ content: "#f4e5d4 / var(--button-text)" }
-		]
-	];
 </script>
 
 
@@ -241,15 +110,8 @@
 
 	<section id={sectionIds.components.buttons.default_button_api} class="space-y-4">
 		<Table 
-			title = {{
-				name:"Component API"
-			}}
-			table ={{
-				striped:true,
-				headers: DefaultButtonHeaders ,
-				rows: DefaultButtonRows,
-				borderSize: "1px"
-			}}
+			title = {DefaultButtonTable.title}
+			table = {DefaultButtonTable.table}
 		/>
 	</section>
 
@@ -280,15 +142,8 @@
 
 	<section id={sectionIds.components.buttons.custom_button_api} class="space-y-4">
 		<Table 
-			title = {{
-				name:"Component API"
-			}}
-			table ={{
-				striped:true,
-				headers: CustomButtonHeaders ,
-				rows: CustomButtonRows,
-				borderSize: "1px"
-			}}
+			title = {CustomButtonTable.title}
+			table = {CustomButtonTable.table}
 		/>
 	</section>
 
@@ -319,41 +174,8 @@
 			/>
 		`}/>
 		<Table
-			title={{
-				name: 'Component API'
-			}}
-			table={{
-				headers: ['Prop', 'Type', 'Default'],
-				rows: [
-					[
-						{ content: "barWidth" },
-						{ content: "string" },
-						{ content: "30px" },
-					],
-					[
-						{ content: "barHeight" },
-						{ content: "string" },
-						{ content: "3px" },
-					],
-					[
-						{ content: "barColor" },
-						{ content: "string" },
-						{ content: "black" },
-					],
-					[
-						{ content: "barBorderRadius" },
-						{ content: "string" },
-						{ content: "5px" },
-					],
-					[
-						{ content: "barSpacing" },
-						{ content: "string" },
-						{ content: "5px" },
-					]
-				],
-				borderSize: "1px",
-				striped: true
-			}}
+			title = {ButtonHamburgerTable.title}
+			table = {ButtonHamburgerTable.table}
 		/>
 	</section>
 

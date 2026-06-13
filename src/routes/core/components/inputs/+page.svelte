@@ -8,7 +8,7 @@
 	import {RenderCode, routes, sectionIds} from '$lib';
 	import Table from '$lib/Table.svelte';
 	import FileInputTable from './_table/fileInput.svelte';
-	import { propsTable, propsTitle, eventHandlersTable, eventHandlersTitle, stylingTable, stylingTitle } from './_table/shared';
+	import { propsTable, eventHandlersTable, stylingTable, fileInputDocumentListTable, fileInputUploadTypeTable } from './table';
 
 	let email = '';
 	let password = '';
@@ -312,12 +312,14 @@
 			<\/script>
 			<FileInput bind:processing onclick={handleUpload}  />
 		`}/>
-		<FileInputTable />
+		<Table table={fileInputUploadTypeTable.table}/>
+		<Table table={fileInputDocumentListTable.table}/>
 	</section>
 
 	<section id={sectionIds.components.inputs.component_api} class="space-y-4">
-		<Table title={propsTitle} table={propsTable}/>
-		<Table title={eventHandlersTitle} table={eventHandlersTable}/>
-		<Table title={stylingTitle} table={stylingTable}/>
+		<h2>9. Component API</h2>
+		<Table title={propsTable.title} table={propsTable.table}/>
+		<Table title={eventHandlersTable.title} table={eventHandlersTable.table}/>
+		<Table title={stylingTable.title} table={stylingTable.table}/>
 	</section>
 </main>

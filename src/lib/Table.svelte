@@ -11,7 +11,7 @@
   type TableRow = TableCell[];
 
   type TableProps = {
-    title: {
+    title?: {
       name: string;
       fontSize?: string;
       fontWeight?: string;
@@ -27,22 +27,34 @@
       borderColor?: string;
     }
   };
-  const {
-    title ={
-      name : '',
-      fontSize: "1.25rem",
-      fontWeight: "bold",
-      color: "var(--text-primary)"
-    },
-    table = {
-      headers : [],
-      rows: [],
-      striped : false,
-      fontSize: "0.875rem",
-      borderSize: "1px",
-      borderColor: "var(--border)"
-    },
-  }: TableProps = $props();
+
+  const defaultTitle = {
+    name: '',
+    fontSize: "1.25rem",
+    fontWeight: "bold",
+    color: "var(--text-primary)"
+  };
+
+  const defaultTable = {
+    headers: [],
+    rows: [],
+    striped: true,
+    fontSize: "0.875rem",
+    borderSize: "1px",
+    borderColor: "var(--border)"
+  };
+  
+  const props: TableProps = $props();
+
+  const title = $derived({
+    ...defaultTitle,
+    ...props.title
+  });
+
+  const table = $derived({
+    ...defaultTable,
+    ...props.table
+  });
 
   const stripeColor = "var(--background-secondary)";
 </script>
@@ -68,7 +80,9 @@
 </style>
 
 <main id="sierra-table" style="width: 100%;">
-  <h2>{title.name}</h2>
+  {#if title.name}
+    <h2>{title.name}</h2>
+  {/if}
   <table style="font-size: {table.fontSize};">
     <thead>
       <tr>
@@ -79,9 +93,9 @@
     </thead>
 
     <tbody>
-      {#each table.rows as row}
+      {#each table.rows as row, i}
         <tr
-          style="{table.striped && table.rows.indexOf(row) % 2 === 1 ? `background-color: ${stripeColor}` : ''}"
+          style="{table.striped && i % 2 === 1 ? `background-color: ${stripeColor}` : ''}"
         >
           {#each row as cell}
             <td
