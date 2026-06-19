@@ -1,7 +1,7 @@
 <script>
-    import {modalStore,Button, Input} from '@sierra-95/svelte-scaffold';
+    import {modalStore,Button, Input, Table} from '@sierra-95/svelte-scaffold';
     import {RenderCode, sectionIds} from '$lib';
-    import Table from '$lib/Table.svelte';
+    import { favicon } from '$lib/assets/company';
     import { title, table } from './table';
 
     let value = '';
@@ -24,7 +24,7 @@
             ...m,
             open: true,
             title: 'Editor',
-            logo_url: 'https://files.michaelmachohi.com/logos/michaelmachohi.favicon.circle.ico',
+            logo_url: favicon,
             onConfirm: () => {
                 Submit();
             },
@@ -35,7 +35,9 @@
 </script>
 
 {#snippet formContent()}
-    <Input label="Enter Youtube URL" id="youtube-url" bind:value={value}/>
+    <div style="padding-top: 20px;">
+        <Input label="Enter Youtube URL" id="youtube-url" bind:value={value}/>
+    </div>
 {/snippet}
 
 <title>Modal</title>

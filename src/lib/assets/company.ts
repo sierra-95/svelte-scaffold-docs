@@ -1,0 +1,1 @@
+export const favicon = 'https://files.michaelmachohi.com/logos/michaelmachohi.favicon.circle.ico';

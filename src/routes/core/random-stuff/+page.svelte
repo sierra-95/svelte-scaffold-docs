@@ -1,5 +1,5 @@
 <script lang="ts">
-    import { Hr, HrSplit, Checkbox, ColorPicker, Button, Input, Carousel, Date, Time, Avatar, WhatsappShare } from '@sierra-95/svelte-scaffold';
+    import { Hr, HrSplit, Checkbox, ColorPicker, Button, Input, Carousel, Date, Time, Avatar, ButtonWhatsappShare } from '@sierra-95/svelte-scaffold';
     import {sectionIds, RenderCode, routes} from '$lib';
 
     let checked=$state(false);
@@ -48,9 +48,19 @@
             <h3>In non-upload mode, it can be used to display user avatars. Try it on 
                 <a class="note" href={routes.core.components.children.menus + '#' + sectionIds.components.menu.user_menu}>User Menu</a>
             </h3>
-            <div class="flex gap-4">
+            <div class="flex gap-4 items-center">
                 <Avatar boxShadow=""/>
                 <Avatar url={images[0]} boxShadow=""/>
+                <Avatar 
+                    url={images[0]}
+                    avatarSize = '100px'
+                    iconSize = '30px'
+                    zIndex={2}
+                    upload={true}
+                    borderSize ="0px"
+                    icon="fa-regular fa-camera"
+                    onClick={handleAvatarClick}
+                />
             </div>
             <RenderCode
                 lang="svelte"
@@ -62,16 +72,6 @@
                     <Avatar url={images[0]} boxShadow=""/>
             `}/>
             <h3>In upload mode, it can be used to allow users to upload their own avatars. It is upto the developer to implement the upload functionality.</h3>
-            <Avatar 
-                url={images[0]}
-                avatarSize = '150px'
-                iconSize = '40px'
-                zIndex={2}
-                upload={true}
-                borderSize ="0px"
-                icon="fa-regular fa-camera"
-                onClick={handleAvatarClick}
-            />
             <RenderCode
                 lang="svelte"
                 code={`
@@ -79,9 +79,9 @@
                     import { Avatar } from '@sierra-95/svelte-scaffold';
                 <\/script>
                 <Avatar 
-                    url={images[0]}
-                    avatarSize = '150px'
-                    iconSize = '40px'
+                    url="https://example.com/avatar.jpg"
+                    avatarSize = '100px'
+                    iconSize = '30px'
                     zIndex={2}
                     upload={true} //only activates onClick
                     borderSize ="0px"
@@ -202,7 +202,7 @@
         <section id={sectionIds.random_stuff.whatsapp_share} class="space-y-4">
             <h3>When clicked, your website will preview correctly in WhatsApp if Open Graph (OG) tags are configured.</h3>
             <h3>If the share fails, it falls back to copying the link.</h3>
-            <WhatsappShare
+            <ButtonWhatsappShare
                 tailwindStyles="text-[#25D366]"
                 shareURL="https://yoursite.com"
                 shareTitle="Cats & Coffee"
@@ -212,10 +212,10 @@
                 lang="svelte"
                 code={`
                 <\script>
-                    import { WhatsappShare } from '@sierra-95/svelte-scaffold';
+                    import { ButtonWhatsappShare } from '@sierra-95/svelte-scaffold';
                 <\/script>
 
-                <WhatsappShare
+                <ButtonWhatsappShare
                     tailwindStyles="text-[#25D366]"
                     shareURL="https://yoursite.com"
                     shareTitle="Cats & Coffee"

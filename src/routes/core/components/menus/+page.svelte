@@ -1,6 +1,7 @@
 <script>
     import {MenuItem, DropdownContainer, buttonRipple, User, Hr, resetUserStore, Tabs, HamburgerMenu, ContentSwitcher} from '@sierra-95/svelte-scaffold';
 	import {RenderCode, routes, sectionIds} from '$lib';
+    import { favicon } from '$lib/assets/company';
 
 
     let openMenu = $state(true);
@@ -247,8 +248,8 @@
             barHeight="2px"
             barColor="var(--primary-bg)"
             menuBackgroundColor="white"
-            companyLogo="https://files.michaelmachohi.com/logos/michaelmachohi.favicon.circle.ico"
-            LogoWidth="30px"
+            menuLogoUrl={favicon}
+            menuLogoWidth="30px"
             buttonTimesColor="black"
         >
             <div class="p-6">
@@ -271,8 +272,8 @@
                 barHeight="2px"
                 barColor="var(--primary-bg)"
                 menuBackgroundColor="white"
-                companyLogo="https://company.com/logo.png"
-                LogoWidth="30px"
+                menuLogoUrl="https://company.com/logo.png"
+                menuLogoWidth="30px"
                 buttonTimesColor="black"
             >
                 <div class="p-6">

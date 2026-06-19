@@ -1,10 +1,9 @@
 <script lang="ts">
 	import {
 		Button, ButtonFlip, ButtonMarquee, ButtonSwipe,
-		ButtonHamburger, ButtonSelect, ButtonTimes, addToast
+		ButtonHamburger, ButtonSelect, ButtonTimes, addToast, Table
 	} from '@sierra-95/svelte-scaffold'
 	import {RenderCode, routes, sectionIds} from '$lib';
-	import Table from '$lib/Table.svelte';
 	import { DefaultButtonTable, CustomButtonTable, ButtonHamburgerTable} from './tables';
 
 	function handleHamburgerClick() {

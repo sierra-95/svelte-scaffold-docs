@@ -3,4 +3,3 @@ export { default as TOC } from './TOC/toc.svelte';
 export { default as Navigator } from './Navigator/main.svelte'
 export {routes, sections, sectionIds} from './sections';
 export {default as Footer} from './Footer/main.svelte';
-export {default as Network} from './network.svelte';

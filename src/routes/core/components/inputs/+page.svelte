@@ -3,10 +3,9 @@
 	import {
 		Input, PasswordInput, fileInputStore, FileInput, 
 		resetFileInputStore, SearchBar, Select, DateInput, TimeInput,
-		TextArea, PasswordStrength
+		TextArea, PasswordStrength, Table
 	} from '@sierra-95/svelte-scaffold';
 	import {RenderCode, routes, sectionIds} from '$lib';
-	import Table from '$lib/Table.svelte';
 	import { propsTable, eventHandlersTable, stylingTable, fileInputDocumentListTable, fileInputUploadTypeTable } from './table';
 
 	let email = '';

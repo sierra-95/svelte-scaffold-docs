@@ -1,9 +1,11 @@
 <script lang="ts">
 	import '../app.css';
-	import { goto } from '$app/navigation';
 	import { onMount, tick } from 'svelte';
-	import {Layout, ButtonTheme, theme, isLoggedIn, User, isMobile,isTablet, DropdownContainer, MenuItem, editorStore, layoutStore} from '@sierra-95/svelte-scaffold';
-	import {sections, TOC, Navigator, Footer, Network, routes } from '$lib';
+	import {Layout, ButtonTheme, theme, isLoggedIn, User, isMobile,isTablet, DropdownContainer, MenuItem, layoutStore,
+		editorConfig, isDesktop
+	} from '@sierra-95/svelte-scaffold';
+	import {sections, TOC, Navigator, Footer, routes } from '$lib';
+	import { favicon } from '$lib/assets/company';
 
 	let { children } = $props();
 	let link = $state('');
@@ -25,26 +27,25 @@
 			store.phone = '+1-555-123-4567';
 			return store;
 		});
-		if($User.userId){
-			const r2_key = `svelte-scaffold/${$User.userId}`;
-			editorStore.update(store => {
-				store.r2_key = r2_key;
-				store.serverGetUrl = '/api/media/get';
-				store.serverUploadUrl = '/api/media/upload';
-				store.serverDeleteUrl = '/api/media/delete';
-				store.serverStorageUrl = '/api/media/storage-usage';
-				store.serverDownloadUrl = '/api/media/download';
-				return store;
-			});
-		}
+
+		editorConfig.update(store => {
+			store.serverGetUrl = '/api/media/get';
+			store.serverUploadUrl = '/api/media/upload';
+			store.serverDeleteUrl = '/api/media/delete';
+			store.serverDownloadUrl = '/api/media/download';
+			return store;
+		});
+
 		layoutStore.update(store => {
 			store.sections = sections;
 			store.paddingOff = true;
-			store.headerTitle = $isMobile || $isTablet ? 'Sierra-95' : 'Sierra-95/svelte-scaffold';
+			store.headerTitle = !$isDesktop ? 'Sierra-95' : '@sierra-95/svelte-scaffold';
 			store.headerLink = '/';
 			store.headerImage = link;
 			store.headerImageSize = '30px';
 			store.headerRightContent = headerRightContent;
+			store.dropdown = !$isMobile
+			store.dropdownContent = dropdownContent;
 			return store;
 		});
     })
@@ -59,6 +60,10 @@
 		}
 	});
 
+	function redirectToMoreHeaderOptions(link: string) {
+		window.open(link, '_blank');
+	}
+
 </script>
 
 <svelte:head>
@@ -69,10 +74,9 @@
 	></script>
 </svelte:head>
 
-<Network/>
 <Layout>
 	<div class="flex items-start">
-		<div style="width: {$isMobile || $isTablet ? '100%' : 'calc(100% - 300px)'}" class="w-full p-6 mx-auto">
+		<div style="width: {!$isDesktop ? '100%' : 'calc(100% - 300px)'}" class="w-full p-6 mx-auto">
 			{@render children()}
 			<Navigator/>
 			<Footer/>
@@ -84,7 +88,7 @@
 {#snippet headerRightContent()}
 	<DropdownContainer top="30px" bind:open={openMenu} dropdownTrigger={TriggerMenu}>
 		<MenuItem onclick={() => window.open(routes.system.resources.github,'_blank','noopener,noreferrer')} icon="fa-github" iconSize="15px">Github</MenuItem>
-		<MenuItem onclick={() => goto(routes.system.support.help_center)} icon="fa-question" iconSize="15px">Help Center</MenuItem>
+		<MenuItem icon="fa-heart" iconBg="red" iconSize="15px">Donate</MenuItem>
 		<div style="display: flex; gap: 1rem; align-items: center; padding: 1rem">Theme<ButtonTheme /></div>
 	</DropdownContainer>
 {/snippet}
@@ -93,5 +97,21 @@
 	<button class="w-10 text-xl text-(--primary-bg)" aria-label="Ellipsis" onclick={() => (openMenu = !openMenu)}>
 		<i class="fa-solid fa-cog" style="transition: transform 0.5s ease; transform: rotate({openMenu ? 90 : 0}deg);"></i>
 	</button>
+{/snippet}
+
+{#snippet dropdownContent()}
+	<div style="padding: 10px 0px;" class="w-80">
+		<h2 class="p-4">More scaffolds by 
+			<a class="note" href={routes.system.social.github} target="_blank" rel="noopener noreferrer">
+				@sierra-95
+			</a>
+		</h2>
+		<MenuItem  
+			url={favicon} 
+			onclick={() => redirectToMoreHeaderOptions('')}
+			iconSize="20px"
+		>@sierra-95/svelte-calendar
+		</MenuItem>
+	</div>
 {/snippet}
 
