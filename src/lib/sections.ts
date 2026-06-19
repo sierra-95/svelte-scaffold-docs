@@ -246,8 +246,8 @@ export const sections = [
                             dropdown: sectionIds.components.menu.dropdown,
                             user_menu: sectionIds.components.menu.user_menu,
                             tabs: sectionIds.components.menu.tabs,
-                            hamburger: sectionIds.components.menu.hamburger,
                             content_switcher: sectionIds.components.menu.content_switcher,
+                            hamburger: sectionIds.components.menu.hamburger,
                         }
                     },
                     { 

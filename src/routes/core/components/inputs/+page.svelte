@@ -7,7 +7,6 @@
 	} from '@sierra-95/svelte-scaffold';
 	import {RenderCode, routes, sectionIds} from '$lib';
 	import Table from '$lib/Table.svelte';
-	import FileInputTable from './_table/fileInput.svelte';
 	import { propsTable, eventHandlersTable, stylingTable, fileInputDocumentListTable, fileInputUploadTypeTable } from './table';
 
 	let email = '';

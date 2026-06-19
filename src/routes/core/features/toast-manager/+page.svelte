@@ -44,7 +44,7 @@
 <title>Toast manager</title>
 <section id={sectionIds.features.toast_manager} class="space-y-4">
     <h1>Toast manager</h1>
-    <h3>Toast manager is an improved version of <span class="note">Toast(Deprecated)</span></h3>
+    <h3>Toast manager allows you to manage and display toast notifications in your Svelte application.</h3>
     <h2>Why Use the Toast Manager   ?</h2>
     <ul class="list-disc list-inside space-y-2">
         <li>Handles multiple message types simultaneously (info, success, warning, error)</li>

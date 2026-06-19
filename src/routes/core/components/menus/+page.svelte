@@ -179,57 +179,8 @@
         `}/>
     </section>
 
-    <section id={sectionIds.components.menu.hamburger} class="space-y-4">
-        <h2>3. Hamburger Menu</h2>
-        <p>
-            The HamburgerMenu component provides a responsive navigation menu that can be toggled open and closed.
-            It is commonly used in mobile and responsive web design to save space and provide a clean user interface.
-        </p>
-        <HamburgerMenu
-            bind:menuOpen={hamburgerMenuOpen}
-            barHeight="2px"
-            barColor="var(--primary-bg)"
-            menuBackgroundColor="white"
-            companyLogo="https://files.michaelmachohi.com/logos/michaelmachohi.favicon.circle.ico"
-            LogoWidth="30px"
-            buttonTimesColor="black"
-        >
-            <div class="p-6">
-                <h2>Some Items</h2>
-                <h3>Item 1</h3>
-                <h3>Item 2</h3>
-                <h3>Item 3</h3>
-            </div>
-        </HamburgerMenu>
-        <RenderCode
-            lang="svelte"
-            code={`
-            <\script>
-                import {HamburgerMenu} from '@sierra-95/svelte-scaffold';
-                let hamburgerMenuOpen = $state(false);
-            <\/script>
-
-            <HamburgerMenu
-                bind:menuOpen={hamburgerMenuOpen}
-                barHeight="2px"
-                barColor="var(--primary-bg)"
-                menuBackgroundColor="white"
-                companyLogo="https://company.com/logo.png"
-                LogoWidth="30px"
-                buttonTimesColor="black"
-            >
-                <div class="p-6">
-                    <h2>Some Items</h2>
-                    <h3>Item 1</h3>
-                    <h3>Item 2</h3>
-                    <h3>Item 3</h3>
-                </div>
-            </HamburgerMenu>
-        `}/>
-    </section>
-
     <section id={sectionIds.components.menu.content_switcher} class="space-y-4">
-        <h2>4. Content Switcher</h2>
+        <h2>3. Content Switcher</h2>
         <h3>This is a minimal Layout used for switching content or pages.
             <a href={routes.modules.layout.children.overview} class="note">Explore Advanced Layout</a>
         </h3>
@@ -282,6 +233,55 @@
                     <div>I am Shared</div>
                 {/if}
             </ContentSwitcher>
+        `}/>
+    </section>
+
+    <section id={sectionIds.components.menu.hamburger} class="space-y-4">
+        <h2>4. Hamburger Menu</h2>
+        <p>
+            The HamburgerMenu component provides a responsive navigation menu that can be toggled open and closed.
+            It is commonly used in mobile and responsive web design to save space and provide a clean user interface.
+        </p>
+        <HamburgerMenu
+            bind:menuOpen={hamburgerMenuOpen}
+            barHeight="2px"
+            barColor="var(--primary-bg)"
+            menuBackgroundColor="white"
+            companyLogo="https://files.michaelmachohi.com/logos/michaelmachohi.favicon.circle.ico"
+            LogoWidth="30px"
+            buttonTimesColor="black"
+        >
+            <div class="p-6">
+                <h2>Some Items</h2>
+                <h3>Item 1</h3>
+                <h3>Item 2</h3>
+                <h3>Item 3</h3>
+            </div>
+        </HamburgerMenu>
+        <RenderCode
+            lang="svelte"
+            code={`
+            <\script>
+                import {HamburgerMenu} from '@sierra-95/svelte-scaffold';
+                let hamburgerMenuOpen = $state(false);
+            <\/script>
+
+            <HamburgerMenu
+                bind:menuOpen={hamburgerMenuOpen}
+                barHeight="2px"
+                barColor="var(--primary-bg)"
+                menuBackgroundColor="white"
+                companyLogo="https://company.com/logo.png"
+                LogoWidth="30px"
+                buttonTimesColor="black"
+            >
+                <div class="p-6">
+                    <h2>Some Items</h2>
+                    <h3>Item 1</h3>
+                    <h3>Item 2</h3>
+                    <h3>Item 3</h3>
+                </div>
+            </HamburgerMenu>
         `}/>
     </section>
 </main>
