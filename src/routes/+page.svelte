@@ -49,7 +49,17 @@
         >Modules
         </a>
         <p class="leading-relaxed text-(--text-secondary)">
-          Reusable layout system, file picker, text editor and more
+          Layout system, file picker, text editor and more
+        </p>
+      </div>
+
+      <div class="p-6">
+        <a href={routes.core.features.children.global_search}
+          class="mb-2 block text-sm font-bold uppercase tracking-wide text-(--primary-bg) hover:underline"
+        >Features & Random Stuff
+        </a>
+        <p class="leading-relaxed text-(--text-secondary)">
+          Global Search, Toast Manager, Avatars, Carousels, and more
         </p>
       </div>
 
