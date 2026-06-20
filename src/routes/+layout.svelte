@@ -88,7 +88,6 @@
 {#snippet headerRightContent()}
 	<DropdownContainer top="30px" bind:open={openMenu} dropdownTrigger={TriggerMenu}>
 		<MenuItem onclick={() => window.open(routes.system.resources.github,'_blank','noopener,noreferrer')} icon="fa-github" iconSize="15px">Github</MenuItem>
-		<MenuItem icon="fa-heart" iconBg="red" iconSize="15px">Donate</MenuItem>
 		<div style="display: flex; gap: 1rem; align-items: center; padding: 1rem">Theme<ButtonTheme /></div>
 	</DropdownContainer>
 {/snippet}

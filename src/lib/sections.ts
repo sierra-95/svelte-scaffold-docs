@@ -20,6 +20,7 @@ export const routes = {
                 menus: `${components}/menus`,
                 modal: `${components}/modal`,
                 progress: `${components}/progress`,
+                table: `${components}/table`,
             }
         },
         features: {
@@ -124,6 +125,11 @@ export const sectionIds = {
             linear_progress: 'doc-progress-linear',
             custom_progress: 'doc-progress-custom',
         },
+        table: {
+            getting_started: 'doc-table-getting-started',
+            component_api: 'doc-table-component-api',
+            advanced_example: 'doc-table-advanced-example',
+        }
     },
 
     features: {
@@ -265,6 +271,15 @@ export const sections = [
                             circular_progress: sectionIds.components.progress.circular_progress,
                             linear_progress: sectionIds.components.progress.linear_progress,
                             custom_progress: sectionIds.components.progress.custom_progress,
+                        }
+                    },
+                    {
+                        path: routes.core.components.children.table,
+                        label: 'Table',
+                        TOC: {
+                            getting_started: sectionIds.components.table.getting_started,
+                            component_api: sectionIds.components.table.component_api,
+                            advanced_example: sectionIds.components.table.advanced_example,
                         }
                     }
                 ]
