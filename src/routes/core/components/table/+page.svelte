@@ -112,6 +112,7 @@
     };
 </script>
 
+<title>Table</title>
 <main class="space-y-6">
     <section id={sectionIds.components.table.getting_started} class="space-y-4">
         <h1>Table</h1>

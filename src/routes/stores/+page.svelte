@@ -1,5 +1,5 @@
 <script>
-    import {isLoading, Button} from '@sierra-95/svelte-scaffold';
+    import {isLoading, Button, ButtonTheme} from '@sierra-95/svelte-scaffold';
     import {RenderCode, routes, sectionIds} from '$lib';
 
     function toggleLoading() {
@@ -15,7 +15,7 @@
 		<h3>A variety of stores have been provided for managing state in your Svelte applications.</h3>
 	</section>
 	
-	<section id={sectionIds.stores.general.is_mobile} class="space-y-4 mb-10">
+	<section id={sectionIds.stores_utils.stores.is_mobile} class="space-y-4 mb-10">
 		<h2>1. Device Width</h2>
 		<h3>isMobile (&lt;480px), isTablet ( 480px &gt & &lt; 768px), isDesktop (&gt1024px)</h3>
 		<RenderCode
@@ -32,7 +32,7 @@
 		`}/>
 	</section>
 
-	<section id={sectionIds.stores.general.is_loading} class="space-y-4 mb-10">
+	<section id={sectionIds.stores_utils.stores.is_loading} class="space-y-4 mb-10">
 		<h2>2. isLoading</h2>
 		<h3>
 		Implemented internally in
@@ -53,7 +53,7 @@
 		`}/>
 	</section>
 	
-	<section id={sectionIds.stores.general.is_logged_in} class="space-y-4 mb-10">
+	<section id={sectionIds.stores_utils.stores.is_logged_in} class="space-y-4 mb-10">
 		<h2>3. isLoggedIn</h2>
 		<h3>Default value is <code>null</code></h3>
 		<RenderCode
@@ -73,7 +73,7 @@
 		`}/>
 	</section>
 
-	<section id={sectionIds.stores.general.user_store} class="space-y-4 mb-10">
+	<section id={sectionIds.stores_utils.stores.user_store} class="space-y-4 mb-10">
 		<h2>4. User Store</h2>
 		<h3>This store can be used components to manage user-related data including the  
 			<a href={`${routes.core.components.children.menus}#${sectionIds.components.menu.user_menu}`} class="note">This example</a> 
@@ -104,5 +104,27 @@
 				}
 			<\/script>
 		`}/>
+	</section>
+
+	<section id={sectionIds.stores_utils.stores.theme_store} class="space-y-4">
+		<h2>5. Theme Store</h2>
+		<h3>The theme store is tightly integrated with the 
+			<a href={routes.modules.layout.children.overview} class="note">Layout component</a> 
+			and internal body styling.
+		</h3>
+		<h3>It is also directly manipulated by the <a href={routes.core.components.children.buttons + '#' + sectionIds.components.buttons.theme_button} class="note">Theme Button</a>.</h3>
+		<RenderCode
+			lang="svelte"
+			code={`
+			<\script>
+				import { onMount } from 'svelte';
+				import { theme } from '@sierra-95/svelte-scaffold';
+				onMount(() => {
+					theme.set('light');
+				});
+			<\/script>
+
+		`}/>
+		<h3>Note that updates made to the store are also saved to localStorage, ensuring they persist.</h3>
 	</section>
 </main>

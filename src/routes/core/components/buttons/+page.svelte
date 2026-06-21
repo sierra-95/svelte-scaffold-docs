@@ -1,6 +1,6 @@
 <script lang="ts">
 	import {
-		Button, ButtonFlip, ButtonMarquee, ButtonSwipe,
+		Button, ButtonFlip, ButtonMarquee, ButtonSwipe,ButtonTheme,
 		ButtonHamburger, ButtonSelect, ButtonTimes, addToast, Table
 	} from '@sierra-95/svelte-scaffold'
 	import {RenderCode, routes, sectionIds} from '$lib';
@@ -178,12 +178,27 @@
 		/>
 	</section>
 
+	<section id={sectionIds.components.buttons.theme_button} class="space-y-4">
+		<h2>4. Theme Button</h2>
+		<div class="flex items-start">
+			<ButtonTheme />
+		</div>
+		<h3>The theme button directly manipulates the <a href={routes.stores + '#' + sectionIds.stores_utils.stores.theme_store} class="note">Theme Store</a>.</h3>
+		<RenderCode
+			lang="svelte"
+			code={`
+			<\script>
+				import {ButtonTheme} from '@sierra-95/svelte-scaffold';
+			<\/script>
+			<ButtonTheme />
+		`}/>
+	</section>
+
 	<section id={sectionIds.components.buttons.other_buttons} class="space-y-4">
-		<h2>4. Item Selected & Close</h2>
+		<h2>5. Item Selected & Close</h2>
 		<div class="h-10 relative w-10">
 			<ButtonSelect title="Selected" />
 			<ButtonTimes title="Close" />
 		</div>	
 	</section>
-
 </main>

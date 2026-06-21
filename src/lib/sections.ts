@@ -1,6 +1,5 @@
 const core = `/core`;
 const modules = `/modules`;
-const stores = `/stores`;
 
 //Core
 const components = `${core}/components`
@@ -53,10 +52,9 @@ export const routes = {
             }
         },
     },
-    stores: {
-        general_stores: `${stores}/general`,
-        theme_stores: `${stores}/theme`,
-    },
+    stores: `/stores`,
+    utils: `/utils`,
+
     system: {
         base: "/system/",
         social:{
@@ -66,18 +64,10 @@ export const routes = {
         },
         resources:{
             github: "https://github.com/sierra-95/svelte-scaffold-docs",
-            donate: '/donate',
             portfolio: "https://michaelmachohi.com",
         },
         support: {
             issues: "https://github.com/sierra-95/svelte-scaffold-docs/issues",
-            help_center: "/support",
-            system_status: "/status"
-        },
-        legal: {
-            terms: "/policies/terms",
-            privacy: "/policies/privacy",
-            cookies: "/policies/cookies"
         }
     }
 };
@@ -96,6 +86,7 @@ export const sectionIds = {
             custom_button: 'doc-button-custom',
             custom_button_api: 'doc-button-custom-api',
             hamburger_button: 'doc-button-hamburger',
+            theme_button: 'doc-button-theme',
             other_buttons: 'doc-button-other-buttons',
         },
         inputs: {
@@ -172,16 +163,16 @@ export const sectionIds = {
         },
     },
     
-    stores: {
-        general: {
-            is_mobile: 'docs-stores-general-is-mobile',
-            is_loading: 'docs-stores-general-is-loading',
-            is_logged_in: 'docs-stores-general-is-logged-in',
-            user_store: 'docs-stores-general-user-store',
+    stores_utils: {
+        stores: {
+            is_mobile: 'docs-stores-is-mobile',
+            is_loading: 'docs-stores-is-loading',
+            is_logged_in: 'docs-stores-is-logged-in',
+            user_store: 'docs-stores-user',
+            theme_store: 'docs-stores-theme',
         },
-        theme: {
-            theme_store: 'docs-stores-theme-theme-store',
-            theme_button: 'docs-stores-theme-theme-button',
+        utils: {
+            redirectTo: 'docs-utils-redirect-to',
         },
     }
 }
@@ -227,6 +218,7 @@ export const sections = [
                             custom_button: sectionIds.components.buttons.custom_button,
                             custom_button_api: sectionIds.components.buttons.custom_button_api,
                             hamburger_button: sectionIds.components.buttons.hamburger_button,
+                            theme_button: sectionIds.components.buttons.theme_button,
                             other_buttons: sectionIds.components.buttons.other_buttons,
                         }
                     },
@@ -407,26 +399,26 @@ export const sections = [
         ]
     },
     {
-        label: 'Stores',
+        label: 'Stores & Utils',
         items: [
             { 
-                path: routes.stores.general_stores, 
-                label: 'General',
+                path: routes.stores, 
+                label: 'Stores',
                 icon: 'fa fa-store' ,
                 TOC: {
-                    is_mobile: sectionIds.stores.general.is_mobile,
-                    is_loading: sectionIds.stores.general.is_loading,
-                    is_logged_in: sectionIds.stores.general.is_logged_in,
-                    user_store: sectionIds.stores.general.user_store,
+                    is_mobile: sectionIds.stores_utils.stores.is_mobile,
+                    is_loading: sectionIds.stores_utils.stores.is_loading,
+                    is_logged_in: sectionIds.stores_utils.stores.is_logged_in,
+                    user_store: sectionIds.stores_utils.stores.user_store,
+                    theme_store: sectionIds.stores_utils.stores.theme_store,
                 }
             },
             { 
-                path: routes.stores.theme_stores, 
-                label: 'Theme',
-                icon: 'fa fa-moon-o' ,
+                path: routes.utils, 
+                label: 'Utils',
+                icon: 'fa fa-tools' ,
                 TOC: {
-                    theme_store: sectionIds.stores.theme.theme_store,
-                    theme_button: sectionIds.stores.theme.theme_button,
+                    redirectTo: sectionIds.stores_utils.utils.redirectTo,
                 }
             },
         ]
@@ -446,10 +438,6 @@ export const sections = [
                         path: routes.system.resources.github,
                     },
                     {      
-                        label: 'Donate to us',
-                        path: routes.system.resources.donate,
-                    },
-                    {      
                         label: 'My Portfolio',
                         path: routes.system.resources.portfolio,
                     },
@@ -465,36 +453,8 @@ export const sections = [
                         label: 'Github Issues',
                         path: routes.system.support.issues,
                     },
-                    {      
-                        label: 'Help Center',
-                        path: routes.system.support.help_center,
-                    },
-                    {      
-                        label: 'System Status',
-                        path: routes.system.support.system_status,
-                    },
                 ]
-            },
-            { 
-                id: crypto.randomUUID(),
-                path: routes.system.base + crypto.randomUUID(), 
-                label: 'Legal',
-                icon: 'fa-solid fa-gavel' ,
-                children:[
-                    {      
-                        label: 'Terms of Use',
-                        path: routes.system.legal.terms,
-                    },
-                    {      
-                        label: 'Privacy Policy',
-                        path: routes.system.legal.privacy,
-                    },
-                    {      
-                        label: 'Cookie Preference',
-                        path: routes.system.legal.cookies,
-                    },
-                ]
-            },
+            }
         ]
     },
 ];

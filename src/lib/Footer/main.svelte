@@ -58,7 +58,6 @@
         <h3>Resources</h3>
         <ul>
             <li><a href={routes.system.resources.github} target="_blank" rel="noopener">GitHub</a></li>
-            <li><a href={routes.system.resources.donate}>Donate</a></li>
             <li><a href={routes.system.resources.portfolio} target="_blank" rel="noopener">Portfolio</a></li>
         </ul>
         </section>
@@ -68,18 +67,6 @@
         <h3>Support</h3>
         <ul>
             <li><a href={routes.system.support.issues} target="_blank" rel="noopener">Issues</a></li>
-            <li><a href={routes.system.support.help_center}>Help Center</a></li>
-            <li><a href={routes.system.support.system_status}>System Status</a></li>
-        </ul>
-        </section>
-
-        <!-- Legal -->
-        <section class="footer-section">
-        <h3>Legal</h3>
-        <ul>
-            <li><a href={routes.system.legal.terms}>Terms of Use</a></li>
-            <li><a href={routes.system.legal.privacy}>Privacy Policy</a></li>
-            <li><a href={routes.system.legal.cookies}>Cookie Preference</a></li>
         </ul>
         </section>
     </div>
