@@ -26,7 +26,7 @@
 </script>
 
 <main class="space-y-4">
-	<h1>Buttons</h1>
+	<h1 class="sierra-docs-h1">Will you be my button?</h1>
 	<title>Buttons</title>
 	<ol class="sierra-docs-ol">
 		<section id={sectionIds.components.buttons.default_button} class="space-y-4 mb-10">

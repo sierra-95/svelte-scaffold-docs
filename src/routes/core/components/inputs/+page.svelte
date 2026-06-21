@@ -46,7 +46,7 @@
 
 
 <main class="space-y-6">		
-	<h1>Inputs</h1>
+	<h1 class="sierra-docs-h1">Waiting for human decisions</h1>
 	<title>Inputs</title>
 	<ol class="sierra-docs-ol">
 		<section id={sectionIds.components.inputs.basic_input} class="space-y-4">

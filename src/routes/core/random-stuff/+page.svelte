@@ -29,10 +29,10 @@
     <Button onclick={() =>  openDropdown = !openDropdown}>Select Color</Button>
 {/snippet}
 
-<h1 class="font-bold text-[1.5rem] mb-5" style="color: var(--primary-bg)">Random Components</h1>
+<h1 class="sierra-docs-h1">I can’t find it either</h1>
 <ol class="sierra-docs-ol space-y-6">
-    <li>Avatar</li>
     <section id={sectionIds.random_stuff.avatar} class="space-y-4">
+        <li>Avatar</li>
         <h3>In non-upload mode, it can be used to display user avatars. Try it on 
             <a class="note" href={routes.core.components.children.menus + '#' + sectionIds.components.menu.user_menu}>User Menu</a>
         </h3>
@@ -79,8 +79,8 @@
         `}/>
     </section>
     
-    <li>Carousel</li>
     <section id={sectionIds.random_stuff.carousel} class="space-y-4">
+        <li>Carousel</li>
         <div class="relative h-125">
             <Carousel images={images} />
         </div>
@@ -99,8 +99,8 @@
         `}/>
     </section>
 
-    <li>Checkbox</li>
     <section id={sectionIds.random_stuff.checkbox} class="space-y-4">
+        <li>Checkbox</li>
         <Checkbox bind:checked><p>I agree to the terms and conditions</p></Checkbox>
         <RenderCode
             lang="svelte"
@@ -113,8 +113,8 @@
         `}/>
     </section>
 
-    <li>Color Picker</li>
     <section id={sectionIds.random_stuff.color_picker} class="space-y-4">
+        <li>Color Picker</li> 
         <h3>Recently used colors are also stored in local storage</h3>
         <div class="flex gap-4 items-end">
             <Input background={selectedColor} width="150px" required label="Category Color" id="color" bind:value={selectedColor}/>
@@ -142,8 +142,8 @@
         `}/>
     </section>
 
-    <li>Horizontal Rule</li>
     <section id={sectionIds.random_stuff.hr} class="space-y-4">
+        <li>Horizontal Rule</li>
         <h3 class="font-bold">1. Default</h3>
         <div><Hr color="var(--primary-bg)" width="90%" /></div>
         <RenderCode
@@ -168,8 +168,8 @@
         `}/>
     </section>
 
-    <li>Timezones</li>
     <section id={sectionIds.random_stuff.timezones} class="space-y-4">
+        <li>Timezones</li>
         <Date {timezone}/>
         <Time {timezone}/>
         <RenderCode
@@ -185,8 +185,8 @@
         `}/>
     </section>
 
-    <li>WhatsApp Share</li>
     <section id={sectionIds.random_stuff.whatsapp_share} class="space-y-4">
+        <li>WhatsApp Share</li>
         <h3>When clicked, your website will preview correctly in WhatsApp if Open Graph (OG) tags are configured.</h3>
         <h3>If the share fails, it falls back to copying the link.</h3>
         <ButtonWhatsappShare

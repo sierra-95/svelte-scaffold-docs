@@ -42,8 +42,9 @@
 
 <main class="space-y-4">
     <title>Modal</title>
-    <h1>Modal</h1>
+    <h1 class="sierra-docs-h1">Breaking news</h1>
     <ol class="sierra-docs-ol">
+        <li>Getting Started</li>
         <section id={sectionIds.components.modal.getting_started} class="space-y-4">
             <h3>Place this anywhere in your app</h3>
             <RenderCode

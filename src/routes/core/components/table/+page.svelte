@@ -114,7 +114,7 @@
 
 <main class="space-y-6">
     <title>Table</title>
-    <h1>Table</h1>
+    <h1 class="sierra-docs-h1">Data is served</h1>
     <ol class="sierra-docs-ol">
         <section id={sectionIds.components.table.getting_started} class="space-y-4">
             <h3>Table allows you to quickly display data in a structured format without worrying about styling.</h3>

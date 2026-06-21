@@ -5,7 +5,7 @@
 
 <main class="space-y-4">
 	<title>Progress</title>
-	<h1>Progress</h1>
+	<h1 class="sierra-docs-h1">Trust me bro %</h1>
 	<ol class="sierra-docs-ol">
 		<section id={sectionIds.components.progress.circular_progress} class="space-y-4 mb-10">
 			<li>Circular Progress</li>

@@ -20,16 +20,23 @@ body[data-theme='dark']{
     --shiki-bg: var(--shiki-dark-bg);
     --note: var(--note-dark);
 }
-section h1:not(#doc-overview h1){
+
+h1.sierra-docs-h1{
+    font-family:  'Striper Regular', sans-serif;
     font-weight: bold;
-    font-size: 1.5rem;
-    color: var(--primary-bg);
+    font-size: 2rem;
 }
-section h2:not(#doc-overview h2){
+
+h2.sierra-docs-h2{
     font-weight: bold;
     font-size: 1.2rem;
 }
 
+@media (max-width: 768px) {
+    h1.sierra-docs-h1{
+        font-size: 1.5rem;
+    }
+}
 
 ol.sierra-docs-ol {
     list-style:upper-alpha inside;
@@ -63,10 +70,54 @@ ol.sierra-docs-ol ul li{
 .div2{
     border: 1px solid red;
 }
+
+
+@font-face {
+    font-family: 'Array Regular';
+    src: url('/fonts/Array-Regular.woff2') format('woff2'),
+        url('/fonts/Array-Regular.woff') format('woff');
+    font-weight: 400;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'Clash Display';
+    src: url('/fonts/ClashDisplay-Regular.woff2') format('woff2'),
+        url('/fonts/ClashDisplay-Regular.woff') format('woff');
+    font-weight: 400;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'Comico Regular';
+    src: url('/fonts/Comico-Regular.woff2') format('woff2'),
+        url('/fonts/Comico-Regular.woff') format('woff');
+    font-weight: 400;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'Kola Regular';
+    src: url('/fonts/Kola-Regular.woff2') format('woff2'),
+        url('/fonts/Kola-Regular.woff') format('woff');
+    font-weight: 400;
+    font-style: normal;
+}
 @font-face {
     font-family: 'Melodrama Regular';
     src: url('/fonts/Melodrama-Regular.woff2') format('woff2'),
         url('/fonts/Melodrama-Regular.woff') format('woff');
+    font-weight: 400;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'Striper Regular';
+    src: url('/fonts/Striper-Regular.woff2') format('woff2'),
+        url('/fonts/Striper-Regular.woff') format('woff');
+    font-weight: 400;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'TrenchSlab Regular';
+    src: url('/fonts/TrenchSlab-Regular.woff2') format('woff2'),
+        url('/fonts/TrenchSlab-Regular.woff') format('woff');
     font-weight: 400;
     font-style: normal;
 }

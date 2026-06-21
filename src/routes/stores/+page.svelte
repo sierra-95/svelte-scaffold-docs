@@ -1,5 +1,5 @@
 <script>
-    import {isLoading, Button, ButtonTheme} from '@sierra-95/svelte-scaffold';
+    import {isLoading, Button} from '@sierra-95/svelte-scaffold';
     import {RenderCode, routes, sectionIds} from '$lib';
 
     function toggleLoading() {
@@ -9,7 +9,7 @@
 
 <main class="space-y-4">
 	<title>General Stores</title>
-	<h1>General Stores</h1>
+	<h1 class="sierra-docs-h1">Store is closed</h1>
 
 	<ol class="sierra-docs-ol">
 	
@@ -125,4 +125,5 @@
 			`}/>
 			<h3>Note that updates made to the store are also saved to localStorage, ensuring they persist.</h3>
 		</section>
+	</ol>
 </main>

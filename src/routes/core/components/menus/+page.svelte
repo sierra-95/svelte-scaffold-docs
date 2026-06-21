@@ -19,7 +19,7 @@
 
 <main class="space-y-6">
     <title>Menus</title>
-    <h1>Menus</h1>
+    <h1 class="sierra-docs-h1">Me & u</h1>
     <ol class="sierra-docs-ol">
         <section id={sectionIds.components.menu.dropdown} class="space-y-4">
             <li>Dropdown Menu</li>

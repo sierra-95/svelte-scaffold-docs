@@ -4,7 +4,7 @@
 
 <title>Global Search</title>
 <section id={sectionIds.features.global_search} class="space-y-4">
-    <h1>Global Search</h1>
+    <h1 class="sierra-docs-h1">The Snitch</h1>
     <h3>Gliobal search is built on 
         <a href={`${routes.core.components.children.inputs}#${sectionIds.components.inputs.search_bar}`} class="note">Search Bar</a> to allow 
         quick search across the entire application. It is designed to be accessible from anywhere in the app and allow users to find what they are looking for without having to navigate through multiple pages or sections

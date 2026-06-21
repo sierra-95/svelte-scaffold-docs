@@ -43,7 +43,7 @@
 
 <title>Toast manager</title>
 <section id={sectionIds.features.toast_manager} class="space-y-4">
-    <h1>Toast manager</h1>
+    <h1 class="sierra-docs-h1">I won't say it again</h1>
     <h3>Toast manager allows you to manage and display toast notifications in your Svelte application.</h3>
     
     <ol class="sierra-docs-ol">

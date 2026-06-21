@@ -17,7 +17,7 @@
 
 <main class="space-y-4">
 	<title>Utils</title>
-    <h1>Utils</h1>
+    <h1 class="sierra-docs-h1">Utensils</h1>
     <ol class="sierra-docs-ol">
     
         <section id={sectionIds.stores_utils.utils.isValidEmail} class="space-y-4">
@@ -102,4 +102,5 @@
                     <\/script>
                 `}/>
         </section>
+    </ol>
 </main>

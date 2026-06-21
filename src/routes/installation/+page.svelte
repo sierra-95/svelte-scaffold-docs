@@ -4,7 +4,7 @@
 
 <section id={sectionIds.installation.installation} class="space-y-4 mb-10">
   <title>Installation</title>
-  <h1>Installation</h1>
+  <h1 class="sierra-docs-h1">Installation</h1>
   <h3>
     To get started, install the package via npm:
   </h3>
@@ -20,7 +20,8 @@
       @import '@sierra-95/svelte-scaffold/global.css';
   `}/>
   <h3>And thats it!</h3>
-  <h2>Usage Example</h2>
+  
+  <h2 class="sierra-docs-h2">Usage Example</h2>
   <h3>After installation, import any component you want to use. For example, to add a button:</h3>
   <RenderCode
     lang="svelte"
@@ -36,7 +37,7 @@
 </section>
 
 <section id={sectionIds.installation.font_awesome} class="space-y-4">
-  <h1>Scaffold Icons</h1>
+  <h1 class="sierra-docs-h1">Scaffold Icons</h1>
   <h3><code>@sierra-95/svelte-scaffold</code> uses Font Awesome for icons.</h3>
   <h3>Create an account
     <a href="https://fontawesome.com/" class="note" target="_blank">here</a>
