@@ -109,6 +109,7 @@ export const sectionIds = {
         },
         modal: {
             getting_started: 'doc-modal-getting-started',
+            dynamic_mode: 'doc-modal-dynamic-mode',
             component_api: 'doc-modal-component-api',
         },
         progress: {
@@ -254,6 +255,7 @@ export const sections = [
                         label: 'Modal',
                         TOC: {
                             getting_started: sectionIds.components.modal.getting_started,
+                            dynamic_mode: sectionIds.components.modal.dynamic_mode,
                             component_api: sectionIds.components.modal.component_api,
                         }
                     },

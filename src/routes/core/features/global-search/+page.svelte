@@ -14,7 +14,6 @@
     Note that Global Search compiles its results based solely on the provided sections file. It runs within
     <a href={routes.modules.layout.children.overview} class="note">Layout</a>, and <a href={routes.modules.layout.children.example} class="note">here</a> is a sample sections file.
     </h3>
-    <h2>Usage</h2>
     <RenderCode
 		lang="svelte"
 		code={`

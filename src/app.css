@@ -30,16 +30,28 @@ section h2:not(#doc-overview h2){
     font-size: 1.2rem;
 }
 
+
 ol.sierra-docs-ol {
     list-style:upper-alpha inside;
 }
+/*Titles as lists*/
 ol.sierra-docs-ol li{
     font-weight: bold;
     font-size: 1.2rem;
+    padding: 30px 0px;
 }
-ol.sierra-docs-ol section{
-    margin-top: 1rem;
+
+/*Lists inside lists*/
+ol.sierra-docs-ol ul{
+    list-style: disc inside;
 }
+ol.sierra-docs-ol ul li{
+    font-weight: normal;
+    font-size: 1rem;
+    padding: unset;
+}
+
+
 /*Dont use from h3*/
 .note{
     color: var(--note);
