@@ -23,18 +23,6 @@
     }
 </script>
 
-<style>
-    ol {
-        list-style: decimal inside;
-    }
-    ol span{
-        font-weight: bold;
-        font-size: 1.2rem;
-    }
-    ol section{
-        margin-top: 1rem;
-    }
-</style>
 <title>Random Components</title>
 
 {#snippet TriggerColorPicker()}
@@ -42,7 +30,7 @@
 {/snippet}
 
 <h1 class="font-bold text-[1.5rem] mb-5" style="color: var(--primary-bg)">Random Components</h1>
-<ol class="space-y-6">
+<ol class="sierra-docs-ol space-y-6">
     <li><span>Avatar</span>
         <section id={sectionIds.random_stuff.avatar} class="space-y-4">
             <h3>In non-upload mode, it can be used to display user avatars. Try it on 

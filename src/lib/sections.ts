@@ -172,7 +172,8 @@ export const sectionIds = {
             theme_store: 'docs-stores-theme',
         },
         utils: {
-            redirectTo: 'docs-utils-redirect-to',
+            isValidEmail: 'docs-utils-isValidEmail',
+            handleRedirect: 'docs-utils-handle-redirect',
         },
     }
 }
@@ -418,7 +419,8 @@ export const sections = [
                 label: 'Utils',
                 icon: 'fa fa-tools' ,
                 TOC: {
-                    redirectTo: sectionIds.stores_utils.utils.redirectTo,
+                    isValidEmail: sectionIds.stores_utils.utils.isValidEmail,
+                    handleRedirect: sectionIds.stores_utils.utils.handleRedirect,
                 }
             },
         ]

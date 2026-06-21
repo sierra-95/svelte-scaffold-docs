@@ -29,9 +29,16 @@ section h2:not(#doc-overview h2){
     font-weight: bold;
     font-size: 1.2rem;
 }
-th, td{
-    color: var(--text);
-    border: 1px solid var(--border);
+
+ol.sierra-docs-ol {
+    list-style:upper-alpha inside;
+}
+ol.sierra-docs-ol li{
+    font-weight: bold;
+    font-size: 1.2rem;
+}
+ol.sierra-docs-ol section{
+    margin-top: 1rem;
 }
 /*Dont use from h3*/
 .note{
