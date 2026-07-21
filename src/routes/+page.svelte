@@ -40,8 +40,8 @@
 <style>
   .brand-name {
     font-family:  'Striper Regular', sans-serif;
-    font-weight: bold;
-    font-size: 2rem;
+    font-size: 3rem;
+    line-height: 0.86;
   }
   .brand-products {
     display: grid;
@@ -54,7 +54,7 @@
   }
   @media (max-width: 768px) {
     .brand-name {
-      font-size: 1.5rem;
+      font-size: 2rem;
     }
   }
 </style>
