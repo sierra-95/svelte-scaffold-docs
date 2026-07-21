@@ -106,7 +106,7 @@ export const CustomButtonTable = {
                 { content: "var(--primary-bg)/ #4B5563" }
             ],
             [
-                { content: "ButtonSwipe", rowspan: 2 },
+                { content: "ButtonMarquee", rowspan: 2 },
                 { content: "text" },
                 { content: "string" },
                 { content: "Hover me" }

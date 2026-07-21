@@ -82,7 +82,7 @@
     <section id={sectionIds.random_stuff.carousel} class="space-y-4">
         <li>Carousel</li>
         <div class="relative h-125">
-            <Carousel images={images} />
+            <Carousel images={images} autoplay autoScale />
         </div>
         <RenderCode
             lang="svelte"
@@ -94,7 +94,7 @@
             <\/script>
             {/*Ensure to set position relative*/}
             <div class="relative h-125">
-                <Carousel images={images} />
+                <Carousel images={images} autoplay autoScale />
             </div>
         `}/>
     </section>

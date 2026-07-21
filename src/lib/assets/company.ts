@@ -1,1 +1,3 @@
-export const favicon = 'https://files.michaelmachohi.com/logos/michaelmachohi.favicon.circle.ico';
+const base_url="https://files.michaelmachohi.com/logos/";
+export const logo = `${base_url}michaelmachohi.dark.png`;
+export const favicon = `${base_url}faviconV2/`;
