@@ -71,14 +71,14 @@
                             store.headerLink = '/';
                             store.headerImage = "https://example.com/logo.ico";
                             store.headerImageSize = '30px';
-                            return store;
+                            return store; 
                         });
                     })
                 <\/script>
                 <Layout>{@render children()}</Layout>
 
             `}/>
-            <h3>And that's it! Read more about the Layout component in usage.</h3>
+            <h3>And that's it!</h3>
         </section>
     </ol>
 </main>
