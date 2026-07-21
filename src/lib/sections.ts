@@ -188,7 +188,7 @@ export const sections = [
                 label: 'Overview', 
                 icon: 'fa fa-home',
                 TOC :{
-                    introduction: sectionIds.overview,
+                    Overview: sectionIds.overview,
                 }
             },
             { 

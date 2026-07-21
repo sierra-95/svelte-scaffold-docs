@@ -79,12 +79,12 @@
 
 <Layout>
 	<div class="flex items-start">
-		<div style="width: {!$isDesktop ? '100%' : 'calc(100% - 300px)'}" class="w-full p-6 mx-auto">
+		<div style="width: {!$isDesktop? '100%' : 'calc(100% - 300px)'}" class="w-full p-6 mx-auto">
 			{@render children()}
 			<Navigator/>
 			<Footer/>
 		</div>
-		<TOC/>
+		<TOC hidden={!$isDesktop}/>
 	</div>
 </Layout>
 

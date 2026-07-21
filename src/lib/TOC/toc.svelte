@@ -3,9 +3,11 @@
     import type { Section, SectionItem } from '@sierra-95/svelte-scaffold';
     import {isMobile, isTablet} from '@sierra-95/svelte-scaffold';
     //import { page } from '$app/state';
-    import { page } from '$app/stores';
+    import { page } from '$app/state';
 
-    $: currentPath = $page.url.pathname;
+    export let hidden: boolean = false;
+
+    $: currentPath = page.url.pathname;
     $: currentSection = findSectionByPath(sections, currentPath);
     
 
@@ -52,7 +54,7 @@
     }
 </style>
 
-<main hidden={$isMobile || $isTablet} id="TOC">
+<main hidden={hidden} id="TOC">
     {#if currentSection}
         <nav>
             <h2>On this Page</h2>

@@ -2,8 +2,63 @@
   import { goto } from '$app/navigation';
   import { routes, sectionIds } from '$lib';
   import { ButtonFlip } from '@sierra-95/svelte-scaffold';
+
+  const sections = [
+  {
+    title: "Components",
+    href: routes.core.components.children.buttons,
+    description: "Buttons, inputs, modals, toasts, progress bars, date pickers, and more"
+  },
+  {
+    title: "Modules",
+    href: routes.modules.editor,
+    description: "Layout system, file picker, text editor and more"
+  },
+  {
+    title: "Features",
+    href: routes.core.features.children.global_search,
+    description: "Global Search, Toast Manager"
+  },
+  {
+    title: "Random Stuff",
+    href: routes.core.random_stuff,
+    description: "Avatars, Carousels, Color Picker, WhatsApp Share and more"
+  },
+  {
+    title: "Stores",
+    href: routes.stores,
+    description: "Theme management, user state, and general app state stores"
+  },
+  {
+    title: "Utils",
+    href: routes.utils,
+    description: "isValidEmail, handleRedirect and other utility functions"
+  } 
+];
 </script>
 
+<style>
+  .brand-name {
+    font-family:  'Striper Regular', sans-serif;
+    font-weight: bold;
+    font-size: 2rem;
+    color: var(--primary-bg);
+  }
+  .brand-products {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+    margin-top: 2rem;
+  }
+  .brand-products a {
+    font-family:  'TrenchSlab Regular', sans-serif;
+  }
+  @media (max-width: 768px) {
+    .brand-name {
+      font-size: 1.5rem;
+    }
+  }
+</style>
 <title>Getting Started</title>
 <section id={sectionIds.overview} class="mx-auto max-w-300 px-8 py-16 md:px-8 md:py-16 sm:px-4 sm:py-8">
   <!-- Welcome -->
@@ -11,7 +66,7 @@
     <p class="mb-2 text-sm font-medium uppercase tracking-widest text-(--text-secondary)"
     >Welcome to
     </p>
-    <h1 class="font-mono text-2xl font-extrabold tracking-[-0.02em] text-(--primary-bg) sm:text-3xl"
+    <h1 class="brand-name"
     >@sierra-95/svelte-scaffold
     </h1>
   </div>
@@ -24,65 +79,20 @@
     <ButtonFlip onclick={() => goto(routes.installation)} front="Get Started" back="Lets Go!"/>
   </div>
 
-  <!-- Features -->
-  <div class="mb-16 rounded-2xl px-8 py-12">
-    <h2 class="mb-8 text-center text-2xl font-bold">
-      What's Inside
-    </h2>
-
-    <div
-      class="grid gap-8 grid-cols-[repeat(auto-fit,minmax(250px,1fr))]"
-    >
+  <div class="brand-products">
+    {#each sections as section}
       <div class="p-6">
-        <a href={routes.core.components.children.buttons}
+        <a
+          href={section.href}
           class="mb-2 block text-sm font-bold uppercase tracking-wide text-(--primary-bg) hover:underline"
-        >Components
-        </a>
-        <p class="leading-relaxed text-(--text-secondary)">
-          Buttons, inputs, modals, toasts, progress bars, date pickers, and more
-        </p>
-      </div>
-
-      <div class="p-6">
-        <a href={routes.modules.editor}
-          class="mb-2 block text-sm font-bold uppercase tracking-wide text-(--primary-bg) hover:underline"
-        >Modules
-        </a>
-        <p class="leading-relaxed text-(--text-secondary)">
-          Layout system, file picker, text editor and more
-        </p>
-      </div>
-
-      <div class="p-6">
-        <a href={routes.core.features.children.global_search}
-          class="mb-2 block text-sm font-bold uppercase tracking-wide text-(--primary-bg) hover:underline"
-        >Features & Random Stuff
-        </a>
-        <p class="leading-relaxed text-(--text-secondary)">
-          Global Search, Toast Manager, Avatars, Carousels, and more
-        </p>
-      </div>
-
-      <div class="p-6">
-        <a href={routes.stores.general_stores}
-          class="mb-2 block text-sm font-bold uppercase tracking-wide text-(--primary-bg) hover:underline"
-        >Stores
-        </a>
-        <p class="leading-relaxed text-(--text-secondary)">
-          Theme management, user state, and general app state stores
-        </p>
-      </div>
-
-      <div class="p-6">
-        <span
-          class="mb-2 block text-sm font-bold uppercase tracking-wide text-(--primary-bg)"
         >
-          Built with Svelte
-        </span>
+          {section.title}
+        </a>
+
         <p class="leading-relaxed text-(--text-secondary)">
-          Modern, reactive, and efficient.
+          {section.description}
         </p>
       </div>
+    {/each}
     </div>
-  </div>
 </section>
