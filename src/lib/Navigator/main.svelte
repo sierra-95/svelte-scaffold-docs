@@ -60,8 +60,14 @@
     #sierra-navigation a, #sierra-github-page-edit a{
         transition: color 0.1s ease-in;
     }
-    #sierra-navigation a:hover, #sierra-github-page-edit a:hover{
+    #sierra-github-page-edit a:hover{
         color: var(--primary-bg);
+    }
+    #sierra-navigation a{
+        color: var(--primary-bg);
+    }
+    #sierra-navigation a:hover{
+        text-decoration: underline;
     }
     #sierra-navigation h3{
         font-size: 0.9rem;

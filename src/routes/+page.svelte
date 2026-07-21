@@ -61,27 +61,14 @@
 </style>
 <title>Getting Started</title>
 <section id={sectionIds.overview} class="mx-auto max-w-300 px-8 py-16 md:px-8 md:py-16 sm:px-4 sm:py-8">
-  <!-- Welcome -->
-  <div class="mb-12 text-center">
-    <p class="mb-2 text-sm font-medium uppercase tracking-widest text-(--text-secondary)"
-    >Welcome to
-    </p>
-    <h1 class="brand-name"
-    >@sierra-95/svelte-scaffold
-    </h1>
-  </div>
-
-  <!-- Hero -->
-  <div class="text-center">
-    <p class="mx-auto mb-8 max-w-150 text-xl leading-relaxed text-(--text-secondary) sm:text-base"
-    >A powerful Svelte scaffold with pre-built components, modules, and stores to jumpstart your project.
-    </p>
+  <div class="space-y-4">
+    <h1 class="brand-name">@sierra-95/svelte-scaffold</h1>
+    <p>A powerful Svelte scaffold with pre-built components, modules, and stores to jumpstart your project.</p>
     <ButtonFlip onclick={() => goto(routes.installation)} front="Get Started" back="Lets Go!"/>
   </div>
-
   <div class="brand-products">
     {#each sections as section}
-      <div class="p-6">
+      <div>
         <a
           href={section.href}
           class="mb-2 block text-sm font-bold uppercase tracking-wide text-(--primary-bg) hover:underline"
