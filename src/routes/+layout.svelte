@@ -12,12 +12,7 @@
 	let { children } = $props();
 	const link = $derived(`https://files.michaelmachohi.com/logos/michaelmachohi.${$theme === 'light' ? 'dark' : 'light'}.png`);
 	let openMenu = $state(false);
-	const year = new Date().getFullYear();
-
-	$effect(()=>{
-		console.log('Current Link:', $isDesktop);
-	})
-	
+	const year = new Date().getFullYear();	
 
 	onMount(()=>{
         isLoggedIn.set(true);
@@ -42,6 +37,7 @@
 			store.sections = sections;
 			store.paddingOff = true;
 			store.headerLink = '/';
+			store.toggleMenuColor = 'var(--text)';
 			store.headerImageSize = '30px';
 			store.headerRightContent = headerRightContent;
 			store.dropdownContent = dropdownContent;
