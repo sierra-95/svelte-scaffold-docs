@@ -1,15 +1,12 @@
 <script lang="ts">
     import {sections} from '$lib/index';
     import type { Section, SectionItem } from '@sierra-95/svelte-scaffold';
-    import {isMobile, isTablet} from '@sierra-95/svelte-scaffold';
-    //import { page } from '$app/state';
     import { page } from '$app/state';
 
-    export let hidden: boolean = false;
+    const {hidden} =$props();
 
-    $: currentPath = page.url.pathname;
-    $: currentSection = findSectionByPath(sections, currentPath);
-    
+    const currentPath = $derived(page.url.pathname);
+    const currentSection = $derived(findSectionByPath(sections, currentPath));
 
     function findSectionByPath(sections: Section[], currentPath: string) {
         for (const section of sections) {

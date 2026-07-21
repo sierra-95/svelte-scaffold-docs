@@ -38,7 +38,7 @@
             });
 
             if (!res.ok) {
-                console.error('GitHub API request failed:', res.status, res.statusText);
+                //console.error('GitHub API request failed:', res.status, res.statusText);
                 lastUpdated = '-';
                 return;
             }
@@ -46,7 +46,8 @@
             lastUpdated = data?.[0]?.commit?.author?.date ?? '-';
 
         } catch (err) {
-            console.error('Error fetching last updated date:', err);
+            //console.error('Error fetching last updated date:', err);
+            lastUpdated = '-';
         }
     }
 
