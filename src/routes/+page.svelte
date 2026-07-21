@@ -42,7 +42,6 @@
     font-family:  'Striper Regular', sans-serif;
     font-weight: bold;
     font-size: 2rem;
-    text-transform: uppercase;
   }
   .brand-products {
     display: grid;
