@@ -105,7 +105,7 @@
 {#snippet dropdownContent()}
 	<div style="padding: 10px 0px;" class="w-80">
 		<h2 class="p-4">More from 
-			<a class="note" href={routes.system.social.github} target="_blank" rel="noopener noreferrer">@sierra-95</a>
+			<a class="note" href={routes.system.social.github} target="_blank" rel="noopener noreferrer">sierra-95</a>
 		</h2>
 		<MenuItem  
 			url={favicon + 'favicon.ico'} 
