@@ -64,14 +64,14 @@
   <div class="space-y-4">
     <h1 class="brand-name">@sierra-95/svelte-scaffold</h1>
     <p>A powerful Svelte scaffold with pre-built components, modules, and stores to jumpstart your project.</p>
-    <ButtonFlip onclick={() => goto(routes.installation)} front="Get Started" back="Lets Go!"/>
+    <!-- <ButtonFlip onclick={() => goto(routes.installation)} front="Get Started" back="Lets Go!"/> -->
   </div>
   <div class="brand-products">
     {#each sections as section}
       <div>
         <a
           href={section.href}
-          class="mb-2 block text-sm font-bold uppercase tracking-wide text-(--primary-bg) hover:underline"
+          class="mb-2 block text-sm font-bold uppercase tracking-wide underline"
         >
           {section.title}
         </a>
