@@ -65,6 +65,7 @@ export const routes = {
         resources:{
             github: "https://github.com/sierra-95/svelte-scaffold-docs",
             portfolio: "https://michaelmachohi.com",
+            npm: "https://www.npmjs.com/package/@sierra-95/svelte-scaffold"
         },
         support: {
             issues: "https://github.com/sierra-95/svelte-scaffold-docs/issues",

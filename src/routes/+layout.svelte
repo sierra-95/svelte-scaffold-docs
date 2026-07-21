@@ -92,7 +92,7 @@
 	<DropdownContainer top="30px" bind:open={openMenu} dropdownTrigger={TriggerMenu}>		
 		<div style="display: flex; gap: 1rem; align-items: center; padding: 1rem">Theme<ButtonTheme /></div>
 		<MenuItem onclick={() => window.open(routes.system.resources.github,'_blank','noopener,noreferrer')} icon="fa-github" iconSize="15px">Github</MenuItem>
-		<h2 style="color: var(--text-secondary); font-size: small; padding: 1rem">© {year}. All rights reserved</h2>
+		<MenuItem onclick={() => window.open(routes.system.resources.npm,'_blank','noopener,noreferrer')} icon="fa-brands fa-npm" iconSize="15px">npm</MenuItem>
 	</DropdownContainer>
 {/snippet}
 
