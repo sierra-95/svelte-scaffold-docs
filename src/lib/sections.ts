@@ -155,7 +155,10 @@ export const sectionIds = {
         },
         layout: {
             overview: 'docs-layout-overview',
-            getting_started: 'docs-layout-getting-started',
+            getting_started: {
+                defination: 'docs-layout-getting-started-definition',
+                importing: 'docs-layout-getting-started-importing',
+            },
             features: {
                 header: 'docs-layout-usage-header',
                 menu : 'docs-layout-usage-menu',
@@ -384,7 +387,8 @@ export const sections = [
                         label: 'Getting Started',
                         path: routes.modules.layout.children.getting_started,
                         TOC: {
-                            getting_started: sectionIds.modules.layout.getting_started,
+                            defination: sectionIds.modules.layout.getting_started.defination,
+                            importing: sectionIds.modules.layout.getting_started.importing,
                         }
                     },
                     {      
