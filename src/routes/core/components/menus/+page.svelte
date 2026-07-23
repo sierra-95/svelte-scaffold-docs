@@ -17,10 +17,10 @@
     }
 </script>
 
-<main class="space-y-6">
+<main class="space-y-4">
     <title>Menus</title>
     <h1 class="sierra-docs-h1">Me & u</h1>
-    <ol class="sierra-docs-ol">
+    <ol class="sierra-docs-ol space-y-6">
         <section id={sectionIds.components.menu.dropdown} class="space-y-4">
             <li>Dropdown Menu</li>
             <p>
@@ -65,7 +65,7 @@
             `}/>
         </section>
         <section id={sectionIds.components.menu.user_menu} class="space-y-4">
-            <h3>Example: User Menu</h3>
+            <h3 class="font-bold underline">Example: User Menu</h3>
             {#snippet TriggerUserInfo()}
                 <button use:buttonRipple class="w-10 text-3xl text-(--primary-bg)" aria-label="Ellipsis" onclick={() => (openUserMenu = !openUserMenu)}>
                     <i class="fa-solid fa-user"></i>

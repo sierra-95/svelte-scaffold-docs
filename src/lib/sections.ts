@@ -110,6 +110,7 @@ export const sectionIds = {
         },
         modal: {
             getting_started: 'doc-modal-getting-started',
+            static_mode: 'doc-modal-static-mode',
             dynamic_mode: 'doc-modal-dynamic-mode',
             component_api: 'doc-modal-component-api',
         },
@@ -127,7 +128,10 @@ export const sectionIds = {
 
     features: {
         global_search: 'docs-global-search',
-        toast_manager: 'docs-toast-manager',
+        toast_manager: {
+            overview: 'docs-toast-manager-overview',
+            usage: 'docs-toast-manager-usage',
+        },
     },
 
     random_stuff: {
@@ -161,7 +165,8 @@ export const sectionIds = {
                 importing: 'docs-layout-getting-started-importing',
             },
             features: {
-                header: 'docs-layout-usage-header',
+                flexible_header: 'docs-layout-usage-header',
+                header_dropdown: 'docs-layout-usage-header-dropdown',
                 menu : 'docs-layout-usage-menu',
                 RBAC: 'docs-layout-usage-rbac',
             }
@@ -259,6 +264,7 @@ export const sections = [
                         label: 'Modal',
                         TOC: {
                             getting_started: sectionIds.components.modal.getting_started,
+                            static_mode: sectionIds.components.modal.static_mode,
                             dynamic_mode: sectionIds.components.modal.dynamic_mode,
                             component_api: sectionIds.components.modal.component_api,
                         }
@@ -302,7 +308,8 @@ export const sections = [
                         label: 'Toast Manager',
                         icon: 'fa-solid fa-bell',
                         TOC: {
-                            toast_manager: sectionIds.features.toast_manager,
+                            Overview: sectionIds.features.toast_manager.overview,
+                            Usage: sectionIds.features.toast_manager.usage
                         }
                     }
                 ]
@@ -396,8 +403,9 @@ export const sections = [
                         label: 'Features',
                         path: routes.modules.layout.children.features,
                         TOC: {
-                            header: sectionIds.modules.layout.features.header,
-                            menu: sectionIds.modules.layout.features.menu,
+                            Flexible_header: sectionIds.modules.layout.features.flexible_header,
+                            Header_dropdown: sectionIds.modules.layout.features.header_dropdown,
+                            Tree_menu: sectionIds.modules.layout.features.menu,
                             RBAC: sectionIds.modules.layout.features.RBAC,
                         }
                     }

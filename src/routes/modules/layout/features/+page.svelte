@@ -7,7 +7,7 @@
 <main class="space-y-4">
     <h1 class="sierra-docs-h1">Features</h1>
     <ol class="sierra-docs-ol"> 
-        <section id={sectionIds.modules.layout.features.header} class="space-y-4 mb-10">
+        <section id={sectionIds.modules.layout.features.flexible_header} class="space-y-4 mb-10">
             <li>Flexible Header</li>
             <h3>The header can carry much more content, including searchbars, theme switchers, and more.</h3>
             <RenderCode
@@ -37,8 +37,8 @@
             `}/>
         </section>
 
-        <section id={sectionIds.modules.layout.features.header} class="space-y-4 mb-10">
-            <li>Title Dropdown</li>
+        <section id={sectionIds.modules.layout.features.header_dropdown} class="space-y-4 mb-10">
+            <li>Header Dropdown</li>
             <h3>Usage of this feature is upto the developer</h3>
             <RenderCode
                 lang="svelte"

@@ -40,23 +40,28 @@
     </div>
 {/snippet}
 
-<main class="space-y-4">
+<main class="space-y-6">
     <title>Modal</title>
     <h1 class="sierra-docs-h1">Breaking news</h1>
+    <h3>Modals are used to display important information or prompts to the user.</h3>
+    <section id={sectionIds.components.modal.getting_started} class="space-y-4">
+        <h2 class="sierra-docs-h2">Getting Started</h2>
+        <h3>Place this anywhere in your app</h3>
+        <RenderCode
+            lang="svelte"
+            code={`
+            <\script>
+                import { Modal } from '@sierra-95/svelte-scaffold';
+            <\/script>
+
+            <Modal />
+
+        `}/>
+
+        <h3>The modal can exist in two modes: static and dynamic.</h3>
+    </section>
     <ol class="sierra-docs-ol">
-        <li>Getting Started</li>
-        <section id={sectionIds.components.modal.getting_started} class="space-y-4">
-            <h3>Place this anywhere in your app</h3>
-            <RenderCode
-                lang="svelte"
-                code={`
-                <\script>
-                    import { Modal } from '@sierra-95/svelte-scaffold';
-                <\/script>
-
-                <Modal />
-
-            `}/>
+        <section id={sectionIds.components.modal.static_mode} class="space-y-4">
             <li>Static Mode</li>
             <Button onclick={triggerPlainModal}>Click to test</Button>
             <RenderCode
@@ -117,10 +122,10 @@
 
             `}/>
         </section>
-
-        <section id={sectionIds.components.modal.component_api} class="space-y-4">
-            <h3>Use <code class="note">modalStore.update()</code> for optional properties to keep defaults</h3>
-            <Table {title} {table}/>
-        </section>
     </ol>
+    <section id={sectionIds.components.modal.component_api} class="space-y-4">
+        <h2 class="sierra-docs-h2">Component API</h2>
+        <h3>Use <code class="note">modalStore.update()</code> for optional properties to keep defaults</h3>
+        <Table {title} {table}/>
+    </section>
 </main>
