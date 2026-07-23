@@ -1,10 +1,12 @@
 <script lang="ts">
+    import {browser} from '$app/environment';
     import {sections} from '$lib/index';
     import type { Section, SectionItem } from '@sierra-95/svelte-scaffold';
     import { page } from '$app/state';
 
     const {hidden} =$props();
 
+    // Display the TOC content based on the current page's path
     const currentPath = $derived(page.url.pathname);
     const currentSection = $derived(findSectionByPath(sections, currentPath));
 
@@ -30,6 +32,43 @@
 
         return null;
     }
+
+    // Scroll updates on the TOC
+    let activeSection = $state('');
+
+    const sectionIds = $derived(
+        Object.values(currentSection?.TOC ?? {})
+            .filter((id): id is string => typeof id === 'string' && id.trim().length > 0)
+    );
+
+    $effect(() => {
+        if (!currentSection || !browser) return;
+
+        const observer = new IntersectionObserver(
+            (entries) => {
+                entries.forEach((entry) => {
+                    if (entry.isIntersecting) {
+                        activeSection = entry.target.id;
+                    }
+                });
+            },
+            {
+                rootMargin: '-100px 0px -70% 0px'
+            }
+        );
+
+        sectionIds.forEach((id) => {
+            const element = document.getElementById(id);
+            if (element) {
+                observer.observe(element);
+            }
+        });
+
+        return () => {
+            observer.disconnect();
+        };
+    });
+
 </script>
 <style>
     #TOC{
@@ -44,6 +83,9 @@
         padding: 20px;
     }
     #TOC h2{
+        margin-bottom: 10px;
+        font-weight: bold;
+        font-size: 1.2rem;
         font-family: 'Melodrama Regular', sans-serif;
     }
     #TOC ul{
@@ -59,7 +101,9 @@
                 {#each Object.entries(currentSection.TOC ?? {}) as [key, href]}
                     <li>
                         <a class="hover:underline text-(--text-secondary)" 
-                            href={`#${href}`}>{key.replace(/_/g, ' ')}
+                            href={`#${href}`}
+                            style="{activeSection === href ? 'text-decoration: underline; color: var(--primary-bg)' : ''}"
+                        >{key.replace(/_/g, ' ')}
                         </a>
                     </li>
                 {/each}
