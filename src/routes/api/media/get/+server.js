@@ -31,6 +31,7 @@ export async function GET({ url, fetch }) {
             });
         }else{
             const data = await response.json();
+            //console.log('Backend response data:', data);
             return new Response(JSON.stringify(data), {
                 status: 200,
                 headers: {
