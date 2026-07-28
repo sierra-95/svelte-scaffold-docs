@@ -73,8 +73,8 @@
             {/snippet}
             <DropdownContainer width="300px" bind:open={openUserMenu} dropdownTrigger={TriggerUserInfo}>
                 <div class="p-2 pl-4">
-                    <h3>{$User?.firstName} {$User?.lastName}</h3>
-                    <p class="text-sm text-(--text-secondary)">{$User?.email}</p>
+                    <h3>John Doe</h3>
+                    <p class="text-sm text-(--ss-d-t)">john.doe@example.com</p>
                 </div>
                 <Hr/>
                 <MenuItem onclick={handleProfile} icon="fa-user" iconSize='15px'>Profile</MenuItem>

@@ -6,15 +6,14 @@
 
     let value = '';
     function triggerPlainModal() {
-        modalStore.set({
+        modalStore.update(m => ({
+            ...m,
             open: true,
             title: 'Confirm Action',
             content: 'Modal has been triggered',
             confirmText: 'Accept',
             cancelText: 'Decline',
-            onConfirm: () => {},
-            onCancel: () => {},
-        });
+        }));
     }
 
     function Submit(){}
@@ -24,7 +23,7 @@
             ...m,
             open: true,
             title: 'Editor',
-            logo_url: favicon,
+            logo_url: `${favicon}favicon.ico`,
             onConfirm: () => {
                 Submit();
             },
