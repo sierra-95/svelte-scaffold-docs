@@ -21,7 +21,7 @@ export async function GET({ url, fetch }) {
             }
         });
 
-        console.log('Backend response status:', response.status);
+        //console.log('Backend response status:', response.status);
         
 
         if (!response.ok) {

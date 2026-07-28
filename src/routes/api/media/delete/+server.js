@@ -1,55 +1,88 @@
-import { BACKEND_URL, CLOUDFLARE_R2_BUCKET } from '$env/static/private';
+import { BACKEND_URL, BUCKET, WORKER_URL } from '$env/static/private';
 
 export async function DELETE({ request }) {
-    try {
-        const body = await request.json();
-        const { id } = body;
+	try {
+		const { itemsToDelete, user_id } = await request.json();
 
-        if (!id || !Array.isArray(id) || id.length === 0) {
+		if (!itemsToDelete || !Array.isArray(itemsToDelete) || itemsToDelete.length === 0) {
+			return new Response(
+				JSON.stringify({ message: 'itemsToDelete array is required' }),
+				{ status: 400 }
+			);
+		}
+        if(!user_id){
             return new Response(
-                JSON.stringify({ message: 'id array is required' }),
+                JSON.stringify({ message: 'user_id is required' }),
                 { status: 400 }
             );
-        }
+        };
 
-        const deleteUrl = `${BACKEND_URL}media/delete`;
+		// ------------------------------------
+		// 1. WORKER DELETE FROM R2
+		// ------------------------------------
+		const r2Keys = itemsToDelete.map((i) => i.r2_key);
 
-        //console.log('Deleting media with IDs:', id, 'from bucket:', CLOUDFLARE_R2_BUCKET, 'using URL:', deleteUrl);
+		const workerRes = await fetch(`${WORKER_URL}media/delete`, {
+			method: 'DELETE',
+			headers: {
+				'Content-Type': 'application/json'
+			},
+			body: JSON.stringify({
+				r2_key: r2Keys,
+				bucket: BUCKET
+			})
+		});
 
-        const response = await fetch(deleteUrl, {
-            method: 'DELETE',
-            headers: {
-                'Content-Type': 'application/json'
-            },
-            body: JSON.stringify({
-                bucket: CLOUDFLARE_R2_BUCKET,
-                id
+		const workerData = await workerRes.json();
+
+		if (!workerRes.ok) {
+			return new Response(JSON.stringify(workerData), {
+				status: workerRes.status
+			});
+		}
+
+		// ------------------------------------
+		// 2. FASTAPI BACKEND - DELETE METADATA
+		// ------------------------------------
+		const ids = itemsToDelete.map((i) => i.id);
+
+		const dbRes = await fetch(`${BACKEND_URL}media/delete`, {
+			method: 'DELETE',
+			headers: {
+				'Content-Type': 'application/json',
+			},
+			body: JSON.stringify({
+                user_id,
+                ids
             })
-        });
+		});
 
+		if (!dbRes.ok) {
+            const message = await dbRes.text();
+			return new Response(JSON.stringify({ message }), {
+				status: dbRes.status
+			});
+		}
 
-        if (!response.ok) {
-            const message = await response.text();
-            return new Response(JSON.stringify(message), {
-                status: response.status
-            });
-        }else{
-            const data = await response.json();
-            //console.log('Backend Successfully deleted media:', data);
-            return new Response(JSON.stringify(data), {
-                status: 200,
-                headers: {
-                    'Content-Type': 'application/json'
-                }
-            });
-        }
-    } catch (error) {
-        return new Response(
-            JSON.stringify({
-                message: 'Internal server error',
-                error: String(error)
-            }),
-            { status: 500 }
-        );
-    }
+		// ------------------------------------
+		// SUCCESS
+		// ------------------------------------
+		return new Response(JSON.stringify({ success: true }), {
+			status: 200,
+			headers: {
+				'Content-Type': 'application/json'
+			}
+		});
+
+	} catch (error) {
+		console.error('Error deleting media:', error);
+
+		return new Response(
+			JSON.stringify({
+				message: 'Internal server error',
+				error: String(error)
+			}),
+			{ status: 500 }
+		);
+	}
 }
