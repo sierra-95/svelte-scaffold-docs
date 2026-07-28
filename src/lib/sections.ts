@@ -147,6 +147,7 @@ export const sectionIds = {
     modules: {
         editor: {
             getting_started: 'docs-editor-getting-started',
+            saving_content: 'docs-editor-saving-content',
             inserting_images: 'docs-editor-inserting-images',
         },
         file_picker: {
@@ -344,6 +345,7 @@ export const sections = [
                 icon: 'fa fa-pencil-square-o' ,
                 TOC: {
                     getting_started: sectionIds.modules.editor.getting_started,
+                    saving_content: sectionIds.modules.editor.saving_content,
                     inserting_images: sectionIds.modules.editor.inserting_images,
                 },
             },
