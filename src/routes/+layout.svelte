@@ -37,6 +37,7 @@
 		fileInputStore.update(store => {
 			store.onUpload = getStorageUsage;
 			store.onDelete = getStorageUsage;
+			store.disabledActions = ["Delete"];
 			return store;
 		});
 
