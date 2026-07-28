@@ -3,7 +3,7 @@
 	import { onMount, tick } from 'svelte';
 	import {browser} from '$app/environment';
 	import {Layout, ButtonTheme, theme, isMobile, DropdownContainer, MenuItem, layoutStore,
-		editorConfig, isDesktop, fileInputConfig
+		editorConfig, isDesktop, fileInputConfig, fileInputStore
 	} from '@sierra-95/svelte-scaffold';
 	import {sections, TOC, Navigator, Footer, routes } from '$lib';
 	import { favicon } from '$lib/assets/company';
@@ -12,9 +12,11 @@
 	let { children } = $props();
 	const link = $derived(`https://files.michaelmachohi.com/logos/michaelmachohi.${$theme === 'light' ? 'dark' : 'light'}.png`);
 	let openMenu = $state(false);
-	const year = new Date().getFullYear();	
+	const user_id = '550e8400-e29b-41d4-a716-446655440000';
 
 	onMount(()=>{
+		getStorageUsage();
+
 		editorConfig.update(store => {
 			store.serverGetUrl = '/api/media/get';
 			store.serverUploadUrl = '/api/media/upload';
@@ -28,7 +30,13 @@
 			store.serverUploadUrl = '/api/media/upload';
 			store.serverDeleteUrl = '/api/media/delete';
 			store.serverDownloadUrl = '/api/media/download';
-			store.user_id = '550e8400-e29b-41d4-a716-446655440000';
+			store.user_id = user_id;
+			return store;
+		});
+
+		fileInputStore.update(store => {
+			store.onUpload = getStorageUsage;
+			store.onDelete = getStorageUsage;
 			return store;
 		});
 
@@ -64,6 +72,37 @@
 
 	function redirectToMoreHeaderOptions(link: string) {
 		window.open(link, '_blank');
+	}
+
+	//Storage
+	let storage = $state<{ used_storage_bytes: number; storage_quota_bytes: number }>({
+		used_storage_bytes: 0,
+		storage_quota_bytes: 0
+	});
+
+	async function getStorageUsage() {
+		try {
+			const endpoint = `https://backend.michaelmachohi.com/media/storage-usage?user_id=${user_id}`;
+			const response = await fetch(endpoint);
+
+			if (!response.ok) {
+				throw new Error('Failed to fetch storage usage');
+			}
+
+			storage = await response.json();
+			updateFileInputConfig();
+
+		} catch (err) {
+			console.error('Storage usage error:', err);
+		}
+	}	
+
+	function updateFileInputConfig() {
+		fileInputConfig.update(store => {
+			store.usedBytes = storage.used_storage_bytes;
+			store.maxBytes = storage. storage_quota_bytes;
+			return store;
+		});
 	}
 
 </script>
