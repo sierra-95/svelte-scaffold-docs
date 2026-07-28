@@ -1,27 +1,13 @@
 <script lang="ts">
     import {RenderCode, routes, sectionIds} from '$lib';
-    import {fileInputStore,  User, Button, addToast} from '@sierra-95/svelte-scaffold';
+    import {fileInputStore , Button} from '@sierra-95/svelte-scaffold';
     
-    $: r2_key = `svelte-scaffold/${$User.userId}`;
     function open(){
-        if(!$User.userId){
-            addToast({
-                status: 'error',
-                message: 'R2 Key not available.'
-            });
-            return;
-        }
-        fileInputStore.update(store => ({ 
-			...store,
-            r2_key,
-            manage: true,
-			serverGetUrl: '/api/media/get',
-            serverUploadUrl: '/api/media/upload',
-            serverDeleteUrl: '/api/media/delete',
-            serverStorageUrl: '/api/media/storage-usage',
-            serverDownloadUrl: '/api/media/download',
-			uploadModalOpen: true 
-		}));
+        fileInputStore.update(store => { 
+			store.manage = true;
+            store.uploadModalOpen = true;
+            return store;
+		});
     }
 </script>
 

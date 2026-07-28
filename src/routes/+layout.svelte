@@ -2,8 +2,8 @@
 	import '../app.css';
 	import { onMount, tick } from 'svelte';
 	import {browser} from '$app/environment';
-	import {Layout, ButtonTheme, theme, isLoggedIn, User, isMobile,isTablet, DropdownContainer, MenuItem, layoutStore,
-		editorConfig, isDesktop
+	import {Layout, ButtonTheme, theme, isMobile, DropdownContainer, MenuItem, layoutStore,
+		editorConfig, isDesktop, fileInputConfig
 	} from '@sierra-95/svelte-scaffold';
 	import {sections, TOC, Navigator, Footer, routes } from '$lib';
 	import { favicon } from '$lib/assets/company';
@@ -15,21 +15,20 @@
 	const year = new Date().getFullYear();	
 
 	onMount(()=>{
-        isLoggedIn.set(true);
-		User.update(store => {
-			store.userId = 'f47ac10b-58cc-4372-a567-0e02b2c3d479';
-			store.firstName = 'John';
-			store.lastName = 'Doe';
-			store.email = 'john.doe@example.com';
-			store.phone = '+1-555-123-4567';
-			return store;
-		});
-
 		editorConfig.update(store => {
 			store.serverGetUrl = '/api/media/get';
 			store.serverUploadUrl = '/api/media/upload';
 			store.serverDeleteUrl = '/api/media/delete';
 			store.serverDownloadUrl = '/api/media/download';
+			return store;
+		});
+
+		fileInputConfig.update(store => {
+			store.serverGetUrl = '/api/media/get';
+			store.serverUploadUrl = '/api/media/upload';
+			store.serverDeleteUrl = '/api/media/delete';
+			store.serverDownloadUrl = '/api/media/download';
+			store.user_id = '550e8400-e29b-41d4-a716-446655440000';
 			return store;
 		});
 
