@@ -3,17 +3,17 @@ import {BACKEND_URL} from '$env/static/private';
 export async function GET({ url, fetch }) {
     try {
         const category = url.searchParams.get('category');
-        console.log('Category:', category);
+        const user_id = url.searchParams.get('user_id');
 
-        if (!category) {
+        if (!category || !user_id) {
             return new Response(
-                JSON.stringify({ message: 'Category is required' }),
+                JSON.stringify({ message: 'Category and user_id are required' }),
                 { status: 400 }
             );
         }
 
-        const backendUrl = `${BACKEND_URL}media/get?category=${encodeURIComponent(category)}`;
-        
+        const backendUrl = `${BACKEND_URL}media/get?category=${encodeURIComponent(category)}&user_id=${encodeURIComponent(user_id)}`;
+
         const response = await fetch(backendUrl, {
             method: 'GET',
             headers: {
