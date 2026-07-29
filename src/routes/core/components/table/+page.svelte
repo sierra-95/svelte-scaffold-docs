@@ -45,7 +45,7 @@
                 [
                     { content: "array[]" },
                     { content: "array[]" },
-                    { content: "true" },
+                    { content: "false" },
                     { content: "internal" },
                     { content: "0.875rem" },
                     { content: "1px" },
@@ -94,6 +94,7 @@
         },
         table: {
             headers: ['Name', 'Role', 'Status'],
+            striped: true,
             rows: [
                 [
                     { content: "John Doe", rowspan: 2 },
@@ -178,6 +179,7 @@
                         },
                         table: {
                             headers: ['Name', 'Role', 'Status'],
+                            striped: true,
                             rows: [
                                 [
                                     { content: "John Doe", rowspan: 2 },
