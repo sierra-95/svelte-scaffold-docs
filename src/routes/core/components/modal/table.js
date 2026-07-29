@@ -69,6 +69,5 @@ export const table = {
         ],
 
     ],
-    borderSize:"1px",
-    striped:true
+    borderSize:"1px"
 }
