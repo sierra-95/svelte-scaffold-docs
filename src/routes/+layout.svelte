@@ -45,7 +45,7 @@
 			store.sections = sections;
 			store.paddingOff = true;
 			store.headerLink = '/';
-			store.toggleMenuColor = 'var(--text)';
+			store.toggleMenuColor = 'var(--ss-d-p)';
 			store.headerImageSize = '30px';
 			store.headerRightContent = headerRightContent;
 			store.dropdownContent = dropdownContent;

@@ -67,7 +67,7 @@
         <section id={sectionIds.components.menu.user_menu} class="space-y-4">
             <h3 class="font-bold underline">Example: User Menu</h3>
             {#snippet TriggerUserInfo()}
-                <button use:buttonRipple class="w-10 text-3xl text-(--primary-bg)" aria-label="Ellipsis" onclick={() => (openUserMenu = !openUserMenu)}>
+                <button use:buttonRipple class="w-10 text-3xl" aria-label="Ellipsis" onclick={() => (openUserMenu = !openUserMenu)}>
                     <i class="fa-solid fa-user"></i>
                 </button>
             {/snippet}
