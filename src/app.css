@@ -3,8 +3,6 @@
 @plugin '@tailwindcss/typography';
 
 :root{
-    --shiki-light-bg: #f8fafc;
-    --shiki-dark-bg: var(--dark-Theme);
     --note-light: #1E66F5;
     --note-dark: #79AFFF;
 }
@@ -12,12 +10,12 @@ body{
     font-family: "Inter", "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
 }
 body, body[data-theme='light'] {
-    --shiki-bg: var(--shiki-light-bg);
+    --shiki-bg: #f8fafc;
     --note: var(--note-light);
 }
 
 body[data-theme='dark']{
-    --shiki-bg: var(--shiki-dark-bg);
+    --shiki-bg: var(--black-400);
     --note: var(--note-dark);
 }
 
@@ -40,14 +38,19 @@ h2.sierra-docs-h2{
 }
 
 ol.sierra-docs-ol {
-    list-style:upper-alpha inside;
+    list-style: circle inside;
 }
 /*Titles as lists*/
 ol.sierra-docs-ol li{
     font-weight: bold;
-    font-size: 1.2rem;
+    font-size: 1.5rem;
     padding: 30px 0px;
-    text-decoration: underline;
+    font-family:  'TrenchSlab Regular', sans-serif;
+}
+@media (max-width: 768px) {
+    ol.sierra-docs-ol li{
+        font-size: 1.2rem;
+    }
 }
 
 /*Lists inside lists*/
@@ -58,7 +61,6 @@ ol.sierra-docs-ol ul li{
     font-weight: normal;
     font-size: 1rem;
     padding: unset;
-    text-decoration: unset;
 }
 
 

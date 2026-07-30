@@ -71,16 +71,18 @@
 
 </script>
 <main>
-  <div style="background-color: var(--shiki-bg);" class="w-full flex justify-between items-center p-2 rounded-t-xl">
-    <span class="text-[#475569]">{lang}</span>
+  <div class="shiki-header">
+    <span class="text-(--ss-neutral)">{lang}</span>
     <div class="flex gap-5">  
      {#if canExpand}
         <button onclick={() => expanded = !expanded}>
-          {expanded ? 'Collapse' : 'Expand Code'}
+          <span class:hidden={expanded}>Expand Code</span>
+          <span class:hidden={!expanded}>Collapse</span>
         </button>
       {/if}
       <button onclick={copyCode}>
-        {copied ? 'Copied' : 'Copy'}
+        <span class:hidden={copied}>Copy</span>
+        <span class:hidden={!copied} class="text-(--ss-success)">Copied</span>
       </button>
   </div>
   </div>
