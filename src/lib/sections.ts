@@ -88,6 +88,7 @@ export const sectionIds = {
             custom_button_api: 'doc-button-custom-api',
             hamburger_button: 'doc-button-hamburger',
             theme_button: 'doc-button-theme',
+            whatsapp_share: 'doc-button-whatsapp-share',
             other_buttons: 'doc-button-other-buttons',
         },
         inputs: {
@@ -141,7 +142,6 @@ export const sectionIds = {
         color_picker: 'doc-random-stuff-color-picker',
         hr: 'doc-random-stuff-hr',
         timezones: 'doc-random-stuff-timezones',
-        whatsapp_share: 'doc-random-stuff-whatsapp-share',
     },
 
     modules: {
@@ -231,6 +231,7 @@ export const sections = [
                             custom_button_api: sectionIds.components.buttons.custom_button_api,
                             hamburger_button: sectionIds.components.buttons.hamburger_button,
                             theme_button: sectionIds.components.buttons.theme_button,
+                            Whatsapp_share: sectionIds.components.buttons.whatsapp_share,
                             other_buttons: sectionIds.components.buttons.other_buttons,
                         }
                     },
@@ -331,7 +332,6 @@ export const sections = [
                     color_picker: sectionIds.random_stuff.color_picker,
                     horizontal_rule: sectionIds.random_stuff.hr,
                     timezones: sectionIds.random_stuff.timezones,
-                    whatsapp_share: sectionIds.random_stuff.whatsapp_share,
                 }
             },
         ]

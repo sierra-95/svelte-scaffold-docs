@@ -1,7 +1,7 @@
 <script lang="ts">
 	import {
 		Button, ButtonFlip, ButtonMarquee, ButtonSwipe,ButtonTheme,
-		ButtonHamburger, ButtonSelect, ButtonTimes, addToast, Table
+		ButtonHamburger, ButtonSelect, ButtonTimes, addToast, Table, ButtonWhatsappShare, Date, Time
 	} from '@sierra-95/svelte-scaffold'
 	import {RenderCode, routes, sectionIds} from '$lib';
 	import { DefaultButtonTable, CustomButtonTable, ButtonHamburgerTable} from './tables';
@@ -40,7 +40,6 @@
 			{/each}
 				<Button variant="contained"  isLoading title="Loading" endIcon="fa-trash">Button</Button>
 				<Button variant='contained' disabled title="Disabled" startIcon="fa-cloud-arrow-down">Button</Button>
-				<Button pill variant='outlined' title="Pill"><i class="fa fa-chevron-right"></i></Button>
 			</div>
 			<RenderCode
 				lang="svelte"
@@ -187,6 +186,30 @@
 					import {ButtonTheme} from '@sierra-95/svelte-scaffold';
 				<\/script>
 				<ButtonTheme />
+			`}/>
+		</section>
+
+		<section id={sectionIds.components.buttons.whatsapp_share} class="space-y-4">
+			<li>WhatsApp Share</li>
+			<h3>When clicked, the button will attempt to share the link on WhatsApp. Your website information is best displayed if Open Graph (OG) tags are configured.</h3>
+			<h3>If the share fails, it falls back to copying the link.</h3>
+			<ButtonWhatsappShare
+				shareURL="https://yoursite.com"
+				shareTitle="Cats & Coffee"
+				shareText="A cat just knocked over a cup of coffee while debugging your code. Productivity level: questionable."
+			/>
+			<RenderCode
+				lang="svelte"
+				code={`
+				<\script>
+					import { ButtonWhatsappShare } from '@sierra-95/svelte-scaffold';
+				<\/script>
+
+				<ButtonWhatsappShare
+					shareURL="https://yoursite.com"
+					shareTitle="Cats & Coffee"
+					shareText="A cat just knocked over a cup of coffee while debugging your code. Productivity level: questionable."
+				/>
 			`}/>
 		</section>
 

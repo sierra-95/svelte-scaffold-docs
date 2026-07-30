@@ -60,12 +60,6 @@ export const DefaultButtonTable = {
                 { content: "Displays a spinner. Automatically disables the button while loading." }
             ],
             [
-                { content: "pill" },
-                { content: "boolean" },
-                { content: "false" },
-                { content: "If true, applies full rounding (Tailwind <strong>rounded-full</strong>) to make the button pill-shaped." }
-            ],
-            [
                 { content: "spinner" },
                 { content: "number" },
                 { content: '20' },
