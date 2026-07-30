@@ -24,7 +24,7 @@
      * @returns {string}
      */
     function getGithubFilePath(path) {
-        return `${prefix}${path}/+page.svelte`;
+        return `${prefix}${path}/%2Bpage.svelte`;
     }
     /**
      * @param {string} path
@@ -108,7 +108,7 @@
     <div id="sierra-github-page-edit" class="flex justify-between text-sm">
         <a href={githubUrl} target="_blank" rel="noreferrer" ><i class="fa-solid fa-pen mr-2"></i>Edit Page</a>
         <h3>Last Updated:
-            {lastUpdated? new Date(lastUpdated).toLocaleDateString(): '-'}
+            <span class="text-(--ss-neutral)">{lastUpdated? new Date(lastUpdated).toLocaleDateString(): '-'}</span>
         </h3>
     </div>
     <div><Hr color="var(--ss-border)"/></div>
