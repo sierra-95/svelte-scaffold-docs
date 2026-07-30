@@ -1,26 +1,44 @@
 <script>
     import { browser } from '$app/environment';
     import { page } from '$app/state';
-    import { sections, routes } from '$lib';
+    import { sections } from '$lib';
     import { flattenSections } from './flatten';
     import {Hr} from '@sierra-95/svelte-scaffold';
 
-    const prefix = "src/routes";
-
-    let pageURL = $state('');
-    let currentPath = $state();
     let previous = $state();
     let next = $state();
     let lastUpdated = $state('');
 
     const allPages = flattenSections(sections);
+
+    const githubRepo = {
+        owner: 'sierra-95',
+        repo: 'svelte-scaffold-docs',
+        branch: 'main'
+    };
+
+    const prefix = '/src/routes';
+
+    /**
+     * @param {string} path
+     * @returns {string}
+     */
+    function getGithubFilePath(path) {
+        return `${prefix}${path}/+page.svelte`;
+    }
+    /**
+     * @param {string} path
+     */
+    function getGithubUrl(path) {
+        return `https://github.com/${githubRepo.owner}/${githubRepo.repo}/blob/${githubRepo.branch}${path}`;
+    }
+
+    const currentPath = $derived(page.url.pathname)
+    const filePath = $derived(getGithubFilePath(currentPath))
+    const githubUrl = $derived(getGithubUrl(filePath))
     $effect(() => {
         if(browser){
-            if(page.url.pathname){
-                currentPath = page.url.pathname
-                pageURL = prefix + currentPath + '/%2Bpage.svelte';
-                load();
-            }
+            if(currentPath) load();
             const currentIndex = allPages.findIndex(p => p.path === currentPath);
             previous = currentIndex > 0 ? allPages[currentIndex - 1] : null;
             next = currentIndex < allPages.length - 1
@@ -30,7 +48,7 @@
     });
 
     async function load() {
-        const endpoint = `https://api.github.com/repos/sierra-95/svelte-scaffold-docs/commits?path=${pageURL}&per_page=1`;
+        const endpoint = `https://api.github.com/repos/${githubRepo.owner}/${githubRepo.repo}/commits?path=${filePath}&per_page=1`;
         try {
             const res = await fetch(endpoint, {
                 headers: {
@@ -88,7 +106,7 @@
 
 <section class="space-y-4" style="margin-top: 4rem;">
     <div id="sierra-github-page-edit" class="flex justify-between text-sm">
-        <a href={routes.system.resources.github + pageURL} target="_blank" rel="noreferrer" ><i class="fa-solid fa-pen mr-2"></i>Edit Page</a>
+        <a href={githubUrl} target="_blank" rel="noreferrer" ><i class="fa-solid fa-pen mr-2"></i>Edit Page</a>
         <h3>Last Updated:
             {lastUpdated? new Date(lastUpdated).toLocaleDateString(): '-'}
         </h3>
