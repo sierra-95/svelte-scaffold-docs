@@ -152,6 +152,12 @@
 			iconSize="20px"
 		>Portfolio
 		</MenuItem>
+		<MenuItem  
+			url={favicon + 'favicon.ico'} 
+			onclick={() => redirectToMoreHeaderOptions('https://backend.michaelmachohi.com/')}
+			iconSize="20px"
+		>Scaffold Backend API
+		</MenuItem>
 	</div>
 {/snippet}
 

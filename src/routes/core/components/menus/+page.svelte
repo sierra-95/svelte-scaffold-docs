@@ -30,7 +30,7 @@
             </p>
             {#snippet TriggerMenu()}
                 <button use:buttonRipple class="w-10" aria-label="Ellipsis" onclick={() => (openMenu = !openMenu)}>
-                    <i class="fa-solid fa-ellipsis-v"></i>
+                    <i class="fa-solid fa-ellipsis-v text-(--ss-neutral)"></i>
                 </button>
             {/snippet}
             <DropdownContainer bind:open={openMenu} dropdownTrigger={TriggerMenu}>
@@ -68,7 +68,7 @@
             <h3 class="font-bold underline">Example: User Menu</h3>
             {#snippet TriggerUserInfo()}
                 <button use:buttonRipple class="w-10 text-3xl" aria-label="Ellipsis" onclick={() => (openUserMenu = !openUserMenu)}>
-                    <i class="fa-solid fa-user"></i>
+                    <i class="fa-solid fa-user text-(--ss-neutral)"></i>
                 </button>
             {/snippet}
             <DropdownContainer width="300px" bind:open={openUserMenu} dropdownTrigger={TriggerUserInfo}>
@@ -247,11 +247,12 @@
             <HamburgerMenu
                 bind:menuOpen={hamburgerMenuOpen}
                 barHeight="2px"
-                barColor="var(--primary-bg)"
-                menuBackgroundColor="white"
-                menuLogoUrl={favicon}
+                barColor="var(--ss-neutral)"
+                menuBackgroundColor="var(--ss-l-s)"
+                menuTextColor="var(--ss-d-p)"
+                menuLogoUrl={favicon + 'favicon.ico'} 
                 menuLogoWidth="30px"
-                buttonTimesColor="black"
+                buttonTimesColor="var(--ss-d-p)"
             >
                 <div class="p-6">
                     <h2>Some Items</h2>
@@ -271,11 +272,12 @@
                 <HamburgerMenu
                     bind:menuOpen={hamburgerMenuOpen}
                     barHeight="2px"
-                    barColor="var(--primary-bg)"
-                    menuBackgroundColor="white"
-                    menuLogoUrl="https://company.com/logo.png"
+                    barColor="var(--ss-neutral)"
+                    menuBackgroundColor="var(--ss-l-s)"
+                    menuTextColor="var(--ss-d-p)"
+                    menuLogoUrl="https://example.com/logo.png"
                     menuLogoWidth="30px"
-                    buttonTimesColor="black"
+                    buttonTimesColor="var(--ss-d-p)"
                 >
                     <div class="p-6">
                         <h2>Some Items</h2>
