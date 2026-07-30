@@ -3,6 +3,7 @@
     import { page } from '$app/state';
     import { sections, routes } from '$lib';
     import { flattenSections } from './flatten';
+    import {Hr} from '@sierra-95/svelte-scaffold';
 
     const prefix = "src/routes";
 
@@ -62,17 +63,17 @@
         transition: color 0.1s ease-in;
     }
     #sierra-github-page-edit a:hover{
-        color: var(--primary-bg);
+        color: var(--ss-neutral);
     }
     #sierra-navigation a{
-        color: var(--primary-bg);
+        color: var(--ss-neutral);
     }
     #sierra-navigation a:hover{
         text-decoration: underline;
     }
     #sierra-navigation h3{
         font-size: 0.9rem;
-        color: var(--text-secondary);
+        color: var(--ss-d-s);
     }
     @media (max-width: 768px){
         #sierra-navigation{
@@ -85,14 +86,14 @@
     }
 </style>
 
-<section class="space-y-4" style="margin-top: 3rem;">
-    <!-- <div><Hr/></div> -->
-    <div id="sierra-github-page-edit" class="flex justify-between text-(--text-secondary) text-sm">
+<section class="space-y-4" style="margin-top: 4rem;">
+    <div id="sierra-github-page-edit" class="flex justify-between text-sm">
         <a href={routes.system.resources.github + pageURL} target="_blank" rel="noreferrer" ><i class="fa-solid fa-pen mr-2"></i>Edit Page</a>
         <h3>Last Updated:
             {lastUpdated? new Date(lastUpdated).toLocaleDateString(): '-'}
         </h3>
     </div>
+    <div><Hr color="var(--ss-border)"/></div>
     <div id="sierra-navigation">
         {#if previous}
             <div class="text-previous">

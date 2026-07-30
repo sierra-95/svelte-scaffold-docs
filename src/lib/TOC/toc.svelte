@@ -102,7 +102,7 @@
                     <li>
                         <a class="hover:underline text-(--text-secondary)" 
                             href={`#${href}`}
-                            style="{activeSection === href ? 'text-decoration: underline; color: var(--primary-bg)' : ''}"
+                            style="{activeSection === href ? 'text-decoration: underline; color: var(--ss-neutral)' : ''}"
                         >{key.replace(/_/g, ' ')}
                         </a>
                     </li>
