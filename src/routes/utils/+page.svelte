@@ -1,17 +1,16 @@
 <script>
-    import {handleRedirect} from '@sierra-95/svelte-scaffold';
+    import {handleRedirect, Button} from '@sierra-95/svelte-scaffold';
     import {RenderCode, sectionIds} from '$lib';
 
     function navigate() {
-        handleRedirect(
-            '/login',
-            '/manage/user?status=test&passed=true',
-            {}, //replaceState or useHardRedirect
-            {
-                condition_1: "test",
-                condition_2: "test",
-            }
-        )
+        handleRedirect({ 
+            baseUrl: '/login', 
+            baseParams: { source: 'admin_panel' }, 
+            redirectTo: { 
+                path: '/manage/user', 
+                params: { status: 'pending', filter: 'email_verified' } 
+            } 
+        });
     }
 </script>
 
@@ -42,16 +41,17 @@
             <li>handleRedirect</li>
 
             <h3>
-            The best way to demonstrate its usage is with a Sign In/Sign Up scenario. Assume you are on page X and want to navigate to page Y, but accessing page Y requires you to be logged in.
+            The most practical way to understand this is through a Sign In / Sign Up flow. Imagine a user is on page X and tries to access page Y, but page Y requires authentication. In that case, the user is redirected to a login page, and after successful authentication, sent back to their original destination.
             </h3>
 
             <h3>
-            <code>handleRedirect</code> takes a base route and a target route, along with any parameters, to construct a complete route and then navigate to it.
+            <code>handleRedirect</code> builds this flow by taking a base route (e.g. the login page), an optional redirect target, and structured parameters for both. It then constructs the final URL and handles the navigation.
             </h3>
 
             <h3>
-            Please note that it is your responsibility to read the <code>redirectTo</code> parameter on the login page. Below are several examples of how to use <code>handleRedirect</code> in different scenarios.
+            Keep in mind that your login page must read and handle the <code>redirectTo</code> parameter to complete the flow. Below are examples showing how to use <code>handleRedirect</code> in different scenarios.
             </h3>
+
             <RenderCode
                 lang="svelte"
                 code={`
@@ -59,48 +59,79 @@
                     import {handleRedirect} from '@sierra-95/svelte-scaffold';
                 <\/script>
             `}/>
-                <h3 class="font-bold">Basic redirect</h3>
-                <h3>http://localhost:5173/login?redirectTo=%2Fmanage%2Fuser</h3>
-                <RenderCode
-                    lang="svelte"
-                    code={`
-                    <\script>
-                        handleRedirect(
-                            '/login',
-                            '/manage/user',
-                        )
-                    <\/script>
-                `}/>
-                <h3 class="font-bold">Param heavy redirect</h3>
-                <h3>http://localhost:5173/login?condition_1=test&condition_2=test&redirectTo=%2Fmanage%2Fuser%3Fstatus%3Dtest%26passed%3Dtrue</h3>
-                <RenderCode
-                    lang="svelte"
-                    code={`
-                    <\script>
-                        handleRedirect(
-                            '/login',
-                            '/manage/user?status=test&passed=true',
-                            {}, //replaceState or useHardRedirect
-                            {
-                                condition_1: "test", //login params
-                                condition_2: "test",
-                            }
-                        )
-                    <\/script>
-                `}/>
-                <h3 class="font-bold">Simple hard redirect</h3>
-                <h3>By default, <code>handleRedirect</code> uses <code>goto</code>, hence the optional options param <code>replaceState: true</code>. However, if you need a hard redirect, you can use the <code>useHardRedirect</code> option.</h3>
-                <RenderCode
-                    lang="svelte"
-                    code={`
-                    <\script>
-                        handleRedirect(
-                            '/login',
-                            '/manage/user',
-                            {useHardRedirect: true}
-                        )
-                    <\/script>
-                `}/>
+            <h3>Here is the type definition:</h3>
+            <RenderCode
+                lang="typescript"
+                code={`
+                type RedirectConfig = {
+                    baseUrl: string;
+                    baseParams?: Record<string, string>;
+
+                    redirectTo?: {
+                        path: string;
+                        params?: Record<string, string>;
+                    };
+
+                    navigation?: {
+                        replaceState?: boolean;
+                        softRedirect?: boolean; // true = goto, false = window.location
+                    };
+                };
+            `}/>
+            <h3 class="font-bold">Simple navigation with params</h3>
+            <h3>http://localhost:5173/login?reason=session_expired&retry=true</h3>
+            <RenderCode
+                lang="typescript"
+                code={`
+                handleRedirect({ 
+                    baseUrl: '/login', 
+                    baseParams: { reason: 'session_expired', retry: 'true' } 
+                });
+            `}/>
+            <h3 class="font-bold">Basic redirect</h3>
+            <h3>http://localhost:5173/login?redirectTo=%2Fdashboard</h3>
+            <RenderCode
+                lang="typescript"
+                code={`
+                handleRedirect({ 
+                    baseUrl: '/login', 
+                    redirectTo: { path: '/dashboard' } 
+                });
+            `}/>
+            <h3 class="font-bold">Redirect with params</h3>
+            <h3>http://localhost:5173/login?source=admin_panel&redirectTo=%2Fmanage%2Fuser%3Fstatus%3Dpending%26filter%3Demail_verified</h3>
+            <Button onclick={navigate}>Try Redirect (404)</Button>
+            <RenderCode
+                lang="typescript"
+                code={`
+                handleRedirect({ 
+                    baseUrl: '/login', 
+                    baseParams: { source: 'admin_panel' }, 
+                    redirectTo: { 
+                        path: '/manage/user', 
+                        params: { status: 'pending', filter: 'email_verified' } 
+                    } 
+                });
+            `}/>
+            <h3 class="font-bold">Replace state</h3>
+            <RenderCode
+                lang="typescript"
+                code={`
+                handleRedirect({ 
+                    baseUrl: '/login', 
+                    navigation: { replaceState: true } 
+                });
+            `}/>
+            <h3 class="font-bold">Hard redirect</h3>
+            <h3>By default, <code>handleRedirect</code> uses <code>goto</code>. If <code>softRedirect</code> is set to <code>false</code>, it will use <code>window.location</code> for a hard redirect.</h3>
+            <RenderCode
+                lang="typescript"
+                code={`
+                handleRedirect({ 
+                    baseUrl: '/login', 
+                    navigation: { softRedirect: false } 
+                });
+            `}/>
         </section>
     </ol>
 </main>
