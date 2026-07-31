@@ -1,37 +1,13 @@
 <script lang="ts">
-    import {RenderCode, routes, sectionIds} from '$lib';
-    import {fileInputStore , Button} from '@sierra-95/svelte-scaffold';
-    
-    function open(){
-        fileInputStore.update(store => { 
-			store.manage = true;
-            store.uploadModalOpen = true;
-            return store;
-		});
-    }
+    import {RenderCode, sectionIds} from '$lib';
+    import {Button} from '@sierra-95/svelte-scaffold';
 </script>
 
 <title>Getting Started</title>
 
 <main class="space-y-4">
-    <h1 class="sierra-docs-h1">File Picker</h1>
-    <h3>The file picker is a cloud solution for form filling that allows users to submit uploaded files,
-        update new ones and never lose them all together.
-    </h3>
-    <Button onclick={() => open()}>Launch File Picker</Button>
-    <section id={sectionIds.modules.file_picker.getting_started} class="space-y-4">
-        <h2 class="sierra-docs-h2">Why Use the File Picker?</h2>
-        <ul class="list-disc list-inside space-y-2">
-            <li>
-            It is convenient for both the user and the developer. The developer only handles multipart form data once, in the file picker, and can then populate forms using URLs. The user can access and reuse uploaded files at any time.
-            </li>
-            <li>
-            Standardized <code>+server</code> code, with only backend API calls left to implement
-            </li>
-            <li>
-            User-friendly “File Explorer” interface; supports file properties and storage management
-            </li>
-        </ul>
+    <h1 class="sierra-docs-h1">Getting Started</h1>
+    <section id={sectionIds.modules.file_picker.getting_started.setting_up} class="space-y-4">
         <h2 class="mt-10 sierra-docs-h2">Setting Up File Picker</h2>
         <h3>It is Important to understand that the File Picker is heavily backend dependent. It's performance relies on the efficiency of your backend implementation.</h3>
         <h3>Place this anywhere in your app</h3>
@@ -80,9 +56,10 @@
             <\/script>
             <Button onclick={() => open()}>Launch File Picker</Button>
         `}/>
+        <h3><code>$fileInputStore.manage</code> disables Insertion mode.</h3>
         <Button startIcon="fa-arrow-right">Setting Up Backend</Button>
     </section>
-    <section id={sectionIds.modules.file_picker.getting_started} class="space-y-4">
+    <section id={sectionIds.modules.file_picker.getting_started.setting_up_storage} class="space-y-4">
         <h2 class="sierra-docs-h2">Setting Up Storage</h2>
         <h3>The File Picker has a storage gauge which shows the amount of storage used and available.</h3>
         <h3>In this example, i fetch the storage information from the backend.</h3>

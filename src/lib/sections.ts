@@ -37,6 +37,7 @@ export const routes = {
         file_picker: {
             base: `${modules}/file-picker`,
             children: {
+                overview: `${modules}/file-picker/overview`,
                 getting_started: `${modules}/file-picker/getting-started`,
                 usage: `${modules}/file-picker/usage`,
                 backend: `${modules}/file-picker/backend-integration`,
@@ -151,7 +152,11 @@ export const sectionIds = {
             inserting_images: 'docs-editor-inserting-images',
         },
         file_picker: {
-            getting_started: 'docs-file-picker-getting-started',
+            overview: 'docs-file-picker-overview',
+            getting_started: {
+                setting_up: 'docs-file-picker-getting-started-setting-up',
+                setting_up_storage: 'docs-file-picker-getting-started-setting-up-storage',
+            },
             usage: 'docs-file-picker-usage',
             backend: {
                 GET: 'docs-file-picker-backend-integration-get',
@@ -356,10 +361,18 @@ export const sections = [
                 icon: 'fa fa-cloud-upload' ,
                 children: [
                     {
+                        label: 'Overview',
+                        path: routes.modules.file_picker.children.overview,
+                        TOC: {
+                            overview: sectionIds.modules.file_picker.overview,
+                        }
+                    },
+                    {
                         label: 'Getting Started',
                         path: routes.modules.file_picker.children.getting_started,
                         TOC: {
-                            getting_started: sectionIds.modules.file_picker.getting_started,
+                            setting_up: sectionIds.modules.file_picker.getting_started.setting_up,
+                            setting_up_storage: sectionIds.modules.file_picker.getting_started.setting_up_storage,
                         }
                     },
                     {
