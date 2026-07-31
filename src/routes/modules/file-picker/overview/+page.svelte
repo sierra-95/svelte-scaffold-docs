@@ -11,14 +11,14 @@
     }
 </script>
 
-<title>Getting Started</title>
+<title>Overview</title>
 
 <main class="space-y-4">
     <h1 class="sierra-docs-h1">File Picker</h1>
     <h3>The file picker is a cloud solution for form filling that allows users to submit uploaded files,
         update new ones and never lose them all together.
     </h3>
-    <section id={sectionIds.modules.file_picker.getting_started} class="space-y-4">
+    <section id={sectionIds.modules.file_picker.overview} class="space-y-4">
         <h2 class="sierra-docs-h2">Why Use the File Picker?</h2>
         <ul class="list-disc list-inside space-y-2">
             <li>

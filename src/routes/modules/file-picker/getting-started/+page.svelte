@@ -1,5 +1,6 @@
 <script lang="ts">
-    import {RenderCode, sectionIds} from '$lib';
+    import {goto} from '$app/navigation';
+    import {RenderCode, sectionIds, routes} from '$lib';
     import {Button} from '@sierra-95/svelte-scaffold';
 </script>
 
@@ -57,7 +58,7 @@
             <Button onclick={() => open()}>Launch File Picker</Button>
         `}/>
         <h3><code>$fileInputStore.manage</code> disables Insertion mode.</h3>
-        <Button startIcon="fa-arrow-right">Setting Up Backend</Button>
+        <Button onclick={() => goto(routes.modules.file_picker.children.backend)} startIcon="fa-arrow-right">Setting Up Backend</Button>
     </section>
     <section id={sectionIds.modules.file_picker.getting_started.setting_up_storage} class="space-y-4">
         <h2 class="sierra-docs-h2">Setting Up Storage</h2>

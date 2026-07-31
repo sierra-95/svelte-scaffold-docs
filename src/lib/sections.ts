@@ -39,8 +39,8 @@ export const routes = {
             children: {
                 overview: `${modules}/file-picker/overview`,
                 getting_started: `${modules}/file-picker/getting-started`,
-                usage: `${modules}/file-picker/usage`,
                 backend: `${modules}/file-picker/backend-integration`,
+                usage: `${modules}/file-picker/usage`,
             }
         },
         layout: {
@@ -157,12 +157,12 @@ export const sectionIds = {
                 setting_up: 'docs-file-picker-getting-started-setting-up',
                 setting_up_storage: 'docs-file-picker-getting-started-setting-up-storage',
             },
-            usage: 'docs-file-picker-usage',
             backend: {
                 GET: 'docs-file-picker-backend-integration-get',
                 POST: 'docs-file-picker-backend-integration-post',
                 DELETE: 'docs-file-picker-backend-integration-delete',
-            }
+            },
+            usage: 'docs-file-picker-usage',
         },
         layout: {
             overview: 'docs-layout-overview',
@@ -376,13 +376,6 @@ export const sections = [
                         }
                     },
                     {
-                        label: 'Usage',
-                        path: routes.modules.file_picker.children.usage,
-                        TOC: {
-                            usage: sectionIds.modules.file_picker.usage,
-                        }
-                    },
-                    {
                         label: 'Backend Integration',
                         path: routes.modules.file_picker.children.backend,
                         TOC: {
@@ -390,7 +383,14 @@ export const sections = [
                             POST: sectionIds.modules.file_picker.backend.POST,
                             DELETE: sectionIds.modules.file_picker.backend.DELETE,
                         }
-                    }
+                    },
+                    {
+                        label: 'Usage',
+                        path: routes.modules.file_picker.children.usage,
+                        TOC: {
+                            usage: sectionIds.modules.file_picker.usage,
+                        }
+                    },
                 ]
             },
             { 
