@@ -196,75 +196,78 @@
         <h2 class="sierra-docs-h2">Download files from Cloud through File Picker</h2>
         <h3>To download files, you ought to have set Content-Type headers correctly during upload, as shown in the example above.</h3>
         <h3>During download, File Picker will trigger two API calls to the same endpoint, but different methods.</h3>
-        <h3>The first API call is a POST, to check the file's existence and filter the allowed files.</h3>
-        <RenderCode
-            lang="javascript"
-            code={`
-            const res = await fetch($fileInputConfig.serverDownloadUrl, {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json'
-                },
-                body: JSON.stringify({
-                    ids,
-                    user_id: $fileInputConfig.user_id
+        <ol class="sierra-docs-ol space-y-4">
+            <li>Authorization Check</li>
+            <h3>The first API call is a POST, to check the file's existence and filter the allowed files.</h3>
+            <RenderCode
+                lang="javascript"
+                code={`
+                const res = await fetch($fileInputConfig.serverDownloadUrl, {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({
+                        ids,
+                        user_id: $fileInputConfig.user_id
+                    })
+                });
+            `}/>
+            <h3>Here is an example</h3>
+            <RenderCode
+                lang="javascript"
+                code={`
+                    const db = getDb(c.env);
+                    const media = await db
+                        .select()
+                        .from(userMedia)
+                        .where(
+                            and(
+                            eq(userMedia.user_id, user_id),
+                                inArray(userMedia.id, ids)
+                            )
+                        );
+                    if (media.length === 0) {
+                        return c.text("Media not found", 404);
+                    }
+                    return c.json(media, 200);
+            `}/>
+            <li>File Retrieval</li>
+            <h3>If the response is successful, the second API call will be a GET to retrieve the authorized file content. Below is a backend worker snippet</h3>
+            <RenderCode
+                lang="javascript"
+                code={`
+                const r2 = c.env[metadata.bucket]
+                const object = await r2.get(metadata.r2_key)
+                if (!object) {
+                    return c.text('File missing from storage', 404)
+                }
+                return new Response(object.body,{
+                    headers: {
+                        'Content-Type': object.httpMetadata.contentType || 'application/octet-stream',
+                        'Content-Disposition': object.httpMetadata.contentDisposition || \`attachment; filename="\${metadata.r2_key.split('/').pop()}"\`,
+                    }
                 })
-            });
-        `}/>
-        <h3>Here is an example</h3>
-        <RenderCode
-            lang="javascript"
-            code={`
-                const db = getDb(c.env);
-                const media = await db
-                    .select()
-                    .from(userMedia)
-                    .where(
-                        and(
-                        eq(userMedia.user_id, user_id),
-                            inArray(userMedia.id, ids)
-                        )
-                    );
-                if (media.length === 0) {
-                    return c.text("Media not found", 404);
-                }
-                return c.json(media, 200);
-        `}/>
-        <h3>If the response is successful, the second API call will be a GET to retrieve the authorized file content. Below is a backend worker snippet</h3>
-        <RenderCode
-            lang="javascript"
-            code={`
-            const r2 = c.env[metadata.bucket]
-            const object = await r2.get(metadata.r2_key)
-            if (!object) {
-                return c.text('File missing from storage', 404)
-            }
-            return new Response(object.body,{
-                headers: {
-                    'Content-Type': object.httpMetadata.contentType || 'application/octet-stream',
-                    'Content-Disposition': object.httpMetadata.contentDisposition || \`attachment; filename="\${metadata.r2_key.split('/').pop()}"\`,
-                }
-            })
-        `}/>
-        <h3>Your backend should return the file content with the correct Content-Type and Content-Disposition headers. Your $fileInputConfig.serverDownloadUrl should then return a response to the GET request.</h3>
-        <RenderCode
-            lang="javascript"
-            code={`
-            const res = await fetch(\$fileInputConfig.serverDownloadUrl + \`?r2_key=\${item.r2_key}\`, {
-                method: 'GET'
-            });
-            const blob = await res.blob();
-            const url = URL.createObjectURL(blob);
-            const a = document.createElement('a');
-            a.href = url;
-            a.download = item.original_name || 'download';
+            `}/>
+            <h3>Your backend should return the file content with the correct Content-Type and Content-Disposition headers. Your $fileInputConfig.serverDownloadUrl should then return a response to the GET request.</h3>
+            <RenderCode
+                lang="javascript"
+                code={`
+                const res = await fetch(\$fileInputConfig.serverDownloadUrl + \`?r2_key=\${item.r2_key}\`, {
+                    method: 'GET'
+                });
+                const blob = await res.blob();
+                const url = URL.createObjectURL(blob);
+                const a = document.createElement('a');
+                a.href = url;
+                a.download = item.original_name || 'download';
 
-            document.body.appendChild(a);
-            a.click();
-            a.remove();
+                document.body.appendChild(a);
+                a.click();
+                a.remove();
 
-            URL.revokeObjectURL(url);
-        `}/>
+                URL.revokeObjectURL(url);
+            `}/>
+        </ol>
     </section>
-    
 </main>
