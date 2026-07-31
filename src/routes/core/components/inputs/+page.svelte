@@ -246,7 +246,7 @@
 		<section id={sectionIds.components.inputs.select} class="space-y-4">
 			<li>Select</li>
 			<Select 
-				optionsBackground="var(--background)" 
+				optionsBackground="var(--ss-l-s)" 
 				maxWidth="300px" 
 				height="40px" 
 				bind:value={selectedValue} 
@@ -267,7 +267,7 @@
 				<\/script>
 
 				<Select 
-					optionsBackground="var(--background)" 
+					optionsBackground="var(--ss-l-s)" 
 					maxWidth="300px" 
 					height="40px" 
 					bind:value={selectedValue} 

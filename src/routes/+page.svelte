@@ -1,7 +1,5 @@
 <script lang="ts">
-  import { goto } from '$app/navigation';
   import { routes, sectionIds } from '$lib';
-  import { ButtonFlip } from '@sierra-95/svelte-scaffold';
 
   const sections = [
   {
@@ -70,12 +68,12 @@
       <div>
         <a
           href={section.href}
-          class="mb-2 block text-sm font-bold uppercase tracking-wide underline"
+          class="mb-2 block text-sm font-bold uppercase tracking-wide underline hover:text-(--ss-neutral) transition-colors duration-300"
         >
           {section.title}
         </a>
 
-        <p class="leading-relaxed text-(--text-secondary)">
+        <p class="leading-relaxed">
           {section.description}
         </p>
       </div>

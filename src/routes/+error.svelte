@@ -6,7 +6,7 @@
 
 
 <main class="flex flex-col items-center space-y-4">
-    <i class="fa-regular fa-face-frown text-(--text-secondary)" style="font-size: 100px;"></i>
+    <i class="fa-regular fa-face-frown" style="font-size: 100px;"></i>
     {#if page.status === 404}
             <h1>404 not found</h1>
             <h3>The page you’re looking for might have been moved or deleted.</h3>
