@@ -161,7 +161,10 @@ export const sectionIds = {
                 upload_example: 'docs-file-picker-backend-integration-upload-example',
                 downloading: 'docs-file-picker-backend-integration-downloading',
             },
-            usage: 'docs-file-picker-usage',
+            usage: {
+                manage_mode: 'docs-file-picker-usage-manage-mode',
+                store_props: 'docs-file-picker-usage-store-props',
+            },
         },
         layout: {
             overview: 'docs-layout-overview',
@@ -386,7 +389,8 @@ export const sections = [
                         label: 'Usage',
                         path: routes.modules.file_picker.children.usage,
                         TOC: {
-                            usage: sectionIds.modules.file_picker.usage,
+                            Manage_mode: sectionIds.modules.file_picker.usage.manage_mode,
+                            Store_props: sectionIds.modules.file_picker.usage.store_props,
                         }
                     },
                 ]

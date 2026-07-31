@@ -89,7 +89,8 @@
             to handle multiple image uploads and insertions.
             An input has also been provided to key in image URLs manually.
         </h3>
-        <h3>You will need to configure the editor with the appropriate API endpoints for image handling. They wll be directly used by the File Picker</h3>
+        <h3>To disable file picker functionality, unlist it from $editorStore.insertImageMode array. This only leaves manual image URL insertion</h3>
+        <h3>You will need to configure the editor with the appropriate API endpoints for image handling. They will be directly used by the File Picker</h3>
         <RenderCode
             lang="svelte"
             code={`
