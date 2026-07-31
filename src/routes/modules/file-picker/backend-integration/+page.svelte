@@ -19,7 +19,7 @@
     </ul>
     <h3>We will use <strong>uploading</strong> as an example to demonstrate the integration process.</h3>
 	
-    <section class="space-y-4">
+    <section id={sectionIds.modules.file_picker.backend.upload_example} class="space-y-4">
         <h2 class="sierra-docs-h2">Understanding the Module API Call</h2>
         <h3>This part is not necessarily important. It will help you understand what goes behind the scenes when you click the upload button</h3>
         <h3>OnUpload,the module first checks if there are actual files to be uploaded, and precense of a user_id. If this exists, 
@@ -192,7 +192,7 @@
         `}/>     
     </section>
 
-    <section class="space-y-4">
+    <section id={sectionIds.modules.file_picker.backend.downloading} class="space-y-4">
         <h2 class="sierra-docs-h2">Download files from Cloud through File Picker</h2>
         <h3>To download files, you ought to have set Content-Type headers correctly during upload, as shown in the example above.</h3>
         <h3>During download, File Picker will trigger two API calls to the same endpoint, but different methods.</h3>

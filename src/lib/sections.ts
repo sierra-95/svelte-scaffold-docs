@@ -158,9 +158,8 @@ export const sectionIds = {
                 setting_up_storage: 'docs-file-picker-getting-started-setting-up-storage',
             },
             backend: {
-                GET: 'docs-file-picker-backend-integration-get',
-                POST: 'docs-file-picker-backend-integration-post',
-                DELETE: 'docs-file-picker-backend-integration-delete',
+                upload_example: 'docs-file-picker-backend-integration-upload-example',
+                downloading: 'docs-file-picker-backend-integration-downloading',
             },
             usage: 'docs-file-picker-usage',
         },
@@ -379,9 +378,8 @@ export const sections = [
                         label: 'Backend Integration',
                         path: routes.modules.file_picker.children.backend,
                         TOC: {
-                            GET: sectionIds.modules.file_picker.backend.GET,
-                            POST: sectionIds.modules.file_picker.backend.POST,
-                            DELETE: sectionIds.modules.file_picker.backend.DELETE,
+                            Upload_example: sectionIds.modules.file_picker.backend.upload_example,
+                            Downloading: sectionIds.modules.file_picker.backend.downloading,
                         }
                     },
                     {
