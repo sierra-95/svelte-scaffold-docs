@@ -34,4 +34,6 @@
     </section>
     <h3>Try It out by launching the File Picker</h3>
     <Button onclick={() => open()}>Launch File Picker</Button>
+    <h2 class="sierra-docs-h2 text-(--ss-error)">PLEASE NOTE</h2>
+    <p>Even as the one documenting this module, it’s been challenging to capture everything clearly. The module is highly dependent on server-side operations, which means a lot happens behind the scenes that isn’t visible to the developer.</p>
 </main>
