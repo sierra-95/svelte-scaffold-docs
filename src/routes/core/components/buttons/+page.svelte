@@ -57,8 +57,8 @@
 				
 			`}/>
 			<div class='space-y-4'>
-				<Button color="none" style="bg-green-500 text-white w-[100px]" startIcon="fa-star">Export</Button>
-				<h3>You may also customize it using Tailwind via the <strong>style</strong> prop. To use your own color palette, set the <strong>color</strong> prop to "none".</h3>
+				<Button unstyled style="background-color: #4CAF50; color: white; width: 200px;" startIcon="fa-star">Export</Button>
+				<h3>You may also customize it via the <strong>style</strong> prop. To avoid side effects, use the <strong>unstyled</strong> prop.</h3>
 				<RenderCode
 					lang="svelte"
 					code={`
@@ -66,7 +66,7 @@
 						import { Button } from '@sierra-95/svelte-scaffold';
 					<\/script>
 
-					<Button color="none" style="bg-green-500 text-white w-[100px]" startIcon="fa-star">Export</Button>
+					<Button unstyled style="background-color: #4CAF50; color: white; width: 200px;" startIcon="fa-star">Export</Button>
 				`}/>
 				<h3>Form Submission Example</h3>
 				<RenderCode

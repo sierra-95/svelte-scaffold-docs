@@ -25,7 +25,7 @@ export const DefaultButtonTable = {
             ],
             [
                 { content: "color" },
-                { content: "string (primary, warning, error, none)" },
+                { content: "string (primary, warning, error)" },
                 { content: "'primary'" },
                 { content: "Sets the color scheme, used with <strong>variant</strong> to determine visual appearance." }
             ],
@@ -37,9 +37,15 @@ export const DefaultButtonTable = {
             ],
             [
                 { content: "style" },
-                { content: "string (Tailwind only)" },
+                { content: "string (Vanilla CSS)" },
                 { content: '""' },
-                { content: "Tailwind utility classes for custom styling." }
+                { content: "Custom CSS styles for the button." }
+            ],
+            [
+                { content: "unstyled" },
+                { content: "boolean" },
+                { content: "false" },
+                { content: "When set to <strong>true</strong>, removes all default styling from the button." }
             ],
             [
                 { content: "startIcon & endIcon" },
