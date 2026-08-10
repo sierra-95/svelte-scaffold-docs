@@ -1,35 +1,35 @@
 <script lang="ts">
-  import { routes, sectionIds } from '$lib';
+  import { routes } from '$lib/assets/company';
 
   const sections = [
   {
     title: "Components",
-    href: routes.core.components.children.buttons,
+    href: routes.core.components.base,
     description: "Buttons, inputs, modals, toasts, progress bars, date pickers, and more"
   },
   {
     title: "Modules",
-    href: routes.modules.editor,
+    href: routes.modules.editor.path,
     description: "Layout system, file picker, text editor and more"
   },
   {
     title: "Features",
-    href: routes.core.features.children.global_search,
+    href: routes.core.features.base,
     description: "Global Search, Toast Manager"
   },
   {
     title: "Random Stuff",
-    href: routes.core.random_stuff,
+    href: routes.core.utilities.path,
     description: "Avatars, Carousels, Color Picker, WhatsApp Share and more"
   },
   {
     title: "Stores",
-    href: routes.stores,
+    href: routes.stores.path,
     description: "Theme management, user state, and general app state stores"
   },
   {
     title: "Utils",
-    href: routes.utils,
+    href: routes.utils.path,
     description: "isValidEmail, handleRedirect and other utility functions"
   } 
 ];
@@ -57,7 +57,7 @@
   }
 </style>
 <title>Getting Started</title>
-<section id={sectionIds.overview} class="mx-auto max-w-300 px-8 py-16 md:px-8 md:py-16 sm:px-4 sm:py-8">
+<section class="mx-auto max-w-300 px-8 py-16 md:px-8 md:py-16 sm:px-4 sm:py-8">
   <div class="space-y-4">
     <h1 class="brand-name">@sierra-95/svelte-scaffold</h1>
     <p>A powerful Svelte scaffold with pre-built components, modules, and stores to jumpstart your project.</p>

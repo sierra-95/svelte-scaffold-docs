@@ -1,7 +1,7 @@
 <script lang="ts">
-    import { routes } from '$lib';
     import { page } from '$app/state';
     import { ButtonFlip } from '@sierra-95/svelte-scaffold';
+    import { routes } from '$lib/assets/company';
 </script>
 
 
@@ -15,7 +15,7 @@
             <h3>Something went wrong</h3>
     {/if}
     <ButtonFlip
-        onclick={() => window.location.href = routes.overview}
+        onclick={() => window.location.href = routes.overview.path}
         front="Go Home" back="Click Here"
     />
 </main>

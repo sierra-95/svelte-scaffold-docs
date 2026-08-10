@@ -1,7 +1,7 @@
 <script lang="ts">
 	import {
 		Button, ButtonFlip, ButtonMarquee, ButtonSwipe,ButtonTheme,
-		ButtonHamburger, ButtonSelect, ButtonTimes, addToast, Table, ButtonWhatsappShare, Date, Time
+		ButtonHamburger, addToast, Table, ButtonWhatsappShare, Date, Time
 	} from '@sierra-95/svelte-scaffold'
 	import {RenderCode, routes, sectionIds} from '$lib';
 	import { DefaultButtonTable, CustomButtonTable, ButtonHamburgerTable} from './tables';
@@ -211,14 +211,6 @@
 					shareText="A cat just knocked over a cup of coffee while debugging your code. Productivity level: questionable."
 				/>
 			`}/>
-		</section>
-
-		<section id={sectionIds.components.buttons.other_buttons} class="space-y-4">
-			<li>Item Selected & Close</li>
-			<div class="h-10 relative w-10">
-				<ButtonSelect title="Selected" />
-				<ButtonTimes title="Close" />
-			</div>	
 		</section>
 	</ol>
 </main>

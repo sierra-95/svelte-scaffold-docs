@@ -70,7 +70,7 @@
   });
 
 </script>
-<main>
+<main class="shiki-container">
   <div class="shiki-header">
     <span class="text-(--ss-neutral)">{lang}</span>
     <div class="flex gap-5">  

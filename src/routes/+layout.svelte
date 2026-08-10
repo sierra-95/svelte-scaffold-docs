@@ -2,28 +2,19 @@
 	import '../app.css';
 	import { onMount, tick } from 'svelte';
 	import {browser} from '$app/environment';
-	import {Layout, ButtonTheme, theme, isMobile, DropdownContainer, MenuItem, layoutStore,
-		editorConfig, isDesktop, fileInputConfig, fileInputStore
-	} from '@sierra-95/svelte-scaffold';
-	import {sections, TOC, Navigator, Footer, routes } from '$lib';
-	import { favicon } from '$lib/assets/company';
+	import {Layout, ButtonTheme, theme, isMobile, DropdownContainer, MenuItem, layoutStore, fileInputConfig, fileInputStore} from '@sierra-95/svelte-scaffold';
+	import { favicon, sections, routes, resources } from '$lib/assets/company';
 	import site_webmanifest from '$lib/assets/site.webmanifest';
+	import { Navigator, Footer } from '$lib';
 
 	let { children } = $props();
-	const link = $derived(`https://files.michaelmachohi.com/logos/michaelmachohi.${$theme === 'light' ? 'dark' : 'light'}.png`);
+
 	let openMenu = $state(false);
 	const user_id = '550e8400-e29b-41d4-a716-446655440000';
+	const link = $derived(`https://files.michaelmachohi.com/logos/michaelmachohi.${$theme === 'light' ? 'dark' : 'light'}.png`);
 
 	onMount(()=>{
 		getStorageUsage();
-
-		editorConfig.update(store => {
-			store.serverGetUrl = '/api/media/get';
-			store.serverUploadUrl = '/api/media/upload';
-			store.serverDeleteUrl = '/api/media/delete';
-			store.serverDownloadUrl = '/api/media/download';
-			return store;
-		});
 
 		fileInputConfig.update(store => {
 			store.serverGetUrl = '/api/media/get';
@@ -41,23 +32,27 @@
 			return store;
 		});
 
-		layoutStore.update(store => {
+		layoutStore.update(store =>{
+			store.header = {
+				...store.header,
+				link: '/',
+				imageSize: '30px',
+				contentRight: headerRightContent,
+			}
+			store.TOC = {
+				...store.TOC,
+				content: TOCContent
+			}
 			store.sections = sections;
-			store.paddingOff = true;
-			store.headerLink = '/';
-			store.toggleMenuColor = 'var(--ss-d-p)';
-			store.headerImageSize = '30px';
-			store.headerRightContent = headerRightContent;
-			store.dropdownContent = dropdownContent;
+			store.routes = routes;
 			return store;
-		});
+		})
     })
 
 	$effect(()=>{
 		if(browser){
-			$layoutStore.headerImage = link;
-			$layoutStore.dropdown = !$isMobile;
-			$layoutStore.headerTitle = $isMobile ? 'Sierra-95' : '@sierra-95/svelte-scaffold';
+			$layoutStore.header.src = link;
+			$layoutStore.header.title = $isMobile ? 'Sierra-95' : '@sierra-95/svelte-scaffold';
 		}
 	})
 
@@ -70,10 +65,6 @@
 			el?.scrollIntoView({ behavior: 'smooth' });
 		}
 	});
-
-	function redirectToMoreHeaderOptions(link: string) {
-		window.open(link, '_blank');
-	}
 
 	//Storage
 	let storage = $state<{ used_storage_bytes: number; storage_quota_bytes: number }>({
@@ -116,48 +107,32 @@
 	<script src="https://kit.fontawesome.com/dd0e902104.js" crossorigin="anonymous"></script>
 </svelte:head>
 
-<Layout>
-	<div class="flex items-start">
-		<div style="width: {!$isDesktop? '100%' : 'calc(100% - 300px)'}" class="w-full p-6 mx-auto">
-			{@render children()}
-			<Navigator/>
-			<Footer/>
-		</div>
-		<TOC hidden={!$isDesktop}/>
-	</div>
-</Layout>
-
-{#snippet headerRightContent()}
-	<DropdownContainer top="30px" bind:open={openMenu} dropdownTrigger={TriggerMenu}>		
-		<div style="display: flex; gap: 1rem; align-items: center; padding: 1rem">Theme<ButtonTheme /></div>
-		<MenuItem onclick={() => window.open(routes.system.resources.github,'_blank','noopener,noreferrer')} icon="fa-github" iconSize="15px">Github</MenuItem>
-		<MenuItem onclick={() => window.open(routes.system.resources.npm,'_blank','noopener,noreferrer')} icon="fa-brands fa-npm" iconSize="15px">npm</MenuItem>
-	</DropdownContainer>
-{/snippet}
-
+<!-- Settings Menu -->
 {#snippet TriggerMenu()}
 	<button class="w-10 text-xl" aria-label="Ellipsis" onclick={() => (openMenu = !openMenu)}>
 		<i class="fa-solid fa-cog text-(--ss-neutral)" style="transition: transform 0.5s ease; transform: rotate({openMenu ? 90 : 0}deg);"></i>
 	</button>
 {/snippet}
+{#snippet headerRightContent()}
+	<DropdownContainer top="30px" bind:open={openMenu} dropdownTrigger={TriggerMenu}>		
+		<MenuItem onclick={() => window.open(resources.package.github_issues,'_blank','noopener,noreferrer')} icon="fa-github" iconSize="15px">Issues</MenuItem>
+		<MenuItem onclick={() => window.open(resources.package.npm,'_blank','noopener,noreferrer')} icon="fa-brands fa-npm" iconSize="15px">npm</MenuItem>
+		<div style="display: flex; gap: 1rem; align-items: center; padding: 1rem">Theme<ButtonTheme /></div>
+	</DropdownContainer>
+{/snippet}
 
-{#snippet dropdownContent()}
-	<div style="padding: 10px 0px;" class="w-80">
-		<h2 class="p-4">More from 
-			<a class="note" href={routes.system.social.github} target="_blank" rel="noopener noreferrer">sierra-95</a>
-		</h2>
-		<MenuItem  
-			url={favicon + 'favicon.ico'} 
-			onclick={() => redirectToMoreHeaderOptions('https://michaelmachohi.com')}
-			iconSize="20px"
-		>Portfolio
-		</MenuItem>
-		<MenuItem  
-			url={favicon + 'favicon.ico'} 
-			onclick={() => redirectToMoreHeaderOptions('https://backend.michaelmachohi.com/')}
-			iconSize="20px"
-		>Scaffold Backend API
-		</MenuItem>
+
+{#snippet TOCContent()}
+	<div style="margin-top: 1rem">
+		<h3>User:
+			<span class="text-sm">{user_id}</span>
+		</h3>
 	</div>
 {/snippet}
+
+<Layout>
+	{@render children()}
+	<Navigator/>
+	<Footer/>
+</Layout>
 

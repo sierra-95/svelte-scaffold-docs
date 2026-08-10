@@ -5,6 +5,33 @@
     border: 1px solid var(--ss-border);
     border-top: none;
 }
+
+.shiki-container{
+    max-width: 1024px;
+}
+@media (max-width: 1700px){
+    .shiki-container{
+        max-width: 800px;
+    }
+}   
+@media (max-width: 1400px){
+    .shiki-container{
+        max-width: 600px;
+    }
+}   
+
+@media (max-width: 1200px){
+    .shiki-container{
+        max-width: 500px;
+    }
+}   
+
+@media (max-width: 1024px){
+    .shiki-container{
+        max-width: 100%;
+    }
+}  
+
 .shiki-header{
     width: 100%;
     display: flex;
