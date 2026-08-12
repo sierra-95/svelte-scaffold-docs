@@ -188,7 +188,7 @@
         <section id={routes.core.components.children.menus.ids.content_switcher} data-title="Content Switcher" class="space-y-4">
             <li>Content Switcher</li>
             <h3>This is a minimal Layout used for switching content or pages.
-                <a href={routes.modules.layout.children.overview.path} class="note">Explore Advanced Layout</a>
+                <a href={routes.modules.layout.base} class="note">Explore Advanced Layout</a>
             </h3>
             <h3>
                 Each clicked menu item opens the attached route or content. To switch between pages,
