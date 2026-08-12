@@ -225,7 +225,7 @@ export const routes = {
     path: '/utils',
     ids: {
       isValidEmail: 'is-valid-email',
-      hanldleRedirect: 'handle-redirect',
+      handleRedirect: 'handle-redirect',
     }
   } as basicPage,
 };

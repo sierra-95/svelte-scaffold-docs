@@ -109,8 +109,10 @@
 
 		<section id={routes.stores.ids.theme_store} data-title="Theme Store" class="space-y-4">
 			<li>Theme Store</li>
-			<h3>The theme store is tightly integrated with the {@render layout_link?.()} and internal body styling.</h3>
-			<h3>It is also directly manipulated by the <a href={routes.core.components.children.buttons.path + '#' + routes.core.components.children.buttons.ids.theme_button} class="note">Theme Button</a>.</h3>
+			<h3>The theme store is tightly integrated with the {@render layout_link?.()} and internal body styling. 
+				It is also directly manipulated by the 
+				<a href={routes.core.components.children.buttons.path + '#' + routes.core.components.children.buttons.ids.theme_button} class="note">Theme Button</a>.
+			</h3>
 			<RenderCode
 				lang="svelte"
 				code={`

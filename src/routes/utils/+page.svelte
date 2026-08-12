@@ -1,6 +1,7 @@
 <script>
     import {handleRedirect, Button} from '@sierra-95/svelte-scaffold';
-    import {RenderCode, sectionIds} from '$lib';
+    import {RenderCode} from '$lib';
+    import {routes} from '$lib/assets/company';
 
     function navigate() {
         handleRedirect({ 
@@ -14,12 +15,13 @@
     }
 </script>
 
-<main class="space-y-4">
+<main class="space-y-6">
 	<title>Utils</title>
     <h1 class="sierra-docs-h1">Utensils</h1>
-    <ol class="sierra-docs-ol">
+
+    <ol class="sierra-docs-ol space-y-4">
     
-        <section id={sectionIds.stores_utils.utils.isValidEmail} class="space-y-4">
+        <section id={routes.utils.ids.isValidEmail} data-title="Validate Email" class="space-y-4">
             <li>isValidEmail</li>
             <h3>A utility function for validating email addresses.</h3>
             <RenderCode
@@ -37,7 +39,7 @@
             `}/>
         </section>
 	
-        <section id={sectionIds.stores_utils.utils.handleRedirect} class="space-y-4 mb-10">
+        <section id={routes.utils.ids.handleRedirect} data-title="Handle Redirect" class="space-y-4 mb-10">
             <li>handleRedirect</li>
 
             <h3>
