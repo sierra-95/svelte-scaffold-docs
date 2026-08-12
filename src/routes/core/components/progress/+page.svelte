@@ -1,13 +1,15 @@
 <script lang="ts">
 	import {CircularProgress, LinearProgress, CustomProgress} from '@sierra-95/svelte-scaffold';
-	import {RenderCode, sectionIds} from '$lib';
+	import {RenderCode} from '$lib';
+	import { routes } from '$lib/assets/company';
 </script>
 
-<main class="space-y-4">
+<main class="space-y-6">
 	<title>Progress</title>
 	<h1 class="sierra-docs-h1">Trust me bro %</h1>
-	<ol class="sierra-docs-ol">
-		<section id={sectionIds.components.progress.circular_progress} class="space-y-4 mb-10">
+
+	<ol class="sierra-docs-ol space-y-4">
+		<section id={routes.core.components.children.progress.ids.circular_progress} data-title="Circular Progress" class="space-y-4">
 			<li>Circular Progress</li>
 			<div class="flex flex-wrap gap-5">
 				<CircularProgress thickness={2} size={40}/>
@@ -26,7 +28,7 @@
 			`}/>
 		</section>
 
-		<section id={sectionIds.components.progress.linear_progress} class="space-y-4 mb-10">
+		<section id={routes.core.components.children.progress.ids.linear_progress} data-title="Linear Progress" class="space-y-4">
 			<li>Linear Progress</li>
 			<LinearProgress/>
 			<LinearProgress color="var(--ss-warning)"/>
@@ -41,7 +43,7 @@
 			`}/>
 		</section>
 
-		<section id={sectionIds.components.progress.custom_progress} class="space-y-4 mb-10">
+		<section id={routes.core.components.children.progress.ids.custom_progress} data-title="Custom Progress" class="space-y-4">
 			<li>Custom Progress</li>
 			<CustomProgress value={30}/>
 			<CustomProgress value={60} color="var(--ss-warning)"/>
