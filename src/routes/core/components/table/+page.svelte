@@ -1,6 +1,7 @@
 <script>
     import { Table } from "@sierra-95/svelte-scaffold";
-    import { sectionIds, RenderCode } from "$lib";
+    import { RenderCode } from "$lib";
+    import { routes } from '$lib/assets/company';
 
     const exampleTable = {
         title: {
@@ -116,8 +117,9 @@
 <main class="space-y-6">
     <title>Table</title>
     <h1 class="sierra-docs-h1">Data is served</h1>
-    <ol class="sierra-docs-ol">
-        <section id={sectionIds.components.table.getting_started} class="space-y-4">
+
+    <ol class="sierra-docs-ol space-y-4">
+        <section id={routes.core.components.children.table.ids.getting_started} data-title="Getting Started" class="space-y-4">
             <h3>Table allows you to quickly display data in a structured format without worrying about styling.</h3>
             <li>Getting Started</li>
             <h3>Use the format below to organize your table data:</h3>
@@ -156,15 +158,15 @@
 
         </section>
 
-        <section id={sectionIds.components.table.component_api} class="space-y-4">
-            <li>Component API</li>
+        <section id={routes.core.components.children.table.ids.table_api} data-title="Table API" class="space-y-4">
+            <li>Table API</li>
             <h3>Table accepts the following props:</h3>
             <Table table={titleTable.table} title={titleTable.title}/>
             <Table table={actualTable.table} title={actualTable.title}/>
             <Table table={cellTable.table} title={cellTable.title}/>
         </section>
 
-        <section id={sectionIds.components.table.advanced_example} class="space-y-4">
+        <section id={routes.core.components.children.table.ids.advanced_example} data-title="Advanced Example" class="space-y-4">
             <li>Advanced Example</li>
             <h3>Table supports more complex data with rowspan, colspan, and custom cell classes:</h3>
             <RenderCode

@@ -91,7 +91,7 @@ export const routes = {
           ids: {
             getting_started: 'getting-started',
             table_api: 'table-api',
-            advanced_examples: 'advanced-examples',
+            advanced_example: 'advanced-example',
           }
         } as basicPage,
       },
