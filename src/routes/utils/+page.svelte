@@ -15,9 +15,10 @@
     }
 </script>
 
+
+<title>Utils</title>
 <main class="space-y-6">
-	<title>Utils</title>
-    <h1 class="sierra-docs-h1">Utensils</h1>
+    <h1 class="sierra-docs-h1">Scaffold Utils <span>Just call me, i know a guy</span></h1>
 
     <ol class="sierra-docs-ol space-y-4">
     

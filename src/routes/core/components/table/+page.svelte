@@ -117,10 +117,10 @@
     };
 </script>
 
-<main class="space-y-6">
-    <title>Table</title>
-    <h1 class="sierra-docs-h1">Data is served</h1>
 
+<title>Table</title>
+<main class="space-y-6">
+    <h1 class="sierra-docs-h1">Scaffold Table<span>Data is served</span></h1>
     <ol class="sierra-docs-ol space-y-4">
         <section id={routes.core.components.children.table.ids.getting_started} data-title="Getting Started" class="space-y-4">
             <h3>Table allows you to quickly display data in a structured format without worrying about styling.</h3>

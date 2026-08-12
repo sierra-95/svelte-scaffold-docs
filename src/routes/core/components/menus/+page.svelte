@@ -17,9 +17,10 @@
     }
 </script>
 
+
+<title>Menus</title>
 <main class="space-y-6">
-    <title>Menus</title>
-    <h1 class="sierra-docs-h1">Me & u</h1>
+    <h1 class="sierra-docs-h1">Scaffold Menus<span>Me & u</span></h1>
     <ol class="sierra-docs-ol space-y-4">
         <section id={routes.core.components.children.menus.ids.dropdown_menu} data-title="Dropdown Menu" class="space-y-4">
             <li>Dropdown Menu</li>

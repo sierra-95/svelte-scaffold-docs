@@ -37,9 +37,10 @@
     <Input label="Enter Youtube URL" id="youtube-url" bind:value={value}/>
 {/snippet}
 
+
+<title>Modal</title>
 <main class="space-y-6">
-    <title>Modal</title>
-    <h1 class="sierra-docs-h1">Breaking news</h1>
+    <h1 class="sierra-docs-h1">Scaffold Modal<span>You can’t ignore me</span></h1>
     <h3>Modals are used to display important information or prompts to the user.</h3>
     <section id={routes.core.components.children.modal.ids.getting_started} data-title="Getting Started" class="space-y-4">
         <h2 class="sierra-docs-h2">Getting Started</h2>

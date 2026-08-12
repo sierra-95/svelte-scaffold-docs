@@ -4,10 +4,10 @@
 	import { routes } from '$lib/assets/company';
 </script>
 
-<main class="space-y-6">
-	<title>Progress</title>
-	<h1 class="sierra-docs-h1">Trust me bro %</h1>
 
+<title>Progress</title>
+<main class="space-y-6">
+	<h1 class="sierra-docs-h1">Scaffold Progress<span>Almost there… probably</span></h1>
 	<ol class="sierra-docs-ol space-y-4">
 		<section id={routes.core.components.children.progress.ids.circular_progress} data-title="Circular Progress" class="space-y-4">
 			<li>Circular Progress</li>

@@ -4,7 +4,7 @@
     import { routes } from '$lib/assets/company';
 </script>
 
-
+<title>{page.status}</title>
 <main class="flex flex-col items-center space-y-4">
     <i class="fa-regular fa-face-frown" style="font-size: 100px;"></i>
     {#if page.status === 404}

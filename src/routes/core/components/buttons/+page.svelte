@@ -26,10 +26,10 @@
 	] as const;
 </script>
 
-<main class="space-y-6">
-	<h1 class="sierra-docs-h1">Will you be my button?</h1>
-	<title>Buttons</title>
 
+<title>Buttons</title>
+<main class="space-y-6">
+	<h1 class="sierra-docs-h1">Scaffold Buttons<span>Will you be my button?</span></h1>
 	<ol class="sierra-docs-ol space-y-4">
 		<section id={routes.core.components.children.buttons.ids.basic_button} data-title="Basic Buttons" class="space-y-4">
 			<li>Basic Buttons</li>

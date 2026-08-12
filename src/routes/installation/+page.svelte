@@ -3,8 +3,9 @@
   import { routes } from '$lib/assets/company';
 </script>
 
+
+<title>Installation</title>
 <main class="space-y-6">    
-  <title>Installation</title>
   <h1 class="sierra-docs-h1">Installation</h1>
 
   <section id={routes.installation.ids.installing} data-title="Installing the Scaffold" class="space-y-4">

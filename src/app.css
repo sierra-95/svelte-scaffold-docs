@@ -25,6 +25,13 @@ h1.sierra-docs-h1{
     font-size: 2rem;
 }
 
+h1.sierra-docs-h1 span{
+    font-weight: normal;
+    font-size: 1rem;
+    font-family: unset;
+    margin-left: 10px;
+}
+
 h2.sierra-docs-h2{
     font-weight: bold;
     font-size: 1.2rem;

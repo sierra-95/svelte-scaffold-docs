@@ -46,9 +46,9 @@
 </script>
 
 
+<title>Inputs</title>
 <main class="space-y-6">		
-	<h1 class="sierra-docs-h1">Waiting for human decisions</h1>
-	<title>Inputs</title>
+	<h1 class="sierra-docs-h1">Scaffold Inputs<span>Your turn. I’ve got a box</span></h1>
 	<ol class="sierra-docs-ol space-y-4">
 		<section id={routes.core.components.children.inputs.ids.basic_input} data-title="Basic Input" class="space-y-4">
 			<li>Basic Input</li>

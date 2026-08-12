@@ -12,10 +12,10 @@
 	<a href={routes.modules.layout.children.overview.path} class="note">Layout component</a> 
 {/snippet}
 
-<main class="space-y-6">
-	<title>General Stores</title>
-	<h1 class="sierra-docs-h1">Store is closed</h1>
 
+<title>General Stores</title>
+<main class="space-y-6">
+	<h1 class="sierra-docs-h1">Scaffold Stores<span>Because someone has to remember</span></h1>
 	<ol class="sierra-docs-ol space-y-4">
 	
 		<section id={routes.stores.ids.device_width} data-title="Device Width" class="space-y-4">

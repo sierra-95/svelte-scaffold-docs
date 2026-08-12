@@ -29,9 +29,10 @@
 
 </script>
 
+
+<title>Editor</title>
 <main class="space-y-6">
-    <title>Editor</title>
-	<h1 class="sierra-docs-h1">Editor</h1>
+	<h1 class="sierra-docs-h1">Scaffold Editor <span>I did all this for you. You’re welcome</span></h1>
     <section id={routes.modules.editor.ids.getting_started} data-title="Getting Started" class="space-y-4">
 
         <Editor bind:content/>

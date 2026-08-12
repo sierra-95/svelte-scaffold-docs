@@ -28,10 +28,10 @@
     <Button onclick={() =>  openDropdown = !openDropdown}>Select Color</Button>
 {/snippet}
 
-<main class="space-y-6">
-    <title>Utilities</title>
-    <h1 class="sierra-docs-h1">I can’t find it either</h1>
 
+<title>Utilities</title>
+<main class="space-y-6">
+    <h1 class="sierra-docs-h1">Scaffold Utilities<span>I can’t find it either</span></h1>
     <ol class="sierra-docs-ol space-y-4">
         <section id={routes.core.utilities.ids.avatar} data-title="Avatar" class="space-y-4">
             <li>Avatar</li>
