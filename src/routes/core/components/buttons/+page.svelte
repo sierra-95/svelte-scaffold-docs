@@ -30,7 +30,7 @@
 	<h1 class="sierra-docs-h1">Will you be my button?</h1>
 	<title>Buttons</title>
 
-	<ol class="sierra-docs-ol space-y-6">
+	<ol class="sierra-docs-ol space-y-4">
 		<section id={routes.core.components.children.buttons.ids.basic_button} data-title="Basic Buttons" class="space-y-4">
 			<li>Basic Buttons</li>
 			<div class="flex gap-4 flex-wrap">

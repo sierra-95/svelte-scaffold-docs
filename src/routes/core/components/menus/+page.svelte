@@ -1,6 +1,7 @@
 <script>
     import {MenuItem, DropdownContainer, buttonRipple, User, Hr, resetUserStore, Tabs, HamburgerMenu, ContentSwitcher} from '@sierra-95/svelte-scaffold';
-	import {RenderCode, routes, sectionIds} from '$lib';
+	import {RenderCode} from '$lib';
+    import { routes } from '$lib/assets/company';
     import { favicon } from '$lib/assets/company';
 
 
@@ -17,11 +18,11 @@
     }
 </script>
 
-<main class="space-y-4">
+<main class="space-y-6">
     <title>Menus</title>
     <h1 class="sierra-docs-h1">Me & u</h1>
-    <ol class="sierra-docs-ol space-y-6">
-        <section id={sectionIds.components.menu.dropdown} class="space-y-4">
+    <ol class="sierra-docs-ol space-y-4">
+        <section id={routes.core.components.children.menus.ids.dropdown_menu} data-title="Dropdown Menu" class="space-y-4">
             <li>Dropdown Menu</li>
             <p>
                 The dropdown container lets you build any dropdown menu quickly.
@@ -64,7 +65,7 @@
                 </DropdownContainer>
             `}/>
         </section>
-        <section id={sectionIds.components.menu.user_menu} class="space-y-4">
+        <section id={routes.core.components.children.menus.ids.user_menu} data-title="User Menu" class="space-y-4">
             <h3 class="font-bold underline">Example: User Menu</h3>
             {#snippet TriggerUserInfo()}
                 <button use:buttonRipple class="w-10 text-3xl" aria-label="Ellipsis" onclick={() => (openUserMenu = !openUserMenu)}>
@@ -118,7 +119,7 @@
             `}/>
         </section>
         
-        <section id={sectionIds.components.menu.tabs} class="space-y-4">
+        <section id={routes.core.components.children.menus.ids.tabs_menu} data-title="Tabs" class="space-y-4">
             <li>Tabs</li>
             <p>
                 Tabs allows you to create a tabbed interface for organizing content into separate views.
@@ -181,10 +182,10 @@
             `}/>
         </section>
 
-        <section id={sectionIds.components.menu.content_switcher} class="space-y-4">
+        <section id={routes.core.components.children.menus.ids.content_switcher} data-title="Content Switcher" class="space-y-4">
             <li>Content Switcher</li>
             <h3>This is a minimal Layout used for switching content or pages.
-                <a href={routes.modules.layout.children.overview} class="note">Explore Advanced Layout</a>
+                <a href={routes.modules.layout.children.overview.path} class="note">Explore Advanced Layout</a>
             </h3>
             <h3>
                 Each clicked menu item opens the attached route or content. To switch between pages,
@@ -238,7 +239,7 @@
             `}/>
         </section>
 
-        <section id={sectionIds.components.menu.hamburger} class="space-y-4">
+        <section id={routes.core.components.children.menus.ids.hamburger_menu} data-title="Hamburger Menu" class="space-y-4">
             <li>Hamburger Menu</li>
             <p>
                 The HamburgerMenu component provides a responsive navigation menu that can be toggled open and closed.
