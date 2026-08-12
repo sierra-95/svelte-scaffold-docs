@@ -115,7 +115,12 @@ export const routes = {
     utilities: {
       path: '/core/utilities',
       ids: {
-        overview: 'overview',
+        avatar: 'avatar',
+        carousel: 'carousel',
+        checkbox: 'checkbox',
+        color_picker: 'color-picker',
+        hr: 'hr',
+        timezones: 'timezones',
       },
     } as basicPage,
   },
