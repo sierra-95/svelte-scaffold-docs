@@ -1,5 +1,5 @@
 <script>
-    import {MenuItem, DropdownContainer, buttonRipple, Hr, resetUserStore, Tabs, HamburgerMenu, ContentSwitcher} from '@sierra-95/svelte-scaffold';
+    import {MenuItem, DropdownContainer, buttonRipple, Hr,  Tabs, HamburgerMenu, ContentSwitcher, Avatar} from '@sierra-95/svelte-scaffold';
 	import {RenderCode} from '$lib';
     import { favicon, routes } from '$lib/assets/company';
 
@@ -8,13 +8,6 @@
     let openUserMenu = $state(true);
     let hamburgerMenuOpen = $state(false);
     let activeMenu = $state(1);
-
-    function handleProfile(){
-        alert('Profile clicked');
-    }
-    function handleLogout(){
-        resetUserStore();
-    }
 </script>
 
 
@@ -73,13 +66,22 @@
                 </button>
             {/snippet}
             <DropdownContainer width="300px" bind:open={openUserMenu} dropdownTrigger={TriggerUserInfo}>
-                <div class="p-2 pl-4">
-                    <h3>John Doe</h3>
-                    <p class="text-sm text-(--ss-d-t)">john.doe@example.com</p>
+                <div class="flex gap-4 p-2">
+                    <Avatar 
+                        avatarSize="35px" 
+                        iconSize="20px" 
+                        url={favicon + 'favicon.ico'} 
+                        boxShadow=""
+                        borderSize="0px"
+                    />
+                    <div>
+                        <h3>John Doe</h3>
+                        <p class="text-sm text-(--ss-d-t)">john.doe@example.com</p>
+                    </div>
                 </div>
-                <Hr/>
-                <MenuItem onclick={handleProfile} icon="fa-user" iconSize='15px'>Profile</MenuItem>
-                <MenuItem onclick={handleLogout} icon="fa-right-from-bracket" iconSize='15px'>Logout</MenuItem>
+                <Hr margin="0rem"/>
+                <MenuItem  icon="fa-user" iconSize='15px'>Profile</MenuItem>
+                <MenuItem  icon="fa-right-from-bracket" iconSize='15px'>Logout</MenuItem>
             </DropdownContainer>
             {#if openUserMenu}
                 <div class="h-50"></div>
@@ -89,30 +91,31 @@
                 code={`
                 <\script>
                     import { goto } from '$app/navigation';
-                    import {MenuItem, DropdownContainer, buttonRipple, User, Hr, resetUserStore, isLoggedIn} from '@sierra-95/svelte-scaffold';
+                    import {MenuItem, DropdownContainer, buttonRipple, Hr} from '@sierra-95/svelte-scaffold';
 
                     let openUserMenu = $state(true);
-                    function handleProfile(){
-                        alert('Profile clicked');
-                    }
-                    function handleLogout(){
-                        resetUserStore();
-                        isLoggedIn.set(false);
-                        goto('/login');
-                    }
                 <\/script>
                 
                 {#snippet TriggerUserInfo()}
-                    <button use:buttonRipple class="w-10 text-3xl text-(--primary-bg)" aria-label="Ellipsis" onclick={() => (openUserMenu = !openUserMenu)}>
-                        <i class="fa-solid fa-user"></i>
+                    <button use:buttonRipple class="w-10 text-3xl" aria-label="Ellipsis" onclick={() => (openUserMenu = !openUserMenu)}>
+                        <i class="fa-solid fa-user text-(--ss-neutral)"></i>
                     </button>
                 {/snippet}
                 <DropdownContainer width="300px" bind:open={openUserMenu} dropdownTrigger={TriggerUserInfo}>
-                    <div class="p-2 pl-4">
-                        <h3>{$User?.firstName} {$User?.lastName}</h3>
-                        <p class="text-sm text-(--text-secondary)">{$User?.email}</p>
+                    <div class="flex gap-4 p-2">
+                        <Avatar 
+                            avatarSize="35px" 
+                            iconSize="20px" 
+                            url={favicon + 'favicon.ico'} 
+                            boxShadow=""
+                            borderSize="0px"
+                        />
+                        <div>
+                            <h3>John Doe</h3>
+                            <p class="text-sm text-(--ss-d-t)">john.doe@example.com</p>
+                        </div>
                     </div>
-                    <Hr/>
+                    <Hr margin="0rem"/>
                     <MenuItem onclick={handleProfile} icon="fa-user" iconSize='15px'>Profile</MenuItem>
                     <MenuItem onclick={handleLogout} icon="fa-right-from-bracket" iconSize='15px'>Logout</MenuItem>
                 </DropdownContainer>
