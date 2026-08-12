@@ -24,8 +24,8 @@
                     It includes certain components by default, hence you don’t need to import them manually.
                     <ul class="list-disc list-inside space-y-2 ml-5">
                         <li><a href={routes.core.components.children.modal.path} class="note">Modal</a></li>
-                        <li><a href={routes.core.features.children.toast_manager.path} class="note">Toast Manager</a></li>
                         <li><a href={routes.modules.file_picker.base} class="note">File Picker</a></li>
+                        <li><a href={routes.core.features.children.toast_manager.path} class="note">Toast Manager</a></li>
                     </ul>
                 </li>
             </ul>

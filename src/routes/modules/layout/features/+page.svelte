@@ -1,5 +1,6 @@
 <script>
-    import {RenderCode, routes, sectionIds} from '$lib';
+    import {RenderCode} from '$lib';
+    import {routes} from '$lib/assets/company';
 </script>
 
 <title>Features</title>
@@ -7,7 +8,7 @@
 <main class="space-y-4">
     <h1 class="sierra-docs-h1">Features</h1>
     <ol class="sierra-docs-ol"> 
-        <section id={sectionIds.modules.layout.features.flexible_header} class="space-y-4 mb-10">
+        <section id={routes.modules.layout.children.features.ids.flexible_header} data-title="Flexible Header" class="space-y-4 mb-10">
             <li>Flexible Header</li>
             <h3>The header can carry much more content, including searchbars, theme switchers, and more.</h3>
             <RenderCode
@@ -37,7 +38,7 @@
             `}/>
         </section>
 
-        <section id={sectionIds.modules.layout.features.header_dropdown} class="space-y-4 mb-10">
+        <section id={routes.modules.layout.children.features.ids.header_dropdown} data-title="Header Dropdown" class="space-y-4 mb-10">
             <li>Header Dropdown</li>
             <h3>Usage of this feature is upto the developer</h3>
             <RenderCode
@@ -63,7 +64,7 @@
             `}/>
         </section>
 
-        <section id={sectionIds.modules.layout.features.menu} class="space-y-4 mb-10">
+        <section id={routes.modules.layout.children.features.ids.tree_menu} data-title="Tree Menu" class="space-y-4 mb-10">
             <li>Tree Menu</li>
             <h3>
                 The menu can include submenus, allowing multiple items to be grouped under the same parent path.
@@ -74,7 +75,7 @@
                 <li>Parent Paths must be unique</li>
             </ul>
             <h3 class="font-bold">Example 1</h3>
-            <h3>View @Sierra-95/svelte-scaffold sections file <a href={routes.modules.layout.children.example} class="note">here</a></h3>
+            <!-- <h3>View @Sierra-95/svelte-scaffold sections file <a href={routes.modules.layout.children.example} class="note">here</a></h3> -->
             <h3 class="font-bold">Example 2</h3>
             <RenderCode
                 lang="javascript"
@@ -132,10 +133,10 @@
                 `}
             />
         </section>
-        <section id={sectionIds.modules.layout.features.RBAC} class="space-y-4 mb-10">
-            <li>RBAC <span class="text-sm text-blue-500">(beta)</span></li>
+        <section id={routes.modules.layout.children.features.ids.RBAC} data-title="Role-Based Access Control (RBAC)" class="space-y-4 mb-10">
+            <li>RBAC</li>
 
-            <h3>The layout supports role-based access control (RBAC) to restrict menu items and <a href={routes.core.features.children.global_search} class="note">Global Search</a> based on user roles. Please note that it doesn't prevent the user from manually typing forbidden routes in the URL, so it's recommended to implement additional routes security measures in your application.</h3>
+            <h3>The layout supports role-based access control (RBAC) to restrict menu items and Global Search based on user roles. Please note that it doesn't prevent the user from manually typing forbidden routes in the URL, so it's recommended to implement additional routes security measures in your application.</h3>
             <ul>
                 <li>Define your application's <code>ROLE_LEVELS</code>. Role levels are incremental, with higher levels having more permissions.
                 </li>
