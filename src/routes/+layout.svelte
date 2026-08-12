@@ -78,8 +78,8 @@
 <!-- TOC -->
 {#snippet TOCContent()}
 	<div style="margin-top: 1rem">
-		<h3>User:
-			<span class="text-sm">{$fileInputConfig.user_id}</span>
+		<h3>Guest Id:
+			<em class="text-sm text-(--ss-success)">{$fileInputConfig.user_id}</em>
 		</h3>
 	</div>
 {/snippet}
