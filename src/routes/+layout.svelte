@@ -2,7 +2,7 @@
 	import '../app.css';
 	import { onMount, tick } from 'svelte';
 	import {browser} from '$app/environment';
-	import {Layout, ButtonTheme, theme, isMobile, DropdownContainer, MenuItem, layoutStore, fileInputConfig, fileInputStore} from '@sierra-95/svelte-scaffold';
+	import {Layout, ButtonTheme, theme, isMobile, DropdownContainer, MenuItem, layoutStore, fileInputConfig} from '@sierra-95/svelte-scaffold';
 	import { favicon, sections, routes, resources } from '$lib/assets/company';
 	import site_webmanifest from '$lib/assets/site.webmanifest';
 	import { Navigator, Footer } from '$lib';
@@ -14,24 +14,10 @@
 	const link = $derived(`https://files.michaelmachohi.com/logos/michaelmachohi.${$theme === 'light' ? 'dark' : 'light'}.png`);
 
 	onMount(()=>{
-		getStorageUsage();
-
 		fileInputConfig.update(store => {
-			store.serverGetUrl = '/api/media/get';
-			store.serverUploadUrl = '/api/media/upload';
-			store.serverDeleteUrl = '/api/media/delete';
-			store.serverDownloadUrl = '/api/media/download';
-			store.user_id = user_id;
+			store.user_id = user_id; 
 			return store;
 		});
-
-		fileInputStore.update(store => {
-			store.onUpload = getStorageUsage;
-			store.onDelete = getStorageUsage;
-			store.disabledActions = ["Delete"];
-			return store;
-		});
-
 		layoutStore.update(store =>{
 			store.header = {
 				...store.header,
@@ -65,38 +51,6 @@
 			el?.scrollIntoView({ behavior: 'smooth' });
 		}
 	});
-
-	//Storage
-	let storage = $state<{ used_storage_bytes: number; storage_quota_bytes: number }>({
-		used_storage_bytes: 0,
-		storage_quota_bytes: 0
-	});
-
-	async function getStorageUsage() {
-		try {
-			const endpoint = `https://backend.michaelmachohi.com/media/storage-usage?user_id=${user_id}`;
-			const response = await fetch(endpoint);
-
-			if (!response.ok) {
-				throw new Error('Failed to fetch storage usage');
-			}
-
-			storage = await response.json();
-			updateFileInputConfig();
-
-		} catch (err) {
-			console.error('Storage usage error:', err);
-		}
-	}	
-
-	function updateFileInputConfig() {
-		fileInputConfig.update(store => {
-			store.usedBytes = storage.used_storage_bytes;
-			store.maxBytes = storage. storage_quota_bytes;
-			return store;
-		});
-	}
-
 </script>
 
 <svelte:head>
@@ -121,11 +75,11 @@
 	</DropdownContainer>
 {/snippet}
 
-
+<!-- TOC -->
 {#snippet TOCContent()}
 	<div style="margin-top: 1rem">
 		<h3>User:
-			<span class="text-sm">{user_id}</span>
+			<span class="text-sm">{$fileInputConfig.user_id}</span>
 		</h3>
 	</div>
 {/snippet}
