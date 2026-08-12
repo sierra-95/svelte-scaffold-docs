@@ -105,14 +105,6 @@
 			</div>
 		</section>
 
-		<section id={routes.core.components.children.buttons.ids.basic_button_api} data-title="Basic Button API" class="space-y-4">
-			<li>Basic Button API</li>
-			<Table 
-				title = {DefaultButtonTable.title}
-				table = {DefaultButtonTable.table}
-			/>
-		</section>
-
 		<section id={routes.core.components.children.buttons.ids.custom_button} data-title="Custom Buttons" class="space-y-4">
 			<li>Custom Buttons</li>
 			<div class="flex gap-4 items-center">
@@ -134,14 +126,6 @@
 				<ButtonMarquee onclick={() => goto('/auth')} text='Sign In' bg='red' color = 'blue'  />
 
 			`}/>
-		</section>
-
-		<section id={routes.core.components.children.buttons.ids.custom_button_api} data-title="Custom Button API" class="space-y-4">
-			<li>Custom Button API</li>
-			<Table 
-				title = {CustomButtonTable.title}
-				table = {CustomButtonTable.table}
-			/>
 		</section>
 
 		<section id={routes.core.components.children.buttons.ids.hamburger_button} data-title="Hamburger Button" class="space-y-4">
@@ -214,6 +198,22 @@
 					shareText="A cat just knocked over a cup of coffee while debugging your code. Productivity level: questionable."
 				/>
 			`}/>
+		</section>
+
+		<section id={routes.core.components.children.buttons.ids.basic_button_api} data-title="Basic Button API" class="space-y-4">
+			<li>Basic Button API</li>
+			<Table 
+				title = {DefaultButtonTable.title}
+				table = {DefaultButtonTable.table}
+			/>
+		</section>
+
+		<section id={routes.core.components.children.buttons.ids.custom_button_api} data-title="Custom Button API" class="space-y-4">
+			<li>Custom Button API</li>
+			<Table 
+				title = {CustomButtonTable.title}
+				table = {CustomButtonTable.table}
+			/>
 		</section>
 	</ol>
 </main>

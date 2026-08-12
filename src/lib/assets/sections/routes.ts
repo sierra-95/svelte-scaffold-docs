@@ -31,13 +31,13 @@ export const routes = {
           path : components + '/buttons',
           ids: {
             basic_button: 'basic-button',
-            basic_button_api: 'basic-button-api',
             custom_button: 'custom-button',
-            custom_button_api: 'custom-button-api',
             hamburger_button: 'hamburger-button',
             theme_button: 'theme-button',
             whatsapp_button: 'whatsapp-button',
             other_buttons: 'other-buttons',
+            basic_button_api: 'basic-button-api',
+            custom_button_api: 'custom-button-api',
           }
         } as basicPage,
 
@@ -90,8 +90,8 @@ export const routes = {
           path : components + '/table',
           ids: {
             getting_started: 'getting-started',
-            table_api: 'table-api',
             advanced_example: 'advanced-example',
+            table_api: 'table-api',
           }
         } as basicPage,
       },
@@ -134,6 +134,7 @@ export const routes = {
         getting_started: 'getting-started',
         saving_content: 'saving-content',
         inserting_images: 'inserting-images',
+        supported_styles: 'supported-styles',
       }
     } as basicPage,
 

@@ -22,7 +22,8 @@
 
     const titleTable = {
         title: {
-            name: "Title props"
+            name: "Title props",
+            fontWeight: "normal"
         },
         table: {
             headers: ['name', 'fontSize', 'fontWeight', 'color'],
@@ -38,7 +39,8 @@
     };
     const actualTable = {
         title: {
-            name: "Table props"
+            name: "Table props",
+            fontWeight: "normal"
         },
         table: {
             headers: ['headers', 'rows', 'striped', 'stripeColor','fontSize', 'borderSize', 'borderColor'],
@@ -57,7 +59,8 @@
     };
     const cellTable = {
         title: {
-            name: "TableCell props - <td>"
+            name: "TableCell props - <td>",
+            fontWeight: "normal"
         },
         table: {
             headers: ['prop', 'type', 'description', 'default'],
@@ -91,7 +94,7 @@
     };
     const advancedTable = {
         title: {
-            name: "Advanced Example"
+            name: "Advanced Example",
         },
         table: {
             headers: ['Name', 'Role', 'Status'],
@@ -158,14 +161,6 @@
 
         </section>
 
-        <section id={routes.core.components.children.table.ids.table_api} data-title="Table API" class="space-y-4">
-            <li>Table API</li>
-            <h3>Table accepts the following props:</h3>
-            <Table table={titleTable.table} title={titleTable.title}/>
-            <Table table={actualTable.table} title={actualTable.title}/>
-            <Table table={cellTable.table} title={cellTable.title}/>
-        </section>
-
         <section id={routes.core.components.children.table.ids.advanced_example} data-title="Advanced Example" class="space-y-4">
             <li>Advanced Example</li>
             <h3>Table supports more complex data with rowspan, colspan, and custom cell classes:</h3>
@@ -202,6 +197,14 @@
                 <Table table={exampleTable.table} title={exampleTable.title}/>
             `}/>
             <Table table={advancedTable.table} title={advancedTable.title}/>
+        </section>
+
+        <section id={routes.core.components.children.table.ids.table_api} data-title="Table API" class="space-y-4">
+            <li>Table API</li>
+            <h3>Table accepts the following props:</h3>
+            <Table table={titleTable.table} title={titleTable.title}/>
+            <Table table={actualTable.table} title={actualTable.title}/>
+            <Table table={cellTable.table} title={cellTable.title}/>
         </section>
     </ol>
 </main>
