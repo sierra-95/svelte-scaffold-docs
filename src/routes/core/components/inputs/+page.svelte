@@ -5,7 +5,8 @@
 		resetFileInputStore, SearchBar, Select, DateInput, TimeInput,
 		TextArea, PasswordStrength, Table
 	} from '@sierra-95/svelte-scaffold';
-	import {RenderCode, routes, sectionIds} from '$lib';
+	import {RenderCode} from '$lib';
+	import { routes } from '$lib/assets/company';
 	import { propsTable, eventHandlersTable, stylingTable, fileInputDocumentListTable, fileInputUploadTypeTable } from './table';
 
 	let email = '';
@@ -48,8 +49,8 @@
 <main class="space-y-6">		
 	<h1 class="sierra-docs-h1">Waiting for human decisions</h1>
 	<title>Inputs</title>
-	<ol class="sierra-docs-ol">
-		<section id={sectionIds.components.inputs.basic_input} class="space-y-4">
+	<ol class="sierra-docs-ol space-y-4">
+		<section id={routes.core.components.children.inputs.ids.basic_input} data-title="Basic Input" class="space-y-4">
 			<li>Basic Input</li>
 			<Input 
 				id="email" 
@@ -78,7 +79,7 @@
 			`}/>
 		</section>
 
-		<section id={sectionIds.components.inputs.password_input} class="space-y-4">
+		<section id={routes.core.components.children.inputs.ids.password_input} data-title="Password Input" class="space-y-4">
 			<li>Password Input</li>
 			<PasswordInput
 				id="password" 
@@ -105,7 +106,7 @@
 			`}/>
 		</section>
 
-		<section id={sectionIds.components.inputs.password_strength_meter} class="space-y-4">
+		<section id={routes.core.components.children.inputs.ids.password_strength_meter} data-title="Password Strength" class="space-y-4">
 			<li>Password Strength</li>
 			<PasswordInput
 				id="new_password" 
@@ -154,7 +155,7 @@
 			`}/>
 		</section>
 
-		<section id={sectionIds.components.inputs.textarea} class="space-y-4">
+		<section id={routes.core.components.children.inputs.ids.textarea_input} data-title="Textarea" class="space-y-4">
 			<li>Textarea</li>
 			<TextArea
 				id="textarea" 
@@ -183,7 +184,7 @@
 			`}/>
 		</section>
 
-		<section id={sectionIds.components.inputs.date_time_input} class="space-y-4">
+		<section id={routes.core.components.children.inputs.ids.date_time_input} data-title="Date & Time Inputs" class="space-y-4">
 			<li>Date & Time Inputs</li>
 			<DateInput 
 				id="date" 
@@ -226,7 +227,7 @@
 			`}/>
 		</section>
 
-		<section id={sectionIds.components.inputs.search_bar} class="space-y-4">
+		<section id={routes.core.components.children.inputs.ids.search_bar_input} data-title="Search Bar" class="space-y-4">
 			<li>Search Bar</li>
 			<SearchBar bind:value={searchQuery} onSearch={() => alert(`Search triggered ${searchQuery}!`)}/>
 			<SearchBar enableHotkey onHotkey={()=> alert('Hotkey triggered!')}/>
@@ -243,7 +244,7 @@
 			`}/>
 		</section>
 
-		<section id={sectionIds.components.inputs.select} class="space-y-4">
+		<section id={routes.core.components.children.inputs.ids.select_input} data-title="Select" class="space-y-4">
 			<li>Select</li>
 			<Select 
 				optionsBackground="var(--ss-l-s)" 
@@ -276,11 +277,12 @@
 				
 			`}/>
 		</section>
-		<section id={sectionIds.components.inputs.file_input} class="space-y-4">
+
+		<section id={routes.core.components.children.inputs.ids.file_input} data-title="File Input" class="space-y-4">
 			<li>File Input</li>
 			<FileInput bind:processing onclick={handleUpload}  />
 			<h3>Incase any errors occur during upload,
-				<a href={routes.core.features.children.toast_manager} class="note">Toast Manager</a>
+				<a href={routes.core.features.children.toast_manager.path} class="note">Toast Manager</a>
 				will display it. Ensure its imported and added to your root layout.
 			</h3>
 			<RenderCode
@@ -314,8 +316,8 @@
 			<Table table={fileInputDocumentListTable.table}/>
 		</section>
 
-		<section id={sectionIds.components.inputs.component_api} class="space-y-4">
-			<li>Component API</li>
+		<section id={routes.core.components.children.inputs.ids.inputs_api} data-title="Inputs API" class="space-y-4">
+			<li>Inputs API</li>
 			<Table title={propsTable.title} table={propsTable.table}/>
 			<Table title={eventHandlersTable.title} table={eventHandlersTable.table}/>
 			<Table title={stylingTable.title} table={stylingTable.table}/>
