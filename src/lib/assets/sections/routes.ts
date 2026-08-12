@@ -30,8 +30,8 @@ export const routes = {
         buttons: {
           path : components + '/buttons',
           ids: {
-            default_button: 'default-button',
-            default_button_api: 'default-button-api',
+            basic_button: 'basic-button',
+            basic_button_api: 'basic-button-api',
             custom_button: 'custom-button',
             custom_button_api: 'custom-button-api',
             hamburger_button: 'hamburger-button',

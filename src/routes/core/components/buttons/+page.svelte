@@ -1,9 +1,10 @@
 <script lang="ts">
 	import {
 		Button, ButtonFlip, ButtonMarquee, ButtonSwipe,ButtonTheme,
-		ButtonHamburger, addToast, Table, ButtonWhatsappShare, Date, Time
+		ButtonHamburger, addToast, Table, ButtonWhatsappShare
 	} from '@sierra-95/svelte-scaffold'
-	import {RenderCode, routes, sectionIds} from '$lib';
+	import {RenderCode} from '$lib'; 
+	import { routes } from '$lib/assets/company';
 	import { DefaultButtonTable, CustomButtonTable, ButtonHamburgerTable} from './tables';
 
 	function handleHamburgerClick() {
@@ -25,12 +26,13 @@
 	] as const;
 </script>
 
-<main class="space-y-4">
+<main class="space-y-6">
 	<h1 class="sierra-docs-h1">Will you be my button?</h1>
 	<title>Buttons</title>
-	<ol class="sierra-docs-ol">
-		<section id={sectionIds.components.buttons.default_button} class="space-y-4 mb-10">
-			<li>Default Buttons</li>
+
+	<ol class="sierra-docs-ol space-y-6">
+		<section id={routes.core.components.children.buttons.ids.basic_button} data-title="Basic Buttons" class="space-y-4">
+			<li>Basic Buttons</li>
 			<div class="flex gap-4 flex-wrap">
 			{#each contained_buttons as { color, title }}
 				<Button variant="contained" color={color} title={title}>Button</Button>
@@ -94,7 +96,6 @@
 						<Button 
 							title="Submit Form"
 							type="submit" 
-							style="w-[150px]"
 							isLoading={processing}
 							disabled={success}
 						>Submit
@@ -104,14 +105,15 @@
 			</div>
 		</section>
 
-		<section id={sectionIds.components.buttons.default_button_api} class="space-y-4">
+		<section id={routes.core.components.children.buttons.ids.basic_button_api} data-title="Basic Button API" class="space-y-4">
+			<li>Basic Button API</li>
 			<Table 
 				title = {DefaultButtonTable.title}
 				table = {DefaultButtonTable.table}
 			/>
 		</section>
 
-		<section id={sectionIds.components.buttons.custom_button} class="space-y-4 mb-10">
+		<section id={routes.core.components.children.buttons.ids.custom_button} data-title="Custom Buttons" class="space-y-4">
 			<li>Custom Buttons</li>
 			<div class="flex gap-4 items-center">
 				<ButtonSwipe />
@@ -134,17 +136,18 @@
 			`}/>
 		</section>
 
-		<section id={sectionIds.components.buttons.custom_button_api} class="space-y-4">
+		<section id={routes.core.components.children.buttons.ids.custom_button_api} data-title="Custom Button API" class="space-y-4">
+			<li>Custom Button API</li>
 			<Table 
 				title = {CustomButtonTable.title}
 				table = {CustomButtonTable.table}
 			/>
 		</section>
 
-		<section id={sectionIds.components.buttons.hamburger_button} class="space-y-4">
+		<section id={routes.core.components.children.buttons.ids.hamburger_button} data-title="Hamburger Button" class="space-y-4">
 			<li>Hamburger Button</li>
 			<ButtonHamburger onclick={handleHamburgerClick} />
-			<a href={routes.core.components.children.menus + '#' + sectionIds.components.menu.hamburger} class="note">View the Prebuilt Hamburger Menu</a>
+			<a href={routes.core.components.children.menus.path + '#' + routes.core.components.children.menus.ids.hamburger_menu} class="note">View the Prebuilt Hamburger Menu</a>
 			<RenderCode
 				lang="svelte"
 				code={`
@@ -173,12 +176,12 @@
 			/>
 		</section>
 
-		<section id={sectionIds.components.buttons.theme_button} class="space-y-4">
+		<section id={routes.core.components.children.buttons.ids.theme_button} data-title="Theme Button" class="space-y-4">
 			<li>Theme Button</li>
 			<div class="flex items-start">
 				<ButtonTheme />
 			</div>
-			<h3>The theme button directly manipulates the <a href={routes.stores + '#' + sectionIds.stores_utils.stores.theme_store} class="note">Theme Store</a>.</h3>
+			<h3>The theme button directly manipulates the <a href={routes.stores.path + '#' + routes.stores.ids.theme_store} class="note">Theme Store</a>.</h3>
 			<RenderCode
 				lang="svelte"
 				code={`
@@ -189,7 +192,7 @@
 			`}/>
 		</section>
 
-		<section id={sectionIds.components.buttons.whatsapp_share} class="space-y-4">
+		<section id={routes.core.components.children.buttons.ids.whatsapp_button} data-title="WhatsApp Share" class="space-y-4">
 			<li>WhatsApp Share</li>
 			<h3>When clicked, the button will attempt to share the link on WhatsApp. Your website information is best displayed if Open Graph (OG) tags are configured.</h3>
 			<h3>If the share fails, it falls back to copying the link.</h3>
