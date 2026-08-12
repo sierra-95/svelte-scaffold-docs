@@ -172,14 +172,6 @@ export const routes = {
     layout: {
       base: layout,
       children: {
-
-        overview: {
-          path: layout + '/overview',
-          ids: {
-            overview: 'overview',
-          }
-        } as basicPage,
-
         getting_started: {
           path : layout + '/getting-started',
           ids: {

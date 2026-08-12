@@ -118,11 +118,6 @@ export const sections: Section[] = [
 				icon: 'fa-regular fa-copyright',
 				children: [
 					{
-						label: 'Overview',
-						path: lay.children.overview.path,
-						icon: 'fa-solid fa-magnifying-glass',
-					},
-					{
 						label: 'Getting Started',
 						path: lay.children.getting_started.path,
 						icon: 'fa-solid fa-terminal',
