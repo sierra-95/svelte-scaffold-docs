@@ -149,27 +149,27 @@ export const ButtonHamburgerTable = {
         headers: ['Prop', 'Type', 'Default'],
         rows: [
             [
-                { content: "barWidth" },
+                { content: "width" },
                 { content: "string" },
                 { content: "30px" },
             ],
             [
-                { content: "barHeight" },
+                { content: "height" },
                 { content: "string" },
                 { content: "3px" },
             ],
             [
-                { content: "barColor" },
+                { content: "color" },
                 { content: "string" },
                 { content: "black" },
             ],
             [
-                { content: "barBorderRadius" },
+                { content: "bradius" },
                 { content: "string" },
                 { content: "5px" },
             ],
             [
-                { content: "barSpacing" },
+                { content: "spacing" },
                 { content: "string" },
                 { content: "5px" },
             ]

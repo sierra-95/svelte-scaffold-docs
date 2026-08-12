@@ -9,7 +9,10 @@
         modalStore.update(m => ({
             ...m,
             open: true,
-            title: 'Confirm Action',
+            title: {
+                ...m.title,
+                name: 'Confirm Action',
+            },
             content: 'Modal has been triggered. This is a static modal with no custom content.',
             confirmText: 'Accept',
             cancelText: 'Decline',
@@ -22,8 +25,14 @@
         modalStore.update(m => ({
             ...m,
             open: true,
-            title: 'Editor',
-            logo_url: `${favicon}favicon.ico`,
+            title: {
+                ...m.title,
+                name: 'Editor',
+            },
+            logo: {
+                ...m.logo,
+                src: `${favicon}favicon.ico`,
+            },
             onConfirm: () => {
                 Submit();
             },
@@ -72,7 +81,10 @@
                     function triggerPlainModal() {
                         modalStore.set({
                             open: true,
-                            title: 'Confirm Action',
+                            title: {
+                                ...m.title,
+                                name: 'Confirm Action',
+                            },
                             content: 'Modal has been triggered',
                             confirmText: 'Accept',
                             cancelText: 'Decline',
@@ -104,8 +116,14 @@
                         modalStore.update(m => ({
                             ...m,
                             open: true,
-                            title: 'Editor',
-                            logo_url: 'https://example.com/logo.png',
+                            title: {
+                                ...m.title,
+                                name: 'Editor',
+                            },
+                            logo: {
+                                ...m.logo,
+                                src: 'https://example.com/logo.png',
+                            },
                             onConfirm: () => {
                                 Submit();
                             },
