@@ -142,18 +142,10 @@ export const routes = {
     file_picker: {
       base: file_picker,
       children: {
-
-        overview: {
-          path: file_picker + '/overview',
-          ids: {
-            overview: 'overview',
-          }
-        } as basicPage,
-
         getting_started: {
           path: file_picker + '/getting-started',
           ids: {
-            setting_up : 'setting-up',
+            getting_started : 'getting-started',
             storage : 'storage',
           }
         } as basicPage,

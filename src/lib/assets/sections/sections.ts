@@ -96,11 +96,6 @@ export const sections: Section[] = [
 				icon: 'fa-regular fa-cloud',
 				children: [
 					{
-						label: 'Overview',
-						path: fpk.children.overview.path,
-						icon: 'fa-solid fa-magnifying-glass',
-					},
-					{
 						label: 'Getting Started',
 						path: fpk.children.getting_started.path,
 						icon: 'fa-solid fa-terminal',

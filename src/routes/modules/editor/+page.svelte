@@ -106,7 +106,7 @@
     <section id={routes.modules.editor.ids.inserting_images} class="space-y-4">
         <h2 class="sierra-docs-h2">Inserting Images</h2>
         <h3>The editor primarily uses
-            <a href={routes.modules.file_picker.children.overview.path} class="note">File Picker</a>
+            <a href={routes.modules.file_picker.base} class="note">File Picker</a>
             to handle multiple image uploads and insertions.
             An input has also been provided to key in image URLs manually.
         </h3>

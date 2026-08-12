@@ -53,6 +53,7 @@ ol.sierra-docs-ol li{
     font-size: 1.5rem;
     padding: 30px 0px;
     font-family:  'TrenchSlab Regular', sans-serif;
+    text-decoration: underline;
 }
 @media (max-width: 768px) {
     ol.sierra-docs-ol li{
@@ -69,6 +70,7 @@ ol.sierra-docs-ol ul li{
     font-size: 1rem;
     padding: unset;
     font-family: unset;
+    text-decoration: unset;
 }
 
 

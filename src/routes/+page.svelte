@@ -10,15 +10,15 @@
   {
     title: "Modules",
     href: routes.modules.editor.path,
-    description: "Layout system, file picker, text editor and more"
+    description: "Layout system, File Picker, Editor and more"
   },
   {
     title: "Features",
     href: routes.core.features.base,
-    description: "Global Search, Toast Manager"
+    description: "Toast Manager"
   },
   {
-    title: "Random Stuff",
+    title: "Utilities",
     href: routes.core.utilities.path,
     description: "Avatars, Carousels, Color Picker, WhatsApp Share and more"
   },
