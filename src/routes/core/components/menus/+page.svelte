@@ -1,5 +1,5 @@
 <script>
-    import {MenuItem, DropdownContainer, buttonRipple, User, Hr, resetUserStore, Tabs, HamburgerMenu, ContentSwitcher} from '@sierra-95/svelte-scaffold';
+    import {MenuItem, DropdownContainer, buttonRipple, Hr, resetUserStore, Tabs, HamburgerMenu, ContentSwitcher} from '@sierra-95/svelte-scaffold';
 	import {RenderCode} from '$lib';
     import { routes } from '$lib/assets/company';
     import { favicon } from '$lib/assets/company';

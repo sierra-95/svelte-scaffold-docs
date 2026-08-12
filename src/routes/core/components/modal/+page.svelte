@@ -1,7 +1,7 @@
 <script>
     import {modalStore,Button, Input, Table} from '@sierra-95/svelte-scaffold';
-    import {RenderCode, sectionIds} from '$lib';
-    import { favicon } from '$lib/assets/company';
+    import {RenderCode} from '$lib';
+    import { favicon, routes } from '$lib/assets/company';
     import { title, table } from './table';
 
     let value = '';
@@ -10,7 +10,7 @@
             ...m,
             open: true,
             title: 'Confirm Action',
-            content: 'Modal has been triggered',
+            content: 'Modal has been triggered. This is a static modal with no custom content.',
             confirmText: 'Accept',
             cancelText: 'Decline',
         }));
@@ -34,16 +34,14 @@
 </script>
 
 {#snippet formContent()}
-    <div style="padding-top: 20px;">
-        <Input label="Enter Youtube URL" id="youtube-url" bind:value={value}/>
-    </div>
+    <Input label="Enter Youtube URL" id="youtube-url" bind:value={value}/>
 {/snippet}
 
 <main class="space-y-6">
     <title>Modal</title>
     <h1 class="sierra-docs-h1">Breaking news</h1>
     <h3>Modals are used to display important information or prompts to the user.</h3>
-    <section id={sectionIds.components.modal.getting_started} class="space-y-4">
+    <section id={routes.core.components.children.modal.ids.getting_started} data-title="Getting Started" class="space-y-4">
         <h2 class="sierra-docs-h2">Getting Started</h2>
         <h3>Place this anywhere in your app</h3>
         <RenderCode
@@ -59,8 +57,9 @@
 
         <h3>The modal can exist in two modes: static and dynamic.</h3>
     </section>
-    <ol class="sierra-docs-ol">
-        <section id={sectionIds.components.modal.static_mode} class="space-y-4">
+    <ol class="sierra-docs-ol space-y-4">
+
+        <section id={routes.core.components.children.modal.ids.static_mode} data-title="Static Mode" class="space-y-4">
             <li>Static Mode</li>
             <Button onclick={triggerPlainModal}>Click to test</Button>
             <RenderCode
@@ -87,7 +86,7 @@
             `}/>
         </section>
 
-        <section id={sectionIds.components.modal.dynamic_mode} class="space-y-4">
+        <section id={routes.core.components.children.modal.ids.dynamic_mode} data-title="Dynamic Mode" class="space-y-4">
             <li>Dynamic Mode</li>
             <h3>Used to render custom UI such as inputs, forms, or any arbitrary markup inside the modal.</h3>
             <Button onclick={triggerDynamicModal}>Click to test</Button>
@@ -121,10 +120,11 @@
 
             `}/>
         </section>
+
+        <section id={routes.core.components.children.modal.ids.modal_api} data-title="Modal API" class="space-y-4">
+            <li>Modal API</li>
+            <h3>Use <code class="note">modalStore.update()</code> for optional properties to keep defaults</h3>
+            <Table {title} {table}/>
+        </section>
     </ol>
-    <section id={sectionIds.components.modal.component_api} class="space-y-4">
-        <h2 class="sierra-docs-h2">Component API</h2>
-        <h3>Use <code class="note">modalStore.update()</code> for optional properties to keep defaults</h3>
-        <Table {title} {table}/>
-    </section>
 </main>
