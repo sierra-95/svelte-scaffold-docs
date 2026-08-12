@@ -1,12 +1,15 @@
 <script>
-    import {RenderCode, sectionIds} from '$lib';
+    import {RenderCode} from '$lib';
+    import {routes} from '$lib/assets/company';
 </script>
 
-<main class="space-y-2">
-    <title>Getting Started</title>
+
+<title>Getting Started</title>
+<main class="space-y-6">
     <h1 class="sierra-docs-h1">Getting Started</h1>
-    <ol class="sierra-docs-ol"> 
-        <section id={sectionIds.modules.layout.getting_started.defination} class="space-y-2">
+    <ol class="sierra-docs-ol space-y-4"> 
+
+        <section id={routes.modules.layout.children.getting_started.ids.defination} data-title="Defining a Sections file" class="space-y-4">
             <li>Define a Sections file (Heart of Layout)</li>
             <h3>The sections file is the core of Layout. It contains all information about menu structure, items to hide and RBAC implementation</h3>
             <h3>See the simplified example below:</h3>
@@ -51,7 +54,8 @@
 
             `}/>
         </section>
-        <section id={sectionIds.modules.layout.getting_started.importing} class="space-y-2">
+
+        <section id={routes.modules.layout.children.getting_started.ids.importing} data-title="Importing the Layout component" class="space-y-4">
             <li>Import Layout component</li>
             <h3>Import the sections file and layout component in a <strong>+layout.svelte</strong> file.</h3>
             <RenderCode

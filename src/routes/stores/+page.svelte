@@ -9,7 +9,7 @@
 </script>
 
 {#snippet layout_link()}
-	<a href={routes.modules.layout.children.overview.path} class="note">Layout component</a> 
+	<a href={routes.modules.layout.base} class="note">Layout component</a> 
 {/snippet}
 
 
