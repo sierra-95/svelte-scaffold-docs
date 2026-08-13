@@ -181,14 +181,25 @@ export const routes = {
         } as basicPage,
 
         features: {
-          path : layout + '/features',
-          ids: {
-            flexible_header: 'flexible-header',
-            header_dropdown: 'header-dropdown',
-            tree_menu: 'tree-menu',
-            RBAC: 'rbac',
+          base : layout + '/features',
+          children:  {
+            navigation: {
+              path : layout + '/features/navigation',
+              ids: {
+                flexible_header: 'flexible-header',
+                tree_menu: 'tree-menu',
+                navigator: 'navigator',
+              }
+            } as basicPage,
+            global: {
+              path : layout + '/features/global',
+              ids: {
+                global_search: 'global-search',
+                RBAC: 'rbac',
+              }
+            } as basicPage,
           }
-        } as basicPage,
+        },
       },
     },
   },

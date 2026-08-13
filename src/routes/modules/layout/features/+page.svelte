@@ -8,7 +8,7 @@
 <main class="space-y-4">
     <h1 class="sierra-docs-h1">Features</h1>
     <ol class="sierra-docs-ol"> 
-        <section id={routes.modules.layout.children.features.ids.flexible_header} data-title="Flexible Header" class="space-y-4 mb-10">
+        <section data-title="Flexible Header" class="space-y-4 mb-10">
             <li>Flexible Header</li>
             <h3>The header can carry much more content, including searchbars, theme switchers, and more.</h3>
             <RenderCode
@@ -38,7 +38,7 @@
             `}/>
         </section>
 
-        <section id={routes.modules.layout.children.features.ids.header_dropdown} data-title="Header Dropdown" class="space-y-4 mb-10">
+        <section  data-title="Header Dropdown" class="space-y-4 mb-10">
             <li>Header Dropdown</li>
             <h3>Usage of this feature is upto the developer</h3>
             <RenderCode
@@ -64,7 +64,7 @@
             `}/>
         </section>
 
-        <section id={routes.modules.layout.children.features.ids.tree_menu} data-title="Tree Menu" class="space-y-4 mb-10">
+        <section  data-title="Tree Menu" class="space-y-4 mb-10">
             <li>Tree Menu</li>
             <h3>
                 The menu can include submenus, allowing multiple items to be grouped under the same parent path.
@@ -133,7 +133,7 @@
                 `}
             />
         </section>
-        <section id={routes.modules.layout.children.features.ids.RBAC} data-title="Role-Based Access Control (RBAC)" class="space-y-4 mb-10">
+        <section  data-title="Role-Based Access Control (RBAC)" class="space-y-4 mb-10">
             <li>RBAC</li>
 
             <h3>The layout supports role-based access control (RBAC) to restrict menu items and Global Search based on user roles. Please note that it doesn't prevent the user from manually typing forbidden routes in the URL, so it's recommended to implement additional routes security measures in your application.</h3>

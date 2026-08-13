@@ -124,8 +124,18 @@ export const sections: Section[] = [
 					},
 					{
 						label: 'Features',
-						path: lay.children.features.path,
+						path: lay.children.features.base,
 						icon: 'fa-solid fa-wand-magic-sparkles',
+						children: [
+							{
+								label: 'Structure',
+								icon: 'fa-solid fa-chart-diagram',
+							},
+							{
+								label: 'Global',
+								icon: 'fa-solid fa-route',
+							}
+						],
 					},
 				],
 			},
