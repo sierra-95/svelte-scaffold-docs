@@ -1,16 +1,10 @@
 <script>
     import { browser } from '$app/environment';
     import { page } from '$app/state';
-    import { sections } from '$lib';
-    import { flattenSections } from './flatten';
     import {Hr} from '@sierra-95/svelte-scaffold';
 
-    let previous = $state();
-    let next = $state();
     let lastUpdated = $state('');
-
-    const allPages = flattenSections(sections);
-
+    
     const githubRepo = {
         owner: 'sierra-95',
         repo: 'svelte-scaffold-docs',
@@ -36,15 +30,9 @@
     const currentPath = $derived(page.url.pathname)
     const filePath = $derived(getGithubFilePath(currentPath))
     const githubUrl = $derived(getGithubUrl(filePath))
+
     $effect(() => {
-        if(browser){
-            if(currentPath) load();
-            const currentIndex = allPages.findIndex(p => p.path === currentPath);
-            previous = currentIndex > 0 ? allPages[currentIndex - 1] : null;
-            next = currentIndex < allPages.length - 1
-                ? allPages[currentIndex + 1]
-                : null;
-        }
+        if(browser && currentPath) load();
     });
 
     async function load() {
@@ -72,63 +60,13 @@
 
 
 </script>
-<style>
-    #sierra-navigation{
-        display: flex;
-        justify-content: space-between;
-    }
-    #sierra-navigation a, #sierra-github-page-edit a{
-        transition: color 0.1s ease-in;
-    }
-    #sierra-github-page-edit a:hover{
-        color: var(--ss-neutral);
-    }
-    #sierra-navigation a{
-        color: var(--ss-neutral);
-    }
-    #sierra-navigation a:hover{
-        text-decoration: underline;
-    }
-    #sierra-navigation h3{
-        font-size: 0.9rem;
-        color: var(--ss-d-s);
-    }
-    @media (max-width: 768px){
-        #sierra-navigation{
-            flex-direction: column;
-            gap: 1rem;
-        }
-        #sierra-navigation .text-next{
-            text-align: end;
-        }
-    }
-</style>
 
-<section class="space-y-4" style="margin-top: 4rem;">
-    <div id="sierra-github-page-edit" class="flex justify-between text-sm">
+<main class="space-y-4" style="margin-top: 4rem;">
+    <div class="flex justify-between text-sm">
         <a href={githubUrl} target="_blank" rel="noreferrer" ><i class="fa-solid fa-pen mr-2"></i>Edit Page</a>
         <h3>Last Updated:
             <span class="text-(--ss-neutral)">{lastUpdated? new Date(lastUpdated).toLocaleDateString(): '-'}</span>
         </h3>
     </div>
-    <div><Hr color="var(--ss-border)"/></div>
-    <div id="sierra-navigation">
-        {#if previous}
-            <div class="text-previous">
-                <h3>Previous</h3>
-                <a href={previous.path}>
-                    {previous.trail.join(' → ')}
-                </a>
-            </div>
-        {/if}
-
-        {#if next}
-            <div class="text-next">
-                <h3>Next</h3>
-                <a href={next.path}>
-                    {next.trail.join(' → ')}
-                </a>
-            </div>
-        {/if}
-    </div>
-</section>
+    <Hr/>
+</main>

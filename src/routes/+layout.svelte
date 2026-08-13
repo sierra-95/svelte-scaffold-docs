@@ -2,10 +2,10 @@
 	import '../app.css';
 	import { onMount, tick } from 'svelte';
 	import {browser} from '$app/environment';
-	import {Layout, ButtonTheme, theme, isMobile, DropdownContainer, MenuItem, layoutStore, fileInputConfig} from '@sierra-95/svelte-scaffold';
+	import {Layout, ButtonTheme, theme, isMobile, DropdownContainer, MenuItem, layoutStore, fileInputConfig, Navigator} from '@sierra-95/svelte-scaffold';
 	import { favicon, sections, routes, resources } from '$lib/assets/company';
 	import site_webmanifest from '$lib/assets/site.webmanifest';
-	import { Navigator, Footer } from '$lib';
+	import { Footer, PageMeta } from '$lib';
 
 	let { children } = $props();
 
@@ -86,6 +86,7 @@
 
 <Layout>
 	{@render children()}
+	<PageMeta/>
 	<Navigator/>
 	<Footer/>
 </Layout>
