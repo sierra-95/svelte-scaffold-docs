@@ -132,8 +132,10 @@
 
 		<section id={routes.core.components.children.buttons.ids.hamburger_button} data-title="Hamburger Button" class="space-y-4">
 			<li>Hamburger Button</li>
-			<ButtonHamburger onclick={handleHamburgerClick} />
-			<a href={routes.core.components.children.menus.path + '#' + routes.core.components.children.menus.ids.hamburger_menu} class="note">View the Prebuilt Hamburger Menu</a>
+			<div class="flex gap-4 items-center">
+				<ButtonHamburger onclick={handleHamburgerClick} />
+				<a href={routes.core.components.children.menus.path + '#' + routes.core.components.children.menus.ids.hamburger_menu} class="note">View the Prebuilt Hamburger Menu</a>
+			</div>
 			<RenderCode
 				lang="svelte"
 				code={`
