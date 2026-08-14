@@ -202,6 +202,10 @@ export const routes = {
             } as basicPage,
             scaffold_sections_file : {
               path : layout + '/features/scaffold-section',
+              ids: {
+                sections_file : 'sections_file',
+                routes_file : 'routes_file',
+              },
             } as basicPage,
           }
         },

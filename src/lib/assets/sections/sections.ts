@@ -136,6 +136,11 @@ export const sections: Section[] = [
 								label: 'Global',
 								icon: 'fa-solid fa-route',
 								path: lay.children.features.children.global.path,
+							},
+							{
+								label: 'Scaffold Internal',
+								icon: 'fa-solid fa-cogs',
+								path: lay.children.features.children.scaffold_sections_file.path,
 							}
 						],
 					},
