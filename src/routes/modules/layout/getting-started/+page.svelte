@@ -52,7 +52,7 @@
                 <\script>
                     import { onMount } from 'svelte';
                     import {Layout, layoutStore} from '@sierra-95/svelte-scaffold'
-                    import {sections} from './sections.js';
+                    import {sections} from '$lib/assets/sections';
                     
                     let { children } = $props();
 

@@ -194,8 +194,11 @@ export const routes = {
             global: {
               path : layout + '/features/global',
               ids: {
+                theme: 'theme',
+                toc: 'toc',
                 global_search: 'global-search',
-                RBAC: 'rbac',
+                navigator: 'navigator',
+                rbac: 'rbac',
               }
             } as basicPage,
           }
