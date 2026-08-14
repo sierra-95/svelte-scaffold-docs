@@ -108,12 +108,12 @@
 		<section id={routes.core.components.children.buttons.ids.custom_button} data-title="Custom Buttons" class="space-y-4">
 			<li>Custom Buttons</li>
 			<div class="flex gap-4 items-center">
-				<ButtonSwipe />
-				<ButtonMarquee/>
+				<ButtonSwipe>Button</ButtonSwipe>
+				<ButtonMarquee>Marquee Button</ButtonMarquee>
 				<ButtonFlip />
 			</div>    
-			<h3>These buttons are not built to be as flexible compared to default buttons.</h3>
-			<p>They are designed to be used as-is, with minimal customization options.</p>
+			<h3>These buttons are not built to be as flexible compared to default buttons.
+			They are designed to be used as-is, with minimal customization options.</h3>
 			<p>All have fixed dimensions (w × h), with <strong>Marquee</strong> as the exception. Marquee automatically adjusts its width based on text length.</p>
 			<RenderCode
 				lang="svelte"
@@ -123,7 +123,9 @@
 					import { ButtonMarquee } from '@sierra-95/svelte-scaffold';
 				<\/script>
 
-				<ButtonMarquee onclick={() => goto('/auth')} text='Sign In' bg='red' color = 'blue'  />
+				<ButtonMarquee onclick={() => goto('/auth')}>
+					Marquee Button
+				</ButtonMarquee>
 
 			`}/>
 		</section>

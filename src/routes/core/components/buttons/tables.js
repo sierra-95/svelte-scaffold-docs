@@ -6,12 +6,6 @@ export const DefaultButtonTable = {
         headers: ['Prop', 'Type', 'Default', 'Description'],
         rows: [
             [
-                { content: "title" },
-                { content: "string" },
-                { content: "''" },
-                { content: "The button label content." }
-            ],
-            [
                 { content: "type" },
                 { content: "string (button, submit, reset)" },
                 { content: "'button'" },
@@ -65,24 +59,6 @@ export const DefaultButtonTable = {
                 { content: "false" },
                 { content: "Displays a spinner. Automatically disables the button while loading." }
             ],
-            [
-                { content: "spinner" },
-                { content: "number" },
-                { content: '20' },
-                { content: "Controls the size of the loading spinner (in pixels) when <strong>isLoading</strong> is active." }
-            ],
-            [
-                { content: "thickness" },
-                { content: "number" },
-                { content: '2' },
-                { content: "Defines the stroke thickness of the spinner icon (applies when <strong>isLoading</strong> is active)" }
-            ],
-            [
-                { content: "html2canvas_ignore" },
-                { content: "string (true, false)" },
-                { content: "'false'" },
-                { content: "When set to <strong>'true'</strong>, activates data-html2canvas-ignore to exclude the button from screenshots." }
-            ]
         ]
     }
 };
@@ -92,50 +68,46 @@ export const CustomButtonTable = {
         name: "Component API"
     },
     table: {
-        headers: ['Import Name', 'Prop', 'Type', 'Default'],
+        headers: ['Import Name', 'Prop', 'Default'],
         rows: [
             [
-                { content: "ButtonSwipe", rowspan: 2 },
-                { content: "text" },
-                { content: "string" },
-                { content: "Button" }
+                { content: "ButtonSwipe", rowspan: 3 },
+                { content: "bg" },
+                { content: "var(--ss-neutral)" }
             ],
             [
-                { content: "bg / color" },
-                { content: "string" },
-                { content: "var(--primary-bg)/ #4B5563" }
+                { content: "color" },
+                { content: "var(--ss-d-p)" }
+            ],
+            [
+                { content: "swipeColor" },
+                { content: "var(--ss-l-p)" }
             ],
             [
                 { content: "ButtonMarquee", rowspan: 2 },
-                { content: "text" },
-                { content: "string" },
-                { content: "Hover me" }
+                { content: "bg" },
+                { content: "var(--ss-neutral)" }
             ],
             [
-                { content: "bg / color" },
-                { content: "string" },
-                { content: "var(--primary-bg)/ #4B5563" }
+                { content: "color" },
+                { content: "var(--ss-d-p)" }
             ],
             [
                 { content: "ButtonFlip", rowspan: 5 },
                 { content: "front" },
-                { content: "string" },
                 { content: "front" }
             ],
             [
                 { content: "back" },
-                { content: "string" },
                 { content: "back" }
             ],
             [
-                { content: "bgFront" },
-                { content: "string" },
-                { content: "var(--primary-bg)" }
+                { content: "bgFront & bgBack" },
+                { content: "var(--ss-neutral)" }
             ],
             [
-                { content: "bgBack / color" },
-                { content: "string" },
-                { content: "#f4e5d4 / var(--button-text)" }
+                { content: "color" },
+                { content: "var(--ss-l-p)" }
             ]
         ]
     }
