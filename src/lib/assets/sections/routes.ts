@@ -183,8 +183,8 @@ export const routes = {
         features: {
           base : layout + '/features',
           children:  {
-            navigation: {
-              path : layout + '/features/navigation',
+            structure: {
+              path : layout + '/features/structure',
               ids: {
                 flexible_header: 'flexible-header',
                 tree_menu: 'tree-menu',

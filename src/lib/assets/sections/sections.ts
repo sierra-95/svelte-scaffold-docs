@@ -130,10 +130,12 @@ export const sections: Section[] = [
 							{
 								label: 'Structure',
 								icon: 'fa-solid fa-chart-diagram',
+								path: lay.children.features.children.structure.path,
 							},
 							{
 								label: 'Global',
 								icon: 'fa-solid fa-route',
+								path: lay.children.features.children.global.path,
 							}
 						],
 					},
