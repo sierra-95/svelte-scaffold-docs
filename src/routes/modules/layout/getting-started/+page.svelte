@@ -11,46 +11,34 @@
 
         <section id={routes.modules.layout.children.getting_started.ids.defination} data-title="Defining a Sections file" class="space-y-4">
             <li>Define a Sections file (Heart of Layout)</li>
-            <h3>The sections file is the core of Layout. It contains all information about menu structure, items to hide and RBAC implementation</h3>
+            <h3>
+                A sections file defines the structure and hierarchy of Layout.
+                It organizes pages into sections and infinitely nested nodes.
+                It provides the shared structure used by the menu, search, and page navigator.
+            </h3>
             <h3>See the simplified example below:</h3>
-            <ul class="list-decimal list-inside space-y-2">
-                <li>Labels are used to classify routes that fall under a category. Leave empty if a route is independent</li>
-                <li>A <strong>hr</strong> is automatically added after category name if label is included.</li>
-            </ul>
             <RenderCode
                 lang="javascript"
                 code={`
-                const routes = {
-                    random: '/random',
-                    overview: '/overview',
-                    installation: '/installation',
-                };
+                import type {Section} from '@sierra-95/svelte-scaffold';
 
-                export const sections = [
-                    //Independent route( Don't label if it's an independent route)
-                    {
-                        label: '',
-                        items: [
-                            { path: routes.random, label: 'Random',  icon: 'fa fa-random' }
-                        ]
-                    },
-                    //Categorized routes
+                export const sections: Section[] = [
                     {
                         label: 'Getting Started',
-                        items: [
-                            { 
-                                path: routes.overview, 
-                                label: 'Overview', 
-                                icon: 'fa fa-info',
+                        nodes: [
+                            {
+                                label: 'Overview',
+                                path: '/overview',
+                                icon: 'fa-solid fa-magnifying-glass',
                             },
-                            { 
-                                path: routes.installation,
-                                label: 'Installation', 
-                                icon: 'fa fa-cogs',
-                            }
-                        ]
+                            {
+                                label: 'Installation',
+                                path: '/installation',
+                                icon: 'fa-solid fa-angles-down',
+                            },
+                        ],
                     },
-                ];
+                ]
 
             `}/>
         </section>
@@ -69,14 +57,16 @@
                     let { children } = $props();
 
                     onMount(()=>{
-                        layoutStore.update(store => {
+                        layoutStore.update(store =>{
+                            store.header = {
+                                ...store.header,
+                                title: 'your app title',
+                                link: '/', //redirect to (where) when logo is clicked
+                                src: 'https://your-logo.png',
+                            }
                             store.sections = sections;
-                            store.headerTitle = "Brand Name";
-                            store.headerLink = '/';
-                            store.headerImage = "https://example.com/logo.ico";
-                            store.headerImageSize = '30px';
-                            return store; 
-                        });
+                            return store;
+                        })
                     })
                 <\/script>
                 <Layout>{@render children()}</Layout>

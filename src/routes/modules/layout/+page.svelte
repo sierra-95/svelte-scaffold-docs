@@ -19,6 +19,7 @@
                 <li>Customizable header with logo, title, and easy-to-integrate SvelteKit routing.</li>
                 <li>In-built <a href={routes.stores.path + '#'+  routes.stores.ids.theme_store} class="note">theme</a> support for light and dark modes.</li>
                 <li>In-built Global Search for route search and navigation.</li>
+                <li>In-built Navigator that maps previous and next pages.</li>
                 <li>Supports RBAC (Role-Based Access Control)</li>
                 <li>
                     It includes certain components by default, hence you don’t need to import them manually.
