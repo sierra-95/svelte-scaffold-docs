@@ -21,6 +21,11 @@ export const sections: Section[] = [
 				path: routes.installation.path,
 				icon: 'fa-solid fa-angles-down',
 			},
+			{
+				label: 'Scaffold Internal',
+				icon: 'fa-solid fa-cogs',
+				path: routes.scaffold_internal.path,
+			},
 		],
 	},
 	{
@@ -137,11 +142,6 @@ export const sections: Section[] = [
 								icon: 'fa-solid fa-route',
 								path: lay.children.features.children.global.path,
 							},
-							{
-								label: 'Scaffold Internal',
-								icon: 'fa-solid fa-cogs',
-								path: lay.children.features.children.scaffold_sections_file.path,
-							}
 						],
 					},
 				],

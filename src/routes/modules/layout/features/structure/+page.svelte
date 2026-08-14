@@ -72,7 +72,7 @@
             <li>Tree Menu</li>
             <p>The <strong>sections</strong> file defines the structure of the menu using sections and nodes. Each node can represent a page and can contain its own child nodes.</p> 
             <p>Nodes can be nested to any depth, allowing you to build complex menu structures without being limited to a fixed number of child levels. The menu traverses this tree structure to display and manage each node accordingly.</p>
-            <h3>View @Sierra-95/svelte-scaffold sections and routes file <a href={routes.modules.layout.children.features.children.scaffold_sections_file.path} class="note">here</a></h3>
+            <h3>View @Sierra-95/svelte-scaffold sections and routes file <a href={routes.scaffold_internal.path + '#' + routes.scaffold_internal.ids.sections_file} class="note">here</a></h3>
         </section>
     </ol>
 </main>
