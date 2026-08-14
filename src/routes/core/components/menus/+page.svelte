@@ -68,11 +68,8 @@
             <DropdownContainer width="300px" bind:open={openUserMenu} dropdownTrigger={TriggerUserInfo}>
                 <div class="flex gap-4 p-2">
                     <Avatar 
-                        avatarSize="35px" 
-                        iconSize="20px" 
-                        url={favicon + 'favicon.ico'} 
                         boxShadow=""
-                        borderSize="0px"
+                        borderColor="var(--ss-d-t)"
                     />
                     <div>
                         <h3>John Doe</h3>
@@ -106,7 +103,7 @@
                         <Avatar 
                             avatarSize="35px" 
                             iconSize="20px" 
-                            url={favicon + 'favicon.ico'} 
+                            url="https://example.com/avatar.jpg"
                             boxShadow=""
                             borderSize="0px"
                         />

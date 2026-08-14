@@ -3,13 +3,14 @@
     import {routes} from '$lib/assets/company';
 </script>
 
-<title>Features</title>
+<title>Structure Features</title>
 
 <main class="space-y-4">
-    <h1 class="sierra-docs-h1">Features</h1>
+    <h1 class="sierra-docs-h1">Structure Features</h1>
     <ol class="sierra-docs-ol"> 
-        <section data-title="Flexible Header" class="space-y-4 mb-10">
-            <li>Flexible Header</li>
+        <section id={routes.modules.layout.children.features.children.structure.ids.header_options} data-title="Header Options" class="space-y-4 mb-10">
+            <li>Header Options</li>
+            <h2 class="sierra-docs-h2">1. Header Content</h2>
             <h3>The header can carry much more content, including searchbars, theme switchers, and more.</h3>
             <RenderCode
                 lang="svelte"
@@ -21,8 +22,11 @@
 
                     onMount(()=>{
                         layoutStore.update(store => {
-                            store.headerCenterContent = headerCenterContent;
-                            store.headerRightContent = headerRightContent;
+                            store.header = {
+                                ...store.header,
+                                store.contentCenter = headerCenterContent;
+                                store.contentRight = headerRightContent;
+                            };
                             return store;
                         });
                     })
@@ -36,10 +40,7 @@
                     <ButtonTheme />
                 {/snippet}
             `}/>
-        </section>
-
-        <section  data-title="Header Dropdown" class="space-y-4 mb-10">
-            <li>Header Dropdown</li>
+            <h2 class="sierra-docs-h2">2. Header Dropdown</h2>
             <h3>Usage of this feature is upto the developer</h3>
             <RenderCode
                 lang="svelte"
@@ -49,8 +50,11 @@
 
                     onMount(()=>{
                         layoutStore.update(store => {
-                            store.dropdown = true;
-                            store.dropdownContent = dropdownContent;
+                            store.dropdown = {
+                                ...store.dropdown,
+                                activate: true,
+                                content: dropdownContent
+                            };
                             return store;
                         });
                     })
@@ -64,74 +68,11 @@
             `}/>
         </section>
 
-        <section  data-title="Tree Menu" class="space-y-4 mb-10">
+        <section id={routes.modules.layout.children.features.children.structure.ids.tree_menu}  data-title="Tree Menu" class="space-y-4 mb-10">
             <li>Tree Menu</li>
-            <h3>
-                The menu can include submenus, allowing multiple items to be grouped under the same parent path.
-            </h3>
-            <h3>Note the following</h3>
-            <ul class="list-disc list-inside space-y-2">
-                <li>All parents must have a unique id</li>
-                <li>Parent Paths must be unique</li>
-            </ul>
-            <h3 class="font-bold">Example 1</h3>
-            <!-- <h3>View @Sierra-95/svelte-scaffold sections file <a href={routes.modules.layout.children.example} class="note">here</a></h3> -->
-            <h3 class="font-bold">Example 2</h3>
-            <RenderCode
-                lang="javascript"
-                code={`
-                export const sections = [
-                    //Independent routes( Don't label if it's an independent route)
-                    {
-                        label: '',
-                        items: [
-                            { path: '/random', label: 'Random',  icon: 'fa fa-random' }
-                        ]
-                    },
-                    //Categorized routes
-                    {
-                        label: 'Random Category',
-                        items: [
-                            { path: '/random', label: 'Random',  icon: 'fa fa-random' },
-                            { path: '/random2', label: 'Random2',  icon: 'fa fa-random' }
-                        ]
-                    },
-                    //Categorized Parents, with children routes
-                    {
-                        label: 'Core',
-                        items: [
-                            {
-                                id: crypto.randomUUID(),
-                                path: '/components',
-                                label: 'Components',
-                                icon: 'fa fa-cubes',
-                                children:[
-                                    { 
-                                        path: '/components/buttons', 
-                                        label: 'Buttons',
-                                    },
-                                    { 
-                                        path: '/components/calender', 
-                                        label: 'Calender',
-                                    },
-                                ],
-                            },
-                            {
-                                id: crypto.randomUUID(),
-                                path: '/features',
-                                label: 'features',
-                                icon: 'fa fa-features',
-                                children:[
-                                    { 
-                                        path: '/features/search', 
-                                        label: 'Global Search',
-                                    },
-                                ],
-                            }
-                        ]
-                    }
-                `}
-            />
+            <p>The <strong>sections</strong> file defines the structure of the menu using sections and nodes. Each node can represent a page and can contain its own child nodes.</p> 
+            <p>Nodes can be nested to any depth, allowing you to build complex menu structures without being limited to a fixed number of child levels. The menu traverses this tree structure to display and manage each node accordingly.</p>
+            <h3>View @Sierra-95/svelte-scaffold sections and routes file <a href={routes.modules.layout.children.features.children.scaffold_sections_file.path} class="note">here</a></h3>
         </section>
     </ol>
 </main>

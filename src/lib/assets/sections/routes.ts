@@ -186,9 +186,8 @@ export const routes = {
             structure: {
               path : layout + '/features/structure',
               ids: {
-                flexible_header: 'flexible-header',
+                header_options: 'header-options',
                 tree_menu: 'tree-menu',
-                navigator: 'navigator',
               }
             } as basicPage,
             global: {
@@ -200,6 +199,9 @@ export const routes = {
                 navigator: 'navigator',
                 rbac: 'rbac',
               }
+            } as basicPage,
+            scaffold_sections_file : {
+              path : layout + '/features/scaffold-section',
             } as basicPage,
           }
         },
