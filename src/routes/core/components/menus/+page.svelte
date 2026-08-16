@@ -1,5 +1,6 @@
 <script>
-    import {MenuItem, DropdownContainer, buttonRipple, Hr,  Tabs, HamburgerMenu, ContentSwitcher, Avatar} from '@sierra-95/svelte-scaffold';
+    import {MenuItem, DropdownContainer, buttonRipple, Hr,  Tabs, 
+    HamburgerMenu, ContentSwitcher, Avatar, Button} from '@sierra-95/svelte-scaffold';
 	import {RenderCode} from '$lib';
     import { favicon, routes } from '$lib/assets/company';
 
@@ -196,7 +197,7 @@
                 <MenuItem active={activeMenu === 2} onclick={() => activeMenu = 2} icon="fa-folder">Folders</MenuItem>
                 <MenuItem active={activeMenu === 3} onclick={() => activeMenu = 3} icon="fa-share-alt">Shared</MenuItem>
             {/snippet}
-            <ContentSwitcher {navItems}>
+            <ContentSwitcher items={navItems}>
 
                 {#if activeMenu === 1}
                     <div>I am Files</div>
@@ -225,7 +226,7 @@
                     <MenuItem active={activeMenu === 3} onclick={() => activeMenu = 3} icon="fa-share-alt">Shared</MenuItem>
                 {/snippet}
 
-                <ContentSwitcher {navItems}>
+                <ContentSwitcher items={navItems}>
                     {#if activeMenu === 1}
                         <div>I am Files</div>
                     {/if}
@@ -245,23 +246,23 @@
                 The HamburgerMenu component provides a responsive navigation menu that can be toggled open and closed.
                 It is commonly used in mobile and responsive web design to save space and provide a clean user interface.
             </p>
-            <HamburgerMenu
-                bind:menuOpen={hamburgerMenuOpen}
-                barHeight="2px"
-                barColor="var(--ss-neutral)"
-                menuBackgroundColor="var(--ss-l-s)"
-                menuTextColor="var(--ss-d-p)"
-                menuLogoUrl={favicon + 'favicon.ico'} 
-                menuLogoWidth="30px"
-                buttonTimesColor="var(--ss-d-p)"
-            >
-                <div class="p-6">
-                    <h2>Some Items</h2>
-                    <h3>Item 1</h3>
-                    <h3>Item 2</h3>
-                    <h3>Item 3</h3>
-                </div>
-            </HamburgerMenu>
+            <div class="flex gap-4 items-center">
+                <Button endIcon="fa-arrow-right">Click the menu button</Button>
+                <HamburgerMenu
+                    bind:menuOpen={hamburgerMenuOpen}
+                    logo = {{
+                        src: favicon + 'favicon.ico',
+                        width: '30px'
+                    }}
+                >
+                    <div class="p-6">
+                        <h2>Some Items</h2>
+                        <h3>Item 1</h3>
+                        <h3>Item 2</h3>
+                        <h3>Item 3</h3>
+                    </div>
+                </HamburgerMenu>
+            </div>
             <RenderCode
                 lang="svelte"
                 code={`
@@ -272,13 +273,10 @@
 
                 <HamburgerMenu
                     bind:menuOpen={hamburgerMenuOpen}
-                    barHeight="2px"
-                    barColor="var(--ss-neutral)"
-                    menuBackgroundColor="var(--ss-l-s)"
-                    menuTextColor="var(--ss-d-p)"
-                    menuLogoUrl="https://example.com/logo.png"
-                    menuLogoWidth="30px"
-                    buttonTimesColor="var(--ss-d-p)"
+                    logo = {{
+                        src: "https://example.com/logo.png",
+                        width: '30px'
+                    }}
                 >
                     <div class="p-6">
                         <h2>Some Items</h2>

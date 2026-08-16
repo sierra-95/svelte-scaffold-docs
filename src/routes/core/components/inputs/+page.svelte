@@ -1,23 +1,20 @@
 <script lang="ts">
 	import { onMount } from 'svelte';
 	import {
-		Input, PasswordInput, fileInputStore, FileInput, 
-		resetFileInputStore, SearchBar, Select, DateInput, TimeInput,
+		Input, fileInputStore, FileInput, 
+		resetFileInputStore, SearchBar, Select,
 		TextArea, PasswordStrength, Table
 	} from '@sierra-95/svelte-scaffold';
 	import {RenderCode} from '$lib';
 	import { routes } from '$lib/assets/company';
-	import { propsTable, eventHandlersTable, stylingTable, fileInputDocumentListTable, fileInputUploadTypeTable } from './table';
+	import { inputsTable, fileInputDocumentListTable, fileInputUploadTypeTable } from './table';
 
 	let email = '';
-	let password = '';
 	let new_password = '';
 	let confirm_password = '';
 	let textareaValue = '';
 	let searchQuery = '';
 	let selectedValue = '';
-	let selectedDate = '';
-	let selectedTime = '';
 
 	let processing = false; 
 
@@ -52,13 +49,19 @@
 	<ol class="sierra-docs-ol space-y-4">
 		<section id={routes.core.components.children.inputs.ids.basic_input} data-title="Basic Input" class="space-y-4">
 			<li>Basic Input</li>
-			<Input 
-				id="email" 
-				type="email" 
-				label="Email Address" 
-				placeholder="Enter your email"
-				bind:value={email}
-			/>
+			<h3>id == name == label_for</h3>
+			<h3>type= default: [text] options: [password, date, time, number, email, tel, url  etc]</h3>
+			<div class="flex gap-4 items-center flex-wrap">
+				<Input 
+					id="email" 
+					type="email" 
+					label="Email Address" 
+					placeholder="Enter your email"
+					bind:value={email}
+				/>
+				<Input label="Select Date" type="date"/>
+				<Input label="Select Time" type="time"/>
+			</div>
 			<RenderCode
 				lang="svelte"
 				code={`
@@ -66,8 +69,7 @@
 					import { Input } from '@sierra-95/svelte-scaffold';
 					let email = '';
 				<\/script>
-				<!-- id == name == label_for -->
-				<!-- type: default=text, options: text, number, email, tel, url  etc-->
+
 				<Input 
 					id="email" 
 					type="email" 
@@ -79,47 +81,10 @@
 			`}/>
 		</section>
 
-		<section id={routes.core.components.children.inputs.ids.password_input} data-title="Password Input" class="space-y-4">
-			<li>Password Input</li>
-			<PasswordInput
-				id="password" 
-				label="Password" 
-				placeholder="Enter your password"
-				bind:value={password} 
-			/>
-			<RenderCode
-				lang="svelte"
-				code={`
-				<\script>
-					import { PasswordInput } from '@sierra-95/svelte-scaffold';
-					let password = '';
-				<\/script>
-
-				<!-- id == name == label_for -->
-				<PasswordInput
-					id="password" 
-					label="Password" 
-					placeholder="Enter your password"
-					bind:value={password} 
-				/>
-				
-			`}/>
-		</section>
-
 		<section id={routes.core.components.children.inputs.ids.password_strength_meter} data-title="Password Strength" class="space-y-4">
 			<li>Password Strength</li>
-			<PasswordInput
-				id="new_password" 
-				label="New Password" 
-				placeholder="Enter your password"
-				bind:value={new_password} 
-			/>
-			<PasswordInput
-				id="confirm_password" 
-				label="Confirm Password" 
-				placeholder="Confirm your password"
-				bind:value={confirm_password} 
-			/>
+			<Input type="password" label="New Password" placeholder="Enter your new password" bind:value={new_password}/>
+			<Input type="password" label="Confirm Password" placeholder="Confirm your new password" bind:value={confirm_password}/>
 			<PasswordStrength
 				minLength={8}
 				new_password={new_password}
@@ -129,23 +94,15 @@
 				lang="svelte"
 				code={`
 				<\script>
-					import { PasswordStrength, PasswordInput } from '@sierra-95/svelte-scaffold';
+					import { PasswordStrength, Input } from '@sierra-95/svelte-scaffold';
+
 					let new_password = '';
 					let confirm_password = '';
 				<\/script>
 
-				<PasswordInput
-					id="new_password" 
-					label="New Password" 
-					placeholder="Enter your password"
-					bind:value={new_password} 
-				/>
-				<PasswordInput
-					id="confirm_password" 
-					label="Confirm Password" 
-					placeholder="Confirm your password"
-					bind:value={confirm_password} 
-				/>
+				<Input type="password" label="New Password" placeholder="Enter your new password" bind:value={new_password}/>
+				<Input type="password" label="Confirm Password" placeholder="Confirm your new password" bind:value={confirm_password}/>
+
 				<PasswordStrength
 					minLength={8}
 					new_password={new_password}
@@ -179,49 +136,6 @@
 					placeholder="Enter your message"
 					bind:value={textareaValue}
 					rows={2}
-				/>
-				
-			`}/>
-		</section>
-
-		<section id={routes.core.components.children.inputs.ids.date_time_input} data-title="Date & Time Inputs" class="space-y-4">
-			<li>Date & Time Inputs</li>
-			<DateInput 
-				id="date" 
-				label="Select Date" 
-				placeholder="Enter date"
-				bind:value={selectedDate}
-				maxWidth="300px"
-			/>
-			<TimeInput 
-				id="time" 
-				label="Select Time" 
-				placeholder="Enter time"
-				bind:value={selectedTime}
-				maxWidth="300px"
-			/>
-			<RenderCode
-				lang="svelte"
-				code={`
-				<\script>
-					import { DateInput, TimeInput } from '@sierra-95/svelte-scaffold';
-					let selectedDate = '';
-					let selectedTime = '';
-				<\/script>
-
-				<DateInput 
-					id="date" 
-					label="Select Date" 
-					placeholder="Enter date"
-					bind:value={selectedDate}
-					maxWidth="300px"
-				/>
-				<TimeInput 
-					id="time" 
-					label="Select Time" 
-					placeholder="Enter time"
-					bind:value={selectedTime}
-					maxWidth="300px"
 				/>
 				
 			`}/>
@@ -318,9 +232,7 @@
 
 		<section id={routes.core.components.children.inputs.ids.inputs_api} data-title="Inputs API" class="space-y-4">
 			<li>Inputs API</li>
-			<Table title={propsTable.title} table={propsTable.table}/>
-			<Table title={eventHandlersTable.title} table={eventHandlersTable.table}/>
-			<Table title={stylingTable.title} table={stylingTable.table}/>
+			<Table title={inputsTable.title} table={inputsTable.table}/>
 		</section>
 	</ol>
 </main>

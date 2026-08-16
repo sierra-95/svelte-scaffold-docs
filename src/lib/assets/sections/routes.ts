@@ -54,10 +54,8 @@ export const routes = {
           path : components + '/inputs',
           ids: {
             basic_input: 'basic-input',
-            password_input: 'password-input',
             password_strength_meter: 'password-strength-meter',
             textarea_input: 'textarea-input',
-            date_time_input: 'date-time-input',
             search_bar_input: 'search-bar-input',
             select_input: 'select-input',
             file_input: 'file-input',

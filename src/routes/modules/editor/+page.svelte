@@ -22,7 +22,7 @@
 		});
 
         editorStore.update(store => {
-            store.enabledFeatures = ['text-formatting', 'history', 'headings', 'text-color', 'text-align', 'lists', 'images', 'links', 'youtube'];
+            store.enabledFeatures = ['BIU', 'undo-redo', 'headings', 'color', 'highlight', 'alignment', 'lists', 'images', 'links', 'youtube'];
             return store;
         });
     })
@@ -47,7 +47,7 @@
                     let content = {};
                     onMount(()=>{
                         editorStore.update(store => {
-                            store.enabledFeatures = ['text-formatting', 'history', 'headings', 'text-color', 'text-align', 'lists', 'images', 'links', 'youtube'];
+                            store.enabledFeatures = ['BIU', 'undo-redo', 'headings', 'color', 'highlight', 'alignment', 'lists', 'images', 'links', 'youtube'];
                             return store;
                         });
                     })
