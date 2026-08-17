@@ -68,18 +68,15 @@
             {/snippet}
             <DropdownContainer width="300px" bind:open={openUserMenu} dropdownTrigger={TriggerUserInfo}>
                 <div class="flex gap-4 p-2">
-                    <Avatar 
-                        boxShadow=""
-                        borderColor="var(--ss-d-t)"
-                    />
+                    <Avatar/>
                     <div>
                         <h3>John Doe</h3>
                         <p class="text-sm text-(--ss-d-t)">john.doe@example.com</p>
                     </div>
                 </div>
                 <Hr margin="0rem"/>
-                <MenuItem  icon="fa-user" iconSize='15px'>Profile</MenuItem>
-                <MenuItem  icon="fa-right-from-bracket" iconSize='15px'>Logout</MenuItem>
+                <MenuItem  iconC={{name:"fa-user"}}>Profile</MenuItem>
+                <MenuItem  iconC={{name:"fa-right-from-bracket"}}>Logout</MenuItem>
             </DropdownContainer>
             {#if openUserMenu}
                 <div class="h-50"></div>
@@ -101,21 +98,15 @@
                 {/snippet}
                 <DropdownContainer width="300px" bind:open={openUserMenu} dropdownTrigger={TriggerUserInfo}>
                     <div class="flex gap-4 p-2">
-                        <Avatar 
-                            avatarSize="35px" 
-                            iconSize="20px" 
-                            url="https://example.com/avatar.jpg"
-                            boxShadow=""
-                            borderSize="0px"
-                        />
+                        <Avatar {src} upload onClick={handleAvatarClick} />
                         <div>
                             <h3>John Doe</h3>
                             <p class="text-sm text-(--ss-d-t)">john.doe@example.com</p>
                         </div>
                     </div>
                     <Hr margin="0rem"/>
-                    <MenuItem onclick={handleProfile} icon="fa-user" iconSize='15px'>Profile</MenuItem>
-                    <MenuItem onclick={handleLogout} icon="fa-right-from-bracket" iconSize='15px'>Logout</MenuItem>
+                    <MenuItem onclick={handleProfile} iconC={{name: "fa-user"}}>Profile</MenuItem>
+                    <MenuItem onclick={handleLogout} iconC={{name: "fa-right-from-bracket"}}>Logout</MenuItem>
                 </DropdownContainer>
             `}/>
         </section>
@@ -193,9 +184,9 @@
                 place it in <code>+layout.svelte</code> and use an <code>onclick</code> action to navigate to the page.
             </h3>
             {#snippet navItems()}
-                <MenuItem active={activeMenu === 1} onclick={() => activeMenu = 1} icon="fa-file">Files</MenuItem>
-                <MenuItem active={activeMenu === 2} onclick={() => activeMenu = 2} icon="fa-folder">Folders</MenuItem>
-                <MenuItem active={activeMenu === 3} onclick={() => activeMenu = 3} icon="fa-share-alt">Shared</MenuItem>
+                <MenuItem active={activeMenu === 1} onclick={() => activeMenu = 1} iconC={{name: "fa-file"}}>Files</MenuItem>
+                <MenuItem active={activeMenu === 2} onclick={() => activeMenu = 2} iconC={{name: "fa-folder"}}>Folders</MenuItem>
+                <MenuItem active={activeMenu === 3} onclick={() => activeMenu = 3} iconC={{name: "fa-share-alt"}}>Shared</MenuItem>
             {/snippet}
             <ContentSwitcher items={navItems}>
 
@@ -221,9 +212,9 @@
                 </script>
 
                 {#snippet navItems()}
-                    <MenuItem active={activeMenu === 1} onclick={() => activeMenu = 1} icon="fa-file">Files</MenuItem>
-                    <MenuItem active={activeMenu === 2} onclick={() => activeMenu = 2} icon="fa-folder">Folders</MenuItem>
-                    <MenuItem active={activeMenu === 3} onclick={() => activeMenu = 3} icon="fa-share-alt">Shared</MenuItem>
+                    <MenuItem active={activeMenu === 1} onclick={() => activeMenu = 1} iconC={{name: "fa-file"}}>Files</MenuItem>
+                    <MenuItem active={activeMenu === 2} onclick={() => activeMenu = 2} iconC={{name: "fa-folder"}}>Folders</MenuItem>
+                    <MenuItem active={activeMenu === 3} onclick={() => activeMenu = 3} iconC={{name: "fa-share-alt"}}>Shared</MenuItem>
                 {/snippet}
 
                 <ContentSwitcher items={navItems}>

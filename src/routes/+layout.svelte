@@ -69,8 +69,8 @@
 {/snippet}
 {#snippet headerRightContent()}
 	<DropdownContainer top="30px" bind:open={openMenu} dropdownTrigger={TriggerMenu}>		
-		<MenuItem onclick={() => window.open(resources.package.github_issues,'_blank','noopener,noreferrer')} icon="fa-github" iconSize="15px">Issues</MenuItem>
-		<MenuItem onclick={() => window.open(resources.package.npm,'_blank','noopener,noreferrer')} icon="fa-brands fa-npm" iconSize="15px">npm</MenuItem>
+		<MenuItem onclick={() => window.open(resources.package.github_issues,'_blank','noopener,noreferrer')} iconC={{name: "fa-github"}}>Issues</MenuItem>
+		<MenuItem onclick={() => window.open(resources.package.npm,'_blank','noopener,noreferrer')} iconC={{name: "fa-brands fa-npm"}}>npm</MenuItem>
 		<div style="display: flex; gap: 1rem; align-items: center; padding: 1rem">Theme<ButtonTheme /></div>
 	</DropdownContainer>
 {/snippet}
