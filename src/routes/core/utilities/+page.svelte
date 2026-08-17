@@ -20,7 +20,7 @@
     const timezone = "America/New_York";
 
     function handleAvatarClick(){
-        alert('Avatar clicked!');
+        alert('Editing!');
     }
 </script>
 
@@ -39,16 +39,11 @@
                 <a class="note" href={routes.core.components.children.menus.path + '#' + routes.core.components.children.menus.ids.user_menu}>User Menu</a>
             </h3>
             <div class="flex gap-4 items-center">
-                <Avatar boxShadow=""/>
-                <Avatar url={images[0]} boxShadow=""/>
+                <Avatar/>
+                <Avatar src={images[0]}/>
                 <Avatar 
-                    url={images[0]}
-                    avatarSize = '100px'
-                    iconSize = '30px'
-                    zIndex={2}
+                    src={images[0]}
                     upload={true}
-                    borderSize ="0px"
-                    icon="fa-regular fa-camera"
                     onClick={handleAvatarClick}
                 />
             </div>
@@ -58,8 +53,8 @@
                     <\script>
                         import { Avatar } from '@sierra-95/svelte-scaffold';
                     <\/script>
-                    <Avatar boxShadow=""/>
-                    <Avatar url={images[0]} boxShadow=""/>
+                    <Avatar />
+                    <Avatar src="https://example.com/avatar.jpg" />
             `}/>
             <h3>In upload mode, it can be used to allow users to upload their own avatars. It is upto the developer to implement the upload functionality.</h3>
             <RenderCode
@@ -69,13 +64,8 @@
                     import { Avatar } from '@sierra-95/svelte-scaffold';
                 <\/script>
                 <Avatar 
-                    url="https://example.com/avatar.jpg"
-                    avatarSize = '100px'
-                    iconSize = '30px'
-                    zIndex={2}
-                    upload={true} //only activates onClick
-                    borderSize ="0px"
-                    icon="fa-regular fa-camera" //switching from default fa-user
+                    src="https://example.com/avatar.jpg"
+                    upload={true}
                     onClick={handleAvatarClick}
                 />
             `}/>
