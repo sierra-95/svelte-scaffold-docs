@@ -76,6 +76,13 @@
 	<link rel="icon" type="image/png" sizes="16x16" href="{favicon}favicon-16x16.png">
 	<link rel="manifest" href="{site_webmanifest}">
 	<script src="https://kit.fontawesome.com/dd0e902104.js" crossorigin="anonymous"></script>
+
+	<meta property="og:title" content="@sierra-95/svelte-scaffold">
+	<meta property="og:description" content="A powerful Svelte scaffold with pre-built components, modules, and stores to jumpstart your project.">
+	<meta property="og:image" content="https://files.michaelmachohi.com/logos/og.png">
+	<meta property="og:url" content="https://svelte.michaelmachohi.com/">
+	<meta property="og:site_name" content="@sierra-95/svelte-scaffold">
+	<meta property="og:type" content="website">
 </svelte:head>
 
 <!-- Settings Menu -->
