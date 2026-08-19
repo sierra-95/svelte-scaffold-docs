@@ -1,6 +1,7 @@
 <script lang="ts">
 	import '../app.css';
 	import { onMount, tick } from 'svelte';
+	import {page} from '$app/state';
 	import {browser} from '$app/environment';
 	import {Layout, ButtonTheme, theme, isMobile, DropdownContainer, MenuItem, layoutStore, Navigator, mediaServerConfig} from '@sierra-95/svelte-scaffold';
 	import { favicon, sections, routes, resources } from '$lib/assets/company';
@@ -41,13 +42,30 @@
 		}
 	})
 
+	function scrollToSection(sectionId: string) {
+		const sectionElement = document.getElementById(sectionId);
+		if (sectionElement) {
+			sectionElement.scrollIntoView({ behavior: 'smooth' });
+		}
+	}
+
 	onMount(async () => {
 		await tick();
+		const hash = page.url.hash;
+		if (hash) scrollToSection(hash.substring(1));
+	});
 
-		const hash = window.location.hash;
-		if (hash) {
-			const el = document.querySelector(hash);
-			el?.scrollIntoView({ behavior: 'smooth' });
+	const targetId = `docs-screen-start`;
+	let previousPathname = page.url.pathname;
+	$effect(() => {
+		const pathname = page.url.pathname;
+		const hash = page.url.hash;
+		if (pathname !== previousPathname) {
+			previousPathname = pathname;
+			if (!hash) {
+				//console.log("scrolling to top");
+				scrollToSection(targetId);
+			}
 		}
 	});
 </script>
@@ -84,6 +102,7 @@
 {/snippet}
 
 <Layout>
+	<div id={targetId}></div>
 	{@render children()}
 	<PageMeta/>
 	<Navigator/>
