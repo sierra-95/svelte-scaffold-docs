@@ -1,25 +1,32 @@
 <script lang="ts">
-    import {fileInputStore, resetFileInputStore, Button, Input} from '@sierra-95/svelte-scaffold';
+    import {filePickerSet, filePickerConfig, Button, Input} from '@sierra-95/svelte-scaffold';
+    import type {MediaItem} from '@sierra-95/svelte-scaffold';
     import {RenderCode} from '$lib';
     import {routes} from '$lib/assets/company';
 
-    function limitFilePickerMenu(){
-        fileInputStore.update(store => ({ 
-			...store,
-            disabledMenuItem: ['Documents','Videos','Music', 'Others'],
-			uploadModalOpen: true 
-		}));
+    function open(){
+        filePickerSet.update(store => { 
+			store.MenuItems = ['Pictures']
+			store.Actions =['none']
+			return store;
+		});
+        filePickerConfig.update(config => {
+			config.modalOpen = true;
+			return config;
+		});
     }
-    let value = '';
-    $: if (
-		$fileInputStore.submissionComplete &&
-		$fileInputStore.submissions.length > 0 &&
-		$fileInputStore.uploadModalOpen === false
-	) {
-		const urlsToInsert = $fileInputStore.submissions.map(item => item.url);
-		value += urlsToInsert.join(' ');
-		resetFileInputStore();
-	}
+    let value = $state('');
+	$effect(()=>{
+		if($filePickerSet.insert.length > 0){
+			for (const item of $filePickerSet.insert as MediaItem[]) {
+				value += item.url + ' ';
+			}
+			filePickerSet.update(store => {
+				store.insert = [];
+				return store;
+			});
+		}
+	})    
 </script>
 
 <title>Usage</title>
@@ -34,10 +41,10 @@
             When <code>$fileInputStore.manage</code> is true, the file picker enters manage mode.
             </h3>
             <h3>
-            In Insertion Mode, selected media are appended to <code>$fileInputStore.submissions</code>,
+            In Insertion Mode, selected media are appended to <code>$filePickerSet.insert</code>,
             which can then be used to populate forms by extracting the required data.
             </h3>
-            <Button onclick={limitFilePickerMenu}>Click to test</Button>
+            <Button onclick={open}>Click to test</Button>
             <Input 
                 id="url-input" 
                 label="File URLs" 
@@ -49,27 +56,34 @@
                 lang="svelte"
                 code={`
                 <\script>
-                    import {User, Input, FilePicker, fileInputStore, resetFileInputStore} from '@sierra-95/svelte-scaffold';
-                    
-                    function limitFilePickerMenu(){
-                        fileInputStore.update(store => ({ 
-                            ...store,
-                            disabledMenuItem: ['Documents','Videos','Music', 'Others'],
-                            uploadModalOpen: true 
-                        }));
+                    import {filePickerSet, filePickerConfig, Button, Input} from '@sierra-95/svelte-scaffold';
+                    import type {MediaItem} from '@sierra-95/svelte-scaffold';
+
+                    function open(){
+                        filePickerSet.update(store => { 
+                            store.MenuItems = ['Pictures']
+                            store.Actions =['none']
+                            return store;
+                        });
+                        filePickerConfig.update(config => {
+                            config.modalOpen = true;
+                            return config;
+                        });
                     }
-                    let value = '';
-                    $: if (
-                        $fileInputStore.submissionComplete &&
-                        $fileInputStore.submissions.length > 0 &&
-                        $fileInputStore.uploadModalOpen === false
-                    ) {
-                        const urlsToInsert = $fileInputStore.submissions.map(item => item.url);
-                        value += urlsToInsert.join(' ');
-                        resetFileInputStore();
-                    }
+                    let value = $state('');
+                    $effect(()=>{
+                        if($filePickerSet.insert.length > 0){
+                            for (const item of $filePickerSet.insert as MediaItem[]) {
+                                value += item.url + ' ';
+                            }
+                            filePickerSet.update(store => {
+                                store.insert = [];
+                                return store;
+                            });
+                        }
+                    }) 
                 <\/script>
-                <Button onclick={limitFilePickerMenu}>Click to test</Button>
+                <Button onclick={open}>Click to test</Button>
                 <Input 
                     id="url-input" 
                     label="File URLs" 
@@ -78,13 +92,59 @@
                 />
             `}/>
         </section>
-        <section id={routes.modules.file_picker.children.usage.ids.store_props} data-title="File Input store props" class="space-y-4">
-            <li>File Input store props</li>
-            <ul class="list-disc list-inside space-y-2">
-                <li>File Picker is built on <a href={`${routes.core.components.children.inputs.path}#${routes.core.components.children.inputs.ids.file_input}`} class="note">File Input</a>. This means you can control size and type of files to be uploaded.</li>
-                <li>To remove specific menu items, add them on <code>$fileInputStore.disabledMenuItem</code> array</li>
-                <li>To disable Delete or download Actions, list them on <code>$fileInputStore.disabledActions</code> array</li>
-            </ul>
+        <section id={routes.modules.file_picker.children.usage.ids.storage} data-title="Setting Up Storage" class="space-y-4">
+            <li>Setting Up Storage</li>
+            <h3>The File Picker has a storage gauge which shows the amount of storage used and available.</h3>
+            <h3>In this example, i fetch the storage information from the backend.</h3>
+            <RenderCode
+                lang="svelte"
+                code={`
+                <\script>
+                    import {onMount} from 'svelte';
+                    import {filePickerConfig, mediaServerConfig} from '@sierra-95/svelte-scaffold';
+                    
+                    let storageFetched = $state(false);
+                    let storage = $state<{ used_storage_bytes: number; storage_quota_bytes: number }>({
+                        used_storage_bytes: 0,
+                        storage_quota_bytes: 0
+                    });
+
+                    async function getStorageUsage() {
+                        try {
+                            const response = await fetch(endpoint);
+                            if (!response.ok) {
+                                throw new Error('Failed to fetch storage usage');
+                            }
+                            storage = await response.json();
+                            updateStorage();
+                        } catch (err) {
+                            console.error('Storage usage error:', err);
+                        }
+                    }	
+
+                    function updateStorage() {
+                        mediaServerConfig.update(store => {
+                            store.usedBytes = storage.used_storage_bytes;
+                            store.maxBytes = storage. storage_quota_bytes;
+                            return store;
+                        });
+                    }
+                    onMount(()=>{
+                        filePickerSet.update(store => {
+                            store.onUpload = getStorageUsage;
+                            store.onDelete = getStorageUsage;
+                            return store;
+                        });
+                    })
+
+                    \$effect(()=>{
+                        if(!storageFetched && $mediaServerConfig.user_id){
+                            getStorageUsage();
+                            storageFetched = true;
+                        }
+                    })
+                <\/script>
+            `}/>
         </section>
     </ol>
 </main>

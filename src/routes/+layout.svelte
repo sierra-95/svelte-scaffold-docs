@@ -2,7 +2,7 @@
 	import '../app.css';
 	import { onMount, tick } from 'svelte';
 	import {browser} from '$app/environment';
-	import {Layout, ButtonTheme, theme, isMobile, DropdownContainer, MenuItem, layoutStore, fileInputConfig, Navigator} from '@sierra-95/svelte-scaffold';
+	import {Layout, ButtonTheme, theme, isMobile, DropdownContainer, MenuItem, layoutStore, Navigator, mediaServerConfig} from '@sierra-95/svelte-scaffold';
 	import { favicon, sections, routes, resources } from '$lib/assets/company';
 	import site_webmanifest from '$lib/assets/site.webmanifest';
 	import { Footer, PageMeta } from '$lib';
@@ -10,12 +10,11 @@
 	let { children } = $props();
 
 	let openMenu = $state(false);
-	const user_id = '550e8400-e29b-41d4-a716-446655440000';
 	const link = $derived(`https://files.michaelmachohi.com/logos/michaelmachohi.${$theme === 'light' ? 'dark' : 'light'}.png`);
 
 	onMount(()=>{
-		fileInputConfig.update(store => {
-			store.user_id = user_id; 
+		mediaServerConfig.update(store => {
+			store.user_id = '550e8400-e29b-41d4-a716-446655440000'; 
 			return store;
 		});
 		layoutStore.update(store =>{
@@ -79,7 +78,7 @@
 {#snippet TOCContent()}
 	<div style="margin-top: 1rem">
 		<h3>Guest Id:
-			<em class="text-sm text-(--ss-success)">{$fileInputConfig.user_id}</em>
+			<em class="text-sm text-(--ss-success)">{$mediaServerConfig.user_id}</em>
 		</h3>
 	</div>
 {/snippet}

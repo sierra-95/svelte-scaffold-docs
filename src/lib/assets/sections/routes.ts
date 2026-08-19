@@ -153,7 +153,6 @@ export const routes = {
           path: file_picker + '/getting-started',
           ids: {
             getting_started : 'getting-started',
-            storage : 'storage',
           }
         } as basicPage,
         
@@ -169,7 +168,7 @@ export const routes = {
           path: file_picker + '/usage',
           ids: {
             manage_mode: 'manage-mode',
-            store_props: 'store-props',
+            storage : 'storage',
           }
         } as basicPage,
       },

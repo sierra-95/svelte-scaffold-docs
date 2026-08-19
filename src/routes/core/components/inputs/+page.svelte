@@ -1,9 +1,9 @@
 <script lang="ts">
 	import { onMount } from 'svelte';
 	import {
-		Input, fileInputStore, FileInput, 
-		resetFileInputStore, SearchBar, Select,
-		TextArea, PasswordStrength, Table
+		Input, FileInput, SearchBar, Select,
+		TextArea, PasswordStrength, Table, 
+		fileInputConfig, resetFileInput
 	} from '@sierra-95/svelte-scaffold';
 	import {RenderCode} from '$lib';
 	import { routes } from '$lib/assets/company';
@@ -20,16 +20,16 @@
 
     function handleUpload(){
         processing = true;
-        const files = $fileInputStore.selectedFiles;
+        const files = $fileInputConfig.selectedFiles;
         //process the files here
         processing = false;
-        resetFileInputStore();
+        resetFileInput();
     }
 
     onMount(() => {
-        fileInputStore.update(store => {
+        fileInputConfig.update(store => {
             store.sizeConstraint = 5 * 1024 * 1024;
-            store.uploadType = ['image','video','audio','documents'];
+            store.uploadType = ['Pictures'];
             return store;
         });
     });
@@ -204,22 +204,22 @@
 				code={`
 				<\script>
 					import { onMount } from 'svelte';
-					import { FileInput, fileInputStore, resetFileInputStore} from '@sierra-95/svelte-scaffold';
+					import { FileInput, fileInputConfig, resetFileInput } from '@sierra-95/svelte-scaffold';
 				
 					let processing = false; 
 
 					function handleUpload(){
 						processing = true;
-						const files = $fileInputStore.selectedFiles;
+						const files = $fileInputConfig.selectedFiles;
 						//process the files here
 						processing = false;
-						resetFileInputStore();
+						resetFileInput();
 					}
 
 					onMount(() => {
-						fileInputStore.update(store => {
-							store.sizeConstraint = 5 * 1024 * 1024; // 5 MB
-							store.uploadType = ['image','video','audio','documents'];
+						fileInputConfig.update(store => {
+							store.sizeConstraint = 5 * 1024 * 1024;
+							store.uploadType = ['Pictures'];
 							return store;
 						});
 					});

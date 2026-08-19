@@ -1,27 +1,19 @@
 <script>
     import { onMount } from 'svelte';
-    import {Editor, editorStore, editorConfig} from '@sierra-95/svelte-scaffold';
+    import {Editor, editorStore} from '@sierra-95/svelte-scaffold';
     import {RenderCode} from '$lib';
     import {routes} from '$lib/assets/company';
     
     let content = {};
 
     onMount(()=>{
-        editorConfig.update(store => {
+        editorStore.update(store => {
             store.style = {
                 ...store.style,
                 width: {
                     max: '1024px',
                 }
             }
-			store.serverGetUrl = '/api/media/get';
-			store.serverUploadUrl = '/api/media/upload';
-			store.serverDeleteUrl = '/api/media/delete';
-			store.serverDownloadUrl = '/api/media/download';
-			return store;
-		});
-
-        editorStore.update(store => {
             store.enabledFeatures = ['BIU', 'undo-redo', 'headings', 'color', 'highlight', 'alignment', 'lists', 'images', 'links', 'youtube'];
             return store;
         });
@@ -105,32 +97,32 @@
 
         <section id={routes.modules.editor.ids.inserting_images} class="space-y-4">
             <li>Inserting Images</li>
-            <h3>The editor primarily uses
+            <h3>The editor uses
                 <a href={routes.modules.file_picker.base} class="note">File Picker</a>
                 to handle multiple image uploads and insertions.
                 An input has also been provided to key in image URLs manually.
             </h3>
-            <h3>To disable file picker functionality, unlist it from $editorStore.insertImageMode array. This only leaves manual image URL insertion</h3>
-            <h3>You will need to configure the editor with the appropriate API endpoints for image handling. They will be directly used by the File Picker</h3>
+            <h3>You can control mode of insertion using <strong>$editorStore.insertImageMode</strong> array, and by default, all modes are enabled.</h3>
+            <h3>See the example below.</h3>
             <RenderCode
                 lang="svelte"
                 code={`
                 <\script>
                     import { onMount } from 'svelte';
-                    import {editorConfig} from '@sierra-95/svelte-scaffold';
+                    import {editorStore} from '@sierra-95/svelte-scaffold';
                     
                     onMount(()=>{
-                        editorConfig.update(config => {
-                            config.serverGetUrl = '/api/media/get';
-                            config.serverUploadUrl = '/api/media/upload';
-                            config.serverDeleteUrl = '/api/media/delete';
-                            config.serverDownloadUrl = '/api/media/download';
+                        editorStore.update(config => {
+                            config.insertImageMode = ['url'];
                             return config;
                         });
                     })
                 <\/script>
 
             `}/>
+            <h3>To use File Picker, additional configuration is required.
+                <a href={routes.modules.file_picker.base} class="note">Read more</a>
+            </h3>
         </section>
 
         <section class="space-y-4" id={routes.modules.editor.ids.supported_styles}>
@@ -141,10 +133,10 @@
                 code={`
                 <\script>
                     import { onMount } from 'svelte';
-                    import {editorConfig} from '@sierra-95/svelte-scaffold';
+                    import {editorStore} from '@sierra-95/svelte-scaffold';
                     
                     onMount(()=>{
-                        editorConfig.update(config => {
+                        editorStore.update(config => {
                             config.style = {
                                 ...config.style,
                                 width: {

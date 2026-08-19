@@ -1,4 +1,4 @@
-<script>
+<script lang="ts">
     import {RenderCode} from '$lib';
     import {routes} from '$lib/assets/company';
     import {Button} from '@sierra-95/svelte-scaffold';
@@ -13,10 +13,10 @@
     <h1 class="sierra-docs-h1">Backend Integration</h1>
     <h3>There are only 4 main endpoints you need to implement:</h3>
     <ul class="list-disc list-inside space-y-2">
-        <li><strong>GET:</strong> <code>$fileInputStore.serverGetUrl</code> - used to load files onMount</li>
-        <li><strong>POST:</strong> <code>$fileInputStore.serverUploadUrl</code> - used to upload new files</li>
-        <li><code>$fileInputStore.serverDownloadUrl</code> - Download files</li>
-        <li><strong>DELETE:</strong> <code>$fileInputStore.serverDeleteUrl</code> - used to delete files</li>
+        <li><strong>GET:</strong> <code>$mediaServerConfig.getUrl</code> - used to load files onMount</li>
+        <li><strong>POST:</strong> <code>$mediaServerConfig.uploadUrl</code> - used to upload new files</li>
+        <li><code>$mediaServerConfig.downloadUrl</code> - Download files</li>
+        <li><strong>DELETE:</strong> <code>$mediaServerConfig.deleteUrl</code> - used to delete files</li>
     </ul>
     <h3>We will use <strong>uploading</strong> as an example to demonstrate the integration process.</h3>
 	
@@ -25,13 +25,13 @@
             <li>Understanding the Module API Call</li>
             <h3>This part is not necessarily important. It will help you understand what goes behind the scenes when you click the upload button</h3>
             <h3>OnUpload,the module first checks if there are actual files to be uploaded, and precense of a user_id. If this exists, 
-                the component makes a POST request to the <code>$fileInputStore.serverUploadUrl</code> endpoint with the files and user_id in the body. An Ok response will be expected.
+                the component makes a POST request to the <code>$mediaServerConfig.uploadUrl</code> endpoint with the files and user_id in the body. An Ok response will be expected.
             </h3>
             <RenderCode
                 lang="javascript"
                 code={
                     `
-                const res = await fetch($fileInputConfig.serverUploadUrl, {
+                const res = await fetch($mediaServerConfig.uploadUrl, {
                     method: 'POST',
                     body: formData
                 });
@@ -47,7 +47,7 @@
                 `
             }/>
 
-            <li>Creating your +server.js (/api/media/upload) ($fileInputStore.serverUploadUrl)</li>
+            <li>Creating your +server.js (/api/media/upload) ($mediaServerConfig.uploadUrl)</li>
             <h3>This file is responsible for acknowledging the upload request and processing the file upload logic.</h3>
             <h3>The example shown uses <code>CLOUDFLARE R2</code>. The approach uses a two-step process, where the first step uploads the file to R2 and the second step saves the metadata to the database.</h3>
             <h3>You do not have to do this. This approach leverages Cloudflare Workers for quicker R2 uploads.</h3>
@@ -142,17 +142,18 @@
             <h3>The File Picker is a bit biased in the sense that it was built with Cloudflare R2 in mind. However, it has freedom in backend implementation.</h3>
             <h3>Each file in your database should have this minimal structure.</h3>
             <RenderCode
-                lang="json"
+                lang="ts"
                 code={`
-                {
-                    id: string;
-                    user_id?: string;
-                    r2_key: string;
-                    url: string;
-                    created_at?: string;
-                    original_name?: string;
-                    mime_type?: string;
-                    size_bytes?: number;
+                import type {MediaItem} from '@sierra-95/svelte-scaffold';
+                const mediaItem: MediaItem = {
+                    id: some_uuid,
+                    user_id: some_user_id,
+                    r2_key: some_uuid_or_path,
+                    url: some_url_to_file,
+                    created_at: new Date().toISOString(),
+                    original_name: some_original_file_name,
+                    mime_type: some_mime_type,
+                    size_bytes: some_file_size_in_bytes,
                 };
             `}/>
             <h3>As mentioned before, this setup uses a two step process. Follow the link below to see the backend documentation of metadata handling.</h3>
@@ -205,14 +206,14 @@
             <RenderCode
                 lang="javascript"
                 code={`
-                const res = await fetch($fileInputConfig.serverDownloadUrl, {
+                const res = await fetch($mediaServerConfig.downloadUrl, {
                     method: 'POST',
                     headers: {
                         'Content-Type': 'application/json'
                     },
                     body: JSON.stringify({
                         ids,
-                        user_id: $fileInputConfig.user_id
+                        user_id: $mediaServerConfig.user_id
                     })
                 });
             `}/>
@@ -252,11 +253,11 @@
                     }
                 })
             `}/>
-            <h3>Your backend should return the file content with the correct Content-Type and Content-Disposition headers. Your $fileInputConfig.serverDownloadUrl should then return a response to the GET request.</h3>
+            <h3>Your backend should return the file content with the correct Content-Type and Content-Disposition headers. Your $mediaServerConfig.downloadUrl should then return a response to the GET request.</h3>
             <RenderCode
                 lang="javascript"
                 code={`
-                const res = await fetch(\$fileInputConfig.serverDownloadUrl + \`?r2_key=\${item.r2_key}\`, {
+                const res = await fetch(\$mediaServerConfig.downloadUrl + \`?r2_key=\${item.r2_key}\`, {
                     method: 'GET'
                 });
                 const blob = await res.blob();
