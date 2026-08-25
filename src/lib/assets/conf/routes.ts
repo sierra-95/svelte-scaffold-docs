@@ -229,6 +229,7 @@ export const routes = {
     path: '/utils',
     ids: {
       isValidEmail: 'is-valid-email',
+      isValidUrl: 'is-valid-url',
       handleRedirect: 'handle-redirect',
     }
   } as basicPage,

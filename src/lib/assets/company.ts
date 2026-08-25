@@ -1,5 +1,5 @@
-export { sections } from './sections/sections';
-export { routes } from './sections/routes';
+export { sections } from './conf/sections';
+export { routes } from './conf/routes';
 
 const base_url="https://files.michaelmachohi.com/logos/";
 export const logo = `${base_url}michaelmachohi.dark.png`;

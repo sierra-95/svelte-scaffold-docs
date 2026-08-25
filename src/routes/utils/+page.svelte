@@ -29,18 +29,30 @@
                 lang="svelte"
                 code={`
                 <\script>
-                    import { isValidEmail, User } from '@sierra-95/svelte-scaffold';
+                    import { isValidEmail } from '@sierra-95/svelte-scaffold';
 
-                    $effect(() => {
-                        if (isValidEmail($User.email)) {
-                            console.log('This is a valid email:', $User.email);
-                        }
-                    });
+                    const emailToTest = 'johndoe@example.com';
+                    const emailIsValid = $derived(isValidEmail(emailToTest));
+                <\/script>
+            `}/>
+        </section>
+
+        <section id={routes.utils.ids.isValidUrl} data-title="Validate URL" class="space-y-4">
+            <li>isValidUrl</li>
+            <h3>A utility function for validating URLs.</h3>
+            <RenderCode
+                lang="svelte"
+                code={`
+                <\script>
+                    import { isValidUrl } from '@sierra-95/svelte-scaffold';
+
+                    const urlToTest = 'https://example.com';
+                    const urlIsValid = $derived(isValidUrl(urlToTest));
                 <\/script>
             `}/>
         </section>
 	
-        <section id={routes.utils.ids.handleRedirect} data-title="Handle Redirect" class="space-y-4 mb-10">
+        <section id={routes.utils.ids.handleRedirect} data-title="Handle Redirect" class="space-y-4">
             <li>handleRedirect</li>
 
             <h3>
@@ -102,7 +114,7 @@
                 });
             `}/>
             <h3 class="font-bold">Redirect with params</h3>
-            <h3>http://localhost:5173/login?source=admin_panel&redirectTo=%2Fmanage%2Fuser%3Fstatus%3Dpending%26filter%3Demail_verified</h3>
+            <h3 class="sierra-text-wrap ">http://localhost:5173/login?source=admin_panel&redirectTo=%2Fmanage%2Fuser%3Fstatus%3Dpending%26filter%3Demail_verified</h3>
             <Button onclick={navigate}>Try Redirect (404)</Button>
             <RenderCode
                 lang="typescript"
