@@ -5,7 +5,7 @@
 
     function navigate() {
         handleRedirect({ 
-            baseUrl: '/login', 
+            baseUrl: '/utils', 
             baseParams: { source: 'admin_panel' }, 
             redirectTo: { 
                 path: '/manage/user', 
@@ -32,7 +32,10 @@
                     import { isValidEmail } from '@sierra-95/svelte-scaffold';
 
                     const emailToTest = 'johndoe@example.com';
-                    const emailIsValid = $derived(isValidEmail(emailToTest));
+                    function submit(){
+                        const form = new FormData();
+                        if(isValidEmail(emailToTest)) form.append('email', emailToTest);
+                    }
                 <\/script>
             `}/>
         </section>
@@ -47,7 +50,9 @@
                     import { isValidUrl } from '@sierra-95/svelte-scaffold';
 
                     const urlToTest = 'https://example.com';
-                    const urlIsValid = $derived(isValidUrl(urlToTest));
+                    const finalURL = $derived(
+                        isValidUrl(urlToTest) ? urlToTest : 'https://fallback.com'
+                    );
                 <\/script>
             `}/>
         </section>
@@ -114,8 +119,8 @@
                 });
             `}/>
             <h3 class="font-bold">Redirect with params</h3>
-            <h3 class="sierra-text-wrap ">http://localhost:5173/login?source=admin_panel&redirectTo=%2Fmanage%2Fuser%3Fstatus%3Dpending%26filter%3Demail_verified</h3>
-            <Button onclick={navigate}>Try Redirect (404)</Button>
+            <h3 class="sierra-text-wrap ">http://localhost:5173/utils?source=admin_panel&redirectTo=%2Fmanage%2Fuser%3Fstatus%3Dpending%26filter%3Demail_verified</h3>
+            <Button onclick={navigate}>Click to test</Button>
             <RenderCode
                 lang="typescript"
                 code={`
