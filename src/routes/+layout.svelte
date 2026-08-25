@@ -102,9 +102,7 @@
 <!-- TOC -->
 {#snippet TOCContent()}
 	<div style="margin-top: 1rem">
-		<h3>Guest Id:
-			<em class="text-sm text-(--ss-success)">{$mediaServerConfig.user_id}</em>
-		</h3>
+		<em class="text-sm">{$mediaServerConfig.user_id}</em>
 	</div>
 {/snippet}
 
