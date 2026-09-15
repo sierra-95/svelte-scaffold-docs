@@ -63,11 +63,9 @@
 
         <section id={routes.modules.editor.ids.saving_content} class="space-y-4">
             <li>Saving Content</li>
-            <h3>
-                To save  content from the editor, set the <code class="note">export</code> variable to true. This will give you the content in JSON and HTML format, which can be saved in a database or used as needed.
-                The content can be accessed via <code class="note">$editorStore.content</code>.
-            </h3>
-            <h3>If any function should run immediately after content is exported, attach it to <code class="note">$editorStore.onExport()</code></h3>
+            <h3>To export content from the editor, set <code class="note">export.start</code> to <code class="note">true</code>. Once the export is complete, the content is available through <code class="note">$editorStore.content</code> in both JSON and HTML formats. You can then store it in a database or use it as needed.</h3>
+            <h3>Because the editor is built with Tiptap, some presentation styles are not included in the exported HTML or JSON. These styles are also provided through <code class="note">$editorStore.content</code>, allowing you to apply them when rendering or sending the content elsewhere.</h3>
+
             <RenderCode
                 lang="svelte"
                 code={`
@@ -75,22 +73,26 @@
                     import { enhance } from '$app/forms';
                     import {editorStore, Button} from '@sierra-95/svelte-scaffold';
                     
-                    let formElement;
+                    let formEl = $state<HTMLFormElement | null>(null);
 
-                    function handleExport(){
-                        editorStore.update((state) => ({ ...state, export:true }))
-                        if( $editorStore.content ){
-                            formElement.requestSubmit();
-                        }
+                    function handleSave(){
+                        editorStore.update(store => {
+                            store.onExport= ()=>{
+                                if ($editorStore.export.status === 'success') formEl?.requestSubmit();
+                            }
+                            store.export.start = true;
+                            return store;
+                        });
                     }
 
-                    function handleSubmit({formData, cancel}: { formData: FormData; cancel: () => void }){
+                    function handleEnhance({formData, cancel}: { formData: FormData; cancel: () => void }){
                         formData.append("content", $editorStore.content);
+                        //continue with the form submission
                     }
                 <\/script>
 
-                <form bind:formElement method="post" use:enhance={handleSubmit}>
-                    <Button onclick={handleExport}>Export</Button>
+                <form use:enhance={handleEnhance} bind:this={formEl} method="POST">
+                    <Button onclick={handleSave}>Save</Button>
                 </form>
             `}/>
         </section>
