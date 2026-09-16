@@ -14,7 +14,7 @@
                     max: '1024px',
                 }
             }
-            store.enabledFeatures = ['BIU', 'undo-redo', 'headings', 'color', 'highlight', 'alignment', 'lists', 'images', 'links', 'youtube'];
+            store.features.enabled = ['BIU', 'undo-redo', 'headings', 'color', 'highlight', 'alignment', 'lists', 'images', 'links', 'youtube'];
             return store;
         });
     })
@@ -39,7 +39,7 @@
                     let content = {};
                     onMount(()=>{
                         editorStore.update(store => {
-                            store.enabledFeatures = ['BIU', 'undo-redo', 'headings', 'color', 'highlight', 'alignment', 'lists', 'images', 'links', 'youtube'];
+                            store.features.enabled = ['BIU', 'undo-redo', 'headings', 'color', 'highlight', 'alignment', 'lists', 'images', 'links', 'youtube'];
                             return store;
                         });
                     })
@@ -63,22 +63,28 @@
 
         <section id={routes.modules.editor.ids.saving_content} class="space-y-4">
             <li>Saving Content</li>
-            <h3>To export content from the editor, set <code class="note">export.start</code> to <code class="note">true</code>. Once the export is complete, the content is available through <code class="note">$editorStore.content</code> in both JSON and HTML formats. You can then store it in a database or use it as needed.</h3>
-            <h3>Because the editor is built with Tiptap, some presentation styles are not included in the exported HTML or JSON. These styles are also provided through <code class="note">$editorStore.content</code>, allowing you to apply them when rendering or sending the content elsewhere.</h3>
+            <h3>To export content from the editor, set <code class="note">export.start</code> to <code class="note">true</code>. Once the export is complete, the content is available through <code class="note">$editorStore.export.content</code> in both JSON and HTML formats. You can then store it in a database or use it as needed.</h3>
+            <h3>Because the editor is built with Tiptap, some presentation styles are not included in the exported HTML or JSON. These styles are also provided through <code class="note">$editorStore.export.content.styles</code>, allowing you to apply them when rendering or sending the content elsewhere.</h3>
 
             <RenderCode
                 lang="svelte"
                 code={`
                 <\script>
+                    import {tick} from 'svelte';
                     import { enhance } from '$app/forms';
                     import {editorStore, Button} from '@sierra-95/svelte-scaffold';
                     
+                    let content = $state(null);
                     let formEl = $state<HTMLFormElement | null>(null);
 
                     function handleSave(){
                         editorStore.update(store => {
-                            store.onExport= ()=>{
-                                if ($editorStore.export.status === 'success') formEl?.requestSubmit();
+                            store.export.onExport = async () => {
+                                if ($editorStore.export.status === 'success'){
+                                    content = $editorStore.export.content;
+                                    await tick();
+                                    formEl?.requestSubmit();
+                                }
                             }
                             store.export.start = true;
                             return store;
@@ -86,12 +92,12 @@
                     }
 
                     function handleEnhance({formData, cancel}: { formData: FormData; cancel: () => void }){
-                        formData.append("content", $editorStore.content);
                         //continue with the form submission
                     }
                 <\/script>
 
                 <form use:enhance={handleEnhance} bind:this={formEl} method="POST">
+                    <input type="hidden" name="content" value={JSON.stringify(content)} />
                     <Button onclick={handleSave}>Save</Button>
                 </form>
             `}/>
@@ -104,7 +110,7 @@
                 to handle multiple image uploads and insertions.
                 An input has also been provided to key in image URLs manually.
             </h3>
-            <h3>You can control mode of insertion using <strong>$editorStore.insertImageMode</strong> array, and by default, all modes are enabled.</h3>
+            <h3>You can control mode of insertion using <code class="note">$editorStore.features.imageModes</code> array, and by default, all modes are enabled.</h3>
             <h3>See the example below.</h3>
             <RenderCode
                 lang="svelte"
@@ -115,7 +121,7 @@
                     
                     onMount(()=>{
                         editorStore.update(config => {
-                            config.insertImageMode = ['url'];
+                            config.features.imageModes = ['url'];
                             return config;
                         });
                     })
