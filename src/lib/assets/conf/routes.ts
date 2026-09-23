@@ -51,12 +51,12 @@ export const routes = {
           path : components + '/inputs',
           ids: {
             basic_input: 'basic-input',
-            password_strength_meter: 'password-strength-meter',
-            textarea_input: 'textarea-input',
-            search_bar_input: 'search-bar-input',
             select_input: 'select-input',
+            textarea_input: 'textarea-input',
+            ist_api: 'ist-api',
+            password_strength_meter: 'password-strength-meter',
+            search_bar_input: 'search-bar-input',
             file_input: 'file-input',
-            inputs_api: 'inputs-api',
           }
         } as basicPage,
 
