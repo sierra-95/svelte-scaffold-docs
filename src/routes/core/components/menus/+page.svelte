@@ -1,8 +1,9 @@
 <script>
-    import {MenuItem, DropdownContainer, buttonRipple, Hr,  Tabs, 
+    import {MenuItem, DropdownContainer, buttonRipple, Hr,  Tabs, Table, 
     HamburgerMenu, ContentSwitcher, Avatar, Button} from '@sierra-95/svelte-scaffold';
 	import {RenderCode} from '$lib';
     import { favicon, routes } from '$lib/assets/company';
+    import { DropdownTable, TabsTable, ContentSwitcherTable, HamburgerMenuTable } from './table';
 
 
     let openMenu = $state(true);
@@ -58,6 +59,7 @@
                     <MenuItem>Settings</MenuItem>
                 </DropdownContainer>
             `}/>
+            <Table title={DropdownTable.title} table={DropdownTable.table}/>
         </section>
         <section id={routes.core.components.children.menus.ids.user_menu} data-title="User Menu" class="space-y-4">
             <h3 class="font-bold underline">Example: User Menu</h3>
@@ -172,6 +174,7 @@
                     boxShadow
                 />
             `}/>
+            <Table title={TabsTable.title} table={TabsTable.table}/>
         </section>
 
         <section id={routes.core.components.children.menus.ids.content_switcher} data-title="Content Switcher" class="space-y-4">
@@ -229,6 +232,7 @@
                     {/if}
                 </ContentSwitcher>
             `}/>
+            <Table title={ContentSwitcherTable.title} table={ContentSwitcherTable.table}/>
         </section>
 
         <section id={routes.core.components.children.menus.ids.hamburger_menu} data-title="Hamburger Menu" class="space-y-4">
@@ -237,8 +241,7 @@
                 The HamburgerMenu component provides a responsive navigation menu that can be toggled open and closed.
                 It is commonly used in mobile and responsive web design to save space and provide a clean user interface.
             </p>
-            <div class="flex gap-4 items-center">
-                <Button endIcon="fa-arrow-right">Click the menu button</Button>
+            <div class="flex gap-4">
                 <HamburgerMenu
                     bind:menuOpen={hamburgerMenuOpen}
                     logo = {{
@@ -253,6 +256,7 @@
                         <h3>Item 3</h3>
                     </div>
                 </HamburgerMenu>
+                <p class="note">Click the menu button to open the hamburger menu.</p>
             </div>
             <RenderCode
                 lang="svelte"
@@ -277,6 +281,7 @@
                     </div>
                 </HamburgerMenu>
             `}/>
+            <Table title={HamburgerMenuTable.title} table={HamburgerMenuTable.table}/>
         </section>
     </ol>
 </main>
