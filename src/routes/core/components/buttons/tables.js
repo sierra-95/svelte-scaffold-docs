@@ -59,6 +59,13 @@ export const DefaultButtonTable = {
                 { content: "false" },
                 { content: "Displays a spinner. Automatically disables the button while loading." }
             ],
+
+            [
+                { content: "...rest" },
+                { content: "HTML attributes & event handlers" },
+                { content: "e.g., onmouseover" },
+                { content: "Additional HTML attributes and event handlers" }
+            ]
         ]
     }
 };
@@ -83,6 +90,7 @@ export const CustomButtonTable = {
                 { content: "swipeColor" },
                 { content: "var(--ss-l-p)" }
             ],
+
             [
                 { content: "ButtonMarquee", rowspan: 2 },
                 { content: "bg" },
@@ -92,14 +100,15 @@ export const CustomButtonTable = {
                 { content: "color" },
                 { content: "var(--ss-d-p)" }
             ],
+
             [
-                { content: "ButtonFlip", rowspan: 5 },
-                { content: "front" },
-                { content: "front" }
+                { content: "ButtonFlip", rowspan: 4 },
+                { content: "front (text)" },
+                { content: '"front"' }
             ],
             [
-                { content: "back" },
-                { content: "back" }
+                { content: "back (text)" },
+                { content: '"back"' }
             ],
             [
                 { content: "bgFront & bgBack" },
@@ -108,6 +117,23 @@ export const CustomButtonTable = {
             [
                 { content: "color" },
                 { content: "var(--ss-l-p)" }
+            ],
+
+            [
+                { content: "<strong>Shared Props</strong>", colspan: 2 },
+                { content: "" }
+            ],
+            [
+                { content: "type" },
+                { content: '"button"' }
+            ],
+            [
+                { content: "disabled" },
+                { content: "false" }
+            ],
+            [
+                { content: "...rest" },
+                { content: "e.g., onclick, onmouseover" }
             ]
         ]
     }
@@ -144,6 +170,47 @@ export const ButtonHamburgerTable = {
                 { content: "spacing" },
                 { content: "string" },
                 { content: "5px" },
+            ],
+            [
+                { content: "...rest" },
+                { content: "HTML attributes & event handlers" },
+                { content: "e.g., onclick, onmouseover" },
+            ]
+        ]
+    }
+};
+
+export const WhatsAppButtonTable = {
+    title: {
+        name: "Component API"
+    },
+    table: {
+        headers: ['Prop', 'Type', 'Default'],
+        rows: [
+            [
+                { content: "shareURL" },
+                { content: "string" },
+                { content: '""' }
+            ],
+            [
+                { content: "shareTitle" },
+                { content: "string" },
+                { content: '""' }
+            ],
+            [
+                { content: "shareText" },
+                { content: "string" },
+                { content: '""' }
+            ],
+            [
+                { content: "limitShareText" },
+                { content: "number" },
+                { content: "30" }
+            ],
+            [
+                { content: "label" },
+                { content: "string" },
+                { content: '"Share on WhatsApp"' }
             ]
         ]
     }

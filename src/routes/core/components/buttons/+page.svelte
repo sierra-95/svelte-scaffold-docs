@@ -5,7 +5,10 @@
 	} from '@sierra-95/svelte-scaffold'
 	import {RenderCode} from '$lib'; 
 	import { routes } from '$lib/assets/company';
-	import { DefaultButtonTable, CustomButtonTable, ButtonHamburgerTable} from './tables';
+	import { 
+		DefaultButtonTable, CustomButtonTable, 
+		ButtonHamburgerTable, WhatsAppButtonTable
+	} from './tables';
 
 	function handleHamburgerClick() {
 		addToast({
@@ -31,8 +34,8 @@
 <main class="space-y-6">
 	<h1 class="sierra-docs-h1">Scaffold Buttons<span>Will you be my button?</span></h1>
 	<ol class="sierra-docs-ol space-y-4">
-		<section id={routes.core.components.children.buttons.ids.basic_button} data-title="Basic Buttons" class="space-y-4">
-			<li>Basic Buttons</li>
+		<section id={routes.core.components.children.buttons.ids.basic_button} data-title="Button" class="space-y-4">
+			<li>Button</li>
 			<div class="flex gap-4 flex-wrap">
 			{#each contained_buttons as { color, title }}
 				<Button variant="contained" color={color} title={title}>Button</Button>
@@ -68,7 +71,10 @@
 						import { Button } from '@sierra-95/svelte-scaffold';
 					<\/script>
 
-					<Button unstyled style="background-color: #4CAF50; color: white; width: 200px;" startIcon="fa-star">Export</Button>
+					<Button 
+						unstyled startIcon="fa-star" 
+						style="background-color: #4CAF50; color: white; width: 200px;" 
+					>Export</Button>
 				`}/>
 				<h3>Form Submission Example</h3>
 				<RenderCode
@@ -79,7 +85,6 @@
 						import { Button } from '@sierra-95/svelte-scaffold';
 						
 						let processing = false;
-						let success = false;
 						function handleEnhance({formData, cancel}) {
 							processing = true;
 							return ({ update, result }) => {
@@ -103,8 +108,11 @@
 					</form>
 				`}/>
 			</div>
+			<Table 
+				title = {DefaultButtonTable.title}
+				table = {DefaultButtonTable.table}
+			/>
 		</section>
-
 		<section id={routes.core.components.children.buttons.ids.custom_button} data-title="Custom Buttons" class="space-y-4">
 			<li>Custom Buttons</li>
 			<div class="flex gap-4 items-center">
@@ -128,6 +136,10 @@
 				</ButtonMarquee>
 
 			`}/>
+			<Table 
+				title = {CustomButtonTable.title}
+				table = {CustomButtonTable.table}
+			/>
 		</section>
 
 		<section id={routes.core.components.children.buttons.ids.hamburger_button} data-title="Hamburger Button" class="space-y-4">
@@ -143,20 +155,11 @@
 					import { ButtonHamburger } from '@sierra-95/svelte-scaffold';
 					
 					let menuOpen = $state(false);
-
 					function toggleMenu() {
 						menuOpen = !menuOpen;
 					}
 				<\/script>
-
-				<ButtonHamburger
-					barWidth = "30px"
-					barHeight = "3px"
-					barColor = "black"
-					barBorderRadius = "5px"
-					barSpacing = "5px"
-					onclick={toggleMenu}
-				/>
+				<ButtonHamburger onclick={toggleMenu}/>
 			`}/>
 			<Table
 				title = {ButtonHamburgerTable.title}
@@ -202,21 +205,9 @@
 					shareText="A cat just knocked over a cup of coffee while debugging your code. Productivity level: questionable."
 				/>
 			`}/>
-		</section>
-
-		<section id={routes.core.components.children.buttons.ids.basic_button_api} data-title="Basic Button API" class="space-y-4">
-			<li>Basic Button API</li>
 			<Table 
-				title = {DefaultButtonTable.title}
-				table = {DefaultButtonTable.table}
-			/>
-		</section>
-
-		<section id={routes.core.components.children.buttons.ids.custom_button_api} data-title="Custom Button API" class="space-y-4">
-			<li>Custom Button API</li>
-			<Table 
-				title = {CustomButtonTable.title}
-				table = {CustomButtonTable.table}
+				title = {WhatsAppButtonTable.title}
+				table = {WhatsAppButtonTable.table}
 			/>
 		</section>
 	</ol>

@@ -44,9 +44,6 @@ export const routes = {
             hamburger_button: 'hamburger-button',
             theme_button: 'theme-button',
             whatsapp_button: 'whatsapp-button',
-            other_buttons: 'other-buttons',
-            basic_button_api: 'basic-button-api',
-            custom_button_api: 'custom-button-api',
           }
         } as basicPage,
 
