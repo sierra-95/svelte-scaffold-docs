@@ -191,7 +191,7 @@
 			<SearchBar enableHotkey onHotkey={()=> alert('Hotkey triggered!')}/>
 			<p>
 				The component supports two search modes in a single component.
-				By default, it behaves as a standard search input with a search button and clear button.
+				By default, it behaves as a standard search input.
 				When <strong>enableHotkey</strong> is set to <strong>true</strong>, it becomes a
 				documentation-style search bar that is read-only and can be triggered using
 				<strong>Ctrl + K</strong> (or <strong>Cmd + K</strong> on macOS).
