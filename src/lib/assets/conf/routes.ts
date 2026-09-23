@@ -50,7 +50,7 @@ export const routes = {
         inputs: {
           path : components + '/inputs',
           ids: {
-            basic_input: 'basic-input',
+            input: 'input',
             select_input: 'select-input',
             textarea_input: 'textarea-input',
             ist_api: 'ist-api',
