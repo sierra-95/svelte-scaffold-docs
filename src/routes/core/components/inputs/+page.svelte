@@ -183,6 +183,35 @@
 		<section id={routes.core.components.children.inputs.ids.ist_api} data-title="Input, Select, TextArea API" class="space-y-4">
 			<li>Input, Select, TextArea API</li>
 			<Table title={inputsTable.title} table={inputsTable.table}/>
+		</section>
+
+		<section id={routes.core.components.children.inputs.ids.search_bar_input} data-title="Search Bar" class="space-y-4">
+			<li>Search Bar</li>
+			<SearchBar bind:value={searchQuery} onSearch={() => alert(`Search triggered ${searchQuery}!`)}/>
+			<SearchBar enableHotkey onHotkey={()=> alert('Hotkey triggered!')}/>
+			<p>
+				The component supports two search modes in a single component.
+				By default, it behaves as a standard search input with a search button and clear button.
+				When <strong>enableHotkey</strong> is set to <strong>true</strong>, it becomes a
+				documentation-style search bar that is read-only and can be triggered using
+				<strong>Ctrl + K</strong> (or <strong>Cmd + K</strong> on macOS).
+			</p>
+			<RenderCode
+				lang="svelte"
+				code={`
+				<\script>
+					import { SearchBar } from '@sierra-95/svelte-scaffold';
+					let searchQuery = '';
+				<\/script>
+
+				<SearchBar bind:value={searchQuery} onSearch={() => alert(\`Search triggered \${searchQuery}!\`)}/>
+				<SearchBar enableHotkey onHotkey={()=> alert('Hotkey triggered!')}/>
+			`}/>
+			<Table title={SearchBarTable.title} table={SearchBarTable.table}/>
+		</section>
+
+		<section id={routes.core.components.children.inputs.ids.styleC_api} data-title="StyleC API" class="space-y-4">
+			<li>StyleC API</li>
 			<Table title={inputsStyleTable.title} table={inputsStyleTable.table}/>
 		</section>
 
@@ -217,32 +246,6 @@
 				/>
 				
 			`}/>
-		</section>
-
-
-		<section id={routes.core.components.children.inputs.ids.search_bar_input} data-title="Search Bar" class="space-y-4">
-			<li>Search Bar</li>
-			<SearchBar bind:value={searchQuery} onSearch={() => alert(`Search triggered ${searchQuery}!`)}/>
-			<SearchBar enableHotkey onHotkey={()=> alert('Hotkey triggered!')}/>
-			<p>
-				The component supports two search modes in a single component.
-				By default, it behaves as a standard search input with a search button and clear button.
-				When <strong>enableHotkey</strong> is set to <strong>true</strong>, it becomes a
-				documentation-style search bar that is read-only and can be triggered using
-				<strong>Ctrl + K</strong> (or <strong>Cmd + K</strong> on macOS).
-			</p>
-			<RenderCode
-				lang="svelte"
-				code={`
-				<\script>
-					import { SearchBar } from '@sierra-95/svelte-scaffold';
-					let searchQuery = '';
-				<\/script>
-
-				<SearchBar bind:value={searchQuery} onSearch={() => alert(\`Search triggered \${searchQuery}!\`)}/>
-				<SearchBar enableHotkey onHotkey={()=> alert('Hotkey triggered!')}/>
-			`}/>
-			<Table title={SearchBarTable.title} table={SearchBarTable.table}/>
 		</section>
 
 		<section id={routes.core.components.children.inputs.ids.file_input} data-title="File Input" class="space-y-4">

@@ -54,8 +54,9 @@ export const routes = {
             select_input: 'select-input',
             textarea_input: 'textarea-input',
             ist_api: 'ist-api',
-            password_strength_meter: 'password-strength-meter',
             search_bar_input: 'search-bar-input',
+            styleC_api: 'styleC-api',
+            password_strength_meter: 'password-strength-meter',
             file_input: 'file-input',
           }
         } as basicPage,

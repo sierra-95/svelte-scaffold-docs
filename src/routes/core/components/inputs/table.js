@@ -137,7 +137,7 @@ export const inputsStyleTable = {
             ],
             
             [
-                { content: "Select", rowspan: 8 },
+                { content: "Select", rowspan: 9 },
                 { content: "width" },
                 { content: '"100%"' }
             ],
@@ -168,7 +168,12 @@ export const inputsStyleTable = {
             [
                 { content: "options.background" },
                 { content: '"var(--ss-l-p)"' }
-            ],[
+            ],
+                        [
+                { content: "styles" },
+                { content: 'Vanilla CSS' }
+            ],
+            [
                 { content: "TextArea", rowspan: 7 },
                 { content: "border.size" },
                 { content: '"1px"' }
@@ -198,8 +203,21 @@ export const inputsStyleTable = {
                 { content: '"transparent"' }
             ],
             [
-                { content: "styles" },
-                { content: 'Vanilla CSS' }
+                { content: "SearchBar", rowspan: 4 },
+                { content: "width" },
+                { content: '"200px"' }
+            ],
+            [
+                { content: "height" },
+                { content: '"40px"' }
+            ],
+            [
+                { content: "fontSize" },
+                { content: '"0.9rem"' }
+            ],
+            [
+                { content: "border.radius" },
+                { content: '"5px"' }
             ],
         ]
     }
