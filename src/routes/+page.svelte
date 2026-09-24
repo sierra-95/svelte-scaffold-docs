@@ -767,10 +767,12 @@
     }
 
     .hero-panel {
+      width: calc(100% + 2rem);
       grid-template-columns: 1fr;
       gap: 0.5rem;
-      padding: 2.1rem 1.5rem 1rem;
-      border-radius: 20px;
+      margin-inline: -1rem;
+      padding: 2.1rem 1.25rem 1rem;
+      border-radius: 0;
     }
 
     .eyebrow {
