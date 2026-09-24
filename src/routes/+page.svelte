@@ -1,50 +1,5 @@
 <script lang="ts">
-  import { routes, resources } from '$lib/assets/company';
-
-  const sections = [
-    {
-      number: '01',
-      title: 'Components',
-      href: routes.core.components.base,
-      description: 'Buttons, inputs, modals, toasts, progress bars, date pickers, and more',
-      icon: '✦'
-    },
-    {
-      number: '02',
-      title: 'Modules',
-      href: routes.modules.editor.path,
-      description: 'A flexible layout system, File Picker, Editor, and more',
-      icon: '▧'
-    },
-    {
-      number: '03',
-      title: 'Features',
-      href: routes.core.features.base,
-      description: 'Thoughtful extras like a ready-to-use Toast Manager',
-      icon: '↗'
-    },
-    {
-      number: '04',
-      title: 'Utilities',
-      href: routes.core.utilities.path,
-      description: 'Avatars, carousels, color tools, sharing, and more',
-      icon: '⌘'
-    },
-    {
-      number: '05',
-      title: 'Stores',
-      href: routes.stores.path,
-      description: 'Theme, user, and app state without starting from scratch',
-      icon: '◉'
-    },
-    {
-      number: '06',
-      title: 'Utils',
-      href: routes.utils.path,
-      description: 'Handy helpers for validation, redirects, and everyday tasks',
-      icon: '↳'
-    }
-  ];
+  import { routes } from '$lib/assets/company';
 </script>
 
 <svelte:head>
@@ -105,42 +60,7 @@
     </div>
   </section>
 
-  <section class="toolkit-section" aria-labelledby="toolkit-heading">
-    <div class="section-heading">
-      <div>
-        <div class="section-kicker">GOOD THINGS, ALL TOGETHER</div>
-        <h2 id="toolkit-heading">A head start in every direction.</h2>
-      </div>
-      <p>Find your next building block.<br />Everything here is ready when you are.</p>
-    </div>
 
-    <div class="brand-products">
-      {#each sections as section}
-        <a class="product-card" href={section.href}>
-          <div class="product-card-top">
-            <span class="product-number">{section.number} / TOOLKIT</span>
-            <span class="product-icon" aria-hidden="true">{section.icon}</span>
-          </div>
-          <h3>{section.title}<span aria-hidden="true">↗</span></h3>
-          <p>{section.description}</p>
-        </a>
-      {/each}
-    </div>
-  </section>
-
-  <section class="install-banner">
-    <div class="banner-mark" aria-hidden="true">S/</div>
-    <div class="banner-copy">
-      <span>THE FIRST STEP IS A SMALL ONE</span>
-      <h2>Let’s make something.</h2>
-    </div>
-    <a href={routes.installation.path} class="banner-link">Read the install guide <span aria-hidden="true">↗</span></a>
-  </section>
-
-  <div class="brand-signoff">
-    <span>@sierra-95/svelte-scaffold</span>
-    <a href={resources.package.npm} target="_blank" rel="noreferrer">Find it on npm ↗</a>
-  </div>
 </div>
 
 <style>
@@ -185,10 +105,8 @@
   }
 
   .eyebrow,
-  .section-kicker,
   .preview-kicker,
-  .floating-label,
-  .banner-copy > span {
+  .floating-label{
     font-size: 0.68rem;
     font-weight: 700;
     letter-spacing: 0.13em;
@@ -255,8 +173,7 @@
     transition: transform 180ms ease, background 180ms ease, border-color 180ms ease;
   }
 
-  .button:hover,
-  .banner-link:hover {
+  .button:hover {
     transform: translateY(-2px);
   }
 
@@ -544,200 +461,6 @@
     font-size: 0.7rem;
   }
 
-  .toolkit-section {
-    padding: clamp(3rem, 6vw, 5.25rem) 0 2.5rem;
-  }
-
-  .section-heading {
-    display: flex;
-    align-items: end;
-    justify-content: space-between;
-    gap: 2rem;
-    margin-bottom: 1.4rem;
-  }
-
-  .section-kicker {
-    margin-bottom: 0.65rem;
-    color: #74839a;
-    font-size: 0.62rem;
-  }
-
-  .section-heading h2,
-  .banner-copy h2 {
-    margin: 0;
-    font-family: 'Clash Display', 'Arial', sans-serif;
-    font-size: clamp(1.9rem, 3.4vw, 2.8rem);
-    font-weight: 400;
-    letter-spacing: -0.055em;
-    line-height: 1.05;
-  }
-
-  .section-heading > p {
-    margin: 0 0 0.15rem;
-    color: var(--muted);
-    font-size: 0.85rem;
-    line-height: 1.6;
-  }
-
-  .brand-products {
-    display: grid;
-    grid-template-columns: repeat(3, minmax(0, 1fr));
-    gap: 0.8rem;
-  }
-
-  .product-card {
-    display: flex;
-    min-height: 184px;
-    flex-direction: column;
-    padding: 1.15rem 1.2rem 1.25rem;
-    border: 1px solid #e9eae3;
-    border-radius: 10px;
-    background: #fbfbf8;
-    color: inherit;
-    text-decoration: none;
-    transition: transform 180ms ease, border-color 180ms ease, box-shadow 180ms ease;
-  }
-
-  .product-card:hover {
-    transform: translateY(-4px);
-    border-color: #cbdaf0;
-    box-shadow: 0 12px 28px rgb(40 76 128 / 9%);
-  }
-
-  .product-card:focus-visible,
-  .button:focus-visible,
-  .banner-link:focus-visible,
-  .brand-signoff a:focus-visible {
-    outline: 3px solid #4b93dc;
-    outline-offset: 4px;
-  }
-
-  .product-card-top {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-  }
-
-  .product-number {
-    color: #83887d;
-    font-size: 0.58rem;
-    font-weight: 700;
-    letter-spacing: 0.1em;
-  }
-
-  .product-icon {
-    display: grid;
-    width: 30px;
-    height: 30px;
-    place-items: center;
-    border-radius: 8px;
-    background: #eaf1fa;
-    color: #354c6c;
-    font-size: 1.15rem;
-  }
-
-  .product-card h3 {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    margin: 0.75rem 0 0.35rem;
-    font-family: 'Clash Display', 'Arial', sans-serif;
-    font-size: 1.45rem;
-    font-weight: 400;
-    letter-spacing: -0.04em;
-  }
-
-  .product-card h3 span {
-    color: #8b927f;
-    font-family: sans-serif;
-    font-size: 0.95rem;
-    transition: transform 180ms ease, color 180ms ease;
-  }
-
-  .product-card:hover h3 span {
-    color: #315b89;
-    transform: translate(2px, -2px);
-  }
-
-  .product-card p {
-    max-width: 290px;
-    margin: 0;
-    color: var(--muted);
-    font-size: 0.78rem;
-    line-height: 1.55;
-  }
-
-  .install-banner {
-    display: flex;
-    align-items: center;
-    gap: 1.1rem;
-    margin-top: 0.5rem;
-    padding: 1.55rem 1.8rem;
-    border-radius: 12px;
-    background: #eaf1fa;
-  }
-
-  .banner-mark {
-    display: grid;
-    width: 48px;
-    height: 48px;
-    flex: 0 0 auto;
-    place-items: center;
-    border-radius: 50%;
-    background: #1a2433;
-    color: var(--accent-blue);
-    font-family: 'Clash Display', sans-serif;
-    font-size: 1rem;
-    font-weight: 700;
-  }
-
-  .banner-copy > span {
-    color: #60738e;
-    font-size: 0.56rem;
-  }
-
-  .banner-copy h2 {
-    margin-top: 0.25rem;
-    font-size: 1.55rem;
-  }
-
-  .banner-link {
-    display: inline-flex;
-    align-items: center;
-    gap: 1rem;
-    margin-left: auto;
-    padding: 0.85rem 1rem;
-    border-radius: 6px;
-    background: #1a2433;
-    color: #f7f8f1;
-    font-size: 0.78rem;
-    font-weight: 700;
-    text-decoration: none;
-    transition: transform 180ms ease;
-  }
-
-  .banner-link span {
-    color: var(--accent-blue);
-  }
-
-  .brand-signoff {
-    display: flex;
-    justify-content: space-between;
-    gap: 1rem;
-    padding-top: 1.2rem;
-    color: #83887d;
-    font-size: 0.68rem;
-  }
-
-  .brand-signoff a {
-    color: inherit;
-    text-decoration: none;
-  }
-
-  .brand-signoff a:hover {
-    color: #343d2b;
-  }
-
   @media (max-width: 900px) {
     .hero-panel {
       grid-template-columns: 1fr 0.8fr;
@@ -763,7 +486,7 @@
 
   @media (max-width: 680px) {
     .landing-page {
-      padding: 1rem;
+      padding: 0rem;
     }
 
     .hero-panel {
@@ -825,57 +548,6 @@
       height: 63px;
       font-size: 0.48rem;
     }
-
-    .toolkit-section {
-      padding-top: 3rem;
-    }
-
-    .section-heading {
-      display: block;
-    }
-
-    .section-heading > p {
-      margin-top: 0.7rem;
-    }
-
-    .brand-products {
-      grid-template-columns: repeat(2, minmax(0, 1fr));
-      gap: 0.6rem;
-    }
-
-    .product-card {
-      min-height: 180px;
-      padding: 0.9rem;
-    }
-
-    .product-card h3 {
-      font-size: 1.2rem;
-    }
-
-    .product-card p {
-      font-size: 0.72rem;
-    }
-
-    .install-banner {
-      flex-wrap: wrap;
-      gap: 0.8rem;
-      padding: 1.2rem;
-    }
-
-    .banner-mark {
-      width: 40px;
-      height: 40px;
-    }
-
-    .banner-copy h2 {
-      font-size: 1.35rem;
-    }
-
-    .banner-link {
-      width: 100%;
-      justify-content: space-between;
-      margin: 0;
-    }
   }
 
   @media (max-width: 380px) {
@@ -883,17 +555,10 @@
       align-items: stretch;
       flex-direction: column;
     }
-
-    .brand-products {
-      grid-template-columns: 1fr;
-    }
   }
 
   @media (prefers-reduced-motion: reduce) {
-    .button,
-    .product-card,
-    .product-card h3 span,
-    .banner-link {
+    .button{
       transition: none;
     }
   }
