@@ -139,6 +139,7 @@ export const routes = {
       ids: {
         getting_started: 'getting-started',
         saving_content: 'saving-content',
+        viewing_content: 'viewing-content',
         inserting_images: 'inserting-images',
         supported_styles: 'supported-styles',
       }
