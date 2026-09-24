@@ -8,13 +8,7 @@
 
     onMount(()=>{
         editorStore.update(store => {
-            store.style = {
-                ...store.style,
-                width: {
-                    max: '1024px',
-                }
-            }
-            store.features.enabled = ['BIU', 'undo-redo', 'headings', 'color', 'highlight', 'alignment', 'lists', 'images', 'links', 'youtube'];
+            store.features.enabled = ['BIU','font-family', 'undo-redo', 'blocks', 'color', 'highlight', 'alignment', 'lists','tables', 'images', 'links', 'youtube'];
             return store;
         });
     })
