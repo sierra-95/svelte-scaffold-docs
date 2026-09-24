@@ -20,11 +20,6 @@ export const sections: Section[] = [
 				path: routes.installation.path,
 				icon: 'fa-solid fa-angles-down',
 			},
-			{
-				label: 'Scaffold Internal',
-				icon: 'fa-solid fa-cogs',
-				path: routes.scaffold_internal.path,
-			},
 		],
 	},
 	{
@@ -159,6 +154,11 @@ export const sections: Section[] = [
 				label: 'Utils',
 				path: routes.utils.path,
 				icon: 'fa fa-grip',
+			},
+			{
+				label: 'Scaffold Internal',
+				icon: 'fa-solid fa-cogs',
+				path: routes.scaffold_internal.path,
 			},
 		],
 	},
