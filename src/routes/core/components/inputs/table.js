@@ -271,3 +271,48 @@ export const SearchBarTable = {
     }
 };
 
+export const CheckboxTable = {
+    title: {
+        name: "Component API"
+    },
+    table: {
+        headers: ['Prop', 'Type', 'Default'],
+        rows: [
+            [
+                { content: "textColor" },
+                { content: "string" },
+                { content: '"inherit"' }
+            ],
+            [
+                { content: "fontSize" },
+                { content: "string" },
+                { content: '"1rem"' }
+            ],
+            [
+                { content: "borderRadius" },
+                { content: "string" },
+                { content: '"2px"' }
+            ],
+            [
+                { content: "borderColor" },
+                { content: "string" },
+                { content: '"var(--ss-d-p)"' }
+            ],
+            [
+                { content: "checked" },
+                { content: "bindable boolean" },
+                { content: "false" }
+            ],
+            [
+                { content: "children" },
+                { content: "Snippet" },
+                { content: "required" }
+            ],
+            [
+                { content: "...rest" },
+                { content: "HTML attributes & event handlers" },
+                { content: "" }
+            ]
+        ]
+    }
+};

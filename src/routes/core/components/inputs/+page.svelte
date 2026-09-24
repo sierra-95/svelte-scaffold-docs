@@ -3,18 +3,19 @@
 	import {
 		Input, FileInput, SearchBar, Select,
 		TextArea, PasswordStrength, Table, 
-		fileInputConfig, resetFileInput, addToast
+		fileInputConfig, resetFileInput, addToast, Checkbox
 	} from '@sierra-95/svelte-scaffold';
 	import {RenderCode} from '$lib';
 	import { routes } from '$lib/assets/company';
 	import { inputsTable, fileInputDocumentListTable, 
-		SearchBarTable, fileInputUploadTypeTable, inputsStyleTable } from './table';
+		SearchBarTable, fileInputUploadTypeTable, inputsStyleTable, CheckboxTable } from './table';
 
 	let new_password = 'xyz1234';
 	let confirm_password = 'vvv1234ß';
 	let textareaValue = '';
 	let searchQuery = '';
 	let selectedValue = '';
+	let checked=false;
 
 	let processing = false; 
 	let randomUUID = crypto.randomUUID();
@@ -214,6 +215,21 @@
 			<li>StyleC API</li>
 			<Table title={inputsStyleTable.title} table={inputsStyleTable.table}/>
 		</section>
+
+		<section id={routes.core.components.children.inputs.ids.checkbox} data-title="Checkbox" class="space-y-4">
+            <li>Checkbox</li>
+            <Checkbox bind:checked><p>I agree to the terms and conditions</p></Checkbox>
+            <RenderCode
+                lang="svelte"
+                code={`
+                <\script>
+                    import { Checkbox } from '@sierra-95/svelte-scaffold';
+                    let checked=$state(false);
+                <\/script>
+                <Checkbox bind:checked><p>I agree to the terms and conditions</p></Checkbox>
+            `}/>
+			<Table title={CheckboxTable.title} table={CheckboxTable.table}/>
+        </section>
 
 		<section id={routes.core.components.children.inputs.ids.password_strength_meter} data-title="Password Strength" class="space-y-4">
 			<li>Password Strength</li>

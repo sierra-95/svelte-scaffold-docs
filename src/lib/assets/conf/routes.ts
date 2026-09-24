@@ -56,6 +56,7 @@ export const routes = {
             ist_api: 'ist-api',
             search_bar_input: 'search-bar-input',
             styleC_api: 'styleC-api',
+            checkbox: 'checkbox',
             password_strength_meter: 'password-strength-meter',
             file_input: 'file-input',
           }
@@ -123,9 +124,8 @@ export const routes = {
       ids: {
         avatar: 'avatar',
         carousel: 'carousel',
-        checkbox: 'checkbox',
         color_picker: 'color-picker',
-        hr: 'hr',
+        dividers: 'dividers',
         timezones: 'timezones',
       },
     } as basicPage,

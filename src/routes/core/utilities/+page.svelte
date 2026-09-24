@@ -1,9 +1,9 @@
 <script lang="ts">
-    import { Hr, HrSplit, Checkbox, ColorPicker, Button, Input, Carousel, Date, Time, Avatar } from '@sierra-95/svelte-scaffold';
+    import { Hr, HrSplit, ColorPicker, Button, Input, Carousel, Date, Time, Avatar, Table } from '@sierra-95/svelte-scaffold';
     import {RenderCode} from '$lib';
     import { routes } from '$lib/assets/company';
+    import { AvatarTable, CarouselTable, HrTable, HrSplitTable, VrTable } from './table';
 
-    let checked=$state(false);
     let openDropdown=$state(false);
     let selectedColor=$state('#CA8A04');
 
@@ -47,6 +47,13 @@
                     onClick={handleAvatarClick}
                 />
             </div>
+            <p>
+                The component supports two modes. By default, it displays a
+                small avatar that can show a profile image using <strong>src</strong>, or a default
+                user icon when no image is provided. When <strong>upload</strong> is set to
+                <strong>true</strong>, the avatar becomes larger and displays an edit button that
+                triggers <strong>onClick</strong>, making it suitable for profile picture uploads.
+            </p>
             <RenderCode
                 lang="svelte"
                 code={`
@@ -69,6 +76,7 @@
                     onClick={handleAvatarClick}
                 />
             `}/>
+            <Table title={AvatarTable.title} table={AvatarTable.table}/>
         </section>
         
         <section id={routes.core.utilities.ids.carousel} data-title="Carousel" class="space-y-4">
@@ -89,20 +97,7 @@
                     <Carousel images={images} autoplay autoScale />
                 </div>
             `}/>
-        </section>
-
-        <section id={routes.core.utilities.ids.checkbox} data-title="Checkbox" class="space-y-4">
-            <li>Checkbox</li>
-            <Checkbox bind:checked><p>I agree to the terms and conditions</p></Checkbox>
-            <RenderCode
-                lang="svelte"
-                code={`
-                <\script>
-                    import { Checkbox } from '@sierra-95/svelte-scaffold';
-                    let checked=$state(false);
-                <\/script>
-                <Checkbox bind:checked><p>I agree to the terms and conditions</p></Checkbox>
-            `}/>
+            <Table title={CarouselTable.title} table={CarouselTable.table}/>
         </section>
 
         <section id={routes.core.utilities.ids.color_picker} data-title="Color Picker" class="space-y-4">
@@ -134,9 +129,10 @@
             `}/>
         </section>
 
-        <section id={routes.core.utilities.ids.hr} data-title="Horizontal Rule" class="space-y-4">
-            <li>Horizontal Rule</li>
-            <h3 class="font-bold">1. Default</h3>
+
+        <section id={routes.core.utilities.ids.dividers} data-title="Dividers" class="space-y-4">
+            <li>Dividers</li>
+            <h3 class="font-bold">1. Horizontal Rule</h3>
             <div><Hr color="var(--ss-warning)" width="90%" /></div>
             <RenderCode
                 lang="svelte"
@@ -147,7 +143,8 @@
                 
                 <Hr color="var(--ss-warning)" width="90%" />
             `}/>
-            <h3 class="font-bold">2. Split</h3>
+            <Table title={HrTable.title} table={HrTable.table}/>
+            <h3 class="font-bold">2. Horizontal Split</h3>
             <HrSplit hrColor="var(--ss-neutral)" color="var(--ss-success)" margin="1rem">Split HR</HrSplit>
             <RenderCode
                 lang="svelte"
@@ -158,6 +155,17 @@
                 
                 <HrSplit hrColor="var(--ss-neutral)" color="var(--ss-success)" margin="1rem">Split HR</HrSplit>
             `}/>
+            <Table title={HrSplitTable.title} table={HrSplitTable.table}/>
+            <h3 class="font-bold">3. Vertical Rule</h3>
+            <RenderCode
+                lang="svelte"
+                code={`
+                <\script>
+                    import { Vr } from '@sierra-95/svelte-scaffold';
+                <\/script>
+                <Vr/>
+            `}/>
+            <Table title={VrTable.title} table={VrTable.table}/>
         </section>
 
         <section id={routes.core.utilities.ids.timezones} data-title="Timezones" class="space-y-4">
