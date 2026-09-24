@@ -111,6 +111,7 @@ export const routes = {
           ids: {
             overview: 'overview',
             usage: 'usage',
+            api: 'api',
           }
         } as basicPage,
       },

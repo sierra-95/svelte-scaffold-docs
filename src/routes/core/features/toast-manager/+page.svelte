@@ -2,7 +2,8 @@
     import { onMount } from 'svelte';
     import {RenderCode} from '$lib';
     import { routes } from '$lib/assets/company';
-    import { addToast } from '@sierra-95/svelte-scaffold';
+    import { addToast, Table } from '@sierra-95/svelte-scaffold';
+    import { AddToastTable } from './table'
 
     onMount(() => {
         addToast({
@@ -47,7 +48,7 @@
     <h1 class="sierra-docs-h1">Toast Manager<span>Psst… over here</span></h1>
     <h3>Toast manager allows you to manage and display toast notifications in your Svelte application.</h3>     
     <ol class="sierra-docs-ol space-y-4">
-        <section id={routes.core.features.children.toast_manager.ids.overview} class="space-y-4">
+        <section id={routes.core.features.children.toast_manager.ids.overview} data-title="Overview" class="space-y-4">
             <li>Why Use the Toast Manager   ?</li>
             <ul>
                 <li>Handles multiple message types simultaneously (info, success, warning, error)</li>
@@ -63,7 +64,7 @@
             </ul>
         </section>
 
-        <section id={routes.core.features.children.toast_manager.ids.usage} class="space-y-4">
+        <section id={routes.core.features.children.toast_manager.ids.usage} data-title="Usage" class="space-y-4">
             <li>Usage</li>
             <h3>Place this anywhere in your app.</h3>
             <RenderCode
@@ -122,6 +123,30 @@
                 <\/script>
                 `}
             />
+            <p>To remove a persistent toast, or any toast based on certain conditions, use the <code>removeToast</code> function.</p>
+            <RenderCode
+                lang="svelte"
+                code={`
+                <\script>
+                    import { addToast, removeToast } from '$lib/index.js';
+
+                    const toastId = crypto.randomUUID();
+                    addToast({
+                        id: toastId,
+                        status: 'warning',
+                        message: 'Waiting for the process to complete...',
+                        persistent: true
+                    });
+                    // Later, when your condition is met:
+                    if (processComplete) {
+                        removeToast(toastId);
+                    }
+                <\/script>
+                `}
+            />
+        </section>
+        <section id={routes.core.features.children.toast_manager.ids.api} data-title="API" class="space-y-4">
+            <Table title={AddToastTable.title} table={AddToastTable.table}/>
         </section>
     </ol>
 </main>
