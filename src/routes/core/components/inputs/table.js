@@ -219,6 +219,27 @@ export const inputsStyleTable = {
                 { content: "border.radius" },
                 { content: '"5px"' }
             ],
+            [
+                { content: "Checkbox", rowspan: 5 },
+                { content: "color" },
+                { content: '"inherit"' }
+            ],
+            [
+                { content: "background" },
+                { content: '"transparent"' }
+            ],
+            [
+                { content: "fontSize" },
+                { content: '"1rem"' }
+            ],
+            [
+                { content: "border.radius" },
+                { content: '"2px"' }
+            ],
+            [
+                { content: "border.color" },
+                { content: '"var(--ss-d-p)"' }
+            ],
         ]
     }
 };
@@ -278,26 +299,6 @@ export const CheckboxTable = {
     table: {
         headers: ['Prop', 'Type', 'Default'],
         rows: [
-            [
-                { content: "textColor" },
-                { content: "string" },
-                { content: '"inherit"' }
-            ],
-            [
-                { content: "fontSize" },
-                { content: "string" },
-                { content: '"1rem"' }
-            ],
-            [
-                { content: "borderRadius" },
-                { content: "string" },
-                { content: '"2px"' }
-            ],
-            [
-                { content: "borderColor" },
-                { content: "string" },
-                { content: '"var(--ss-d-p)"' }
-            ],
             [
                 { content: "checked" },
                 { content: "bindable boolean" },

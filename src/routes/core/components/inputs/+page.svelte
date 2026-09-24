@@ -211,11 +211,6 @@
 			<Table title={SearchBarTable.title} table={SearchBarTable.table}/>
 		</section>
 
-		<section id={routes.core.components.children.inputs.ids.styleC_api} data-title="StyleC API" class="space-y-4">
-			<li>StyleC API</li>
-			<Table title={inputsStyleTable.title} table={inputsStyleTable.table}/>
-		</section>
-
 		<section id={routes.core.components.children.inputs.ids.checkbox} data-title="Checkbox" class="space-y-4">
             <li>Checkbox</li>
             <Checkbox bind:checked><p>I agree to the terms and conditions</p></Checkbox>
@@ -230,6 +225,11 @@
             `}/>
 			<Table title={CheckboxTable.title} table={CheckboxTable.table}/>
         </section>
+
+		<section id={routes.core.components.children.inputs.ids.styleC_api} data-title="StyleC API" class="space-y-4">
+			<li>StyleC API</li>
+			<Table title={inputsStyleTable.title} table={inputsStyleTable.table}/>
+		</section>
 
 		<section id={routes.core.components.children.inputs.ids.password_strength_meter} data-title="Password Strength" class="space-y-4">
 			<li>Password Strength</li>

@@ -55,8 +55,8 @@ export const routes = {
             textarea_input: 'textarea-input',
             ist_api: 'ist-api',
             search_bar_input: 'search-bar-input',
-            styleC_api: 'styleC-api',
             checkbox: 'checkbox',
+            styleC_api: 'styleC-api',
             password_strength_meter: 'password-strength-meter',
             file_input: 'file-input',
           }
