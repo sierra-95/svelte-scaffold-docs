@@ -81,6 +81,15 @@
 
                     function handleEnhance({formData, cancel}: { formData: FormData; cancel: () => void }){
                         //continue with the form submission
+                        return async ({ update, result }: { update: any; result: any }) => {
+                            await update(result);
+                            if (result.type === 'failure' && result.data?.error) {
+                                // Handle the error response from the server
+                            }else if (result.type === 'success') {
+                                // Handle the success response from the server
+                                $editorStore.commands.clearContent();
+                            }
+                        };
                     }
                 <\/script>
 

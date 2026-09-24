@@ -230,6 +230,7 @@ export const routes = {
       isValidEmail: 'is-valid-email',
       isValidUrl: 'is-valid-url',
       handleRedirect: 'handle-redirect',
+      buttonRipple: 'button-ripple',
     }
   } as basicPage,
 };

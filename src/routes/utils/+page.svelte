@@ -153,5 +153,19 @@
                 });
             `}/>
         </section>
+        <section id={routes.utils.ids.buttonRipple} data-title="Button Ripple" class="space-y-4">
+            <li>Button Ripple</li>
+            <h3>All the library buttons use this feature to create a ripple effect when clicked.</h3>
+            <RenderCode
+                lang="svelte"
+                code={`
+                <\script>
+                    import { buttonRipple } from '@sierra-95/svelte-scaffold';
+                <\/script>
+
+                <button use:buttonRipple>Click me</button>
+            `}/>
+            <Button variant="outlined">Click me (my ripple is in-built)</Button>
+        </section>
     </ol>
 </main>
