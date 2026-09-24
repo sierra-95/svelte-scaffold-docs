@@ -7,7 +7,7 @@
       title: 'Components',
       href: routes.core.components.base,
       description: 'Buttons, inputs, modals, toasts, progress bars, date pickers, and more',
-      icon: '✳'
+      icon: '✦'
     },
     {
       number: '02',
@@ -70,7 +70,7 @@
         </a>
         <a class="button button-secondary" href={routes.core.components.base}>Explore components</a>
       </div>
-      <div class="hero-footnote"><span class="footnote-spark">✳</span> Meet your new favorite starting point.</div>
+      <div class="hero-footnote"><span class="footnote-spark">✦</span> Meet your new favorite starting point.</div>
     </div>
 
     <div class="hero-art" aria-hidden="true">
@@ -89,7 +89,7 @@
           <div class="preview-title">A head start<br />looks good on you.</div>
           <div class="preview-rule"></div>
           <div class="preview-row">
-            <div class="preview-tile tile-lime"><span>✳</span><small>Components</small></div>
+            <div class="preview-tile tile-blue"><span>✦</span><small>Components</small></div>
             <div class="preview-tile tile-lilac"><span>▧</span><small>Modules</small></div>
             <div class="preview-tile tile-peach"><span>◉</span><small>Stores</small></div>
           </div>
@@ -100,7 +100,7 @@
           </div>
         </div>
       </div>
-      <div class="floating-label label-bottom"><span class="label-spark">✳</span> BUILT TO BE BUILT ON</div>
+      <div class="floating-label label-bottom"><span class="label-spark">✦</span> BUILT TO BE BUILT ON</div>
       <div class="art-sticker">GO<br />MAKE<br />THINGS<span>↗</span></div>
     </div>
   </section>
@@ -145,9 +145,9 @@
 
 <style>
   .landing-page {
-    --ink: #171a16;
-    --muted: #72766e;
-    --lime: #d7ff61;
+    --ink: #171a22;
+    --muted: #727985;
+    --accent-blue: #72b7ff;
     max-width: 1320px;
     margin: 0 auto;
     padding: clamp(1.25rem, 4vw, 3.5rem);
@@ -163,9 +163,9 @@
     overflow: hidden;
     isolation: isolate;
     padding: clamp(2rem, 5vw, 4.5rem);
-    border: 1px solid #252b25;
+    border: 1px solid #252e3c;
     border-radius: 28px;
-    background: #111510;
+    background: #111722;
     color: #f6f6ef;
   }
 
@@ -173,7 +173,7 @@
     position: absolute;
     z-index: -1;
     inset: 0;
-    background: radial-gradient(ellipse at 76% 52%, rgb(121 157 56 / 18%), transparent 42%),
+    background: radial-gradient(ellipse at 76% 52%, rgb(66 139 220 / 22%), transparent 42%),
       linear-gradient(125deg, transparent 40%, rgb(255 255 255 / 2%));
     content: '';
   }
@@ -208,8 +208,8 @@
     height: 8px;
     flex: 0 0 auto;
     border-radius: 50%;
-    background: var(--lime);
-    box-shadow: 0 0 14px rgb(215 255 97 / 60%);
+    background: var(--accent-blue);
+    box-shadow: 0 0 14px rgb(114 183 255 / 60%);
   }
 
   .hero-copy h1 {
@@ -222,7 +222,7 @@
   }
 
   .hero-copy h1 span {
-    color: var(--lime);
+    color: var(--accent-blue);
   }
 
   .hero-description {
@@ -261,12 +261,12 @@
   }
 
   .button-primary {
-    background: var(--lime);
-    color: #1b2014;
+    background: var(--accent-blue);
+    color: #132033;
   }
 
   .button-primary:hover {
-    background: #e3ff9a;
+    background: #a9d5ff;
   }
 
   .button-secondary {
@@ -288,7 +288,7 @@
   }
 
   .footnote-spark {
-    color: var(--lime);
+    color: var(--accent-blue);
     font-size: 1rem;
   }
 
@@ -304,7 +304,7 @@
     width: 78%;
     aspect-ratio: 1;
     border-radius: 50%;
-    background: radial-gradient(circle, rgb(215 255 97 / 14%), rgb(155 123 255 / 8%) 45%, transparent 70%);
+    background: radial-gradient(circle, rgb(83 161 245 / 22%), rgb(124 147 255 / 10%) 45%, transparent 70%);
     filter: blur(10px);
   }
 
@@ -367,7 +367,7 @@
   }
 
   .preview-topbar-mark {
-    color: #343b2d;
+    color: #34445b;
     font-family: 'Clash Display', sans-serif;
     font-size: 0.9rem;
     font-weight: bold;
@@ -420,16 +420,20 @@
     font-weight: 700;
   }
 
-  .tile-lime {
-    background: #e1f3a8;
+  .tile-blue {
+    background: #d9eaff;
+  }
+
+  .tile-blue > span {
+    color: #3a77b6;
   }
 
   .tile-lilac {
-    background: #e5ddff;
+    background: #e0e5ff;
   }
 
   .tile-peach {
-    background: #f8ddcc;
+    background: #d9f0f2;
   }
 
   .preview-bottom {
@@ -445,8 +449,8 @@
     height: 29px;
     place-items: center;
     border-radius: 50%;
-    background: #232a20;
-    color: var(--lime);
+    background: #24334a;
+    color: var(--accent-blue);
     font-family: 'Clash Display', sans-serif;
     font-size: 0.85rem;
   }
@@ -469,8 +473,8 @@
     place-items: center;
     margin-left: auto;
     border-radius: 50%;
-    background: #232a20;
-    color: var(--lime);
+    background: #24334a;
+    color: var(--accent-blue);
     font-size: 0.8rem;
   }
 
@@ -491,7 +495,7 @@
     padding: 0.7rem 0.85rem;
     border: 1px solid rgb(255 255 255 / 15%);
     border-radius: 999px;
-    background: rgb(34 39 31 / 80%);
+    background: rgb(30 40 56 / 88%);
     transform: rotate(5deg);
   }
 
@@ -506,12 +510,12 @@
     padding: 0.7rem 0.85rem;
     border: 1px solid rgb(255 255 255 / 15%);
     border-radius: 999px;
-    background: rgb(34 39 31 / 80%);
+    background: rgb(30 40 56 / 88%);
     transform: rotate(-4deg);
   }
 
   .label-spark {
-    color: var(--lime);
+    color: var(--accent-blue);
   }
 
   .art-sticker {
@@ -524,8 +528,8 @@
     align-content: center;
     justify-content: center;
     border-radius: 50%;
-    background: var(--lime);
-    color: #20251a;
+    background: var(--accent-blue);
+    color: #14243a;
     font-size: 0.55rem;
     font-weight: 900;
     letter-spacing: 0.08em;
@@ -554,7 +558,7 @@
 
   .section-kicker {
     margin-bottom: 0.65rem;
-    color: #788070;
+    color: #74839a;
     font-size: 0.62rem;
   }
 
@@ -596,15 +600,15 @@
 
   .product-card:hover {
     transform: translateY(-4px);
-    border-color: #d1d7c3;
-    box-shadow: 0 12px 28px rgb(36 43 25 / 7%);
+    border-color: #cbdaf0;
+    box-shadow: 0 12px 28px rgb(40 76 128 / 9%);
   }
 
   .product-card:focus-visible,
   .button:focus-visible,
   .banner-link:focus-visible,
   .brand-signoff a:focus-visible {
-    outline: 3px solid #8eae49;
+    outline: 3px solid #4b93dc;
     outline-offset: 4px;
   }
 
@@ -627,8 +631,8 @@
     height: 30px;
     place-items: center;
     border-radius: 8px;
-    background: #eef1e6;
-    color: #34402a;
+    background: #eaf1fa;
+    color: #354c6c;
     font-size: 1.15rem;
   }
 
@@ -651,7 +655,7 @@
   }
 
   .product-card:hover h3 span {
-    color: #39442d;
+    color: #315b89;
     transform: translate(2px, -2px);
   }
 
@@ -670,7 +674,7 @@
     margin-top: 0.5rem;
     padding: 1.55rem 1.8rem;
     border-radius: 12px;
-    background: #edf2e3;
+    background: #eaf1fa;
   }
 
   .banner-mark {
@@ -680,15 +684,15 @@
     flex: 0 0 auto;
     place-items: center;
     border-radius: 50%;
-    background: #1a2017;
-    color: var(--lime);
+    background: #1a2433;
+    color: var(--accent-blue);
     font-family: 'Clash Display', sans-serif;
     font-size: 1rem;
     font-weight: 700;
   }
 
   .banner-copy > span {
-    color: #6b7461;
+    color: #60738e;
     font-size: 0.56rem;
   }
 
@@ -704,7 +708,7 @@
     margin-left: auto;
     padding: 0.85rem 1rem;
     border-radius: 6px;
-    background: #1a2017;
+    background: #1a2433;
     color: #f7f8f1;
     font-size: 0.78rem;
     font-weight: 700;
@@ -713,7 +717,7 @@
   }
 
   .banner-link span {
-    color: var(--lime);
+    color: var(--accent-blue);
   }
 
   .brand-signoff {
