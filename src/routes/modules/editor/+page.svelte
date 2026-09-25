@@ -24,7 +24,7 @@
         <section id={routes.modules.editor.ids.getting_started} data-title="Getting Started" class="space-y-4">
             <li>Getting Started</li>
             <p>The following features are available in the editor:</p>
-            <ul class="grid grid-cols-1 gap-y-2 sm:grid-flow-col sm:grid-rows-5 sm:gap-x-8">
+            <ul class="sierra-docs-grid">
                 {#each editorFeatures as feature}
                     <li>{feature}</li>
                 {/each}
