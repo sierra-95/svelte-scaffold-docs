@@ -1,9 +1,11 @@
 <script lang="ts">
+  import { goto } from '$app/navigation';
   import { routes } from '$lib/assets/company';
+  import { Button } from '@sierra-95/svelte-scaffold';
 </script>
 
 <svelte:head>
-  <title>@sierra-95/svelte-scaffold — Start building</title>
+  <title>@sierra-95/svelte-scaffold</title>
   <meta
     name="description"
     content="A Svelte toolkit packed with useful components, modules, stores, and utilities. Spend less time on setup and more time building."
@@ -13,49 +15,50 @@
 <div class="landing-page">
   <section class="hero-panel">
     <div class="hero-copy">
-      <div class="eyebrow"><span class="eyebrow-dot"></span> A little less setup. A lot more making.</div>
-      <h1>Less setup.<br /><span>More making.</span></h1>
+      <div class="eyebrow"><span class="eyebrow-dot"></span>You Belong</div>
+      <h1>@sierra-95<br /><span>Svelte Scaffold</span></h1>
       <p class="hero-description">
         The useful bits your next Svelte project needs, already in one place. Pick up a component,
         plug in a module, and get straight to the good part.
       </p>
       <div class="hero-actions">
-        <a class="button button-primary" href={routes.installation.path}>
-          Get started <span aria-hidden="true">↗</span>
-        </a>
-        <a class="button button-secondary" href={routes.core.components.base}>Explore components</a>
+        <div class="sierra-translate">
+          <Button style="background-color: var(--accent-blue); color:#132033 " startIcon="fa fa-arrow-up-right-from-square" onclick={() => goto(routes.installation.path)}>Get Started</Button>
+        </div>
+        <div class="sierra-translate">
+          <Button style="border-color: #41463e;color: #f6f6ef;" variant="outlined" onclick={() => goto(routes.modules.editor.path)}>Explore Modules</Button>
+        </div>
       </div>
-      <div class="hero-footnote"><span class="footnote-spark">✦</span> Meet your new favorite starting point.</div>
+      <div class="hero-footnote">Why build it twice? You already know how this ends..</div>
     </div>
 
     <div class="hero-art" aria-hidden="true">
       <div class="art-glow"></div>
       <div class="orbit orbit-one"></div>
       <div class="orbit orbit-two"></div>
-      <div class="floating-label label-top"><span class="label-dot"></span> MADE FOR MOMENTUM</div>
+      <div class="floating-label label-top"><span class="label-dot"></span>SKIP THE BLANK CANVAS</div>
       <div class="preview-window">
         <div class="preview-topbar">
           <div class="window-dots"><i></i><i></i><i></i></div>
           <span>svelte-scaffold</span>
-          <span class="preview-topbar-mark">S/</span>
+          <img src="https://files.michaelmachohi.com/portfolio/svelte-logo-cutout.svg" alt="Svelte Logo" width="15" />
         </div>
         <div class="preview-content">
           <div class="preview-kicker">YOUR NEXT PROJECT</div>
           <div class="preview-title">A head start<br />looks good on you.</div>
           <div class="preview-rule"></div>
           <div class="preview-row">
-            <div class="preview-tile tile-blue"><span>✦</span><small>Components</small></div>
-            <div class="preview-tile tile-lilac"><span>▧</span><small>Modules</small></div>
-            <div class="preview-tile tile-peach"><span>◉</span><small>Stores</small></div>
+            <div title="Explore Components" role="none" on:click={() => goto(routes.core.components.base)} class="preview-tile sierra-translate"  style="border-color: var(--ss-neutral);"><i class="fa-solid fa-puzzle-piece"></i><small>Components</small></div>
+            <div title="Explore Modules" role="none" on:click={() => goto(routes.modules.editor.path)} class="preview-tile sierra-translate" style="border-color: var(--ss-success);"><i class="fa-solid fa-cogs"></i><small>Modules</small></div>
+            <div title="Explore Stores" role="none" on:click={() => goto(routes.stores.path)} class="preview-tile sierra-translate" style="border-color: var(--ss-warning);"><i class="fa-solid fa-store"></i><small>Stores</small></div>
           </div>
           <div class="preview-bottom">
-            <div class="preview-avatar">S</div>
-            <div class="preview-bottom-copy"><strong>Less boilerplate.</strong><small>More room for your idea.</small></div>
+            <div class="preview-bottom-copy"><strong>Less boilerplate.</strong><small>You've got better things to do.</small></div>
             <div class="preview-arrow">↗</div>
           </div>
         </div>
       </div>
-      <div class="floating-label label-bottom"><span class="label-spark">✦</span> BUILT TO BE BUILT ON</div>
+      <div class="floating-label label-bottom">TAKE IT. MAKE IT YOURS</div>
       <div class="art-sticker">GO<br />MAKE<br />THINGS<span>↗</span></div>
     </div>
   </section>
@@ -132,7 +135,7 @@
 
   .hero-copy h1 {
     margin: 0;
-    font-family: 'Clash Display', 'Arial', sans-serif;
+    font-family: 'Striper Regular', 'Arial', sans-serif;
     font-size: clamp(3.25rem, 5.7vw, 5.25rem);
     font-weight: 400;
     letter-spacing: -0.075em;
@@ -158,43 +161,6 @@
     gap: 0.75rem;
   }
 
-  .button {
-    display: inline-flex;
-    min-height: 48px;
-    align-items: center;
-    justify-content: center;
-    gap: 1.2rem;
-    padding: 0.8rem 1.15rem;
-    border: 1px solid transparent;
-    border-radius: 7px;
-    font-size: 0.86rem;
-    font-weight: 700;
-    text-decoration: none;
-    transition: transform 180ms ease, background 180ms ease, border-color 180ms ease;
-  }
-
-  .button:hover {
-    transform: translateY(-2px);
-  }
-
-  .button-primary {
-    background: var(--accent-blue);
-    color: #132033;
-  }
-
-  .button-primary:hover {
-    background: #a9d5ff;
-  }
-
-  .button-secondary {
-    border-color: #41463e;
-    color: #f6f6ef;
-  }
-
-  .button-secondary:hover {
-    border-color: #929987;
-  }
-
   .hero-footnote {
     display: flex;
     align-items: center;
@@ -202,11 +168,6 @@
     margin-top: 1.5rem;
     color: #939a8c;
     font-size: 0.76rem;
-  }
-
-  .footnote-spark {
-    color: var(--accent-blue);
-    font-size: 1rem;
   }
 
   .hero-art {
@@ -283,13 +244,6 @@
     background: #d5d7cd;
   }
 
-  .preview-topbar-mark {
-    color: #34445b;
-    font-family: 'Clash Display', sans-serif;
-    font-size: 0.9rem;
-    font-weight: bold;
-  }
-
   .preview-content {
     padding: 1.45rem 1.5rem 1.15rem;
   }
@@ -301,7 +255,7 @@
 
   .preview-title {
     margin-top: 0.45rem;
-    font-family: 'Clash Display', sans-serif;
+    font-family: 'Array Regular', sans-serif;
     font-size: clamp(1.65rem, 3vw, 2.1rem);
     letter-spacing: -0.055em;
     line-height: 1.02;
@@ -325,11 +279,9 @@
     flex-direction: column;
     justify-content: space-between;
     padding: 0.65rem;
+    border: 1px solid;
     border-radius: 6px;
-  }
-
-  .preview-tile > span {
-    font-size: 1.25rem;
+    cursor: pointer;
   }
 
   .preview-tile small {
@@ -337,39 +289,11 @@
     font-weight: 700;
   }
 
-  .tile-blue {
-    background: #d9eaff;
-  }
-
-  .tile-blue > span {
-    color: #3a77b6;
-  }
-
-  .tile-lilac {
-    background: #e0e5ff;
-  }
-
-  .tile-peach {
-    background: #d9f0f2;
-  }
-
   .preview-bottom {
     display: flex;
     align-items: center;
     gap: 0.65rem;
     margin-top: 1rem;
-  }
-
-  .preview-avatar {
-    display: grid;
-    width: 29px;
-    height: 29px;
-    place-items: center;
-    border-radius: 50%;
-    background: #24334a;
-    color: var(--accent-blue);
-    font-family: 'Clash Display', sans-serif;
-    font-size: 0.85rem;
   }
 
   .preview-bottom-copy {
@@ -429,10 +353,6 @@
     border-radius: 999px;
     background: rgb(30 40 56 / 88%);
     transform: rotate(-4deg);
-  }
-
-  .label-spark {
-    color: var(--accent-blue);
   }
 
   .art-sticker {
@@ -512,12 +432,6 @@
       font-size: 0.9rem;
     }
 
-    .button {
-      min-height: 44px;
-      padding: 0.7rem 0.85rem;
-      font-size: 0.75rem;
-    }
-
     .hero-footnote {
       margin-top: 1rem;
     }
@@ -554,12 +468,6 @@
     .hero-actions {
       align-items: stretch;
       flex-direction: column;
-    }
-  }
-
-  @media (prefers-reduced-motion: reduce) {
-    .button{
-      transition: none;
     }
   }
 </style>
