@@ -12,6 +12,7 @@
 
 	let openMenu = $state(false);
 	const link = $derived(`https://files.michaelmachohi.com/logos/michaelmachohi.${$theme === 'light' ? 'dark' : 'light'}.png`);
+	const isRoot = $derived(page.url.pathname === '/');
 
 	onMount(()=>{
 		mediaServerConfig.update(store => {
@@ -28,6 +29,10 @@
 			store.TOC = {
 				...store.TOC,
 				content: TOCContent
+			}
+			store.content = {
+				...store.content,
+				padding: isRoot ? '0px 20px 20px 20px' : '20px',
 			}
 			store.sections = sections;
 			store.routes = routes;
