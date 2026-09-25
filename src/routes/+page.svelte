@@ -22,12 +22,8 @@
         plug in a module, and get straight to the good part.
       </p>
       <div class="hero-actions">
-        <div class="sierra-translate">
-          <Button style="background-color: var(--accent-blue); color:#132033 " startIcon="fa fa-arrow-up-right-from-square" onclick={() => goto(routes.installation.path)}>Get Started</Button>
-        </div>
-        <div class="sierra-translate">
-          <Button style="border-color: #41463e;color: #f6f6ef;" variant="outlined" onclick={() => goto(routes.modules.editor.path)}>Explore Modules</Button>
-        </div>
+        <Button class="ss-translate" style="background-color: var(--accent-blue); color:#132033 " startIcon="fa fa-arrow-up-right-from-square" onclick={() => goto(routes.installation.path)}>Get Started</Button>
+        <Button class="ss-translate" style="border-color: #41463e;color: #f6f6ef;" variant="outlined" onclick={() => goto(routes.modules.editor.path)}>Explore Modules</Button>
       </div>
       <div class="hero-footnote">Why build it twice? You already know how this ends..</div>
     </div>
@@ -48,9 +44,9 @@
           <div class="preview-title">A head start<br />looks good on you.</div>
           <div class="preview-rule"></div>
           <div class="preview-row">
-            <div title="Explore Components" role="none" on:click={() => goto(routes.core.components.base)} class="preview-tile sierra-translate"  style="border-color: var(--ss-neutral);"><i class="fa-solid fa-puzzle-piece"></i><small>Components</small></div>
-            <div title="Explore Modules" role="none" on:click={() => goto(routes.modules.editor.path)} class="preview-tile sierra-translate" style="border-color: var(--ss-success);"><i class="fa-solid fa-cogs"></i><small>Modules</small></div>
-            <div title="Explore Stores" role="none" on:click={() => goto(routes.stores.path)} class="preview-tile sierra-translate" style="border-color: var(--ss-warning);"><i class="fa-solid fa-store"></i><small>Stores</small></div>
+            <div title="Explore Components" role="none" on:click={() => goto(routes.core.components.base)} class="preview-tile ss-translate"  style="border-color: var(--ss-neutral);"><i class="fa-solid fa-puzzle-piece"></i><small>Components</small></div>
+            <div title="Explore Modules" role="none" on:click={() => goto(routes.modules.editor.path)} class="preview-tile ss-translate" style="border-color: var(--ss-success);"><i class="fa-solid fa-layer-group"></i><small>Modules</small></div>
+            <div title="Explore Stores" role="none" on:click={() => goto(routes.stores.path)} class="preview-tile ss-translate" style="border-color: var(--ss-warning);"><i class="fa-solid fa-store"></i><small>Stores</small></div>
           </div>
           <div class="preview-bottom">
             <div class="preview-bottom-copy"><strong>Less boilerplate.</strong><small>You've got better things to do.</small></div>

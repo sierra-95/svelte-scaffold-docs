@@ -20,12 +20,12 @@ export const routes = {
     }
   } as basicPage,
 
-  scaffold_internal : {
-    path : '/scaffold-internal',
+  key_files : {
+    path : '/key-files',
     ids: {
+      global_css : 'global-css',
       sections_file : 'sections_file',
       routes_file : 'routes_file',
-      global_css : 'global-css',
     },
   } as basicPage,
 

@@ -155,10 +155,15 @@ export const sections: Section[] = [
 				path: routes.utils.path,
 				icon: 'fa fa-grip',
 			},
+		],
+	},
+	{
+		label: 'About Scaffold',
+		nodes: [
 			{
-				label: 'Scaffold Internal',
-				icon: 'fa-solid fa-cogs',
-				path: routes.scaffold_internal.path,
+				label: 'Key files',
+				icon: 'fa-solid fa-file-code',
+				path: routes.key_files.path,
 			},
 		],
 	},

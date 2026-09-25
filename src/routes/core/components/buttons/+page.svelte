@@ -62,8 +62,8 @@
 				
 			`}/>
 			<div class='space-y-4'>
-				<Button unstyled style="background-color: #4CAF50; color: white; width: 200px;" startIcon="fa-star">Export</Button>
-				<h3>You may also customize it via the <strong>style</strong> prop. To avoid side effects, use the <strong>unstyled</strong> prop.</h3>
+				<Button	unstyled style="background-color: #008C8C; color: white; width: 200px;" startIcon="fa-download" class="ss-translate">Export</Button>
+				<h3>You may also customize it via the <strong>style</strong> prop. To avoid side effects, use the <strong>unstyled</strong> prop. You can also add custom classes using the <strong>class</strong> prop.</h3>
 				<RenderCode
 					lang="svelte"
 					code={`
@@ -71,10 +71,7 @@
 						import { Button } from '@sierra-95/svelte-scaffold';
 					<\/script>
 
-					<Button 
-						unstyled startIcon="fa-star" 
-						style="background-color: #4CAF50; color: white; width: 200px;" 
-					>Export</Button>
+					<Button	unstyled style="background-color: #008C8C; color: white; width: 200px;" startIcon="fa-download" class="ss-translate">Export</Button>
 				`}/>
 				<h3>Form Submission Example</h3>
 				<RenderCode
