@@ -10,7 +10,7 @@
 
 	let { children } = $props();
 
-	let openMenu = $state(false);
+	let openMenu = $state(true);
 	const link = $derived(`https://files.michaelmachohi.com/logos/michaelmachohi.${$theme === 'light' ? 'dark' : 'light'}.png`);
 	const isRoot = $derived(page.url.pathname === '/');
 
@@ -97,10 +97,13 @@
 	</button>
 {/snippet}
 {#snippet headerRightContent()}
-	<DropdownContainer top="30px" bind:open={openMenu} dropdownTrigger={TriggerMenu}>		
+	<DropdownContainer top="40px" bind:open={openMenu} dropdownTrigger={TriggerMenu}>		
+		<div style="display: flex; flex-direction: column; gap: 0.5rem; align-items: center; padding: 0.5rem 0rem">
+			<p style="font-size: 0.9rem;">Theme <span style="color: var(--ss-neutral)">{$theme}</span></p>
+			<ButtonTheme />
+		</div>
 		<MenuItem onclick={() => window.open(resources.package.github_issues,'_blank','noopener,noreferrer')} iconC={{name: "fa-github"}}>Issues</MenuItem>
 		<MenuItem onclick={() => window.open(resources.package.npm,'_blank','noopener,noreferrer')} iconC={{name: "fa-brands fa-npm"}}>npm</MenuItem>
-		<div style="display: flex; gap: 1rem; align-items: center; padding: 1rem">Theme<ButtonTheme /></div>
 	</DropdownContainer>
 {/snippet}
 
