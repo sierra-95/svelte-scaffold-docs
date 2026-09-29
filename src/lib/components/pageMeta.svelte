@@ -1,4 +1,4 @@
-<script>
+<script lang="ts">
     import { browser } from '$app/environment';
     import { page } from '$app/state';
     import {Hr} from '@sierra-95/svelte-scaffold';
@@ -13,17 +13,11 @@
 
     const prefix = '/src/routes';
 
-    /**
-     * @param {string} path
-     * @returns {string}
-     */
-    function getGithubFilePath(path) {
+    function getGithubFilePath(path: string) {
         return `${prefix}${path}/%2Bpage.svelte`;
     }
-    /**
-     * @param {string} path
-     */
-    function getGithubUrl(path) {
+
+    function getGithubUrl(path: string) {
         return `https://github.com/${githubRepo.owner}/${githubRepo.repo}/blob/${githubRepo.branch}${path}`;
     }
 
@@ -31,11 +25,24 @@
     const filePath = $derived(getGithubFilePath(currentPath))
     const githubUrl = $derived(getGithubUrl(filePath))
 
+    const CACHE_DURATION = 7 * 24 * 60 * 60 * 1000; // 1 week
+    const CACHE_KEY = 'sierra_page_meta';
+
     $effect(() => {
         if(browser && currentPath) load();
     });
 
     async function load() {
+        const cache = JSON.parse(
+            localStorage.getItem(CACHE_KEY) || '{}'
+        );
+
+        const cached = cache[filePath];
+
+        if (cached && Date.now() - cached.cachedAt < CACHE_DURATION) {
+            lastUpdated = cached.date;
+            return;
+        }
         const endpoint = `https://api.github.com/repos/${githubRepo.owner}/${githubRepo.repo}/commits?path=${filePath}&per_page=1`;
         try {
             const res = await fetch(endpoint, {
@@ -50,11 +57,17 @@
                 return;
             }
             const data = await res.json();
-            lastUpdated = data?.[0]?.commit?.author?.date ?? '-';
+            const date = data?.[0]?.commit?.author?.date ?? '-';
 
+            lastUpdated = date;
+            cache[filePath] = {
+                date,
+                cachedAt: Date.now()
+            };
+            localStorage.setItem(CACHE_KEY, JSON.stringify(cache));
         } catch (err) {
             //console.error('Error fetching last updated date:', err);
-            lastUpdated = '-';
+            lastUpdated = cached?.date ?? '-';
         }
     }
 
