@@ -10,7 +10,7 @@
 
 	let { children } = $props();
 
-	let openMenu = $state(true);
+	let openMenu = $state(false);
 	const link = $derived(`https://files.michaelmachohi.com/logos/michaelmachohi.${$theme === 'light' ? 'dark' : 'light'}.png`);
 	const isRoot = $derived(page.url.pathname === '/');
 
@@ -98,8 +98,8 @@
 {/snippet}
 {#snippet headerRightContent()}
 	<DropdownContainer top="40px" bind:open={openMenu} dropdownTrigger={TriggerMenu}>		
-		<div style="display: flex; flex-direction: column; gap: 0.5rem; align-items: center; padding: 0.5rem 0rem">
-			<p style="font-size: 0.9rem;">Theme <span style="color: var(--ss-neutral)">{$theme}</span></p>
+		<div style="display: flex; flex-direction: column; gap: 0.5rem; align-items: center; padding: 0.5rem 0rem;">
+			<p style="font-size: 0.9rem;">Theme <span style="color: var(--ss-neutral);font-family:  'TrenchSlab Regular', sans-serif;">{$theme}</span></p>
 			<ButtonTheme />
 		</div>
 		<MenuItem onclick={() => window.open(resources.package.github_issues,'_blank','noopener,noreferrer')} iconC={{name: "fa-github"}}>Issues</MenuItem>
