@@ -12,6 +12,7 @@
 
 	let openMenu = $state(false);
 	const link = $derived(`https://files.michaelmachohi.com/logos/michaelmachohi.${$theme === 'light' ? 'dark' : 'light'}.png`);
+	const githubIconBg = $derived($theme === 'light' ? '#181717' : '#ffffff');
 	const isRoot = $derived(page.url.pathname === '/');
 
 	onMount(()=>{
@@ -99,7 +100,7 @@
 			<p style="font-size: 0.9rem;">Theme <span style="color: var(--ss-neutral);font-family:  'TrenchSlab Regular', sans-serif;">{$theme}</span></p>
 			<ButtonTheme />
 		</div>
-		<MenuItem onclick={() => window.open(resources.package.github,'_blank','noopener,noreferrer')} iconC={{name: "fa-github", bg: '#181717'}}>Repository</MenuItem>
+		<MenuItem onclick={() => window.open(resources.package.github,'_blank','noopener,noreferrer')} iconC={{name: "fa-github", bg: githubIconBg}}>Repository</MenuItem>
 		<MenuItem onclick={() => window.open(resources.package.npm,'_blank','noopener,noreferrer')} iconC={{name: "fa-brands fa-npm", bg: '#cb3837', size:'20px'}}>Package</MenuItem>
 	</DropdownContainer>
 {/snippet}
