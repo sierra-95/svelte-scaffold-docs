@@ -43,7 +43,7 @@
 	$effect(()=>{
 		if(browser){
 			$layoutStore.header.src = link;
-			$layoutStore.header.title = $isMobile ? 'Sierra-95' : '@sierra-95/svelte-scaffold';
+			$layoutStore.header.title = $isMobile ? '@sierra-95' : '@sierra-95/svelte-scaffold';
 		}
 	})
 
