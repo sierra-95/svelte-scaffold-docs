@@ -102,7 +102,7 @@
 			<p style="font-size: 0.9rem;">Theme <span style="color: var(--ss-neutral);font-family:  'TrenchSlab Regular', sans-serif;">{$theme}</span></p>
 			<ButtonTheme />
 		</div> -->
-		<ButtonTheme />
+		<!-- <ButtonTheme /> -->
 		<MenuItem onclick={() => window.open(resources.package.github_issues,'_blank','noopener,noreferrer')} iconC={{name: "fa-github"}}>Issues</MenuItem>
 		<MenuItem onclick={() => window.open(resources.package.npm,'_blank','noopener,noreferrer')} iconC={{name: "fa-brands fa-npm"}}>npm</MenuItem>
 	</DropdownContainer>
