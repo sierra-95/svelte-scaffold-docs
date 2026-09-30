@@ -30,10 +30,6 @@
 				...store.TOC,
 				content: TOCContent
 			}
-			store.content = {
-				...store.content,
-				padding: isRoot ? '0px 20px 20px 20px' : '20px',
-			}
 			store.sections = sections;
 			store.routes = routes;
 			return store;
@@ -44,6 +40,7 @@
 		if(browser){
 			$layoutStore.header.src = link;
 			$layoutStore.header.title = $isMobile ? '@sierra-95' : '@sierra-95/svelte-scaffold';
+			$layoutStore.content.padding = isRoot ? '0px 20px 20px 20px' : '20px';
 		}
 	})
 
@@ -110,7 +107,7 @@
 <!-- TOC -->
 {#snippet TOCContent()}
 	<div style="margin-top: 1rem">
-		<em class="text-sm">{$mediaServerConfig.user_id}</em>
+		<em class="text-sm">Guest: {$mediaServerConfig.user_id}</em>
 	</div>
 {/snippet}
 
