@@ -8,7 +8,7 @@ export const DropdownTable = {
             [
                 { content: "top" },
                 { content: "string" },
-                { content: '"130%"' }
+                { content: '"110%"' }
             ],
             [
                 { content: "width" },
