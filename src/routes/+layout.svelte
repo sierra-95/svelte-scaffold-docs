@@ -102,7 +102,7 @@
 			<p style="font-size: 0.9rem;">Theme <span style="color: var(--ss-neutral);font-family:  'TrenchSlab Regular', sans-serif;">{$theme}</span></p>
 			<ButtonTheme />
 		</div>
-		<MenuItem onclick={() => window.open(resources.package.github_issues,'_blank','noopener,noreferrer')} iconC={{name: "fa-github", bg: '#181717'}}>GitHub Issues</MenuItem>
+		<MenuItem onclick={() => window.open(resources.package.github,'_blank','noopener,noreferrer')} iconC={{name: "fa-github", bg: '#181717'}}>Repository</MenuItem>
 		<MenuItem onclick={() => window.open(resources.package.npm,'_blank','noopener,noreferrer')} iconC={{name: "fa-brands fa-npm", bg: '#cb3837', size:'20px'}}>Package</MenuItem>
 	</DropdownContainer>
 {/snippet}
