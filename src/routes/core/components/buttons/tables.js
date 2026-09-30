@@ -159,7 +159,7 @@ export const ButtonHamburgerTable = {
             [
                 { content: "color" },
                 { content: "string" },
-                { content: "black" },
+                { content: "var(--ss-d-p)" },
             ],
             [
                 { content: "bradius" },
